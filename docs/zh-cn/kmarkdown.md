@@ -1,0 +1,30 @@
+# KMarkdown
+
+在发送聊天消息时，为了支持用户的复杂的消息需求，以及有更好的用户体验，我们引入了 markdown，同时，基于 markdown 的标准规范，我们加入了自己的一些适配和扩展。为了与 markdown 进行区分，在本文档中，我们统一称之为 KMarkdown。
+
+我们仅支持在文档中的一些语法，如果某个语法在 markdown 中，但是却没在文档中提及，那么它属于我们目前不支持的语法，建议用户不要使用。
+
+## 主要格式规范
+
+1. 语法来源大部分来自于默认的 markdown 语法。用户只需遵守 markdown 语法即可。
+2. 自定义的语法大部分会保证这样的格式：`(tagName)value(tagName)[attributes]`, 如果这个标签没有属性，那么 `[attributes]` 会被省略。
+3. 大部分标签都支持换行。
+
+|格式|语法来源| 说明|
+|--|--|--|
+|`**加粗文字**`| markdown| 加粗|
+|`*斜体文字*`|markdown|斜体|
+|`***加粗斜体***`|markdown|加粗斜体|
+|`[链接文字](链接地址)`|markdown|链接，仅允许 http, https 的链接|
+|`---`|markdown|分隔线|
+|`> hello world`|markdown|引用|
+|`(ins)下划线内容(ins)`|自定义|下划线|
+|`(spl)剧透(spl)`|自定义|内容默认是遮住的，只有用户点击才会显示|
+|`:emoji:`|emoji|基本与 [emoji](https://www.webfx.com/tools/emoji-cheat-sheet/) 的 shortcode 写法保持一致|
+|`(emj)服务器表情名(emj)[服务器id]`|自定义| 服务器表情，需要有服务器发送服务器表情的权限|
+|`(chn)频道ID(chn)`|自定义|频道，提及频道|
+|`(met)用户id/here/all(met)`|自定义|@用户，all 代表 @所有用户，here 代表 @所有在线用户|
+|`(rol)角色ID(rol)`|自定义|@某角色所有用户|
+|``` `行内代码` ```|markdown|行内代码|
+|` ```语言\n ``` `|markdown|代码块|
+
