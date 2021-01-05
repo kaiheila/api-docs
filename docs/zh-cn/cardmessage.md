@@ -184,11 +184,11 @@ cardmessage主要由json构成，在卡片消息中，有四种类别的卡片�
     "type": "countdown",
     "endTime" : 1608819168000, //到期的毫秒时间戳
     "startTime" : 1608819168000, //起始的毫秒时间戳，仅当mode为second才有这个字段
-    "mode" : "day,hour,second", //到计时样式, 按天显示，按小时显示或者按秒显示
+    "mode" : "day,hour,second", //倒计时样式, 按天显示，按小时显示或者按秒显示
 }
 ```
 规则：
-- mode主要是到计时的样式，目前支持三种样式。
+- mode主要是倒计时的样式，目前支持三种样式。
 - startTime和endTime为毫秒时间戳，startTime和endTime不能小于服务器当前时间戳。
 
 ## 元素
