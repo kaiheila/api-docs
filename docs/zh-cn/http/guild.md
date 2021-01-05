@@ -20,7 +20,7 @@
 
 | 参数名     | 类型 | 必传 | 参数区域 | 说明                                              |
 | ---------- | ---- | ---- | -------  | ------------------------------------------------- |
-| object_name | int  | 否    | POST | 消息类型, 见[objectName], 不传默认为 `1`, 代表文本类型。`9` 代表 [kmarkdown](https://developer.kaiheila.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmsg)。|
+| object_name | int  | 否    | POST | 消息类型, 见[objectName], 不传默认为 `1`, 代表文本类型。`9` 代表 [kmarkdown](https://developer.kaiheila.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmessage)。|
 | channel_id | string  | 是    | POST | 目标频道 id                                        |
 | content    | string  | 是   | POST | 消息内容                                          |
 | quote    | string  | 否   | POST | 回复某条消息的 `msgId`                                          |
