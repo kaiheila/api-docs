@@ -5,15 +5,15 @@
 在每个 API 请求中，我们会在需要速率控制的请求的 http 响应的 header 中，包含如下的速度控制的头：
 ```
 // 一段时间内允许的最大请求次数
-X-RateLimit-Limit: 5  
+X-Rate-Limit-Limit: 5  
 // 一段时间内还剩下的请求数
-X-RateLimit-Remaining: 0
+X-Rate-Limit-Remaining: 0
 // 回复到最大请求次数需要等待的时间
-X-RateLimit-Reset: 14
+X-Rate-Limit-Reset: 14
 // 请求数的bucket
-X-RateLimit-Bucket: user/info
+X-Rate-Limit-Bucket: user/info
 // 触犯全局请求次数限制
-X-RateLimit-Global
+X-Rate-Limit-Global
 ```
 
 ## 超速响应
