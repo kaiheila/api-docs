@@ -12,6 +12,7 @@ cardmessage主要由json构成，在卡片消息中，有四种类别的卡片�
 ### 消息的主要结构
 - 一个卡片消息最多只允许5个卡片
 - 一个卡片可以有多个模块，但是一个卡片消息总共不允许超过50个模块
+
 ```javascript
 [
     {
@@ -20,7 +21,7 @@ cardmessage主要由json构成，在卡片消息中，有四种类别的卡片�
         "modules" : [
             // ...
         ]
-    },
+    }
     // 其它card
 ]
 ```
@@ -124,6 +125,7 @@ cardmessage主要由json构成，在卡片消息中，有四种类别的卡片�
 ```
 **说明：**
 - elements只能有image元素，只能有1-9张图片
+
 ### 交互模块
 **作用说明：** 交互模块中包含交互控件元素，目前支持的交互控件为按钮（button）  
 **主要结构:**
@@ -207,9 +209,10 @@ cardmessage主要由json构成，在卡片消息中，有四种类别的卡片�
 **规则：**
 - emoji为布尔型，默认为true。如果为true,会把emoji的shortcut转为emoji 
 - 为了方便书写，所有plain-text的使用处可以简单的用字符串代替。
+
 ```javascript
 // "hello world" 等价于：
-{
+{  
     "type" : "plain-text",
     "emoji": true,
     "content" : "hello world",
@@ -243,18 +246,21 @@ cardmessage主要由json构成，在卡片消息中，有四种类别的卡片�
 - 图片的size默认为lg
 
 ### 按钮
+**作用说明：** 提供交互的功能
 ```javascript
 {
     "type": "button",
     "theme": "primary|warning|info|danger|...", //按钮的主题颜色
     "value": "", //要传递的value，为string
     "click": "", //click时的事件类型， return-val 返回value值
-    // elements中允许 text类型
-    "elements": [
-        //elements
-    ],
+    "text": "",
 }
 ```
+- value只能为string
+- text可以为plain-text, kmarkdown
+- click代表用户点击的事件,默认为""，代表无任何事件。
+    - 当为link时，会跳转到value代表的链接;
+    - 当为return-val时，系统会通过系统消息将消息id,点击用户id和value发回给发送者，发送者可以根据自己的需求进行处理。
 
 ## 结构体
 
