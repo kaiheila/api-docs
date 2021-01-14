@@ -3,6 +3,8 @@
 
 **重要提示：** 并不是所有的字段都有文档记录，你应该依赖文档，而不是依赖接口中的字段。我们可能随时更改不在文档中的字段。  
 
+**注意：** Webhook 模式与 Websocket 模式是互斥的，如果选择了 Webhook 模式，将不能再使用 Websocket 接收用户消息。同理，设置了 Websocket 后，平台将不会再向回调地址推送消息。
+
 ## Gateway
 Gateway是websocket的网关，客户端通过连接Gateway可以获取到相应的推送消息等。
 
@@ -17,15 +19,19 @@ Gateway的获取需要走http接口获取，参见[Gateway](https://developer.ka
 ## 连接流程
 
 常规连接流程如下：  
-
 1. 获取Gateway  
 2. 连接Gateway。如果连接失败，回退到第1步。
 3. 收到hello包，如果成功，开始接收事件。如果失败，回退至第1步。
 4. 在连接中，每隔30秒发一次心跳ping包，如果6秒内，没有收到心跳pong包，则超时。进入到指数回退，重试。
 5. 先发两次心跳ping(间隔为2,4),判断连接是否成功。如果成功，则连接恢复。
 6. 如果不成功，再回退到第2步，尝试两次resume(间隔为8,16)。如果成功，会按正常往下走，但有一个resume过程（同步中间的离线消息），resume完了，会收到一个resumeOK包。
-7. 如果失败，再回到第1步，尝试无数次获取Gateway(指数到退，最大间隔为60),直到成功为止。
+7. 如果失败，再回到第1步，尝试无数次获取Gateway(指数倒退，最大间隔为60),直到成功为止。
 8. 任何时候，收到reconnect包，应该将当前消息队列，`sn`等全部清空，然后回到第1步，否则可能会有消息错乱等各种问题。
+
+连接流程示意图：
+![image](/img/state.png)
+
+参考代码: [php-bot](https://github.com/kaiheila/php-bot/blob/main/src/base/StateSession.php)
 
 
 ## 信令格式
