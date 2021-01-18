@@ -41,7 +41,7 @@
 |mention_all|boolean|是否 mention 所有用户|
 |mention_roles|Array|mention 用户角色的数组|
 |mention_here|boolean|是否 mention 在线用户|
-|author|Array|用户信息, 见下|
+|author|Map|用户信息, 见下|
 
 **author 对象说明**
 
