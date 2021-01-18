@@ -58,7 +58,7 @@ Gateway的获取需要走http接口获取，参见[Gateway](https://developer.ka
 |6|server->client|resume ack|
 
 
-## 信令[1] Hello
+## 信令[1] HELLO
 
 **方向：** server->client  
 **说明：** 当我们成功连接websocket后，客户端应该在6s内收到该包，否则认为连接超时。  
