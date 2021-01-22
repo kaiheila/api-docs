@@ -6,7 +6,7 @@
 
 ## 主要格式规范
 
-1. 语法来源大部分来自于默认的 markdown 语法。用户只需遵守 markdown 语法即可。
+1. 语法来源大部分来自于默认的 markdown 语法。如果无特殊说明，用户只需遵守 markdown 语法即可。
 2. 自定义的语法大部分会保证这样的格式：`(tagName)value(tagName)[attributes]`, 如果这个标签没有属性，那么 `[attributes]` 会被省略。
 3. 大部分标签都支持换行。
 
@@ -15,13 +15,14 @@
 |`**加粗文字**`| markdown| 加粗|
 |`*斜体文字*`|markdown|斜体|
 |`***加粗斜体***`|markdown|加粗斜体|
+|`~~删除线~~`|markdown|删除线|
 |`[链接文字](链接地址)`|markdown|链接，仅允许 http, https 的链接|
 |`---`|markdown|分隔线|
-|`> hello world`|markdown|引用|
+|`> hello world`|markdown|引用：换行会一直作用，直到遇见两个换行(\n\n),这两个换行实际不会显示换行|
 |`(ins)下划线内容(ins)`|自定义|下划线|
 |`(spl)剧透(spl)`|自定义|内容默认是遮住的，只有用户点击才会显示|
 |`:emoji:`|emoji|基本与 [emoji](https://www.webfx.com/tools/emoji-cheat-sheet/) 的 shortcode 写法保持一致|
-|`(emj)服务器表情名(emj)[服务器id]`|自定义| 服务器表情，需要有服务器发送服务器表情的权限|
+|`(emj)服务器表情名(emj)[服务器表情id]`|自定义| 服务器表情，需要有服务器发送服务器表情的权限|
 |`(chn)频道ID(chn)`|自定义|频道，提及频道|
 |`(met)用户id/here/all(met)`|自定义|@用户，all 代表 @所有用户，here 代表 @所有在线用户|
 |`(rol)角色ID(rol)`|自定义|@某角色所有用户|

@@ -41,7 +41,7 @@ cardmessage主要由json构成，在卡片消息中，有四种类别的卡片�
 
 |字段|类型|说明|
 |--|--|--|
-|theme|string|主题，可选的值为：primary,danger,success,danger,warning,info,secondary.默认为primary。|
+|theme|string|主题，可选的值为：primary,success,danger,warning,info,secondary.默认为primary。|
 |size|string|大小，可选值为：xs,sm, md, lg, 一般默认为lg|
 
 ### 卡片消息发送说明

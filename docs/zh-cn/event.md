@@ -11,7 +11,7 @@
     d: [...], //数据
 }
 ```
-本文主要讲述的是当 `s=0` 时，data 的数据结构，信令的具体含义参见[信令【暂未开放】](https://developer.kaiheila.cn/protocol).
+本文主要讲述的是当 `s=0` 时，data 的数据结构，信令的具体含义参见[websocket](https://developer.kaiheila.cn/doc/websocket).
 
 
 ## 事件主要格式
