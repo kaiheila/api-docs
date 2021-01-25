@@ -101,7 +101,7 @@
 |字段|类型|说明|
 |--|--|--|
 |type|string|消息的类型，本处为message_btn_click|
-|body|Map||
+|body|Map| |
 |↳msg_id|string|用户点击的消息id|
 |↳user_id|string|点击的用户|
 |↳value|string|return-val的值|
