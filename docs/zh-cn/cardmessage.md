@@ -2,6 +2,8 @@
 
 卡片消息是结构化的消息,可以提供一个易用、统一的富交互形式。
 
+我们还提供了卡片消息编辑器，方便可视化编辑：[点击使用](https://kaiheila.cn/tools/message-builder.html#/card)
+
 ## 整体结构说明
 cardmessage主要由json构成，在卡片消息中，有四种类别的卡片结构：
 - 卡片，目前只有card。
