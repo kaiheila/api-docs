@@ -239,7 +239,7 @@ cardmessage主要由json构成，在卡片消息中，有四种类别的卡片�
     "type": "image",
     "src" : "",
     "alt" : "",
-    "size" ： "sm|lg", // size只用在图文混排  图片组大小固定
+    "size" : "sm|lg", // size只用在图文混排  图片组大小固定
     "circle" : true|false,
 }
 ```
@@ -262,7 +262,7 @@ cardmessage主要由json构成，在卡片消息中，有四种类别的卡片�
 - text可以为plain-text, kmarkdown
 - click代表用户点击的事件,默认为""，代表无任何事件。
     - 当为link时，会跳转到value代表的链接;
-    - 当为return-val时，系统会通过系统消息将消息id,点击用户id和value发回给发送者，发送者可以根据自己的需求进行处理。
+    - 当为return-val时，系统会通过系统消息将消息id,点击用户id和value发回给发送者，发送者可以根据自己的需求进行处理,消息事件参见[button点击事件](https://developer.kaiheila.cn/doc/cardmessage#系统消息：Button点击事件)。
 
 ## 结构体
 

@@ -25,6 +25,7 @@
 | content    | string  | 是   | POST | 消息内容                                          |
 | quote    | string  | 否   | POST | 回复某条消息的 `msgId`                                          |
 | nonce      | string  | 否    | POST | nonce, 服务端不做处理, 原样返回                   |
+|temp_target_id|string|否|POST|用户id,如果传了，代表该消息是临时消息，该消息不会存数据库，但是会在频道内只给该用户推送临时消息。用于在频道内针对用户的操作进行单独的回应通知等。|
 
 ### 返回参数说明
 

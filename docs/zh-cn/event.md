@@ -30,7 +30,7 @@
 |nonce|string|随机串，与用户消息发送 api 中传的 nonce 保持一致|
 |extra|mixed|不同的消息类型，结构不一致|
 
-#### 文字频道消息 extra说明
+### 文字频道消息extra说明
 
 | 字段| 类型| 说明|
 |--|--|--|
@@ -56,9 +56,9 @@
 |roles|Array|用户在当前服务器中的角色 id 组成的列表|
 |bot|bool|是否是机器人|
 
-### 格式示例
+## 格式示例
 
-#### 系统消息示例
+### 系统消息示例
 
 ```json
 {
@@ -94,7 +94,48 @@
 }
 ```
 
-#### 文本消息示例
+### 系统消息：Button点击事件
+
+其它字段基本都与上面保持一致，extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为message_btn_click|
+|body|Map||
+|↳msg_id|string|用户点击的消息id|
+|↳user_id|string|点击的用户|
+|↳value|string|return-val的值|
+|↳target_id|string|消息发送的目标id,频道消息为频道|
+
+示例：
+```javascript
+{
+    "s":0,
+    "sn":1,
+    "d":{
+        "type":255,
+        "channel_type":"PERSON",
+        "target_id":"xxxx",
+        "author_id":"xxxx",
+        "content":"xxxx",
+        "msg_id":"xxxx",
+        "msg_timestamp":1611559482954,
+        "nonce":"",
+        "extra":{
+            "type":"message_btn_click",
+            "body":{
+                "value": "123",
+                "msg_id": "xxx",
+                "user_id": "xxx",
+                "target_id" : ""
+            }
+        }
+    }
+}
+```
+
+
+### 文本消息示例
 
 ```json
 {
@@ -131,7 +172,7 @@
 }
 ```
 
-#### 图片消息示例
+### 图片消息示例
 
 ```json
 {
@@ -168,7 +209,7 @@
 }
 ```
 
-#### 视频消息
+### 视频消息
 
 ```json
 {
@@ -210,7 +251,7 @@
 }
 ```
 
-#### 文件消息
+### 文件消息
 
 ```json
 {
