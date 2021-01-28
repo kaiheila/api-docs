@@ -6,10 +6,10 @@
 
 | 接口                                             | 接口说明           | 维护状态 |
 | ------------------------------------------------ | ------------------ | -------- |
-| [/api/v3/guild-emoji/index](#获取服务器表情列表) | 获取服务器表情列表 | 开发中   |
-| [/api/v3/guild-emoji/create](#创建服务器表情)    | 创建服务器表情     | 开发中   |
-| [/api/v3/guild-emoji/update](#更新服务器表情)    | 更新服务器表情     | 开发中   |
-| [/api/v3/guild-emoji/delete](#删除服务器表情)    | 删除服务器表情     | 开发中   |
+| [/api/v3/guild-emoji/index](#获取服务器表情列表) | 获取服务器表情列表 | 测试中   |
+| [/api/v3/guild-emoji/create](#创建服务器表情)    | 创建服务器表情     | 测试中   |
+| [/api/v3/guild-emoji/update](#更新服务器表情)    | 更新服务器表情     | 测试中   |
+| [/api/v3/guild-emoji/delete](#删除服务器表情)    | 删除服务器表情     | 测试中   |
 
 ## 获取服务器表情列表
 
@@ -42,28 +42,28 @@
     "data": [
         {
             "name": "ceeb653ely1gm1ayxhrnnj20j60jpwfu",
-            "id": "9168644645632553/4c43fcb7f6267d0c80ck",
+            "id": "XXXXXXXXX/4c43XXXXXXX",
             "user_info": {
-                "id": "1780328444",
+                "id": "17000",
                 "username": "用户名",
-                "identify_num": "3249",
+                "identify_num": "467",
                 "online": true,
                 "os": "Websocket",
                 "status": 1,
-                "avatar": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/assets/bot.png/icon"
+                "avatar": "https://XXXXXXXXXXXX"
             }
         },
         {
             "name": "ceeb653ely1gm6d2213ycj20go0gogvj",
-            "id": "9168644645632553/c74a7a8cda2f310c80c8",
+            "id": "916864XXX464X/c74XXXXXXXX",
             "user_info": {
-                "id": "1780328444",
+                "id": "10000",
                 "username": "用户名",
-                "identify_num": "3249",
+                "identify_num": "0123",
                 "online": true,
                 "os": "Websocket",
                 "status": 1,
-                "avatar": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/assets/bot.png/icon"
+                "avatar": "https://XXXXXXXXXXX"
             }
         }
     ]
