@@ -138,8 +138,7 @@
             "page_total": 1,
             "page_size": 50,
             "total": 1
-        },
-        "sort": []
+        }
     }
 }
 ```
