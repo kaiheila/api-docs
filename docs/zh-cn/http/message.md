@@ -6,9 +6,143 @@
 
 |接口|接口说明|维护状态|
 |--|--|--|
+|[/api/v3/message/list](#获取频道聊天消息列表)|获取频道聊天消息列表|正常|
 |[/api/v3/message/create](#发送频道聊天消息)|发送频道聊天消息|正常|
 |[/api/v3/message/update](#更新频道聊天消息)|更新频道聊天消息|正常|
+|[/api/v3/message/delete](#删除频道聊天消息)|删除频道聊天消息|正常|
 
+## 消息详情参数说明
+
+| 参数名        | 类型    | 说明               |
+| ------------- | ------- | ------------------ |
+| id            | string  | 消息 id            |
+| type          | int     | 消息类型           |
+| author       | object | 作者的用户信息               |
+| content       | string  | 消息内容           |
+| mention       | array   | @特定用户          |
+| mention       | array   | @特定用户          |
+| mention_all   | boolean | 是否含有 @全体人员 |
+| mention_roles | array   | @特定角色          |
+| mention_here  | boolean | 是否含有 @在线人员 |
+| embeds        | array   | 超链接解析数据 |
+| attachments | array   | 附加的多媒体数据 |
+| reactions | array   | 回应数据 |
+| quote    | object | 引用数据 |
+| mention_info    | object | 引用特定用户或特定角色的信息 |
+
+
+## 获取频道聊天消息列表
+
+### 接口说明
+
+|地址|请求方式|说明|
+|--|--|--|
+|`/api/v3/message/list`|GET| |
+
+### 参数列表
+
+| 参数名     | 类型 | 必传 | 参数区域 | 说明                                              |
+| ---------- | ---- | ---- | -------  | ------------------------------------------------- |
+| channel_id | string  | 是    | GET | 频道 id                                       |
+| msg_id | string  | 否    | GET | 参考消息 id，不传则默认为最新的消息 id                                        |
+| pin    | unsigned int  | 否   | GET | 只能为0或者1，是否查询置顶消息 |
+| flag    | string  | 否   | GET | 查询模式，有三种模式可以选择。不传则默认查询最新的消息 |
+
+
+### 查询模式说明
+
+| 查询模式 |                  详细说明                  |
+| :------: | :----------------------------------------: |
+|  before  |  查询参考消息之前的消息，不包括参考消息。  |
+|  around  | 查询以参考消息为中心，前后一定数量的消息。 |
+|  after   |  查询参考消息之后的消息，不包括参考消息。  |
+
+
+### 返回参数说明
+
+| 参数名   | 类型         | 说明                                                         |
+| -------- | ------------ | ------------------------------------------------------------ |
+| items | array   | 消息列表                                 |
+| meta | object | 一些查询的元属性 |
+
+### 返回示例
+
+```json
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "items": [
+            {
+                "id": "bac34958-2c73-45c8",
+                "type": 1,
+                "content": "11111111111111111111111",
+                "mention": [],
+                "mention_all": false,
+                "mention_roles": [],
+                "mention_here": [],
+                "embeds": [
+                    {
+                        "type": "bili-video",
+                        "url": "https://www.bilibili.com/video/BV11J411E7wg",
+                        "origin_url": "https://www.bilibili.com/video/BV11J411E7wg",
+                        "av_no": "11J411E7wg",
+                        "iframe_path": "https://player.bilibili.com/player.html?as_wide=1&bvid=BV11J411E7wg&p=1&high_quality=1",
+                        "duration": 97,
+                        "title": "妈妈，我知道昨天游戏里是谁骂我了！",
+                        "pic": "https://**/lc01gi.jpg"
+                    }
+                ],
+                "attachments": false,
+                "create_at": 1612685332518,
+                "updated_at": 0,
+                "reactions": [
+                    {
+                        "emoji": {
+                            "id": "[#129315;]",
+                            "name": "[#129315;]"
+                        },
+                        "count": 1,
+                        "me": true
+                    }
+                ],
+                "author_id": 693,
+                "image_name": "",
+                "read_status": false,
+                "quote": null,
+                "mention_info": {
+                    "mention_part": [
+                        {
+                            "id": "28444",
+                            "username": "**",
+                            "full_name": "**#49",
+                            "avatar": "***/icon"
+                        }
+                    ],
+                    "mention_role_part": [
+                        {
+                            "role_id": 702,
+                            "name": "管理员",
+                            "color": 0,
+                            "position": 1,
+                            "hoist": 0,
+                            "mentionable": 0,
+                            "permissions": 1
+                        }
+                    ]
+                }
+            }
+        ],
+        "meta": {
+            "page": 1,
+            "page_total": 1,
+            "page_size": 50,
+            "total": 1
+        },
+        "sort": []
+    }
+}
+```
 
 ## 发送频道聊天消息
 
