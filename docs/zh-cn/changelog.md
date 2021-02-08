@@ -13,7 +13,8 @@
 
 
 ### Changed
-- 添加更新服务器角色权限的接口，添加了color, name参数
+- 更新服务器角色权限的接口，添加了color, name参数
+- 更新cardMessage说明，plain-text与kmarkdown字数限制
 
 ### Fixed
 

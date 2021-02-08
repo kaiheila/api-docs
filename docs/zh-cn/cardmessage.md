@@ -211,6 +211,7 @@ cardmessage主要由json构成，在卡片消息中，有四种类别的卡片�
 **规则：**
 - emoji为布尔型，默认为true。如果为true,会把emoji的shortcut转为emoji 
 - 为了方便书写，所有plain-text的使用处可以简单的用字符串代替。
+- 最大2000个字
 
 ```javascript
 // "hello world" 等价于：
@@ -230,6 +231,8 @@ cardmessage主要由json构成，在卡片消息中，有四种类别的卡片�
     "content" : "**hello**",
 }
 ```
+**规则：**
+- 最大5000个字
 
 ### 图片
 **作用说明：** 显示图片。  
