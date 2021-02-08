@@ -17,18 +17,19 @@
 | ------------- | ------- | ------------------ |
 | id            | string  | 消息 id            |
 | type          | int     | 消息类型           |
-| author       | object | 作者的用户信息               |
+| author | object | 作者的用户信息               |
 | content       | string  | 消息内容           |
-| mention       | array   | @特定用户          |
-| mention       | array   | @特定用户          |
-| mention_all   | boolean | 是否含有 @全体人员 |
-| mention_roles | array   | @特定角色          |
-| mention_here  | boolean | 是否含有 @在线人员 |
+| mention       | array   | `@特定用户` 的用户ID数组，与 `mention_info` 中的数据对应 |
+| mention_all   | boolean | 是否含有 `@全体人员` |
+| mention_roles | array   | `@特定角色` 的角色ID数组，与 `mention_info` 中的数据对应 |
+| mention_here  | boolean | 是否含有 `@在线人员` |
 | embeds        | array   | 超链接解析数据 |
 | attachments | array   | 附加的多媒体数据 |
 | reactions | array   | 回应数据 |
-| quote    | object | 引用数据 |
+| quote    | object (Message) | 引用消息 |
 | mention_info    | object | 引用特定用户或特定角色的信息 |
+| ↳ mention_part | array        | `@特定用户` 详情 |
+| ↳ mention_role_part | array        | `@特定角色` 详情 |
 
 
 ## 获取频道聊天消息列表
@@ -63,11 +64,10 @@
 | 参数名   | 类型         | 说明                                                         |
 | -------- | ------------ | ------------------------------------------------------------ |
 | items | array   | 消息列表                                 |
-| meta | object | 一些查询的元属性 |
 
 ### 返回示例
 
-```json
+```javascript
 {
     "code": 0,
     "message": "操作成功",
@@ -77,7 +77,9 @@
                 "id": "bac34958-2c73-45c8",
                 "type": 1,
                 "content": "11111111111111111111111",
-                "mention": [],
+                "mention": [
+                    "12314**"
+                ],
                 "mention_all": false,
                 "mention_roles": [],
                 "mention_here": [],
@@ -106,7 +108,12 @@
                         "me": true
                     }
                 ],
-                "author_id": 693,
+                "author": {
+                    "id": "1780328444",
+                    "username": "小博",
+                    "online": false,
+                    "avatar": "https://***.jpg"
+                },
                 "image_name": "",
                 "read_status": false,
                 "quote": null,
@@ -116,7 +123,7 @@
                             "id": "28444",
                             "username": "**",
                             "full_name": "**#49",
-                            "avatar": "***/icon"
+                            "avatar": "***.jpg"
                         }
                     ],
                     "mention_role_part": [
@@ -132,13 +139,7 @@
                     ]
                 }
             }
-        ],
-        "meta": {
-            "page": 1,
-            "page_total": 1,
-            "page_size": 50,
-            "total": 1
-        }
+        ]
     }
 }
 ```
@@ -174,7 +175,7 @@
 
 ### 返回示例
 
-```json
+```javascript
 {
     "code": 0,
     "message": "操作成功",
@@ -210,7 +211,7 @@
 
 ### 返回示例
 
-```json
+```javascript
 {
     "code": 0,
     "message": "操作成功",
@@ -240,7 +241,7 @@
 
 ### 返回示例
 
-```json
+```javascript
 {
     "code": 0,
     "message": "操作成功",

@@ -32,12 +32,19 @@
 | 参数名   | 类型         | 说明                                                         |
 | -------- | ------------ | ------------------------------------------------------------ |
 | code | string | 私信会话 Code                        |
-| target_info | object (User) | 目标用户信息 |
+| last_read_time | int | 上次阅读消息的时间 |
+| latest_msg_time | int | 最新消息时间 |
 | unread_count | int | 未读消息数 |
+| target_info | object (User) | 目标用户信息 |
+| ↳ id | string        | 目标用户 ID |
+| ↳ username | string        | 目标用户名 |
+| ↳ online | boolean  | 是否在线 |
+| ↳ avatar | string        | 头像图片链接 |
+
 
 ### 返回示例
 
-```json
+```javascript
 {
     "code": 0,
     "message": "操作成功",
@@ -50,13 +57,9 @@
             "target_info": {
                 "id": "415212",
                 "username": "工具",
-                "identify_num": "414",
                 "online": false,
-                "os": "Websocket",
-                "status": 1,
                 "avatar": "https://***.jpg"
             },
-            "ws_type": 0
         }
     ]
 }
@@ -81,15 +84,20 @@
 | 参数名       | 类型          | 说明          |
 | ------------ | ------------- | ------------- |
 | code         | string        | 私信会话 Code |
-| target_info  | object (User) | 目标用户信息  |
+| last_read_time | int | 上次阅读消息的时间 |
+| latest_msg_time | int | 最新消息时间 |
 | unread_count | int           | 未读消息数    |
 | is_friend | boolean   | 是否是好友                                     |
 | is_blocked | boolean |是否已屏蔽对方 |
 | is_target_blocked | boolean    | 是否已被对方屏蔽                                  |
+| target_info | object (User) | 目标用户信息 |
+| ↳ id | string        | 目标用户 ID |
+| ↳ username | string        | 目标用户名 |
+| ↳ avatar | string        | 头像图片链接 |
 
 ### 返回示例
 
-```json
+```javascript
 {
     "code": 0,
     "message": "操作成功",
@@ -101,21 +109,11 @@
         "is_friend": false,
         "is_blocked": false,
         "is_target_blocked": false,
-        "target_chat_setting": 1,
         "target_info": {
             "id": "3903536527",
             "username": "夏天1",
-            "identify_num": "5425",
-            "online": false,
-            "os": "iOS",
-            "status": 1,
             "avatar": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/assets/avatar_10.jpg/icon",
-            "tag_info": {
-                "color": "#6666CC",
-                "text": "开黑啦"
-            }
-        },
-        "ws_type": 1
+        }
     }
 }
 ```
@@ -136,17 +134,11 @@
 
 ### 返回参数说明
 
-| 参数名   | 类型         | 说明                                                         |
-| -------- | ------------ | ------------------------------------------------------------ |
-| code | string       | 私聊会话 Code                              |
-| target_info | object (User) | 目标用户信息 |
-| is_friend | boolean   | 是否是好友                                     |
-| is_blocked | boolean |是否已屏蔽对方 |
-| is_target_blocked | boolean   | 是否已被对方屏蔽                                  |
+具体参数参考列表与详情
 
 ### 返回示例
 
-```json
+```javascript
 {
     "code": 0,
     "message": "操作成功",
@@ -158,18 +150,12 @@
         "is_friend": false,
         "is_blocked": false,
         "is_target_blocked": false,
-        "target_chat_setting": 1,
         "target_info": {
             "id": "325***0",
             "username": "工具",
-            "identify_num": "451",
             "online": false,
-            "os": "Websocket",
-            "status": 1,
             "avatar": "https://**.jpg"
-        },
-        "ws_type": 1,
-        "target_guild_chat_setting": 1
+        }
     }
 }
 ```
@@ -196,7 +182,7 @@
 
 ### 返回示例
 
-```json
+```javascript
 {
     "code": 0,
     "message": "操作成功",
@@ -217,8 +203,6 @@
 | reactions | array   | 回应数据 |
 | quote    | object | 引用数据 |
 | read_status    | boolean | 是否已读 |
-
-
 
 ## 获取私信聊天消息列表
 
@@ -251,11 +235,10 @@
 | 参数名   | 类型         | 说明                                                         |
 | -------- | ------------ | ------------------------------------------------------------ |
 | items | array   | 消息列表                                 |
-| meta | object | 一些查询的元属性 |
 
 ### 返回示例
 
-```json
+```javascript
 {
     "code": 0,
     "message": "操作成功",
@@ -276,13 +259,7 @@
                 "quote": null,
                 "mention_info": null
             }
-        ],
-        "meta": {
-            "currentPage": 1,
-            "pageCount": 1,
-            "perPage": 50,
-            "totalCount": 1
-        }
+        ]
     }
 }
 ```
@@ -293,7 +270,7 @@
 
 |地址|请求方式|说明|
 |--|--|--|
-|`/api/v3/user-chat/create-msg|POST| |
+|`/api/v3/user-chat/create-msg`|POST| |
 
 ### 参数列表
 
