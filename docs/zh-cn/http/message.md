@@ -89,12 +89,12 @@
                 "embeds": [
                     {
                         "type": "bili-video",
-                        "url": "https://www.bilibili.com/video/BV11J411E7wg",
-                        "origin_url": "https://www.bilibili.com/video/BV11J411E7wg",
-                        "av_no": "11J411E7wg",
-                        "iframe_path": "https://player.bilibili.com/player.html?as_wide=1&bvid=BV11J411E7wg&p=1&high_quality=1",
+                        "url": "https://www.bilibili.com/video/XXXXX",
+                        "origin_url": "https://www.bilibili.com/video/XXXXX",
+                        "av_no": "11J411E",
+                        "iframe_path": "https://player.bilibili.com/player.html?xxx=xxx",
                         "duration": 97,
-                        "title": "妈妈，我知道昨天游戏里是谁骂我了！",
+                        "title": "Title",
                         "pic": "https://**/lc01gi.jpg"
                     }
                 ],
