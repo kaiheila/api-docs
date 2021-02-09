@@ -302,7 +302,7 @@ extra字段说明：
 |↳msg_id|string|用户点击的消息id|
 |↳user_id|string|点击的用户|
 |↳channel_id|string|频道id|
-|↳emoji|Map|消息对象, 包含 `id` 标签id, `name` 表情名称|
+|↳emoji|Map|消息对象, 包含 `id` 表情id, `name` 表情名称|
 
 示例：
 ```javascript
@@ -347,7 +347,7 @@ extra字段说明：
 |↳msg_id|string|用户点击的消息id|
 |↳user_id|string|点击的用户|
 |↳channel_id|string|频道id|
-|↳emoji|Map|消息对象, 包含 `id` 标签id, `name` 表情名称|
+|↳emoji|Map|消息对象, 包含 `id` 表情id, `name` 表情名称|
 
 示例：
 ```javascript
@@ -882,7 +882,7 @@ extra字段说明：
 |↳msg_id|string|用户点击的消息id|
 |↳user_id|string|点击的用户的id|
 |↳chat_code|string|私聊code|
-|↳emoji|Map|消息对象, 包含 `id` 标签id, `name` 表情名称|
+|↳emoji|Map|消息对象, 包含 `id` 表情id, `name` 表情名称|
 
 示例：
 ```javascript
@@ -927,7 +927,7 @@ extra字段说明：
 |↳msg_id|string|用户点击的消息id|
 |↳user_id|string|点击的用户的id|
 |↳chat_code|string|私聊code|
-|↳emoji|Map|消息对象, 包含 `id` 标签id, `name` 表情名称|
+|↳emoji|Map|消息对象, 包含 `id` 表情id, `name` 表情名称|
 
 示例：
 ```javascript
