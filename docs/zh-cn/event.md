@@ -34,7 +34,7 @@
 
 | 字段| 类型| 说明|
 |--|--|--|
-|type|string|同上面 type|
+|type|int|同上面 type|
 |guild_id|string|服务器 id|
 |channel_name|string|频道名|
 |mention|Array|提及到的用户 id 的列表|
@@ -150,7 +150,7 @@
         "msg_timestamp": 1607674740160,
         "nonce": "",
         "extra": {
-            "type": "1",
+            "type": 1,
             "guild_id": "xxxxx",
             "channel_name": "文字频道",
             "mention": [],
@@ -187,7 +187,7 @@
         "msg_timestamp": 1607678646991,
         "nonce": "",
         "extra": {
-            "type": "2",
+            "type": 2,
             "code": "",
             "guild_id": "xxxxx",
             "attachments": {
@@ -224,7 +224,7 @@
         "msg_timestamp": 1607679613599,
         "nonce": "",
         "extra": {
-            "type": "3",
+            "type": 3,
             "guild_id": "xxxx",
             "code": "",
             "attachments": {
@@ -266,7 +266,7 @@
         "msg_timestamp": 1607679683305,
         "nonce": "",
         "extra": {
-            "type": "4",
+            "type": 4,
             "guild_id": "xxxx",
             "code": "",
             "attachments": {
