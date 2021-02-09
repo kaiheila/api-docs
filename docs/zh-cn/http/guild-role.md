@@ -174,6 +174,8 @@ permissions & (1 << bitValue)  == (1 << bitValue);
 |hoist|unsigned int|否|POST|只能为0或者1，是否把该角色的用户在用户列表排到前面|
 |mentionable|unsigned int|否|POST|只能为0或者1，该角色是否可以被提及|
 |permissions|unsigned int|否|POST|权限,参见[权限说明](#权限说明)|
+|color|unsigned int|否|POST|色值|
+|name|string|否|POST|角色名|
 
 ### 返回参数说明
 
