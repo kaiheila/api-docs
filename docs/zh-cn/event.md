@@ -34,7 +34,7 @@
 
 | 字段| 类型| 说明|
 |--|--|--|
-|type|string|同上面 type|
+|type|int|同上面 type|
 |guild_id|string|服务器 id|
 |channel_name|string|频道名|
 |mention|Array|提及到的用户 id 的列表|
