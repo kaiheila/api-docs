@@ -96,6 +96,14 @@
 | 参数名   | 类型   | 必传 | 参数区域 | 说明        |
 | -------- | ------ | ---- | -------- | ----------- |
 | guild_id | string | 是   | GET      | 服务器的 ID |
+| channel_id | string | 否   | GET      | 服务器中频道的 ID |
+| search | string | 否   | GET      | 搜索关键字，在用户名或昵称中搜索 |
+| role_id | int | 否   | GET      | 角色 ID，获取特定角色的用户列表 |
+| mobile_verified | int | 否   | GET      | 只能为`0`或`1`，`0`是未认证，`1`是已认证 |
+| active_time | int | 否   | GET      | 根据活跃时间排序，`0`是顺序排列，`1`是倒序排列 |
+| joined_at | int | 否   | GET      | 根据加入时间排序，`0`是顺序排列，`1`是倒序排列 |
+| page | int | 否   | GET      | 目标页 |
+| page_size | int | 否   | GET      | 每页数据数量 |
 
 ### 返回参数说明
 
