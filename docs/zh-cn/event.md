@@ -289,3 +289,753 @@
     "sn": 2587
 }
 ```
+
+
+### 事件：频道内用户添加 reaction
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `added_reaction`|
+|body|Map| |
+|↳msg_id|string|用户点击的消息id|
+|↳user_id|string|点击的用户|
+|↳channel_id|string|频道id|
+|↳emoji|Map|消息对象, 包含 `id` 标签id, `name` 表情名称|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "60163800000000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "added_reaction",
+            "body": {
+                "channel_id": "5823400000000",
+                "emoji": {
+                    "id": "[#128226;]",
+                    "name": "[#128226;]"
+                },
+                "user_id": "2418000000",
+                "msg_id": "59def270-xxxx-xxxx-xxxx-8db935e054a1"
+            }
+        },
+        "msg_id": "xxxx-xxxx-xxxx",
+        "msg_timestamp": 1612703779612,
+        "nonce": "",
+        "verify_token": "xxxx"
+    },
+    "sn": 1
+}
+```
+
+
+### 事件：频道内用户取消 reaction
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `deleted_reaction`|
+|body|Map| |
+|↳msg_id|string|用户点击的消息id|
+|↳user_id|string|点击的用户|
+|↳channel_id|string|频道id|
+|↳emoji|Map|消息对象, 包含 `id` 标签id, `name` 表情名称|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "60163800000000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "deleted_reaction",
+            "body": {
+                "channel_id": "5823400000000",
+                "emoji": {
+                    "id": "[#128226;]",
+                    "name": "[#128226;]"
+                },
+                "user_id": "2418000000",
+                "msg_id": "59def270-xxxx-xxxx-xxxx-8db935e054a1"
+            }
+        },
+        "msg_id": "abd87680-xxxx-xxxx-xxxx-a56107a48e12",
+        "msg_timestamp": 1612703776899,
+        "nonce": "",
+        "verify_token": "xxxx"
+    },
+    "sn": 1
+}
+```
+
+
+### 事件：消息更新
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `updated_message`|
+|body|Map| |
+|↳msg_id|string|被更新的消息的id|
+|↳content|string|更新后的文本|
+|↳channel_id|string|频道id|
+|↳mention|array|提及的用户id组成的列表|
+|↳mention_all|boolean|是否提及 `全体成员`|
+|↳mention_here|boolean|是否提及 `在线成员`|
+|↳mention_roles|array|提及的角色id组成的列表|
+|↳updated_at|int|更新时间戳(毫秒)|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "60163899100000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "updated_message",
+            "body": {
+                "channel_id": "5823470000000",
+                "content": "1aaaaaa",
+                "mention": [],
+                "mention_all": false,
+                "mention_here": false,
+                "mention_roles": [],
+                "updated_at": 1612703810779,
+                "msg_id": "59def270-xxx-8db935e054a1"
+            }
+        },
+        "msg_id": "cc523bf1-xxx-88c31ebc9fba",
+        "msg_timestamp": 1612703810791,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 3
+}
+```
+
+
+### 事件：消息被删除
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `deleted_message`|
+|body|Map| |
+|↳msg_id|string|被更新的消息的id|
+|↳channel_id|string|频道id|
+
+示例：
+```javascript
+{
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "60163000000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "deleted_message",
+            "body": {
+                "channel_id": "58234000000",
+                "msg_id": "59def270-xxxx-8db935e054a1"
+            }
+        },
+        "msg_id": "63d6a934-xxxx-a1f02c255213",
+        "msg_timestamp": 1612704007683,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "s": 0,
+    "sn": 5
+}
+```
+
+
+### 事件：服务器信息更新
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `updated_guild`|
+|body|Map| |
+|↳id|string|服务器id|
+|↳name|string|服务器名称|
+|↳user_id|string|服务器主id|
+|↳icon|string|服务器logo图片地址|
+|↳notify_type|int|通知类型 `1`接受所有通知 `2`仅接收被提及消息 `3`不接收通知 |
+|↳region|string|服务器所在区域|
+|↳enable_open|int|是否为公开服务器, 1 or 0|
+|↳open_id|int|公开服务器id|
+|↳default_channel_id|string|默认文字频道id|
+|↳welcome_channel_id|string|欢迎频道id|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "601630000000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "updated_guild",
+            "body": {
+                "id": "601630000000",
+                "name": "test111",
+                "user_id": "2418xxx",
+                "icon": "https://xxx/icons/2020-05/YQyfHxxx.png/icon",
+                "notify_type": 1,
+                "region": "shanghai",
+                "enable_open": 1,
+                "open_id": 1123123123,
+                "default_channel_id": "4881800000000",
+                "welcome_channel_id": "4881800000000"
+            }
+        },
+        "msg_id": "0108feaf-xxx-7d70145468f0",
+        "msg_timestamp": 1612764956322,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 9
+}
+```
+
+
+### 事件：新成员加入服务器
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `joined_guild`|
+|body|Map| |
+|↳user_id|string|用户id|
+|↳joined_at|int|加入服务器的时间|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "60163000000000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "joined_guild",
+            "body": {
+                "user_id": "3891000000",
+                "joined_at": 1612774315000
+            }
+        },
+        "msg_id": "bcc9abbd-xxxx-61c6a976be5d",
+        "msg_timestamp": 1612774315732,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 15
+}
+```
+
+
+### 事件：服务器成员退出
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `exited_guild`|
+|body|Map| |
+|↳user_id|string|用户id|
+|↳exited_at|int|退出服务器的事件|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "60163000000000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "exited_guild",
+            "body": {
+                "user_id": "3891000000",
+                "exited_at": 1612774287628
+            }
+        },
+        "msg_id": "ecec53c4-xxxx-16226c48487b",
+        "msg_timestamp": 1612774287636,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 14
+}
+```
+
+
+### 事件：服务器成员信息更新
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `updated_guild_member`|
+|body|Map| |
+|↳user_id|string|用户id|
+|↳nickname|string|昵称|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "60163000000000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "updated_guild_member",
+            "body": {
+                "user_id": "3891600000",
+                "nickname": "new_nick"
+            }
+        },
+        "msg_id": "d22ae13c-xxxxxx-71f8398e16b5",
+        "msg_timestamp": 1612774472181,
+        "nonce": "",
+        "verify_token": "xxxxx"
+    },
+    "sn": 17
+}
+```
+
+
+### 事件：新增频道
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `added_channel`|
+|body|Map| 参考[对象-频道 Channel]() |
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "6016389000000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "added_channel",
+            "body": {
+                "id": "53002000000000",
+                "name": "新的频道",
+                "user_id": "2418239356",
+                "guild_id": "6016389000000",
+                "is_category": 0,
+                "parent_id": "6016400000000000",
+                "level": null,
+                "slow_mode": 0,
+                "topic": "新的频道的说明",
+                "type": 1,
+                "permission_overwrites": [
+                    {
+                        "role_id": 0,
+                        "allow": 0,
+                        "deny": 0
+                    }
+                ],
+                "permission_users": [],
+                "permission_sync": 1
+            }
+        },
+        "msg_id": "70b60e52-xxx-4e8d0a995b1a",
+        "msg_timestamp": 1612776265417,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 21
+}
+```
+
+
+### 事件：修改频道信息
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `updated_channel`|
+|body|Map| 参考[对象-频道Channel](https://developer.kaiheila.cn/doc/objects#频道Channel) |
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "6016389000000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+        "type": "updated_channel",
+        "body": {
+            "id": "53002000000000",
+            "name": "更新后的频道",
+            "user_id": "2418239356",
+            "guild_id": "6016389000000",
+            "is_category": 0,
+            "parent_id": "6016400000000000",
+            "level": null,
+            "slow_mode": 0,
+            "topic": "更新后的频道的说明",
+            "type": 1,
+            "permission_overwrites": [
+                {
+                    "role_id": 0,
+                    "allow": 0,
+                    "deny": 0
+                }
+            ],
+            "permission_users": [],
+            "permission_sync": 1
+            }
+        },
+        "msg_id": "70b60e52-xxx-4e8d0a995b1a",
+        "msg_timestamp": 1612776265417,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 21
+}
+```
+
+
+### 事件：删除频道
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `deleted_channel`|
+|body|Map|  |
+|↳id|string|被删掉的频道id|
+|↳deleted_at|string|删除时间(毫秒)|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "60163899100000000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "deleted_channel",
+            "body": {
+                "id": "69972200000000",
+                "deleted_at": 1612777405595
+            }
+        },
+        "msg_id": "3968a7e3-xxxx-0c8bac275fb4",
+        "msg_timestamp": 1612777238358,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 24
+}
+```
+
+
+### 事件：私聊消息更新
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `updated_private_message`|
+|body|Map| |
+|↳msg_id|string|被更新的消息的id|
+|↳author_id|string|被更新的消息的创建者id|
+|↳target_id|string|被更新的消息的目标用户id|
+|↳content|string|更新后的文本|
+|↳chat_code|string|私聊code|
+|↳updated_at|int|更新时间戳(毫秒)|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "PERSON",
+        "type": 255,
+        "target_id": "2862900000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "updated_private_message",
+            "body": {
+                "author_id": "2862900000",
+                "target_id": "2862900000",
+                "msg_id": "93262503-xxxx-0d814f7b416a",
+                "content": "asdaaad",
+                "updated_at": 1612778254183,
+                "chat_code": "xxxxxxxxxxxxxxxxx"
+            }
+        },
+        "msg_id": "8cb11d28-xxxxx-5700aa4c1b58",
+        "msg_timestamp": 1612778254192,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 32
+}
+```
+
+
+### 事件：私聊消息被删除
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `deleted_private_message`|
+|body|Map| |
+|↳msg_id|string|被删除的消息的id|
+|↳author_id|string|被删除的消息的创建者id|
+|↳target_id|string|被删除的消息的目标用户id|
+|↳chat_code|string|私聊code|
+|↳deleted_at|int|删除的时间戳(毫秒)|
+
+示例：
+```javascript
+{
+    "d": {
+        "channel_type": "PERSON",
+        "type": 255,
+        "target_id": "2862900000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "deleted_private_message",
+            "body": {
+                "chat_code": "3b4aa448b8e8b9c87a1b3770792e7433",
+                "msg_id": "44874c6f-xxxx-f987b77f0c25",
+                "author_id": "2862900000",
+                "target_id": "2862900000",
+                "deleted_at": 1612778754838
+            }
+        },
+        "msg_id": "93b59c53-xxxx-546964356eac",
+        "msg_timestamp": 1612778754846,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "s": 0,
+    "sn": 35
+}
+```
+
+
+### 事件：私聊内用户添加 reaction
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `private_added_reaction`|
+|body|Map| |
+|↳msg_id|string|用户点击的消息id|
+|↳user_id|string|点击的用户的id|
+|↳chat_code|string|私聊code|
+|↳emoji|Map|消息对象, 包含 `id` 标签id, `name` 表情名称|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "PERSON",
+        "type": 255,
+        "target_id": "2862900000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "private_added_reaction",
+            "body": {
+                "emoji": {
+                    "id": "[#128512;]",
+                    "name": "[#128512;]"
+                },
+                "user_id": "2418200000",
+                "chat_code": "3b4aa448b8e8b9c87a1xxxxx",
+                "msg_id": "024f7bc7-xxxx-1de632f19512"
+            }
+        },
+        "msg_id": "abaccacb-xxxx-5f6d1f72c29a",
+        "msg_timestamp": 1612779382613,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 39
+}
+```
+
+
+### 事件：私聊内用户取消 reaction
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `private_deleted_reaction`|
+|body|Map| |
+|↳msg_id|string|用户点击的消息id|
+|↳user_id|string|点击的用户的id|
+|↳chat_code|string|私聊code|
+|↳emoji|Map|消息对象, 包含 `id` 标签id, `name` 表情名称|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "PERSON",
+        "type": 255,
+        "target_id": "2862900000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "private_deleted_reaction",
+            "body": {
+                "emoji": {
+                    "id": "[#128578;]",
+                    "name": "[#128578;]"
+                },
+                "user_id": "2418200000",
+                "chat_code": "3b4aa448b8e8b9c8xxxx",
+                "msg_id": "024f7bc7-xxxx-1de632f19512"
+            }
+        },
+        "msg_id": "e4bad0e6-xxxx-9dc6a0a5dbbf",
+        "msg_timestamp": 1612779051034,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 38
+}
+```
+
+
+### 事件：用户加入语音频道
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `joined_channel`|
+|body|Map| |
+|↳user_id|string|用户id|
+|↳channel_id|string|加入的频道id|
+|↳joined_at|int|加入时间|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "6016389910000000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "joined_channel",
+            "body": {
+                "user_id": "2418200000",
+                "channel_id": "9219038000000",
+                "joined_at": 1612790368279
+            }
+        },
+        "msg_id": "30a7f591-xxxx-322f35105524",
+        "msg_timestamp": 1612790368279,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 42
+}
+```
+
+
+### 事件：用户退出语音频道
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `exited_channel`|
+|body|Map| |
+|↳user_id|string|用户id|
+|↳channel_id|string|加入的频道id|
+|↳exited_at|int|退出时间|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "6016389910000000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "exited_channel",
+            "body": {
+                "user_id": "2418200000",
+                "channel_id": "9219038000000",
+                "exited_at": 1612790411267
+            }
+        },
+        "msg_id": "386e533c-xxxxx-7ee2bded364e",
+        "msg_timestamp": 1612790411274,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 43
+}
+```
