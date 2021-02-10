@@ -1039,3 +1039,87 @@ extra字段说明：
     "sn": 43
 }
 ```
+
+
+### 事件：服务器成员上线
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `guild_member_online`|
+|body|Map| |
+|↳user_id|string|用户id|
+|↳event_time|int|事件发生的时间|
+|↳guilds|array|服务器id组成的数组, 代表与该用户所在的共同的服务器|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "PERSON",
+        "type": 255,
+        "target_id": "2862900000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "guild_member_online",
+            "body": {
+                "user_id": "2418200000",
+                "event_time": 1612930480315,
+                "guilds": [
+                    "601638990000000"
+                ]
+            }
+        },
+        "msg_id": "35f19bd2-xxxx-3eef019abb84",
+        "msg_timestamp": 1612930480347,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 72
+}
+```
+
+
+### 事件：服务器成员下线
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `guild_member_offline`|
+|body|Map| |
+|↳user_id|string|用户id|
+|↳event_time|int|事件发生的时间|
+|↳guilds|array|服务器id组成的数组, 代表与该用户所在的共同的服务器|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "PERSON",
+        "type": 255,
+        "target_id": "2862900000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "guild_member_offline",
+            "body": {
+                "user_id": "2418200000",
+                "event_time": 1612938960033,
+                "guilds": [
+                    "601638990000000"
+                ]
+            }
+        },
+        "msg_id": "35f19bd2-xxxx-3eef019abb84",
+        "msg_timestamp": 1612938960033,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 74
+}
+```
