@@ -12,7 +12,7 @@
 |[/api/v3/message/delete](#删除频道聊天消息)|删除频道聊天消息|正常|
 |[/api/v3/message/reaction-list](#获取频道消息某回应的用户列表)|获取频道消息某个回应的用户列表|正常|
 |[/api/v3/message/add-reaction](#给某个消息添加回应)|给某个消息添加回应|正常|
-|[/api/v3/message/reaction-list](#删除消息的某个回应)|删除消息的某个回应|正常|
+|[/api/v3/message/delete-reaction](#删除消息的某个回应)|删除消息的某个回应|正常|
 
 ## 消息详情参数说明
 

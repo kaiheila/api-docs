@@ -16,7 +16,7 @@
 |[/api/v3/user-chat/delete-msg](#删除私信聊天消息)|删除私信聊天消息|正常|
 |[/api/v3/user-chat/reaction-list](#获取频道消息某回应的用户列表)|获取频道消息某个回应的用户列表|正常|
 |[/api/v3/user-chat/add-reaction](#给某个消息添加回应)|给某个消息添加回应|正常|
-|[/api/v3/user-chat/reaction-list](#删除消息的某个回应)|删除消息的某个回应|正常|
+|[/api/v3/user-chat/delete-reaction](#删除消息的某个回应)|删除消息的某个回应|正常|
 
 ## 获取私信聊天会话列表
 
