@@ -47,7 +47,7 @@
 
 | 参数名     | 类型 | 必传 | 参数区域 | 说明                                              |
 | ---------- | ---- | ---- | -------  | ------------------------------------------------- |
-| channel_id | string  | 是    | GET | 频道 id                                       |
+| target_id | string  | 是    | GET | 频道 id                                       |
 | msg_id | string  | 否    | GET | 参考消息 id，不传则默认为最新的消息 id                                        |
 | pin    | unsigned int  | 否   | GET | 只能为0或者1，是否查询置顶消息 |
 | flag    | string  | 否   | GET | 查询模式，有三种模式可以选择。不传则默认查询最新的消息 |
@@ -162,7 +162,7 @@
 | 参数名     | 类型 | 必传 | 参数区域 | 说明                                              |
 | ---------- | ---- | ---- | -------  | ------------------------------------------------- |
 | type | int  | 否    | POST | 消息类型, 见[objectName], 不传默认为 `1`, 代表文本类型。`2` 图片消息，`3` 视频消息，`4` 文件消息，`9` 代表 [kmarkdown](https://developer.kaiheila.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmessage)。|
-| channel_id | string  | 是    | POST | 目标频道 id                                        |
+| target_id | string  | 是    | POST | 目标频道 id                                        |
 | content    | string  | 是   | POST | 消息内容                                          |
 | quote    | string  | 否   | POST | 回复某条消息的 `msgId`                                          |
 | nonce      | string  | 否    | POST | nonce, 服务端不做处理, 原样返回                   |
