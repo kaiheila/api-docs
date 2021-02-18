@@ -31,7 +31,7 @@
 | last_read_time | int | 上次阅读消息的时间 |
 | latest_msg_time | int | 最新消息时间 |
 | unread_count | int | 未读消息数 |
-| target_info | object (User) | 目标用户信息 |
+| target_info | map | 目标用户信息 |
 | ↳ id | string        | 目标用户 ID |
 | ↳ username | string        | 目标用户名 |
 | ↳ online | boolean  | 是否在线 |
@@ -86,7 +86,7 @@
 | is_friend | boolean   | 是否是好友                                     |
 | is_blocked | boolean |是否已屏蔽对方 |
 | is_target_blocked | boolean    | 是否已被对方屏蔽                                  |
-| target_info | object (User) | 目标用户信息 |
+| target_info | map | 目标用户信息 |
 | ↳ id | string        | 目标用户 ID |
 | ↳ username | string        | 目标用户名 |
 | ↳ avatar | string        | 头像图片链接 |

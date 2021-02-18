@@ -30,7 +30,7 @@
 | -------- | ------------ | ------------------------------------------------------------ |
 |name|string|表情的名称|
 |id|string|表情的 ID|
-|user_info|object|上传用户，具体参考 [用户相关接口](https://developer.kaiheila.cn/doc/http/user) |
+|user_info|map|上传用户，具体参考 [用户相关接口](https://developer.kaiheila.cn/doc/http/user) |
 
 
 ### 返回示例
@@ -91,7 +91,7 @@
 | -------- | ------------ | ------------------------------------------------------------ |
 |name|string|表情的名称|
 |id|string|表情的 ID|
-|user_info|object|上传用户，具体参考 [用户相关接口](https://developer.kaiheila.cn/doc/http/user) |
+|user_info|map|上传用户，具体参考 [用户相关接口](https://developer.kaiheila.cn/doc/http/user) |
 
 ### 返回示例
 

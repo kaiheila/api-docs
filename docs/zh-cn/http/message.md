@@ -20,7 +20,7 @@
 | ------------- | ------- | ------------------ |
 | id            | string  | 消息 id            |
 | type          | int     | 消息类型           |
-| author | object | 作者的用户信息               |
+| author | map | 作者的用户信息               |
 | content       | string  | 消息内容           |
 | mention       | array   | `@特定用户` 的用户ID数组，与 `mention_info` 中的数据对应 |
 | mention_all   | boolean | 是否含有 `@全体人员` |
@@ -29,8 +29,8 @@
 | embeds        | array   | 超链接解析数据 |
 | attachments | array   | 附加的多媒体数据 |
 | reactions | array   | 回应数据 |
-| quote    | object (Message) | 引用消息 |
-| mention_info    | object | 引用特定用户或特定角色的信息 |
+| quote    | map | 引用消息 |
+| mention_info    | map | 引用特定用户或特定角色的信息 |
 | ↳ mention_part | array        | `@特定用户` 详情 |
 | ↳ mention_role_part | array        | `@特定角色` 详情 |
 
@@ -161,7 +161,7 @@
 
 | 参数名     | 类型 | 必传 | 参数区域 | 说明                                              |
 | ---------- | ---- | ---- | -------  | ------------------------------------------------- |
-| type | int  | 否    | POST | 消息类型, 见[objectName], 不传默认为 `1`, 代表文本类型。`2` 图片消息，`3` 视频消息，`4` 文件消息，`9` 代表 [kmarkdown](https://developer.kaiheila.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmessage)。|
+| type | int  | 否    | POST | 消息类型, 见[type], 不传默认为 `1`, 代表文本类型。`2` 图片消息，`3` 视频消息，`4` 文件消息，`9` 代表 [kmarkdown](https://developer.kaiheila.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmessage)。|
 | target_id | string  | 是    | POST | 目标频道 id                                        |
 | content    | string  | 是   | POST | 消息内容                                          |
 | quote    | string  | 否   | POST | 回复某条消息的 `msgId`                                          |

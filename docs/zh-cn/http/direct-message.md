@@ -25,7 +25,7 @@
 | embeds        | array   | 超链接解析数据 |
 | attachments | array   | 附加的多媒体数据 |
 | reactions | array   | 回应数据 |
-| quote    | object | 引用数据 |
+| quote    | map | 引用数据 |
 | read_status    | boolean | 是否已读 |
 
 ## 获取私信聊天消息列表
@@ -100,7 +100,7 @@
 
 | 参数名     | 类型 | 必传 | 参数区域 | 说明                                              |
 | ---------- | ---- | ---- | -------  | ------------------------------------------------- |
-| type | int  | 否    | POST | 消息类型, 见[objectName], 不传默认为 `1`, 代表文本类型。`2` 图片消息，`3` 视频消息，`4` 文件消息，`9` 代表 [kmarkdown](https://developer.kaiheila.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmessage)。|
+| type | int  | 否    | POST | 消息类型, 见[type], 不传默认为 `1`, 代表文本类型。`2` 图片消息，`3` 视频消息，`4` 文件消息，`9` 代表 [kmarkdown](https://developer.kaiheila.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmessage)。|
 | chat_code | string  | 是    | POST | 目标会话 id                                    |
 | content    | string  | 是   | POST | 消息内容                                          |
 | quote    | string  | 否   | POST | 回复某条消息的 `msgId`                                          |
