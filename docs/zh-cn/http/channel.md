@@ -6,7 +6,7 @@
 
 |接口|接口说明|维护状态|
 |--|--|--|
-|[/api/v3/channel/message](https://developer.kaiheila.cn/doc/http/message#发送频道聊天消息)|发送频道聊天消息|正常|
+|[/api/v3/channel/message](https://developer.kaiheila.cn/doc/http/message#发送频道聊天消息)|发送频道聊天消息|已弃用|
 |[/api/v3/channel-role/index](#频道角色权限详情)|获取频道角色权限详情|正常|
 |[/api/v3/channel-role/create](#创建频道角色权限)|创建频道角色权限|正常|
 |[/api/v3/channel-role/update](#更新频道角色权限)|更新频道角色权限|正常|
