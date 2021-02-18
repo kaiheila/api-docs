@@ -40,7 +40,7 @@ curl -H "Authorization: Bot your_token" "https://www.kaiheila.cn/api/v3/intimacy
 ```
 返回示例：
 
-```json
+```javascript
 {
     "code": 0,
     "message": "操作成功",
@@ -93,7 +93,7 @@ curl "https://www.kaiheila.cn/api/v3/intimacy/update" -L \
 -d '{"user_id":"user_id", "social_info":"test", "score": 123, "img_id" : "img_id in img_list"}'
 ```
 返回示例
-```json
+```javascript
 {
     "code":0,
     "message":"操作成功",

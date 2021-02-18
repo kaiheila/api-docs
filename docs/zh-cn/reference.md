@@ -51,7 +51,7 @@ Accept-Language: en-us
 - POST 请求若无特殊说明，均为 POST JSON 格式，即在 http header 中加入`Content-type: application/json`，并将数据以 json 字符串传递。
 - 所有的接口返回如下的格式：
 
-```json
+```javascript
 {
     "code" : 0, // integer, 错误码，0代表成功，非0代表失败，具体的错误码参见错误码一览
     "message" : "error info", // string, 错误消息，具体的返回消息会根据Accept-Language来返回。
