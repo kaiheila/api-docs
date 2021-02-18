@@ -64,7 +64,7 @@ Gateway的获取需要走http接口获取，参见[Gateway](https://developer.ka
 **说明：** 当我们成功连接websocket后，客户端应该在6s内收到该包，否则认为连接超时。  
 **成功示例：**
 
-```json
+```javascript
 {
     "s": 1,
     "d": {
