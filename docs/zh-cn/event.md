@@ -19,9 +19,9 @@
 ### 格式说明
 
 | 字段| 类型| 说明|
-|--|--|--|
-|channel_type| string| 消息频道类型, `GROUP` 为频道消息，其它暂未开放|
-|type|int|1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:kmarkdown 消息，255:系统消息, 其它的暂未开放|
+|---|---|---|
+|channel_type| string| 消息频道类型, `GROUP` 为频道消息|
+|type|int|1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息，255:系统消息, 其它的暂未开放|
 |target_id|string|发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id|
 |author_id|string|发送者 id, 1 代表系统|
 |content|string|消息内容, 文件，图片，视频时，content 为 url|
@@ -32,8 +32,10 @@
 
 ### 文字频道消息extra说明
 
+**当type非系统消息(255)时**
+
 | 字段| 类型| 说明|
-|--|--|--|
+|---|---|---|
 |type|int|同上面 type|
 |guild_id|string|服务器 id|
 |channel_name|string|频道名|
@@ -41,99 +43,19 @@
 |mention_all|boolean|是否 mention 所有用户|
 |mention_roles|Array|mention 用户角色的数组|
 |mention_here|boolean|是否 mention 在线用户|
-|author|Map|用户信息, 见下|
+|author|Map|用户信息, 见[对象-用户User](https://developer.kaiheila.cn/doc/objects#用户User)|
 
-**author 对象说明**
+### 系统事件消息extra说明
+
+**当type为系统消息(255)时**
 
 | 字段| 类型| 说明|
-|--|--|--|
-|id|string|用户 id|
-|username|string|用户名|
-|nickname|string|用户在当前服务器的昵称|
-|identify_num|string|用户名 `#` 后的 4 位识别 id|
-|online|bool|用户在线状态|
-|avatar|string|头像图片地址|
-|roles|Array|用户在当前服务器中的角色 id 组成的列表|
-|bot|bool|是否是机器人|
+|---|---|---|
+|type|string|标识该事件的类型|
+|body|Map|该事件关联的具体数据, 详见各系统消息事件示例|
 
-## 格式示例
 
-### 系统消息示例
-
-```javascript
-{
-    "s": 0,
-    "d": {
-        "channel_type": "GROUP",
-        "type": 255,
-        "target_id": "xxxxx",
-        "author_id": "1",
-        "content": "[系统消息]",
-        "msg_id": "67637d4c-xxxx-xxxx-xxxx-xxxxx",
-        "msg_timestamp": 1607674307956,
-        "nonce": "",
-        "extra": {
-            "type": "joined_guild",
-            "body": {
-                "id": "xxxxx",
-                "username": "xxxxx",
-                "identify_num": "xxx",
-                "online": true,
-                "os": "Websocket",
-                "status": 1,
-                "avatar": "https://img.kaiheila.cn/avatars/2020-04/A2kq6iF1hc1hc.jpg/icon",
-                "mobile_verified": true,
-                "nickname": "xxxxx",
-                "roles": [],
-                "joined_at": 1607674307000,
-                "active_time": 1607674307582
-            }
-        }
-    },
-    "sn": 2156
-}
-```
-
-### 系统消息：Button点击事件
-
-其它字段基本都与上面保持一致，extra字段说明：
-
-|字段|类型|说明|
-|--|--|--|
-|type|string|消息的类型，本处为message_btn_click|
-|body|Map| |
-|↳msg_id|string|用户点击的消息id|
-|↳user_id|string|点击的用户|
-|↳value|string|return-val的值|
-|↳target_id|string|消息发送的目标id,频道消息为频道|
-
-示例：
-```javascript
-{
-    "s":0,
-    "sn":1,
-    "d":{
-        "type":255,
-        "channel_type":"PERSON",
-        "target_id":"xxxx",
-        "author_id":"xxxx",
-        "content":"xxxx",
-        "msg_id":"xxxx",
-        "msg_timestamp":1611559482954,
-        "nonce":"",
-        "extra":{
-            "type":"message_btn_click",
-            "body":{
-                "value": "123",
-                "msg_id": "xxx",
-                "user_id": "xxx",
-                "target_id" : ""
-            }
-        }
-    }
-}
-```
-
+## 文字频道消息格式示例
 
 ### 文本消息示例
 
@@ -172,6 +94,7 @@
 }
 ```
 
+
 ### 图片消息示例
 
 ```javascript
@@ -208,6 +131,7 @@
     "sn": 2499
 }
 ```
+
 
 ### 视频消息
 
@@ -251,6 +175,7 @@
 }
 ```
 
+
 ### 文件消息
 
 ```javascript
@@ -291,12 +216,166 @@
 ```
 
 
+### KMarkdown 消息示例
+
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 9,
+        "target_id": "48818200000000000",
+        "author_id": "2418200000",
+        "content": "*Hello World*",
+        "extra": {
+            "type": 9,
+            "guild_id": "6016389914000000",
+            "channel_name": "123123",
+            "mention": [],
+            "mention_all": false,
+            "mention_roles": [],
+            "mention_here": false,
+            "nav_channels": [],
+            "code": "",
+            "author": {
+                "id": "2418200000",
+                "username": "tz-un",
+                "identify_num": "5618",
+                "online": false,
+                "os": "Websocket",
+                "status": 1,
+                "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
+                "tag_info": {
+                    "color": "#6666CC",
+                    "text": "开黑啦"
+                },
+                "nickname": "12316993",
+                "roles": [
+                    111,
+                    112
+                ]
+            },
+            "kmarkdown": {
+                "raw_content": "Hello World",
+                "mention_part": [],
+                "mention_role_part": []
+            }
+        },
+        "msg_id": "789c0b23-xxxx-f7ae1a946f11",
+        "msg_timestamp": 1613996877757,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 181
+}
+```
+
+
+### Card 消息示例
+
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 10,
+        "target_id": "48818200000000000",
+        "author_id": "2418200000",
+        "content": "[{\"theme\":\"secondary\",\"color\":\"\",\"size\":\"lg\",\"modules\":[{\"type\":\"section\",\"mode\":\"left\",\"accessory\":null,\"text\":{\"type\":\"plain-text\",\"emoji\":true,\"content\":\"\\u5f00\\u9ed1\\u5566\\uff1a\\u4e13\\u5c5e\\u6e38\\u620f\\u73a9\\u5bb6\\u7684\\u6587\\u5b57\\u3001\\u8bed\\u97f3\\u4e0e\\u7ec4\\u961f\\u5de5\\u5177\\u3002\",\"elements\":[]},\"elements\":[]}],\"type\":\"card\"}]",
+        "extra": {
+            "type": 10,
+            "guild_id": "6016389910000000",
+            "channel_name": "文字频道",
+            "mention": [],
+            "mention_all": false,
+            "mention_roles": [],
+            "mention_here": false,
+            "nav_channels": [],
+            "code": "",
+            "author": {
+                "id": "2418200000",
+                "username": "tz-un",
+                "identify_num": "5618",
+                "online": false,
+                "os": "Websocket",
+                "status": 1,
+                "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
+                "tag_info": {
+                    "color": "#6666CC",
+                    "text": "开黑啦"
+                },
+                "nickname": "12316993",
+                "roles": [
+                    111,
+                    112
+                ]
+            },
+            "kmarkdown": {
+                "raw_content": "",
+                "mention_part": [],
+                "mention_role_part": []
+            }
+        },
+        "msg_id": "553f1f78-xxxxx-39c65d9c5584",
+        "msg_timestamp": 1613996743849,
+        "nonce": "",
+        "verify_token": "xxxxx"
+    },
+    "sn": 180
+}
+```
+
+
+## 系统事件消息示例
+
+
+### 事件：Card消息中的Button点击事件
+
+extra字段说明：
+
+|字段|类型|说明|
+|---|---|---|
+|type|string|消息的类型，本处为message_btn_click|
+|body|Map| |
+|↳msg_id|string|用户点击的消息id|
+|↳user_id|string|点击的用户|
+|↳value|string|return-val的值|
+|↳target_id|string|消息发送的目标id,频道消息为频道|
+
+示例：
+```javascript
+{
+    "s":0,
+    "sn":1,
+    "d":{
+        "type":255,
+        "channel_type":"PERSON",
+        "target_id":"xxxx",
+        "author_id":"xxxx",
+        "content":"xxxx",
+        "msg_id":"xxxx",
+        "msg_timestamp":1611559482954,
+        "nonce":"",
+        "extra":{
+            "type":"message_btn_click",
+            "body":{
+                "value": "123",
+                "msg_id": "xxx",
+                "user_id": "xxx",
+                "target_id" : ""
+            }
+        }
+    }
+}
+```
+
+
 ### 事件：频道内用户添加 reaction
 
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `added_reaction`|
 |body|Map| |
 |↳msg_id|string|用户点击的消息id|
@@ -341,7 +420,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `deleted_reaction`|
 |body|Map| |
 |↳msg_id|string|用户点击的消息id|
@@ -386,7 +465,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `updated_message`|
 |body|Map| |
 |↳msg_id|string|被更新的消息的id|
@@ -436,7 +515,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `deleted_message`|
 |body|Map| |
 |↳msg_id|string|被更新的消息的id|
@@ -474,7 +553,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `updated_guild`|
 |body|Map| |
 |↳id|string|服务器id|
@@ -528,7 +607,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `joined_guild`|
 |body|Map| |
 |↳user_id|string|用户id|
@@ -566,7 +645,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `exited_guild`|
 |body|Map| |
 |↳user_id|string|用户id|
@@ -604,7 +683,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `updated_guild_member`|
 |body|Map| |
 |↳user_id|string|用户id|
@@ -642,7 +721,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `added_channel`|
 |body|Map| 参考[对象-频道 Channel](https://developer.kaiheila.cn/doc/objects#频道Channel) |
 
@@ -695,7 +774,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `updated_channel`|
 |body|Map| 参考[对象-频道Channel](https://developer.kaiheila.cn/doc/objects#频道Channel) |
 
@@ -748,7 +827,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `deleted_channel`|
 |body|Map|  |
 |↳id|string|被删掉的频道id|
@@ -786,7 +865,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `updated_private_message`|
 |body|Map| |
 |↳msg_id|string|被更新的消息的id|
@@ -832,7 +911,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `deleted_private_message`|
 |body|Map| |
 |↳msg_id|string|被删除的消息的id|
@@ -876,7 +955,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `private_added_reaction`|
 |body|Map| |
 |↳msg_id|string|用户点击的消息id|
@@ -921,7 +1000,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `private_deleted_reaction`|
 |body|Map| |
 |↳msg_id|string|用户点击的消息id|
@@ -966,7 +1045,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `joined_channel`|
 |body|Map| |
 |↳user_id|string|用户id|
@@ -1006,7 +1085,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `exited_channel`|
 |body|Map| |
 |↳user_id|string|用户id|
@@ -1046,7 +1125,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `guild_member_online`|
 |body|Map| |
 |↳user_id|string|用户id|
@@ -1088,7 +1167,7 @@ extra字段说明：
 extra字段说明：
 
 |字段|类型|说明|
-|--|--|--|
+|---|---|---|
 |type|string|消息的类型，本处为 `guild_member_offline`|
 |body|Map| |
 |↳user_id|string|用户id|
@@ -1121,5 +1200,341 @@ extra字段说明：
         "verify_token": "xxx"
     },
     "sn": 74
+}
+```
+
+
+### 事件：服务器封禁用户
+
+extra字段说明：
+
+|字段|类型|说明|
+|---|---|---|
+|type|string|消息的类型，本处为 `added_block_list`|
+|body|Map| |
+|↳operator_id|string|操作人id|
+|↳remark|string|封禁理由|
+|↳user_id|Array|被封禁成员id列表|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "xxxx",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "added_block_list",
+            "body": {
+                "operator_id": "xxxx",
+                "remark": "频繁发广告",
+                "user_id": [
+                    "3751918xx",
+                    "xxxxxxxxx"
+                ]
+            }
+        },
+        "msg_id": "6dfaf089-xxxxx-63e8d55602d4",
+        "msg_timestamp": 1613997198323,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 183
+}
+```
+
+
+### 事件：服务器取消封禁用户
+
+extra字段说明：
+
+|字段|类型|说明|
+|---|---|---|
+|type|string|消息的类型，本处为 `deleted_block_list`|
+|body|Map| |
+|↳operator_id|string|操作人id|
+|↳user_id|Array|被封禁成员id列表|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "xxxx",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "deleted_block_list",
+            "body": {
+                "operator_id": "xxx",
+                "user_id": [
+                    "3751918xx",
+                ]
+            }
+        },
+        "msg_id": "14230d28-xxxx-b84609119e01",
+        "msg_timestamp": 1613997311786,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 184
+}
+```
+
+
+### 事件：服务器角色增加
+
+extra字段说明：
+
+|字段|类型|说明|
+|---|---|---|
+|type|string|消息的类型，本处为 `added_role`|
+|body|Map| 参考[对象-角色Role](https://developer.kaiheila.cn/doc/objects#角色Role) |
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "xxx",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "added_role",
+            "body": {
+                "role_id": 11111,
+                "name": "新角色",
+                "color": 0,
+                "position": 5,
+                "hoist": 0,
+                "mentionable": 0,
+                "permissions": 142924296
+            }
+        },
+        "msg_id": "c804a6a6-xxxx-e041ec3bb887",
+        "msg_timestamp": 1613998615411,
+        "nonce": "",
+        "verify_token": "xxxx"
+    },
+    "sn": 186
+}
+```
+
+
+### 事件：服务器角色删除
+
+extra字段说明：
+
+|字段|类型|说明|
+|---|---|---|
+|type|string|消息的类型，本处为 `deleted_role`|
+|body|Map| 参考[对象-角色Role](https://developer.kaiheila.cn/doc/objects#角色Role) |
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "xxx",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "deleted_role",
+            "body": {
+                "role_id": 11111,
+                "name": "新角色",
+                "color": 0,
+                "position": 5,
+                "hoist": 0,
+                "mentionable": 0,
+                "permissions": 142924296
+            }
+        },
+        "msg_id": "61f1dc5a-xxxx-47776deacd0c",
+        "msg_timestamp": 1614054458292,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 192
+}
+```
+
+
+### 事件：服务器角色更新
+
+
+extra字段说明：
+
+|字段|类型|说明|
+|---|---|---|
+|type|string|消息的类型，本处为 `updated_role`|
+|body|Map| 参考[对象-角色Role](https://developer.kaiheila.cn/doc/objects#角色Role) |
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "xxx",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "updated_role",
+            "body": {
+                "role_id": 599,
+                "name": "新角色xxx",
+                "color": 0,
+                "position": 6,
+                "hoist": 0,
+                "mentionable": 0,
+                "permissions": 142924316
+            }
+        },
+        "msg_id": "a1071327-xxxx-8fec42ae74bd",
+        "msg_timestamp": 1614054560619,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 194
+}
+```
+
+
+### 事件：新的频道置顶消息
+
+
+extra字段说明：
+
+|字段|类型|说明|
+|---|---|---|
+|type|string|消息的类型，本处为 `pinned_message`|
+|body|Map| |
+|↳channel_id|string|频道id|
+|↳operator_id|string|操作人id|
+|↳msg_id|string|被置顶的消息id|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "xxx",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "pinned_message",
+            "body": {
+                "channel_id": "xxxx",
+                "operator_id": "2418200000",
+                "msg_id": "4d5ef7ae-xxxx-b03e57cdf2e9"
+            }
+        },
+        "msg_id": "d2bad9e9-xxxx-265f74dc35bb",
+        "msg_timestamp": 1614054656178,
+        "nonce": "",
+        "verify_token": "xxxx"
+    },
+    "sn": 196
+}
+```
+
+
+### 事件：取消频道置顶消息
+
+
+extra字段说明：
+
+|字段|类型|说明|
+|---|---|---|
+|type|string|消息的类型，本处为 `unpinned_message`|
+|body|Map| |
+|↳channel_id|string|频道id|
+|↳operator_id|string|操作人id|
+|↳msg_id|string|被取消置顶的消息id|
+
+示例：
+```javascript
+{
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "xxx",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "unpinned_message",
+            "body": {
+                "channel_id": "xxxxx",
+                "operator_id": "2418200000",
+                "msg_id": "4d5ef7ae-xxxx-b03e57cdf2e9"
+            }
+        },
+        "msg_id": "9b269469-xxxx-9e526ea8f7f0",
+        "msg_timestamp": 1614054894618,
+        "nonce": "",
+        "verify_token": "xxxx"
+    },
+    "s": 0,
+    "sn": 197
+}
+```
+
+
+### 事件：用户信息更新
+
+**该事件与服务器无关, 遵循以下条件**
+
+1. 仅当用户的 **用户名** 或 **头像** 变更时;
+2. 仅通知与该用户存在关联的用户或Bot:
+a. 存在聊天会话
+b. 双方好友关系
+
+extra字段说明：
+
+|字段|类型|说明|
+|---|---|---|
+|type|string|消息的类型，本处为 `user_updated`|
+|body|Map| |
+|↳user_id|string|用户id|
+|↳username|string|用户名|
+|↳avatar|string|头像图片地址|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "PERSON",
+        "type": 255,
+        "target_id": "2862900000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "user_updated",
+            "body": {
+                "user_id": "2418200000",
+                "username": "ThisIsANewUsername",
+                "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon"
+            }
+        },
+        "msg_id": "02106a94-xxxx-d60f660485dd",
+        "msg_timestamp": 1614055075487,
+        "nonce": "",
+        "verify_token": "xxxx"
+    },
+    "sn": 199
 }
 ```
