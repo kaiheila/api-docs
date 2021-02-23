@@ -20,7 +20,7 @@
 
 | 字段| 类型| 说明|
 |---|---|---|
-|channel_type| string| 消息频道类型, `GROUP` 为频道消息，其它暂未开放|
+|channel_type| string| 消息频道类型, `GROUP` 为频道消息|
 |type|int|1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息，255:系统消息, 其它的暂未开放|
 |target_id|string|发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id|
 |author_id|string|发送者 id, 1 代表系统|

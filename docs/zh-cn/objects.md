@@ -13,8 +13,6 @@
 |nickname|string|用户在当前服务器的昵称|
 |roles|Array|用户在当前服务器中的角色 id 组成的列表|
 
-> 注: 仅当与服务器有关的API, 或产生自服务器的消息会携带`nickname`, `roles`等参数
-
 **示例**
 
 ```javascript
