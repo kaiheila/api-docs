@@ -1,5 +1,65 @@
 # 标准对象格式
 
+## 用户User
+
+| 字段| 类型| 说明|
+|---|---|---|
+|id|string|用户 id|
+|username|string|用户名|
+|identify_num|string|用户名 `#` 后的 4 位识别 id|
+|online|bool|用户在线状态|
+|avatar|string|头像图片地址|
+|bot|bool|是否是机器人|
+|nickname|string|用户在当前服务器的昵称|
+|roles|Array|用户在当前服务器中的角色 id 组成的列表|
+
+> 注: 仅当与服务器有关的API, 或产生自服务器的消息会携带`nickname`, `roles`等参数
+
+**示例**
+
+```javascript
+{
+    "id": "2418200000",
+    "username": "tz-un",
+    "identify_num": "5618",
+    "online": false,
+    "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
+    "nickname": "12316993",
+    "roles": [
+        111,
+        112
+    ]
+}
+```
+
+
+## 角色Role
+
+| 字段| 类型| 说明|
+|---|---|---|
+|role_id|int|角色id|
+|name|string|角色名称|
+|color|int|颜色色值|
+|position|int|顺序位置|
+|hoist|int|是否为角色设定(与普通成员分开显示)|
+|mentionable|int|是否允许任何人@提及此角色|
+|permissions|int|权限码|
+
+**示例**
+
+```javascript
+{
+    "role_id": 11111,
+    "name": "新角色",
+    "color": 0,
+    "position": 5,
+    "hoist": 0,
+    "mentionable": 0,
+    "permissions": 142924296
+}
+```
+
+
 ## 频道Channel
 
 |字段|类型|说明|
