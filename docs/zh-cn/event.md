@@ -602,6 +602,60 @@ extra字段说明：
 ```
 
 
+### 事件：服务器删除
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `deleted_guild`|
+|body|Map| |
+|↳id|string|服务器id|
+|↳name|string|服务器名称|
+|↳user_id|string|服务器主id|
+|↳icon|string|服务器logo图片地址|
+|↳notify_type|int|通知类型 `1`接受所有通知 `2`仅接收被提及消息 `3`不接收通知 |
+|↳region|string|服务器所在区域|
+|↳enable_open|int|是否为公开服务器, 1 or 0|
+|↳open_id|int|公开服务器id|
+|↳default_channel_id|string|默认文字频道id|
+|↳welcome_channel_id|string|欢迎频道id|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "GROUP",
+        "type": 255,
+        "target_id": "xxx",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "deleted_guild",
+            "body": {
+                "id": "xxx",
+                "name": "testDel",
+                "user_id": "2418200000",
+                "icon": "",
+                "notify_type": 2,
+                "region": "beijing",
+                "enable_open": 0,
+                "open_id": 0,
+                "default_channel_id": "xxxx",
+                "welcome_channel_id": "0"
+            }
+        },
+        "msg_id": "3d2bdb08-xxxx-faa2b9e77394",
+        "msg_timestamp": 1614086485182,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 210
+}
+```
+
+
 ### 事件：新成员加入服务器
 
 extra字段说明：
@@ -1536,5 +1590,81 @@ extra字段说明：
         "verify_token": "xxxx"
     },
     "sn": 199
+}
+```
+
+
+### 事件：自己新加入服务器
+
+> 当自己被邀请或主动加入新的服务器时, 产生该事件
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `self_joined_guild`|
+|body|Map| |
+|↳guild_id|string|服务器id|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "PERSON",
+        "type": 255,
+        "target_id": "2862900000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "self_joined_guild",
+            "body": {
+                "guild_id": "xxx"
+            }
+        },
+        "msg_id": "238063ab-xxxx-cd90c3cfb92f",
+        "msg_timestamp": 1614140348008,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 214
+}
+```
+
+
+### 事件：自己退出服务器
+
+> 当自己被踢出服务器或被拉黑或主动退出服务器时, 产生该事件
+
+extra字段说明：
+
+|字段|类型|说明|
+|--|--|--|
+|type|string|消息的类型，本处为 `self_exited_guild`|
+|body|Map| |
+|↳guild_id|string|服务器id|
+
+示例：
+```javascript
+{
+    "s": 0,
+    "d": {
+        "channel_type": "PERSON",
+        "type": 255,
+        "target_id": "2862900000",
+        "author_id": "1",
+        "content": "[系统消息]",
+        "extra": {
+            "type": "self_exited_guild",
+            "body": {
+                "guild_id": "xxx"
+            }
+        },
+        "msg_id": "xxxx",
+        "msg_timestamp": 1614140348008,
+        "nonce": "",
+        "verify_token": "xxx"
+    },
+    "sn": 215
 }
 ```
