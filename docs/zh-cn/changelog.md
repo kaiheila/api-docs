@@ -34,6 +34,8 @@
 - 将私聊消息相关接口从私聊会话接口列表中独立
 - 调整私聊消息路径: 从 `user-chat` 改为 `direct-message`
 - 废弃频道相关消息列表中的发送消息接口
+- 统一格式。消息事件的sessionId更换为session_id, sessionId会保留。
+- /api/v3/guild-mute/list添加return-type参数，支持返回格式可选
 
 ## [0.0.9] - 2021-02-10
 

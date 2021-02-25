@@ -1,4 +1,23 @@
 # 标准对象格式
+本文档列出了常见实例的标准格式，如果不做特殊说明，用户可以参照该文档格式。
+
+## 用户User
+| 参数名   | 类型         | 说明                                                         |
+| -------- | ------------ | ------------------------------------------------------------ |
+|id | string       | 用户的id                                       |     
+|username | string          | 用户的名称                                         |     
+|identify_num | string |用户名的认证数字，用户名正常为：user_name#identify_num |
+|online| boolean| 当前是否在线|
+|status|int|用户的状态, 0代表正常，10代表被封禁|
+|avatar|string|用户的头像的url地址|
+|bot|boolean|用户是否为机器人|
+|mobile_verified|boolean|是否手机号已验证|
+|system|boolean|是否为官方账号|
+|mobile_prefix|string|手机区号,如中国为86|
+|mobile|string|用户手机号，带掩码|
+|invited_count|int|当前邀请注册的人数|
+
+## 服务器Guild
 
 ## 用户User
 

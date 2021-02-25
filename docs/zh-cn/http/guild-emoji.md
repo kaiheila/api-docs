@@ -75,7 +75,7 @@
 ### 接口说明
 | 地址                         | 请求方式 | 说明 |
 | ---------------------------- | -------- | ---- |
-| `/api/v3/guild-emoji/create` | POST     |      |
+| `/api/v3/guild-emoji/create` | POST     | Header 中 `Content-Type` 必须为 `multipart/form-data`      |
 
 ### 参数列表
 

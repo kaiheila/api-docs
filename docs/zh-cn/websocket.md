@@ -69,7 +69,7 @@ Gateway的获取需要走http接口获取，参见[Gateway](https://developer.ka
     "s": 1,
     "d": {
         "code": 0,
-        "sessionId": "xxxx"
+        "session_id": "xxxx"
     }
 }
 ```
@@ -112,12 +112,7 @@ Gateway的获取需要走http接口获取，参见[Gateway](https://developer.ka
 {
     "s": 0,
     "d": {
-        "channelType": "GROUP",
-        "toUserId": "xxx",
-        "fromUserId": "1",
-        "content": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx",
-        "msgId": "bxx5",
-        "msgTimestamp": 1605499238
+        // 参见event
     },
     "sn": 1000
 }
@@ -207,7 +202,7 @@ Gateway的获取需要走http接口获取，参见[Gateway](https://developer.ka
 {
     "s": 6
     "d": {
-        "sessionId": "xxxx-xxxxxx-xxx-xxx"
+        "session_id": "xxxx-xxxxxx-xxx-xxx"
     }
 }
 ```
