@@ -8,6 +8,7 @@
 |--|--|--|
 |[/api/v3/channel/message](https://developer.kaiheila.cn/doc/http/message#发送频道聊天消息)|发送频道聊天消息|已弃用|
 |[/api/v3/channel/list](#获取频道列表)|获取频道列表|正常|
+|[/api/v3/channel/view](#获取频道详情)|获取频道详情|正常|
 |[/api/v3/channel/move-user](#语音频道之间移动用户)|语音频道之间移动用户|正常|
 |[/api/v3/channel-role/index](#频道角色权限详情)|获取频道角色权限详情|正常|
 |[/api/v3/channel-role/create](#创建频道角色权限)|创建频道角色权限|正常|
@@ -84,6 +85,69 @@
             "total": 2
         },
         "sort": []
+    }
+}
+```
+
+## 获取频道详情
+
+### 接口说明
+
+| 地址                     | 请求方式 | 说明 |
+| ------------------------ | -------- | ---- |
+| `/api/v3/channel/view` | GET     |      |
+
+### 参数列表
+
+| 参数名   | 类型   | 必传 | 参数区域 | 说明                                                  |
+| -------- | ------ | ---- | -------- | ----------------------------------------------------- |
+| target_id | string | 是 | GET | 频道id |
+
+### 返回参数说明
+
+| 参数名   | 类型         | 说明                                                         |
+| -------- | ------------ | ------------------------------------------------------------ |
+|id|string|频道id|
+|guild_id|string|服务器id|
+|master_id|string|频道创建者id|
+|parent_id|string|父分组频道id|
+|name|string|频道名称|
+|topic|string|频道简介|
+|type|int|频道类型|
+|level|int|频道排序|
+|slow_mode|int|慢速限制，单位秒，0代表无限制|
+|limit_amount|int|人数限制|
+|is_category|boolean|是否为分组类型|
+|is_readonly|boolean|是否只读|
+|is_private|boolean|是否私有|
+|is_private|boolean|是否私有|
+|server_type|int|语音服务器类型，目前只有类型`1`为可用的语音服务器类型|
+|server_url|string|语音服务器地址，`HOST:PORT`的格式|
+
+
+### 返回示例
+
+```javascript
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "id": "00000000000000000000000",
+        "guild_id": "00000000000000000000000",
+        "master_id": "00000000000000000000000",
+        "parent_id": "00000000000000000000000",
+        "name": "语音频道",
+        "topic": "",
+        "type": 1,
+        "level": 100,
+        "slow_mode": 0,
+        "limit_amount": 0,
+        "voice_quality": "1",
+        "is_category": false,
+        "is_readonly": false,
+        "is_private": false,
+        "server_type": 0,
+        "server_url": "hostname:prot"
     }
 }
 ```
