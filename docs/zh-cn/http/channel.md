@@ -107,9 +107,9 @@
 |parent_id|string|父分组频道id|
 |name|string|频道名称|
 |topic|string|频道简介|
-|type|int|频道类型|
+|type|int|频道类型，`1` 文字，`2` 语音|
 |level|int|频道排序|
-|slow_mode|int|慢速限制，单位秒，0代表无限制|
+|slow_mode|int|慢速限制，单位秒。用户发送消息之后再次发送消息的等待时间。|
 |limit_amount|int|人数限制|
 |is_category|boolean|是否为分组类型|
 |server_url|string|语音服务器地址，`HOST:PORT`的格式|
@@ -154,8 +154,8 @@
 |parent_id|string|否|POST|父分组id|
 |name|string|是|POST|频道名称|
 |type|string|否|POST|频道类型，`1` 文字，`2` 语音，默认为文字|
-|limit_amount|int|否|POST|人数限制|
-|voice_quality|int|否|POST|语音音质，默认高质量，`1`流畅，`2`正常|
+|limit_amount|int|否|POST|语音频道人数限制，最大`99`|
+|voice_quality|int|否|POST|语音音质，默认为`2`。`1`流畅，`2`正常，`3`高质量|
 
 
 ### 返回参数说明
