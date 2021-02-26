@@ -132,7 +132,7 @@
         "level": 100,
         "slow_mode": 0,
         "limit_amount": 0,
-        "voice_quality": "1",
+        "voice_quality": 1,
         "is_category": false,
         "server_url": "hostname:prot"
     }
@@ -179,7 +179,7 @@
         "level": 100,
         "slow_mode": 0,
         "limit_amount": 0,
-        "voice_quality": "1",
+        "voice_quality": 1,
         "is_category": false,
         "server_type": 0,
         "server_url": "hostname:prot"
