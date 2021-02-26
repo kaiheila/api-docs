@@ -7,11 +7,88 @@
 |接口|接口说明|维护状态|
 |--|--|--|
 |[/api/v3/channel/message](https://developer.kaiheila.cn/doc/http/message#发送频道聊天消息)|发送频道聊天消息|已弃用|
+|[/api/v3/channel/list](#获取频道列表)|获取频道列表|正常|
 |[/api/v3/channel/move-user](#语音频道之间移动用户)|语音频道之间移动用户|正常|
 |[/api/v3/channel-role/index](#频道角色权限详情)|获取频道角色权限详情|正常|
 |[/api/v3/channel-role/create](#创建频道角色权限)|创建频道角色权限|正常|
 |[/api/v3/channel-role/update](#更新频道角色权限)|更新频道角色权限|正常|
 |[/api/v3/channel-role/delete](#删除频道角色权限)|删除频道角色权限|正常|
+
+## 获取频道列表
+
+### 接口说明
+
+| 地址                     | 请求方式 | 说明 |
+| ------------------------ | -------- | ---- |
+| `/api/v3/channel/list` | GET     |      |
+
+### 参数列表
+
+| 参数名   | 类型   | 必传 | 参数区域 | 说明                                                  |
+| -------- | ------ | ---- | -------- | ----------------------------------------------------- |
+| guild_id | string | 是 | GET | 服务器id |
+
+### 返回参数说明
+
+| 参数名   | 类型         | 说明                                                         |
+| -------- | ------------ | ------------------------------------------------------------ |
+|id|string|频道id|
+|master_id|string|频道创建者id|
+|parent_id|string|父分组频道id|
+|name|string|频道名称|
+|type|int|频道类型|
+|level|int|频道排序|
+|limit_amount|int|人数限制|
+|is_category|boolean|是否为分组类型|
+|is_readonly|boolean|是否只读|
+|is_private|boolean|是否私有|
+
+
+### 返回示例
+
+```javascript
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "items": [
+            {
+                "id": "7480000000000000",
+                "master_id": "1700000",
+                "parent_id": "",
+                "name": "语音分组",
+                "type": 0,
+                "level": 100,
+                "limit_amount": 0,
+                "is_category": true,
+                "is_readonly": false,
+                "is_private": false
+            },
+            {
+                "id": "3321010478582002",
+                "master_id": "1700000",
+                "parent_id": "7480000000000000",
+                "name": "语音频道",
+                "type": 2,
+                "level": 100,
+                "limit_amount": 25,
+                "is_category": false,
+                "is_readonly": false,
+                "is_private": false
+            },
+        ],
+        "meta": {
+            "page": 1,
+            "page_total": 1,
+            "page_size": 50,
+            "total": 2
+        },
+        "sort": []
+    }
+}
+```
+
+
 
 ## 语音频道之间移动用户
 
