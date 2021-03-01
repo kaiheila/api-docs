@@ -6,7 +6,7 @@
 
 |接口|接口说明|维护状态|
 |--|--|--|
-|[/api/v3/guild-role/index](#获取服务器角色列表)|获取服务器角色列表|正常|
+|[/api/v3/guild-role/list](#获取服务器角色列表)|获取服务器角色列表|正常|
 |[/api/v3/guild-role/create](#创建服务器角色)|创建服务器角色|正常|
 |[/api/v3/guild-role/update](#更新服务器角色)|更新服务器角色|正常|
 |[/api/v3/guild-role/delete](#删除服务器角色)|删除服务器角色|正常|
@@ -62,7 +62,7 @@ permissions & (1 << bitValue)  == (1 << bitValue);
 ### 接口说明
 |地址|请求方式|说明|
 |--|--|--|
-|`/api/v3/guild-role/index`|GET| |
+|`/api/v3/guild-role/list`|GET| |
 
 ### 参数列表
 
@@ -88,26 +88,30 @@ permissions & (1 << bitValue)  == (1 << bitValue);
 {
     "code": 0,
     "message": "操作成功",
-    "data": [
-        {
-            "role_id": 5712,
-            "name": "新角色1",
-            "color": 3066993,
-            "position": 1,
-            "hoist": 0,
-            "mentionable": 0,
-            "permissions": 147643914
-        }, 
-        {
-            "role_id": 0,
-            "name": "@全体成员",
-            "color": 0,
-            "position": 999,
-            "hoist": 0,
-            "mentionable": 0,
-            "permissions": 147642888
-        }       
-    ],
+    "data": {
+        "items": [
+            {
+                "role_id": 5712,
+                "name": "新角色1",
+                "color": 3066993,
+                "position": 1,
+                "hoist": 0,
+                "mentionable": 0,
+                "permissions": 147643914
+            }, 
+            {
+                "role_id": 0,
+                "name": "@全体成员",
+                "color": 0,
+                "position": 999,
+                "hoist": 0,
+                "mentionable": 0,
+                "permissions": 147642888
+            }
+        ],
+        "meta": {//参见标准格式},
+        "sort": {//参见标准格式}
+    },
 }
 ```
 

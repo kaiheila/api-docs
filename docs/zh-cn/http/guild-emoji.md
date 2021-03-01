@@ -6,7 +6,7 @@
 
 | 接口                                             | 接口说明           | 维护状态 |
 | ------------------------------------------------ | ------------------ | -------- |
-| [/api/v3/guild-emoji/index](#获取服务器表情列表) | 获取服务器表情列表 | 正常     |
+| [/api/v3/guild-emoji/list](#获取服务器表情列表) | 获取服务器表情列表 | 正常     |
 | [/api/v3/guild-emoji/create](#创建服务器表情)    | 创建服务器表情     | 正常     |
 | [/api/v3/guild-emoji/update](#更新服务器表情)    | 更新服务器表情     | 正常     |
 | [/api/v3/guild-emoji/delete](#删除服务器表情)    | 删除服务器表情     | 正常     |
@@ -16,7 +16,7 @@
 ### 接口说明
 |地址|请求方式|说明|
 |--|--|--|
-|`/api/v3/guild-emoji/index`|GET| |
+|`/api/v3/guild-emoji/list`|GET| |
 
 ### 参数列表
 
@@ -39,34 +39,38 @@
 {
     "code": 0,
     "message": "操作成功",
-    "data": [
-        {
-            "name": "ceeb653ely1gm1ayxhrnnj20j60jpwfu",
-            "id": "XXXXXXXXX/4c43XXXXXXX",
-            "user_info": {
-                "id": "17000",
-                "username": "用户名",
-                "identify_num": "467",
-                "online": true,
-                "os": "Websocket",
-                "status": 1,
-                "avatar": "https://XXXXXXXXXXXX"
+    "data": { 
+        "items": [
+            {
+                "name": "ceeb653ely1gm1ayxhrnnj20j60jpwfu",
+                "id": "XXXXXXXXX/4c43XXXXXXX",
+                "user_info": {
+                    "id": "17000",
+                    "username": "用户名",
+                    "identify_num": "467",
+                    "online": true,
+                    "os": "Websocket",
+                    "status": 1,
+                    "avatar": "https://XXXXXXXXXXXX"
+                }
+            },
+            {
+                "name": "ceeb653ely1gm6d2213ycj20go0gogvj",
+                "id": "916864XXX464X/c74XXXXXXXX",
+                "user_info": {
+                    "id": "10000",
+                    "username": "用户名",
+                    "identify_num": "0123",
+                    "online": true,
+                    "os": "Websocket",
+                    "status": 1,
+                    "avatar": "https://XXXXXXXXXXX"
+                }
             }
-        },
-        {
-            "name": "ceeb653ely1gm6d2213ycj20go0gogvj",
-            "id": "916864XXX464X/c74XXXXXXXX",
-            "user_info": {
-                "id": "10000",
-                "username": "用户名",
-                "identify_num": "0123",
-                "online": true,
-                "os": "Websocket",
-                "status": 1,
-                "avatar": "https://XXXXXXXXXXX"
-            }
-        }
-    ]
+        ],
+        meta: {//参考标准格式},
+        sort: {//参考标准格式}
+    }
 }
 ```
 
