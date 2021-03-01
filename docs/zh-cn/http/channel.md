@@ -9,6 +9,7 @@
 |[/api/v3/channel/message](https://developer.kaiheila.cn/doc/http/message#发送频道聊天消息)|发送频道聊天消息|已弃用|
 |[/api/v3/channel/list](#获取频道列表)|获取频道列表|正常|
 |[/api/v3/channel/view](#获取频道详情)|获取频道详情|正常|
+|[/api/v3/channel/create](#创建频道)|创建频道|正常|
 |[/api/v3/channel/move-user](#语音频道之间移动用户)|语音频道之间移动用户|正常|
 |[/api/v3/channel-role/index](#频道角色权限详情)|获取频道角色权限详情|正常|
 |[/api/v3/channel-role/create](#创建频道角色权限)|创建频道角色权限|正常|
