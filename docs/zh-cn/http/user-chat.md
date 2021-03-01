@@ -6,7 +6,7 @@
 
 |接口|接口说明|维护状态|
 |--|--|--|
-|[/api/v3/user-chat/index](#获取私信聊天会话列表)|获取私信聊天会话列表|正常|
+|[/api/v3/user-chat/list](#获取私信聊天会话列表)|获取私信聊天会话列表|正常|
 |[/api/v3/user-chat/view](#获取私信聊天会话详情)|获取私信聊天会话详情|正常|
 |[/api/v3/user-chat/create](#创建私信聊天会话)|创建私信聊天会话|正常|
 |[/api/v3/user-chat/delete](#删除私信聊天会话)|删除私信聊天会话|正常|
@@ -17,7 +17,7 @@
 
 |地址|请求方式|说明|
 |--|--|--|
-|`/api/v3/user-chat/index`|GET| |
+|`/api/v3/user-chat/list`|GET| |
 
 ### 参数列表
 
@@ -44,20 +44,24 @@
 {
     "code": 0,
     "message": "操作成功",
-    "data": [
-        {
-            "code": "sderwrw**",
-            "last_read_time": 1612696873000,
-            "latest_msg_time": 1612696873000,
-            "unread_count": 0,
-            "target_info": {
-                "id": "415212",
-                "username": "工具",
-                "online": false,
-                "avatar": "https://***.jpg"
-            },
-        }
-    ]
+    "data": {
+        "items" : [
+            {
+                "code": "sderwrw**",
+                "last_read_time": 1612696873000,
+                "latest_msg_time": 1612696873000,
+                "unread_count": 0,
+                "target_info": {
+                    "id": "415212",
+                    "username": "工具",
+                    "online": false,
+                    "avatar": "https://***.jpg"
+                },
+            }
+        ],
+        "sort":{ // 参考标准格式 },
+        "meta":{ // 参考标准格式 }
+    }
 }
 ```
 
