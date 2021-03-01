@@ -7,10 +7,219 @@
 |接口|接口说明|维护状态|
 |--|--|--|
 |[/api/v3/channel/message](https://developer.kaiheila.cn/doc/http/message#发送频道聊天消息)|发送频道聊天消息|已弃用|
+|[/api/v3/channel/list](#获取频道列表)|获取频道列表|正常|
+|[/api/v3/channel/view](#获取频道详情)|获取频道详情|正常|
+|[/api/v3/channel/create](#创建频道)|创建频道|正常|
+|[/api/v3/channel/move-user](#语音频道之间移动用户)|语音频道之间移动用户|正常|
 |[/api/v3/channel-role/index](#频道角色权限详情)|获取频道角色权限详情|正常|
 |[/api/v3/channel-role/create](#创建频道角色权限)|创建频道角色权限|正常|
 |[/api/v3/channel-role/update](#更新频道角色权限)|更新频道角色权限|正常|
 |[/api/v3/channel-role/delete](#删除频道角色权限)|删除频道角色权限|正常|
+
+## 获取频道列表
+
+### 接口说明
+
+| 地址                     | 请求方式 | 说明 |
+| ------------------------ | -------- | ---- |
+| `/api/v3/channel/list` | GET     |      |
+
+### 参数列表
+
+| 参数名   | 类型   | 必传 | 参数区域 | 说明                                                  |
+| -------- | ------ | ---- | -------- | ----------------------------------------------------- |
+| guild_id | string | 是 | GET | 服务器id |
+
+### 返回参数说明
+
+| 参数名   | 类型         | 说明                                                         |
+| -------- | ------------ | ------------------------------------------------------------ |
+|id|string|频道id|
+|master_id|string|频道创建者id|
+|parent_id|string|父分组频道id|
+|name|string|频道名称|
+|type|int|频道类型|
+|level|int|频道排序|
+|limit_amount|int|人数限制|
+|is_category|boolean|是否为分组类型|
+
+
+### 返回示例
+
+```javascript
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "items": [
+            {
+                "id": "7480000000000000",
+                "master_id": "1700000",
+                "parent_id": "",
+                "name": "语音分组",
+                "type": 0,
+                "level": 100,
+                "limit_amount": 0,
+                "is_category": true
+            },
+            {
+                "id": "3321010478582002",
+                "master_id": "1700000",
+                "parent_id": "7480000000000000",
+                "name": "语音频道",
+                "type": 2,
+                "level": 100,
+                "limit_amount": 25,
+                "is_category": false
+            },
+        ],
+        "meta": {
+            "page": 1,
+            "page_total": 1,
+            "page_size": 50,
+            "total": 2
+        },
+        "sort": []
+    }
+}
+```
+
+## 获取频道详情
+
+### 接口说明
+
+| 地址                     | 请求方式 | 说明 |
+| ------------------------ | -------- | ---- |
+| `/api/v3/channel/view` | GET     |      |
+
+### 参数列表
+
+| 参数名   | 类型   | 必传 | 参数区域 | 说明                                                  |
+| -------- | ------ | ---- | -------- | ----------------------------------------------------- |
+| target_id | string | 是 | GET | 频道id |
+
+### 返回参数说明
+
+| 参数名   | 类型         | 说明                                                         |
+| -------- | ------------ | ------------------------------------------------------------ |
+|id|string|频道id|
+|guild_id|string|服务器id|
+|master_id|string|频道创建者id|
+|parent_id|string|父分组频道id|
+|name|string|频道名称|
+|topic|string|频道简介|
+|type|int|频道类型，`1` 文字，`2` 语音|
+|level|int|频道排序|
+|slow_mode|int|慢速限制，单位秒。用户发送消息之后再次发送消息的等待时间。|
+|limit_amount|int|人数限制|
+|is_category|boolean|是否为分组类型|
+|server_url|string|语音服务器地址，`HOST:PORT`的格式|
+
+
+### 返回示例
+
+```javascript
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "id": "00000000000000000000000",
+        "guild_id": "00000000000000000000000",
+        "master_id": "00000000000000000000000",
+        "parent_id": "00000000000000000000000",
+        "name": "语音频道",
+        "topic": "",
+        "type": 1,
+        "level": 100,
+        "slow_mode": 0,
+        "limit_amount": 0,
+        "voice_quality": 1,
+        "is_category": false,
+        "server_url": "hostname:prot"
+    }
+}
+```
+
+## 创建频道
+
+### 接口说明
+|地址|请求方式|说明|
+|--|--|--|
+|`/api/v3/channel/create`|POST| |
+
+### 参数列表
+
+| 参数名     | 类型 | 必传 | 参数区域 | 说明                                              |
+| ---------- | ---- | ---- | -------  | ------------------------------------------------- |
+|guild_id|string|是|POST|服务器id|
+|parent_id|string|否|POST|父分组id|
+|name|string|是|POST|频道名称|
+|type|string|否|POST|频道类型，`1` 文字，`2` 语音，默认为文字|
+|limit_amount|int|否|POST|语音频道人数限制，最大`99`|
+|voice_quality|int|否|POST|语音音质，默认为`2`。`1`流畅，`2`正常，`3`高质量|
+
+
+### 返回参数说明
+
+返回参数为创建成功的频道信息，可以参考 [获取频道详情](#获取频道详情) 接口。
+
+### 返回示例
+
+```javascript
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "id": "00000000000000000000000",
+        "guild_id": "00000000000000000000000",
+        "master_id": "00000000000000000000000",
+        "parent_id": "00000000000000000000000",
+        "name": "语音频道",
+        "topic": "",
+        "type": 1,
+        "level": 100,
+        "slow_mode": 0,
+        "limit_amount": 0,
+        "voice_quality": 1,
+        "is_category": false,
+        "server_type": 0,
+        "server_url": "hostname:prot"
+    }
+}
+```
+
+## 语音频道之间移动用户
+
+### 接口说明
+
+只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
+
+|地址|请求方式|说明|
+|--|--|--|
+|`/api/v3/channel/move-user`|POST| |
+
+### 参数列表
+
+| 参数名     | 类型 | 必传 | 参数区域 | 说明                                              |
+| ---------- | ---- | ---- | -------  | ------------------------------------------------- |
+|target_id|string|是|POST|目标频道id, 需要是语音频道|
+|user_ids|array|是|POST|用户id的数组|
+
+
+### 返回参数说明
+
+| 参数名   | 类型         | 说明                                                         |
+| -------- | ------------ | ------------------------------------------------------------ |
+
+### 返回示例
+
+```javascript
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": []
+}
+```
 
 ## 频道角色权限详情
 
