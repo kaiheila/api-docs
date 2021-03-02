@@ -16,19 +16,6 @@
 |mobile_prefix|string|手机区号,如中国为86|
 |mobile|string|用户手机号，带掩码|
 |invited_count|int|当前邀请注册的人数|
-
-## 服务器Guild
-
-## 用户User
-
-| 字段| 类型| 说明|
-|---|---|---|
-|id|string|用户 id|
-|username|string|用户名|
-|identify_num|string|用户名 `#` 后的 4 位识别 id|
-|online|bool|用户在线状态|
-|avatar|string|头像图片地址|
-|bot|bool|是否是机器人|
 |nickname|string|用户在当前服务器的昵称|
 |roles|Array|用户在当前服务器中的角色 id 组成的列表|
 
@@ -41,6 +28,12 @@
     "identify_num": "5618",
     "online": false,
     "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
+    "bot": false,
+    "mobile_verified": true,
+    "system": false,
+    "mobile_prefix": "86",
+    "mobile": "123****7890",
+    "invited_count": 33,
     "nickname": "12316993",
     "roles": [
         111,
@@ -49,6 +42,64 @@
 }
 ```
 
+## 服务器Guild
+
+| 字段| 类型| 说明|
+|---|---|---|
+|id|string|服务器id|
+|name|string|服务器名称|
+|topic|string|服务器主题|
+|master_id|string|服务器主的id|
+|icon|string|服务器icon的地址|
+|notify_type|int|通知类型, `0`代表默认使用服务器通知设置，`1`代表接收所有通知, `2`代表仅@被提及，`3`代表不接收通知|
+|region|string|服务器默认使用语音区域|
+|enable_open|boolean|是否为公开服务器|
+|open_id|string|公开服务器id|
+|default_channel_id|string|默认频道id|
+|welcome_channel_id|string|欢迎频道id|
+|roles|array|角色列表|
+|channels|array|频道列表|
+
+**示例**
+
+```javascript
+{
+  "id": "2405000000000",
+  "name": "工具",
+  "topic": "",
+  "master_id": "9200000000",
+  "icon": "",
+  "notify_type": 1,
+  "region": "beijing",
+  "enable_open": false,
+  "open_id": "0",
+  "default_channel_id": "2369000000000",
+  "welcome_channel_id": "0",
+  "roles": [
+      {
+          "role_id": 109472,
+          "name": "管理员",
+          "color": 0,
+          "position": 1,
+          "hoist": 0,
+          "mentionable": 0,
+          "permissions": 1
+      }
+  ],
+  "channels": [
+      {
+          "id": "2369000000000",
+          "master_id": "9200000000",
+          "parent_id": "",
+          "name": "你好",
+          "type": 1,
+          "level": 1,
+          "limit_amount": 0,
+          "is_category": false
+      },
+  ]
+}
+```
 
 ## 角色Role
 
