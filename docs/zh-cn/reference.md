@@ -80,10 +80,10 @@ sort|string|GET|代表排序的字段, 比如`-id`代表`id`按`DESC`排序，`i
 | -------- | ------------ | ------------------------------------------------------------ |
 |items|Array|数据列表|
 |meta|Map|分页的信息|
-|↳page|int|服务器id|
-|↳page_total|int|服务器id|
-|↳page_size|int|服务器id|
-|↳total|int|服务器id|
+|↳page|int|页码|
+|↳page_total|int|总页数|
+|↳page_size|int|每一页的数据|
+|↳total|int|总数据量|
 |sort|Map|分页的排序, key:+-1, 如果为1代表按key升序，如果为-1代表按key降序|
 
 
