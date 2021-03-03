@@ -40,7 +40,7 @@
 
 | 参数名     | 类型 | 必传 | 参数区域 | 说明                                              |
 | ---------- | ---- | ---- | -------  | ------------------------------------------------- |
-| chat_code | string  | 是    | GET | 私信会话 Code                             |
+| chat_code | string  | 否 | GET | 私信会话 Code。`chat_code` 与 `target_id` 必须传一个 |
 | target_id | string  | 否    | GET | 目标用户 id，后端会自动创建会话。有此参数之后可不传 `chat_code `参数 |
 | msg_id | string  | 否    | GET | 参考消息 id，不传则默认为最新的消息 id                                        |
 | flag    | string  | 否   | GET | 查询模式，有三种模式可以选择。不传则默认查询最新的消息 |
@@ -103,7 +103,7 @@
 | ---------- | ---- | ---- | -------  | ------------------------------------------------- |
 | type | int  | 否    | POST | 消息类型, 见[type], 不传默认为 `1`, 代表文本类型。`2` 图片消息，`3` 视频消息，`4` 文件消息，`9` 代表 [kmarkdown](https://developer.kaiheila.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmessage)。|
 | target_id | string  | 否    | POST | 目标用户 id，后端会自动创建会话。有此参数之后可不传 `chat_code `参数 |
-| chat_code | string  | 是    | POST | 目标会话 id                                    |
+| chat_code | string  | 否   | POST | 目标会话 Code，`chat_code` 与 `target_id` 必须传一个 |
 | content    | string  | 是   | POST | 消息内容                                          |
 | quote    | string  | 否   | POST | 回复某条消息的 `msgId`                                          |
 | nonce      | string  | 否    | POST | nonce, 服务端不做处理, 原样返回                   |
