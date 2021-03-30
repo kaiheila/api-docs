@@ -209,6 +209,7 @@
 | msg_id | string | 是   | POST | 消息 id |
 | content    | string  | 是   | POST | 消息内容                                          |
 | quote    | string  | 否   | POST | 回复某条消息的 `msgId`。如果为空，则代表删除回复，不传则无影响。                  |
+| temp_target_id    | string  | 否   | POST | 用户 id，针对特定用户临时更新消息，必须是正常消息才能更新。与发送临时消息概念不同，但同样不保存数据库。                 |
 
 ### 返回参数说明
 
