@@ -306,7 +306,7 @@
 | 参数名     | 类型 | 必传 | 参数区域 | 说明                                              |
 | ---------- | ---- | ---- | -------  | ------------------------------------------------- |
 |channel_id|string|是|POST|频道id, 如果频道是分组的id,会同步给所有sync=1的子频道|
-|type|string|否|POST|value的类型，只能为"role_id","user_id",不传则默认为"role_id"|
+|type|string|否|POST|value的类型，只能为"role_id","user_id",不传则默认为"user_id"|
 |value|string|否|POST|value的值|
 
 
@@ -336,7 +336,7 @@
 | 参数名     | 类型 | 必传 | 参数区域 | 说明                                              |
 | ---------- | ---- | ---- | -------  | ------------------------------------------------- |
 |channel_id|string|是|POST|频道id, 如果频道是分组的id,会同步给所有sync=1的子频道|
-|type|string|否|POST|value的类型，只能为"role_id","user_id",不传则默认为"role_id"|
+|type|string|否|POST|value的类型，只能为"role_id","user_id",不传则默认为"user_id"|
 |value|string|否|POST|value的值|
 |allow|int|否|POST|默认为0,想要设置的允许的权限值|
 |deny|int|否|POST|默认为0,想要设置的拒绝的权限值|
@@ -375,7 +375,7 @@
 | 参数名     | 类型 | 必传 | 参数区域 | 说明                                              |
 | ---------- | ---- | ---- | -------  | ------------------------------------------------- |
 |channel_id|string|是|POST|频道id, 如果频道是分组的id,会同步给所有sync=1的子频道|
-|type|string|否|POST|value的类型，只能为"role_id","user_id",不传则默认为"role_id"|
+|type|string|否|POST|value的类型，只能为"role_id","user_id",不传则默认为"user_id"|
 |value|string|否|POST|value的值，默认为0|
 
 ### 返回参数说明
