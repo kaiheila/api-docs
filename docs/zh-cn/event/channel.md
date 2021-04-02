@@ -303,7 +303,7 @@
 | type        | string | 消息的类型，本处为 `deleted_channel` |
 | body        | Map    |                                      |
 | ↳id         | string | 被删掉的频道id                       |
-| ↳deleted_at | string | 删除时间(毫秒)                       |
+| ↳deleted_at | int    | 删除时间(毫秒)                       |
 
 #### 示例：
 
