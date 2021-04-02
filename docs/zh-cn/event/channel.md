@@ -247,8 +247,8 @@
 
 | 字段 | 类型   | 说明                               |
 | ---- | ------ | ---------------------------------- |
-| type | string | 消息的类型，本处为 `added_channel` |
-| body | Map    | 参考[对象-频道 Channel](           |
+| type | string | 消息的类型，本处为 `updated_channel` |
+| body | Map    | 参考[对象-频道 Channel](https://developer.kaiheila.cn/doc/objects#频道Channel) |
 
 #### 示例
 
