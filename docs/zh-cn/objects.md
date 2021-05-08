@@ -137,11 +137,11 @@
 |user_id|string|创建者id|
 |guild_id|string|服务器id|
 |topic|string|频道简介|
-|is_category|int|是否为分组|
+|is_category|boolean|是否为分组|
 |parent_id|string|上级分组的id|
 |level|int|排序level|
 |slow_mode|int|慢速模式下限制发言的最短时间间隔, 单位为秒(s)|
-|type|string|频道类型: `1` 文字频道, `2` 语音频道|
+|type|int|频道类型: `1` 文字频道, `2` 语音频道|
 |permission_overwrites|string|针对角色在该频道的权限覆写规则组成的列表|
 |permission_users|array|针对用户在该频道的权限覆写规则组成的列表|
 |permission_sync|int|权限设置是否与分组同步, `1` or `0`|
@@ -153,9 +153,9 @@
     "name": "新的频道",
     "user_id": "2418239356",
     "guild_id": "6016389000000",
-    "is_category": 0,
+    "is_category": false,
     "parent_id": "6016400000000000",
-    "level": null,
+    "level": 12,
     "slow_mode": 0,
     "topic": "新的频道的说明",
     "type": 1,
@@ -166,7 +166,27 @@
             "deny": 0
         }
     ],
-    "permission_users": [],
+    "permission_users": [
+        {
+            //user字段参见 https://developer.kaiheila.cn/doc/objects#%E7%94%A8%E6%88%B7User
+            "user": {
+                "id": "0",
+                "username": "花荣",
+                "identify_num": "12",
+                "online": true,
+                "os": "Websocket",
+                "status": 1,
+                "avatar": "xxxx",
+                "mobile_verified": true,
+                "nickname": "test",
+                "roles": [],
+                "joined_at": 1602596021000,
+                "active_time": 1612703344396
+            },
+            "allow": 0,
+            "deny": 0
+        } 
+    ],
     "permission_sync": 1
 }
 ```

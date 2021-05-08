@@ -215,9 +215,9 @@
                 "name": "新的频道",
                 "user_id": "2418239356",
                 "guild_id": "6016389000000",
-                "is_category": 0,
+                "is_category": false,
                 "parent_id": "6016400000000000",
-                "level": null,
+                "level": 12,
                 "slow_mode": 0,
                 "topic": "新的频道的说明",
                 "type": 1,
@@ -228,7 +228,26 @@
                         "deny": 0
                     }
                 ],
-                "permission_users": [],
+                "permission_users": [
+                    { 
+                        "user": {
+                            "id": "0",
+                            "username": "花荣",
+                            "identify_num": "12",
+                            "online": true,
+                            "os": "Websocket",
+                            "status": 1,
+                            "avatar": "xxxx",
+                            "mobile_verified": true,
+                            "nickname": "test",
+                            "roles": [],
+                            "joined_at": 1602596021000,
+                            "active_time": 1612703344396
+                        },
+                        "allow": 0,
+                        "deny": 0
+                    } 
+                ],
                 "permission_sync": 1
             }
         },
@@ -264,13 +283,14 @@
         "extra": {
         "type": "updated_channel",
         "body": {
+            
             "id": "53002000000000",
             "name": "更新后的频道",
             "user_id": "2418239356",
             "guild_id": "6016389000000",
-            "is_category": 0,
+            "is_category": false,
             "parent_id": "6016400000000000",
-            "level": null,
+            "level": 12,
             "slow_mode": 0,
             "topic": "更新后的频道的说明",
             "type": 1,
