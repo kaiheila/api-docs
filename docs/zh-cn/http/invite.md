@@ -40,11 +40,20 @@
     "code": 0,
     "message": "操作成功",
     "data": {
-        "channel_id": "xxxxx",
-        "guild_id": "xxxx",
-        "url_code": "xxx",
-        "url": "https://kaihei.co/xxxx",
-        "user": {}, //... 
+        "items":[
+            "channel_id": "xxxxx",
+            "guild_id": "xxxx",
+            "url_code": "xxx",
+            "url": "https://kaihei.co/xxxx",
+            "user": {}, //... 
+        ],
+        "meta": {
+            "page": 1,
+            "page_total": 1,
+            "page_size": 50,
+            "total": 1
+        },
+        "sort": {}
     }
 }
 ```
