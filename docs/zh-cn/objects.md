@@ -142,7 +142,7 @@
 |level|int|排序level|
 |slow_mode|int|慢速模式下限制发言的最短时间间隔, 单位为秒(s)|
 |type|int|频道类型: `1` 文字频道, `2` 语音频道|
-|permission_overwrites|string|针对角色在该频道的权限覆写规则组成的列表|
+|permission_overwrites|Array|针对角色在该频道的权限覆写规则组成的列表|
 |permission_users|array|针对用户在该频道的权限覆写规则组成的列表|
 |permission_sync|int|权限设置是否与分组同步, `1` or `0`|
 
