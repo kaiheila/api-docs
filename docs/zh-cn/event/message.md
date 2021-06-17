@@ -319,7 +319,8 @@
         "type": 10,
         "target_id": "48818200000000000",
         "author_id": "2418200000",
-        "content": "[{\"theme\":\"secondary\",\"color\":\"\",\"size\":\"lg\",\"modules\":[{\"type\":\"section\",\"mode\":\"left\",\"accessory\":null,\"text\":{\"type\":\"plain-text\",\"emoji\":true,\"content\":\"\\u5f00\\u9ed1\\u5566\\uff1a\\u4e13\\u5c5e\\u6e38\\u620f\\u73a9\\u5bb6\\u7684\\u6587\\u5b57\\u3001\\u8bed\\u97f3\\u4e0e\\u7ec4\\u961f\\u5de5\\u5177\\u3002\",\"elements\":[]},\"elements\":[]}],\"type\":\"card\"}]",
+        // 卡片内容省略
+        "content": "",
         "extra": {
             "type": 10,
             "guild_id": "6016389910000000",

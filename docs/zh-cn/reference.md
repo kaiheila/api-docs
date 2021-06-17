@@ -71,7 +71,7 @@ Accept-Language: en-us
 参数名 | 类型 |区域| 说明
 ---|---|---|---
 page |int|GET|列表页中有，代表页
-page_size|int|GET|列表页中有，每页数据大小，默认为 50
+page_size|int|GET|列表页中有，每页数据大小，默认为 50, 常规情况下page_size最大为50
 sort|string|GET|代表排序的字段, 比如`-id`代表`id`按`DESC`排序，`id`代表`id`按`ASC`排序。不一定有, 如果有，接口中会声明支持的排序字段。
 
 正常的列表页的返回参数会保持如下的格式:
