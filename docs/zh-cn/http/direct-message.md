@@ -74,7 +74,7 @@
                 "type": 1,
                 "content": "Hello",
                 "embeds": [],
-                "attachments": false,
+                "attachments": [],
                 "create_at": 1612677356950,
                 "updated_at": 0,
                 "reactions": [],

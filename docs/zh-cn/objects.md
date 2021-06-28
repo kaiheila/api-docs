@@ -6,17 +6,14 @@
 | -------- | ------------ | ------------------------------------------------------------ |
 |id | string       | 用户的id                                       |     
 |username | string          | 用户的名称                                         |     
+|nickname|string|用户在当前服务器的昵称|
 |identify_num | string |用户名的认证数字，用户名正常为：user_name#identify_num |
 |online| boolean| 当前是否在线|
+|bot| boolean| 是否为机器人|
 |status|int|用户的状态, 0代表正常，10代表被封禁|
 |avatar|string|用户的头像的url地址|
-|bot|boolean|用户是否为机器人|
+|vip_avatar|string|vip用户的头像的url地址，可能为gif动图|
 |mobile_verified|boolean|是否手机号已验证|
-|system|boolean|是否为官方账号|
-|mobile_prefix|string|手机区号,如中国为86|
-|mobile|string|用户手机号，带掩码|
-|invited_count|int|当前邀请注册的人数|
-|nickname|string|用户在当前服务器的昵称|
 |roles|Array|用户在当前服务器中的角色 id 组成的列表|
 
 **示例**
@@ -28,17 +25,15 @@
     "identify_num": "5618",
     "online": false,
     "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
+    "vip_avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
     "bot": false,
+    "status" : 0,
     "mobile_verified": true,
-    "system": false,
-    "mobile_prefix": "86",
-    "mobile": "123****7890",
-    "invited_count": 33,
     "nickname": "12316993",
     "roles": [
         111,
         112
-    ]
+    ],
 }
 ```
 

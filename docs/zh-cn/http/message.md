@@ -98,7 +98,7 @@
                         "pic": "https://**/lc01gi.jpg"
                     }
                 ],
-                "attachments": false,
+                "attachments": [],
                 "create_at": 1612685332518,
                 "updated_at": 0,
                 "reactions": [

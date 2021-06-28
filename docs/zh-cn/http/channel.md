@@ -155,7 +155,7 @@
 |guild_id|string|是|POST|服务器id|
 |parent_id|string|否|POST|父分组id|
 |name|string|是|POST|频道名称|
-|type|string|否|POST|频道类型，`1` 文字，`2` 语音，默认为文字|
+|type|int|否|POST|频道类型，`1` 文字，`2` 语音，默认为`1`|
 |limit_amount|int|否|POST|语音频道人数限制，最大`99`|
 |voice_quality|int|否|POST|语音音质，默认为`2`。`1`流畅，`2`正常，`3`高质量|
 
