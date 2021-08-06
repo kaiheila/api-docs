@@ -185,3 +185,63 @@
     "permission_sync": 1
 }
 ```
+
+
+## 引用消息 quote
+
+|字段|类型|说明|
+|---|---|---|
+|id|string|引用消息id|
+|type|int|引用消息类型|
+|content|string|引用消息内容|
+|create_at|int|引用消息创建时间（毫秒）|
+|author|map|作者的用户信息|
+
+**示例**
+```json
+{
+  "id": "1c4532f6-10c6-4151-93e9-6347f410f91c",
+  "type": 1,
+  "content": "638a0b4a-7742-4bcf-a715-d3bb9c2c7643",
+  "create_at": 1628069285358,
+  "author": {
+    "id": "3080879348",
+    "username": "盖 伦88888",
+    "identify_num": "5210",
+    "online": true,
+    "os": "Websocket",
+    "status": 1,
+    "avatar": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/avatars/2021-06/89qtG4X7AE046046.gif/icon",
+    "vip_avatar": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/avatars/2021-06/89qtG4X7AE046046.gif?x-oss-process=image/format,jpg",
+    "nickname": "Mr 🦢11377",
+    "roles": [
+      102,
+      816
+    ],
+    "is_vip": false,
+    "bot": false,
+    "mobile_verified": true,
+    "joined_at": 1573816459000,
+    "active_time": 1628229821490
+  }
+}
+```
+
+## 附加的多媒体数据 attachments
+
+|字段|类型|说明|
+|---|---|---|
+|type|string|多媒体类型|
+|url|int|多媒体地址|
+|name|string|多媒体名|
+|size|int|大小 单位（B）|
+
+**示例**
+```json
+{
+  "type": "video",
+  "url": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/attachments/2021-08/06/610cd8196e620.mp4",
+  "name": "76b79357ab7c8ec9c08c13b641ebf660.mp4",
+  "size": 2575670,
+}
+```

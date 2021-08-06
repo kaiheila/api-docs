@@ -33,7 +33,6 @@
 |avatar|string|用户的头像的url地址|
 |bot|boolean|用户是否为机器人|
 |mobile_verified|boolean|是否手机号已验证|
-|system|boolean|是否为官方账号|
 |mobile_prefix|string|手机区号,如中国为86|
 |mobile|string|用户手机号，带掩码|
 |invited_count|int|当前邀请注册的人数|
@@ -41,7 +40,7 @@
 
 ### 返回示例
 
-```javascript
+```json
 {
     "code": 0,
     "message": "操作成功",

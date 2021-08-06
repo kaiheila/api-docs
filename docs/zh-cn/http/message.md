@@ -27,7 +27,7 @@
 | mention_roles | array   | `@特定角色` 的角色ID数组，与 `mention_info` 中的数据对应 |
 | mention_here  | boolean | 是否含有 `@在线人员` |
 | embeds        | array   | 超链接解析数据 |
-| attachments | array   | 附加的多媒体数据 |
+| attachments | map   | 附加的多媒体数据 |
 | reactions | array   | 回应数据 |
 | quote    | map | 引用消息 |
 | mention_info    | map | 引用特定用户或特定角色的信息 |
@@ -70,7 +70,7 @@
 
 ### 返回示例
 
-```javascript
+```json
 {
     "code": 0,
     "message": "操作成功",
@@ -85,7 +85,7 @@
                 ],
                 "mention_all": false,
                 "mention_roles": [],
-                "mention_here": [],
+                "mention_here": false,
                 "embeds": [
                     {
                         "type": "bili-video",
@@ -98,7 +98,25 @@
                         "pic": "https://**/lc01gi.jpg"
                     }
                 ],
-                "attachments": [],
+              "attachments": null,
+                //文件
+//                "attachments": {
+//                    "type": "file",
+//                    "url": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/attachments/2021-08/06/610cd0a9af28c.txt",
+//                    "name": "gif.txt",
+//                    "file_type": "text/plain",
+//                    "size": 540579
+//                },
+                //视频
+                // "attachments": {
+                //     "type": "video",
+                //     "url": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/attachments/2021-08/06/610cd8196e620.mp4",
+                //     "name": "76b79357ab7c8ec9c08c13b641ebf660.mp4",
+                //     "duration": 15.472,
+                //     "size": 2575670,
+                //     "width": 480,
+                //     "height": 960
+                // },
                 "create_at": 1612685332518,
                 "updated_at": 0,
                 "reactions": [
@@ -120,6 +138,33 @@
                 "image_name": "",
                 "read_status": false,
                 "quote": null,
+              //引用消息
+//                "quote": {
+//                    "id": "1c4532f6-10c6-4151-93e9-6347f410f91c",
+//                    "type": 1,
+//                    "content": "638a0b4a-7742-4bcf-a715-d3bb9c2c7643",
+//                    "create_at": 1628069285358,
+//                    "author": {
+//                        "id": "3080879348",
+//                        "username": "盖 伦88888",
+//                        "identify_num": "5210",
+//                        "online": true,
+//                        "os": "Websocket",
+//                        "status": 1,
+//                        "avatar": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/avatars/2021-06/89qtG4X7AE046046.gif/icon",
+//                        "vip_avatar": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/avatars/2021-06/89qtG4X7AE046046.gif?x-oss-process=image/format,jpg",
+//                        "nickname": "Mr 🦢11377",
+//                        "roles": [
+//                            102,
+//                            816
+//                        ],
+//                        "is_vip": false,
+//                        "bot": false,
+//                        "mobile_verified": true,
+//                        "joined_at": 1573816459000,
+//                        "active_time": 1628229821490
+//                    }
+//                },
                 "mention_info": {
                     "mention_part": [
                         {

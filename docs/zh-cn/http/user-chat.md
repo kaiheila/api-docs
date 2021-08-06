@@ -28,8 +28,8 @@
 | 参数名   | 类型         | 说明                                                         |
 | -------- | ------------ | ------------------------------------------------------------ |
 | code | string | 私信会话 Code                        |
-| last_read_time | int | 上次阅读消息的时间 |
-| latest_msg_time | int | 最新消息时间 |
+| last_read_time | int | 上次阅读消息的时间 (毫秒) |
+| latest_msg_time | int | 最新消息时间 (毫秒)|
 | unread_count | int | 未读消息数 |
 | target_info | map | 目标用户信息 |
 | ↳ id | string        | 目标用户 ID |
@@ -84,8 +84,8 @@
 | 参数名       | 类型          | 说明          |
 | ------------ | ------------- | ------------- |
 | code         | string        | 私信会话 Code |
-| last_read_time | int | 上次阅读消息的时间 |
-| latest_msg_time | int | 最新消息时间 |
+| last_read_time | int | 上次阅读消息的时间 (毫秒)|
+| latest_msg_time | int | 最新消息时间 (毫秒)|
 | unread_count | int           | 未读消息数    |
 | is_friend | boolean   | 是否是好友                                     |
 | is_blocked | boolean |是否已屏蔽对方 |
@@ -93,6 +93,7 @@
 | target_info | map | 目标用户信息 |
 | ↳ id | string        | 目标用户 ID |
 | ↳ username | string        | 目标用户名 |
+| ↳ online | boolean  | 是否在线 |
 | ↳ avatar | string        | 头像图片链接 |
 
 ### 返回示例
@@ -112,6 +113,7 @@
         "target_info": {
             "id": "3903536527",
             "username": "夏天1",
+            "username": true,
             "avatar": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/assets/avatar_10.jpg/icon",
         }
     }
