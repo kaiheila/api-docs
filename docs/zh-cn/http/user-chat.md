@@ -114,7 +114,7 @@
             "id": "3903536527",
             "username": "夏天1",
             "online": true,
-            "avatar": "https://xxx.com/assets/avatar_10.jpg/icon",
+            "avatar": "https://xxx.jpg/icon",
         }
     }
 }
