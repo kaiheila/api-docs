@@ -198,22 +198,22 @@
 |author|map|作者的用户信息|
 
 **示例**
-```json
+```javascript
 {
-  "id": "1c4532f6-10c6-4151-93e9-6347f410f91c",
+  "id": "1c4532f6-*********-93e9-6347f410f91c",
   "type": 1,
-  "content": "638a0b4a-7742-4bcf-a715-d3bb9c2c7643",
+  "content": "hello world",
   "create_at": 1628069285358,
   "author": {
-    "id": "3080879348",
-    "username": "盖 伦88888",
-    "identify_num": "5210",
+    "id": "308****000",
+    "username": "盖 伦",
+    "identify_num": "**10",
     "online": true,
     "os": "Websocket",
     "status": 1,
-    "avatar": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/avatars/2021-06/89qtG4X7AE046046.gif/icon",
-    "vip_avatar": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/avatars/2021-06/89qtG4X7AE046046.gif?x-oss-process=image/format,jpg",
-    "nickname": "Mr 🦢11377",
+    "avatar": "https://xxx.jpg/icon",
+    "vip_avatar": "",
+    "nickname": "***11377",
     "roles": [
       102,
       816
@@ -237,11 +237,11 @@
 |size|int|大小 单位（B）|
 
 **示例**
-```json
+```javascript
 {
   "type": "video",
-  "url": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/attachments/2021-08/06/610cd8196e620.mp4",
-  "name": "76b79357ab7c8ec9c08c13b641ebf660.mp4",
+  "url": "https://***.mp4",
+  "name": "***.mp4",
   "size": 2575670,
 }
 ```

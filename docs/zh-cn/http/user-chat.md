@@ -113,8 +113,8 @@
         "target_info": {
             "id": "3903536527",
             "username": "夏天1",
-            "username": true,
-            "avatar": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/assets/avatar_10.jpg/icon",
+            "online": true,
+            "avatar": "https://xxx.com/assets/avatar_10.jpg/icon",
         }
     }
 }

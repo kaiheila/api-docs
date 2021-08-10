@@ -40,7 +40,7 @@
 
 ### 返回示例
 
-```json
+```javascript
 {
     "code": 0,
     "message": "操作成功",
