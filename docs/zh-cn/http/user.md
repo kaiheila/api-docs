@@ -101,23 +101,23 @@
 ```javascript
 {
     "code": 0,
-        "message": "操作成功",
-        "data": {
-            "id": "*****",
-            "username": "b****34",
-            "nickname": "b****4",
-            "identify_num": "5**3",
-            "online": false,
-            "status": 1,
-            "avatar": "https://***.png/icon",
-            "vip_avatar": "",
-            "is_vip": false,
-            "bot": false,
-            "roles": [],
-            "os": "Websocket",
-            "mobile_verified": true,
-            "joined_at": 1621338425000,
-            "active_time": 1628688607719,
+    "message": "操作成功",
+    "data": {
+        "id": "*****",
+        "username": "b****34",
+        "nickname": "b****4",
+        "identify_num": "5**3",
+        "online": false,
+        "status": 1,
+        "avatar": "https://***.png/icon",
+        "vip_avatar": "",
+        "is_vip": false,
+        "bot": false,
+        "roles": [],
+        "os": "Websocket",
+        "mobile_verified": true,
+        "joined_at": 1621338425000,
+        "active_time": 1628688607719,
     }
 }
 ```
