@@ -185,3 +185,63 @@
     "permission_sync": 1
 }
 ```
+
+
+## 引用消息Quote
+
+|字段|类型|说明|
+|---|---|---|
+|id|string|引用消息id|
+|type|int|引用消息类型|
+|content|string|引用消息内容|
+|create_at|int|引用消息创建时间（毫秒）|
+|author|map|作者的用户信息|
+
+**示例**
+```javascript
+{
+  "id": "1c4532f6-*********-93e9-6347f410f91c",
+  "type": 1,
+  "content": "hello world",
+  "create_at": 1628069285358,
+  "author": {
+    "id": "308****000",
+    "username": "盖 伦",
+    "identify_num": "**10",
+    "online": true,
+    "os": "Websocket",
+    "status": 1,
+    "avatar": "https://xxx.jpg/icon",
+    "vip_avatar": "",
+    "nickname": "***11377",
+    "roles": [
+      102,
+      816
+    ],
+    "is_vip": false,
+    "bot": false,
+    "mobile_verified": true,
+    "joined_at": 1573816459000,
+    "active_time": 1628229821490
+  }
+}
+```
+
+## 附加的多媒体数据Attachments
+
+|字段|类型|说明|
+|---|---|---|
+|type|string|多媒体类型|
+|url|int|多媒体地址|
+|name|string|多媒体名|
+|size|int|大小 单位（B）|
+
+**示例**
+```javascript
+{
+  "type": "video",
+  "url": "https://***.mp4",
+  "name": "***.mp4",
+  "size": 2575670,
+}
+```
