@@ -34,7 +34,7 @@
 
 |地址|请求方式|说明|
 |--|--|--|
-|`/api/v3/direct-message/list`|GET| |
+|`/api/v3/direct-message/list`|GET| 此接口非标准分页，需要根据参考消息来查询相邻分页的消息 |
 
 ### 参数列表
 
@@ -42,8 +42,9 @@
 | ---------- | ---- | ---- | -------  | ------------------------------------------------- |
 | chat_code | string  | 否 | GET | 私信会话 Code。`chat_code` 与 `target_id` 必须传一个 |
 | target_id | string  | 否    | GET | 目标用户 id，后端会自动创建会话。有此参数之后可不传 `chat_code `参数 |
-| msg_id | string  | 否    | GET | 参考消息 id，不传则默认为最新的消息 id                                        |
+| msg_id | string  | 否    | GET | 参考消息 id，不传则查询最新消息                        |
 | flag    | string  | 否   | GET | 查询模式，有三种模式可以选择。不传则默认查询最新的消息 |
+| page_size    | int  | 否   | GET | 当前分页消息数量, 默认50 |
 
 
 ### 查询模式说明
