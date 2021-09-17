@@ -3,15 +3,17 @@ servers:
   - url: "https://www.kaiheila.cn/api/v3"
     description: 机器人接口
 info:
-  description: 开黑啦机器人API v3
   version: 3.0.0
   title: Kaiheila API v3
-  termsOfService: "http://swagger.io/terms/"
+  termsOfService: "https://developer.kaiheila.cn/doc/privacy"
   contact:
     email: apiteam@swagger.io
   license:
-    name: Apache-2.0
-    url: "https://opensource.org/licenses/Apache-2.0"
+    name: MIT
+    url: "https://github.com/kaiheila/api-docs/blob/main/LICENSE"
+  description: | 
+    开黑啦机器人API v3
+    官方文档地址：https://developer.kaiheila.cn/doc/
 tags:
   - name: user
     description: 用户相关接口
@@ -27,8 +29,8 @@ tags:
     description: 服务器表情相关接口
   - name: invite
     description: 邀请相关接口
-paths:
 
+paths:
   /guild/list:
     get:
       tags:
@@ -63,21 +65,21 @@ paths:
                                 type: array
                                 items:
                                   $ref: "#/components/schemas/Guild"
-  # /guild/index:
-  #   get:
-  #     summary: 获取当前用户加入的服务器列表
-  #     description: ""
-  #     parameters: []
-  #     operationId: ""
-  #     responses:
-  #       "200":
-  #         description: OK
-  #         content:
-  #           application/json:
-  #             schema:
-  #               $ref: "#/components/schemas/Guild"
-  #     tags:
-  #       - server
+  /guild/index:
+    get:
+      tags:
+        - server
+      summary: 获取当前用户加入的服务器列表
+      description: ""
+      parameters: []
+      operationId: ""
+      responses:
+        "200":
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Guild"
   /guild/view:
     get:
       tags:
@@ -990,6 +992,7 @@ paths:
     get:
       tags:
         - user-chat
+      summary: 获取私信频道列表
       parameters:
         - 
       responses:
@@ -1010,6 +1013,7 @@ paths:
     get:
       tags:
         - user-chat
+      summary: 获取私信频道详情
       parameters:
         - name: chat_code
           in: query
@@ -1035,6 +1039,7 @@ paths:
     post:
       tags:
         - user-chat
+      summary: 创建私信频道
       requestBody:
         content:
             application/json:
@@ -1063,6 +1068,7 @@ paths:
     post:
       tags:
         - user-chat
+      summary: 创建私信频道
       requestBody:
         content:
             application/json:
@@ -1085,6 +1091,7 @@ paths:
     get:
       tags:
         - direct-message
+      summary: 获取私信消息列表
       parameters:
         - name: chat_code
           in: query
@@ -1409,6 +1416,7 @@ paths:
     post:
       tags:
         - asset
+      summary: 上传多媒体文件
       requestBody:
         content:
           multipart/form-data:
