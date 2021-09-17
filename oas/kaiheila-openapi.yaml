@@ -638,7 +638,7 @@ paths:
                 value:
                   type: string
                   description: 根据type，为用户id或频道id
-                  default: 0
+                  default: ""
 
       responses:
         "200":
@@ -680,7 +680,7 @@ paths:
                 value:
                   type: string
                   description: 根据type，为用户id或频道id
-                  default: 0
+                  default: ""
                 allow:
                   type: integer
                   description: 默认为0,想要设置的允许的权限值
@@ -737,7 +737,7 @@ paths:
                 value:
                   type: string
                   description: 根据type，为用户id或频道id
-                  default: 0
+                  default: ""
       responses:
         "200":
           description: OK
@@ -840,7 +840,7 @@ paths:
                       msg_id:
                         type: string
                         description: 服务端生成的消息 id
-                        example:
+                        example: ""
                       msg_timestamp:
                         type: integer
                         description: 消息发送时间(ms, 服务器时间戳)
@@ -1003,8 +1003,6 @@ paths:
       tags:
         - user-chat
       summary: 获取私信频道列表
-      parameters:
-        - 
       responses:
         "200":
           description: OK
@@ -1334,8 +1332,6 @@ paths:
     get:
       tags:
         - gateway
-      parameters:
-        - 
       responses:
         "200":
           description: OK
@@ -1368,11 +1364,11 @@ paths:
                               mobile_prefix:
                                 type: string
                                 description: 手机区号,如中国为86
-                                example: 86
+                                example: "86"
                               mobile:
                                 type: string
                                 description: 用户手机号，带掩码
-                                example: 110****2333
+                                example: "110****2333"
                               invited_count:
                                 type: integer
                                 description: 当前邀请注册的人数
@@ -1736,7 +1732,7 @@ paths:
                                 id:
                                   type: string
                                   description: 形象图片的 id
-                                  example: 11
+                                  example: "11"
                                 url:
                                   type: string
                                   description: 形象图片的地址
@@ -1768,7 +1764,7 @@ paths:
                 img_id:
                   type: string
                   description: 表情 ID
-                  example: 1
+                  example: "1"
       responses:
         "200":
           description: OK
@@ -2097,7 +2093,7 @@ components:
         latest_msg_time:
           type: integer
           description: 最新消息时间 (毫秒)
-          example: 
+          example: 0 
         unread_count:
           type: integer
           description: 未读消息数
@@ -2195,10 +2191,10 @@ components:
           type: string
           description: 语音服务器地址，`HOST:PORT`的格式
       example:
-        id: 123
-        guild_id: 123
-        master_id: 123
-        parent_id: 123
+        id: "123"
+        guild_id: "123"
+        master_id: "123"
+        parent_id: "123"
         name: 测试频道
         topic: 频道简介
         type: 1
@@ -2256,7 +2252,7 @@ components:
           type: string
           description: 欢迎频道id
       example:
-        id: 123123
+        id: "123123"
         name: test server
         topic: ""
         master_id: ""
@@ -2412,7 +2408,7 @@ components:
       properties:
         id:
           type: string
-          example: 28444
+          example: "28444"
         username:
           type: string
           example: "example"
