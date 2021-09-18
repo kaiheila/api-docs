@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.0.0
 
 servers:
   - url: https://www.kaiheila.cn/api/v3
@@ -78,7 +78,7 @@ paths:
   /guild/index:
     get:
       tags:
-        - server
+        - guild
       deprecated: true
       summary: 获取当前用户加入的服务器列表
       description: ""
@@ -403,9 +403,14 @@ paths:
                   - type: object
                     properties:
                       data:
-                        type: array
-                        items:
-                          $ref: "#/components/schemas/GuildChannel"
+                        allOf:
+                          - $ref: "#/components/schemas/PaginationInfo"
+                          - type: object
+                            properties:
+                              items:
+                                type: array
+                                items:
+                                  $ref: "#/components/schemas/GuildChannel"
   /channel/view:
     get:
       tags:
@@ -969,10 +974,15 @@ paths:
                   - $ref: "#/components/schemas/BasicResponse"
                   - type: object
                     properties:
-                      items:
-                        type: array
-                        items:
-                          $ref: "#/components/schemas/UserChat"
+                      data:
+                          allOf:
+                          - $ref: "#/components/schemas/PaginationInfo"
+                          - type: object
+                            properties:
+                              items:
+                                type: array
+                                items:
+                                  $ref: "#/components/schemas/UserChat"
   /user-chat/view:
     get:
       tags:
@@ -1089,12 +1099,14 @@ paths:
                   - type: object
                     properties:
                       data:
-                        type: object
-                        properties:
-                          items:
-                            type: array
-                            items:
-                              $ref: "#/components/schemas/DirectMessage"
+                        allOf:
+                          - $ref: "#/components/schemas/PaginationInfo"
+                          - type: object
+                            properties:
+                              items:
+                                type: array
+                                items:
+                                  $ref: "#/components/schemas/DirectMessage"
   /direct-message/create:
     post:
       tags:
@@ -1956,17 +1968,7 @@ paths:
           content:
             application/json:
               schema:
-                allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
-                  - type: object
-                    properties:
-                      data:
-                        type: object
-                        properties:
-                          url:
-                            type: string
-                            description: 邀请链接
-                            example: https://kaihei.co/xxxx
+                $ref: "#/components/schemas/BasicResponse"
 components:
   parameters:
     PageNumberParam:
