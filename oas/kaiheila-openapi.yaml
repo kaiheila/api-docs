@@ -35,8 +35,7 @@ paths:
         - guild
       summary: 获取当前用户加入的服务器列表
       description: ""
-      x-botdoc-description: override test
-      operationId: guildList
+      operationId: getJoinedGuilds
       parameters:
         - $ref: "#/components/parameters/PageNumberParam"
         - $ref: "#/components/parameters/PageSizeParam"
@@ -68,10 +67,11 @@ paths:
     get:
       tags:
         - server
+      deprecated: true
       summary: 获取当前用户加入的服务器列表
       description: ""
       parameters: []
-      operationId: getJoinedGuilds
+      operationId: getJoinedGuildsOld
       responses:
         "200":
           description: OK
@@ -226,7 +226,7 @@ paths:
       tags:
         - guild
       summary: 踢出服务器
-      operationId: kickoutUserById
+      operationId: kickUserById
       requestBody:
         content:
           application/json:
@@ -254,6 +254,7 @@ paths:
       tags:
         - guild
       summary: 服务器静音闭麦列表
+      operationId: getGuildMuteUsers
       parameters:
         - $ref: "#/components/parameters/GuildIdParam"
         - name: return_type
@@ -305,6 +306,7 @@ paths:
       tags:
         - guild
       summary: 添加服务器闭麦或静音
+      operationId: muteUserById
       requestBody:
         content:
           application/json:
@@ -339,6 +341,7 @@ paths:
       tags:
         - guild
       summary: 删除服务器闭麦或静音
+      operationId: unmuteUserById
       requestBody:
         content:
           application/json:
@@ -373,12 +376,10 @@ paths:
       tags:
         - channel
       summary: 获取频道列表
+      operationId: getGuildChannels
       parameters:
         - $ref: "#/components/parameters/GuildIdParam"
-        - name: type
-          in: query
-          schema:
-            $ref: "#/components/schemas/GuildChannelType"
+        - $ref: "#/components/parameters/GuildChannelTypeParam"
       responses:
         "200":
           description: OK
@@ -1293,7 +1294,7 @@ paths:
   /direct-message/delete-reaction:
     post:
       tags:
-        - message
+        - direct-message
       summary: 为消息删除回应
       requestBody:
         content:
@@ -2041,6 +2042,12 @@ components:
         enum:
           - 0
           - 1
+    GuildChannelTypeParam:
+      name: type
+      in: query
+      description: 频道类型, `1`为文字，`2`为语音, 默认为`1`
+      schema:
+        $ref: "#/components/schemas/GuildChannelType"
     MessageListFlagParam:
       name: flag
       in: query
@@ -2205,12 +2212,6 @@ components:
       type: string
       description: 用户id
       example: "2418200000"
-    GuildChannelType:
-      type: integer
-      enum:
-        - 1
-        - 2
-      description: 频道类型，1为文字频道，2为语音频道
     GuildChannel:
       type: object
       description: 服务器频道
@@ -2263,6 +2264,12 @@ components:
       type: string
       description: 服务器频道ID
       example: "00000000000000000000000"
+    GuildChannelType:
+      type: integer
+      enum:
+        - 1
+        - 2
+      description: 频道类型，`1`为文字频道，`2`为语音频道
     GuildChannelPermission:
       type: object
       required:
