@@ -1,0 +1,26 @@
+type: object
+properties:
+  d:
+    type: object
+    properties:
+      extra: 
+        type: object
+        properties:
+          body:
+            type: object
+            properties:
+              channel_id: 
+                allOf:
+                  - $ref: "../_index.yaml#/GuildChannelId"
+                description: 发生操作的频道id
+              operator_id:
+                allOf:
+                  - $ref: "../_index.yaml#/UserId"
+                description: 操作人的用户id
+              msg_id:
+                allOf:
+                  - $ref: "../_index.yaml#/MessageId"
+                description: 被操作的消息id
+
+
+

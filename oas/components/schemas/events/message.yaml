@@ -1,0 +1,37 @@
+type: object
+properties:
+  d:
+    type: object
+    properties:
+      extra: 
+        type: object
+        properties:
+          body:
+            type: object
+            properties:
+              msg_id:
+                allOf:
+                  - $ref: "../_index.yaml#/MessageId"
+                description: 消息id
+              channel_id:
+                allOf:
+                  - $ref: "../_index.yaml#/GuildChannelId"
+                description: 消息所在的频道id
+              content:
+                type: string
+                description: 消息内容
+              mention:
+                type: array
+                description: "`\\@特定用户` 的用户ID数组，与`mention_info`中的数据对应"
+                items:
+                  type: string
+              mention_all:
+                type: boolean
+                description: 是否含有`@全体人员`
+              mention_roles:
+                type: array
+                description: "`@特定角色` 的角色ID数组，与`mention_info`中的数据对应"
+                items:
+                  type: string
+              mention_here:
+                type: boolean

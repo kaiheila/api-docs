@@ -5,7 +5,7 @@ servers:
     description: 机器人接口
 
 info:
-  title: 开黑啦机器人API v3 开发者版 
+  title: 开黑啦机器人API v3 开发者版
   version: 3.0.0
   termsOfService: https://developer.kaiheila.cn/doc/privacy
   contact:
@@ -16,11 +16,11 @@ info:
   description: |
     # 引言
     此文档仅用于方便开发者查看、确认开黑啦机器人API接口，官方文档地址：[开黑啦开发者平台](https://developer.kaiheila.cn/doc/)
+
     建议使用[rapidoc](https://mrin9.github.io/RapiDoc/index.html)查看此文档，示例链接：[文档查看示例](https://fi6.github.io/kaiheila-api-docs/rapidoc-view.html)
 
     如果发现有任何问题，请提交PR，我们将尽快进行修复与合并。
 tags:
-
   - name: guild
     description: 服务器相关接口
   - name: channel
@@ -46,58 +46,57 @@ tags:
   - name: asset
     description: 附件相关接口
 
-
 paths:
   /guild/list:
     get:
       tags:
         - guild
       summary: 获取当前用户加入的服务器列表
-      description: ""
+      description: ''
       operationId: getJoinedGuilds
       parameters:
-        - $ref: "#/components/parameters/PageNumberParam"
-        - $ref: "#/components/parameters/PageSizeParam"
+        - $ref: '#/components/parameters/PageNumberParam'
+        - $ref: '#/components/parameters/PageSizeParam'
         - name: sort
           in: query
           description: 代表排序的字段, 比如-id代表id按DESC排序，id代表id按ASC排序。不一定有, 如果有，接口中会声明支持的排序字段。
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         allOf:
-                          - $ref: "#/components/schemas/PaginationInfo"
+                          - $ref: '#/components/schemas/PaginationInfo'
                           - type: object
                             properties:
                               items:
                                 type: array
                                 items:
-                                  $ref: "#/components/schemas/Guild"
+                                  $ref: '#/components/schemas/Guild'
   /guild/index:
     get:
       tags:
         - guild
       deprecated: true
       summary: 获取当前用户加入的服务器列表
-      description: ""
+      description: ''
       parameters: []
       operationId: getJoinedGuildsOld
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/Guild"
+                $ref: '#/components/schemas/Guild'
   /guild/view:
     get:
       tags:
@@ -105,19 +104,19 @@ paths:
       summary: 获取服务器详情
       operationId: getGuildById
       parameters:
-        - $ref: "#/components/parameters/GuildIdParam"
+        - $ref: '#/components/parameters/GuildIdParam'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
-                        $ref: "#/components/schemas/Guild"
+                        $ref: '#/components/schemas/Guild'
   /guild/user-list:
     get:
       tags:
@@ -125,8 +124,8 @@ paths:
       summary: 获取服务器的用户列表
       operationId: getUsersInGuild
       parameters:
-        - $ref: "#/components/parameters/GuildIdParam"
-        - $ref: "#/components/parameters/GuildChannelIdParam"
+        - $ref: '#/components/parameters/GuildIdParam'
+        - $ref: '#/components/parameters/GuildChannelIdParam'
           required: false
         - name: search
           in: query
@@ -138,7 +137,7 @@ paths:
           description: 角色 ID，获取特定角色的用户列表
           schema:
             type: integer
-        - $ref: "#/components/parameters/MobileVerifiedParam"
+        - $ref: '#/components/parameters/MobileVerifiedParam'
         - name: active_time
           in: query
           description: 根据活跃时间排序，`0`是顺序排列，`1`是倒序排列
@@ -149,32 +148,32 @@ paths:
           description: 根据加入时间排序，`0`是顺序排列，`1`是倒序排列
           schema:
             type: integer
-        - $ref: "#/components/parameters/PageNumberParam"
-        - $ref: "#/components/parameters/PageSizeParam"
+        - $ref: '#/components/parameters/PageNumberParam'
+        - $ref: '#/components/parameters/PageSizeParam'
         - name: filter_user_id
           in: query
           description: 获取指定id所属用户的信息
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         allOf:
-                          - $ref: "#/components/schemas/PaginationInfo"
+                          - $ref: '#/components/schemas/PaginationInfo'
                           - type: object
                             properties:
                               items:
                                 type: array
                                 items:
-                                  $ref: "#/components/schemas/User"
+                                  $ref: '#/components/schemas/User'
                               user_count:
                                 type: integer
                                 description: 用户数量
@@ -202,21 +201,21 @@ paths:
                 - guild_id
               properties:
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
                 nickname:
                   type: string
                   description: 昵称，2 - 64 长度，不传则清空昵称
                 user_id:
                   allOf:
-                    - $ref: "#/components/schemas/UserId"
+                    - $ref: '#/components/schemas/UserId'
                     - description: 要修改昵称的目标用户 ID，不传则修改当前登陆用户的昵称
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /guild/leave:
     post:
       tags:
@@ -232,14 +231,14 @@ paths:
                 - guild_id
               properties:
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /guild/kickout:
     post:
       tags:
@@ -256,18 +255,18 @@ paths:
                 - target_id
               properties:
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
                 target_id:
                   allOf:
-                    - $ref: "#/components/schemas/UserId"
+                    - $ref: '#/components/schemas/UserId'
                     - description: 目标用户ID
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /guild-mute/list:
     get:
       tags:
@@ -275,20 +274,20 @@ paths:
       summary: 服务器静音闭麦列表
       operationId: getGuildMuteUsers
       parameters:
-        - $ref: "#/components/parameters/GuildIdParam"
+        - $ref: '#/components/parameters/GuildIdParam'
         - name: return_type
           in: query
           description: 返回格式，建议为"detail", 其他情况仅作为兼容
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
@@ -306,7 +305,7 @@ paths:
                               user_ids:
                                 type: array
                                 items:
-                                  $ref: "#/components/schemas/UserId"
+                                  $ref: '#/components/schemas/UserId'
                           headset:
                             description: return_type为detail时返回
                             type: object
@@ -319,7 +318,7 @@ paths:
                               user_ids:
                                 type: array
                                 items:
-                                  $ref: "#/components/schemas/UserId"
+                                  $ref: '#/components/schemas/UserId'
   /guild-mute/create:
     post:
       tags:
@@ -337,10 +336,10 @@ paths:
                 - type
               properties:
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
                 target_id:
                   allOf:
-                    - $ref: "#/components/schemas/UserId"
+                    - $ref: '#/components/schemas/UserId'
                     - description: 目标用户ID
                 type:
                   type: integer
@@ -349,12 +348,12 @@ paths:
                     - 1
                     - 2
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /guild-mute/delete:
     post:
       tags:
@@ -372,10 +371,10 @@ paths:
                 - type
               properties:
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
                 target_id:
                   allOf:
-                    - $ref: "#/components/schemas/UserId"
+                    - $ref: '#/components/schemas/UserId'
                     - description: 目标用户ID
                 type:
                   type: integer
@@ -384,12 +383,12 @@ paths:
                     - 1
                     - 2
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /channel/list:
     get:
       tags:
@@ -397,29 +396,29 @@ paths:
       summary: 获取频道列表
       operationId: getGuildChannels
       parameters:
-        - $ref: "#/components/parameters/PageNumberParam"
-        - $ref: "#/components/parameters/PageSizeParam"
-        - $ref: "#/components/parameters/GuildIdParam"
-        - $ref: "#/components/parameters/GuildChannelTypeParam"
+        - $ref: '#/components/parameters/PageNumberParam'
+        - $ref: '#/components/parameters/PageSizeParam'
+        - $ref: '#/components/parameters/GuildIdParam'
+        - $ref: '#/components/parameters/GuildChannelTypeParam'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         allOf:
-                          - $ref: "#/components/schemas/PaginationInfo"
+                          - $ref: '#/components/schemas/PaginationInfo'
                           - type: object
                             properties:
                               items:
                                 type: array
                                 items:
-                                  $ref: "#/components/schemas/GuildChannel"
+                                  $ref: '#/components/schemas/GuildChannel'
   /channel/view:
     get:
       tags:
@@ -430,19 +429,19 @@ paths:
           required: true
           in: query
           schema:
-            $ref: "#/components/schemas/GuildChannelId"
+            $ref: '#/components/schemas/GuildChannelId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
-                        $ref: "#/components/schemas/GuildChannel"
+                        $ref: '#/components/schemas/GuildChannel'
   /channel/create:
     post:
       tags:
@@ -458,17 +457,17 @@ paths:
                 - name
               properties:
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
                 parent_id:
                   allOf:
-                    - $ref: "#/components/schemas/GuildChannelId"
+                    - $ref: '#/components/schemas/GuildChannelId'
                     - description: 父分组id
                 name:
                   type: string
                   description: 频道名称
                 type:
                   allOf:
-                    - $ref: "#/components/schemas/GuildChannelType"
+                    - $ref: '#/components/schemas/GuildChannelType'
                     - description: 频道类型, `1`为文字，`2`为语音, 默认为`1`
                 limit_amount:
                   type: integer
@@ -482,17 +481,17 @@ paths:
                     - 2
                     - 3
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
-                        $ref: "#/components/schemas/GuildChannel"
+                        $ref: '#/components/schemas/GuildChannel'
   /channel/delete:
     post:
       tags:
@@ -507,14 +506,14 @@ paths:
                 - channel_id
               properties:
                 channel_id:
-                  $ref: "#/components/schemas/GuildChannelId"
+                  $ref: '#/components/schemas/GuildChannelId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /channel/user-list:
     get:
       tags:
@@ -527,15 +526,15 @@ paths:
           in: query
           description: 目标频道id, 需要是语音频道
           schema:
-            $ref: "#/components/schemas/GuildChannelId"
+            $ref: '#/components/schemas/GuildChannelId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
@@ -545,7 +544,7 @@ paths:
                             type: array
                             description: 用户id的数组
                             items:
-                              $ref: "#/components/schemas/UserId"
+                              $ref: '#/components/schemas/UserId'
   /channel/move-user:
     post:
       tags:
@@ -563,21 +562,21 @@ paths:
               properties:
                 channel_id:
                   allOf:
-                    - $ref: "#/components/schemas/GuildChannelId"
+                    - $ref: '#/components/schemas/GuildChannelId'
                     - description: 目标频道id, 需要是语音频道
                 user_ids:
                   type: array
                   description: 用户id的数组
                   items:
-                    $ref: "#/components/schemas/UserId"
+                    $ref: '#/components/schemas/UserId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
@@ -587,22 +586,22 @@ paths:
                             type: array
                             description: 用户id的数组
                             items:
-                              $ref: "#/components/schemas/UserId"
+                              $ref: '#/components/schemas/UserId'
   /channel-role/index:
     get:
       tags:
         - channel
       summary: 频道角色权限详情
       parameters:
-        - $ref: "#/components/parameters/GuildChannelIdParam"
+        - $ref: '#/components/parameters/GuildChannelIdParam'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
@@ -617,7 +616,7 @@ paths:
                                   properties:
                                     role_id:
                                       type: string
-                                - $ref: "#/components/schemas/GuildChannelPermission"
+                                - $ref: '#/components/schemas/GuildChannelPermission'
                           permission_users:
                             type: array
                             description: 频道权限覆写的用户列表
@@ -626,8 +625,8 @@ paths:
                                 - type: object
                                   properties:
                                     user:
-                                      $ref: "#/components/schemas/User"
-                                - $ref: "#/components/schemas/GuildChannelPermission"
+                                      $ref: '#/components/schemas/User'
+                                - $ref: '#/components/schemas/GuildChannelPermission'
                           permission_sync:
                             type: integer
                             description: 是否同步分组的权限
@@ -641,15 +640,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/GuildChannelRoleRequest"
+              $ref: '#/components/schemas/GuildChannelRoleRequest'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
@@ -665,7 +664,7 @@ paths:
           application/json:
             schema:
               allOf:
-                - $ref: "#/components/schemas/GuildChannelRoleRequest"
+                - $ref: '#/components/schemas/GuildChannelRoleRequest'
                 - type: object
                   properties:
                     allow:
@@ -677,29 +676,29 @@ paths:
                       description: 默认为0,想要设置的拒绝的权限值
                       default: 0
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         type: object
                         example:
-                          user_id: "2418200000"
+                          user_id: '2418200000'
                           allow: 2048
                           deny: 0
                         allOf:
                           - type: object
                             properties:
                               user_id:
-                                $ref: "#/components/schemas/UserId"
+                                $ref: '#/components/schemas/UserId'
                               role_id:
-                                $ref: "#/components/schemas/GuildRoleId"
-                          - $ref: "#/components/schemas/GuildChannelPermission"
+                                $ref: '#/components/schemas/GuildRoleId'
+                          - $ref: '#/components/schemas/GuildChannelPermission'
   /channel-role/delete:
     post:
       tags:
@@ -709,15 +708,15 @@ paths:
         content:
           application/json:
             schema:
-              $ref: "#/components/schemas/GuildChannelRoleRequest"
+              $ref: '#/components/schemas/GuildChannelRoleRequest'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
@@ -735,7 +734,7 @@ paths:
           description: 频道id
           required: true
           schema:
-            $ref: "#/components/schemas/GuildChannelId"
+            $ref: '#/components/schemas/GuildChannelId'
         - name: msg_id
           in: query
           description: 参考消息id，不传则查询最新消息
@@ -750,7 +749,7 @@ paths:
             enum:
               - 0
               - 1
-        - $ref: "#/components/parameters/MessageListFlagParam"
+        - $ref: '#/components/parameters/MessageListFlagParam'
         - name: page_size
           in: query
           description: 当前分页消息数量, 默认50
@@ -758,13 +757,13 @@ paths:
             type: integer
             default: 50
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
@@ -773,7 +772,7 @@ paths:
                           items:
                             type: array
                             items:
-                              $ref: "#/components/schemas/Message"
+                              $ref: '#/components/schemas/Message'
   /message/create:
     post:
       tags:
@@ -784,34 +783,34 @@ paths:
           application/json:
             schema:
               allOf:
-                - $ref: "#/components/schemas/SendMessageRequest"
+                - $ref: '#/components/schemas/SendMessageRequest'
                 - type: object
                   required:
                     - target_id
                   properties:
                     target_id:
                       allOf:
-                        - $ref: "#/components/schemas/GuildChannelId"
+                        - $ref: '#/components/schemas/GuildChannelId'
                       description: 目标频道 id
                     temp_target_id:
                       type: string
                       description: 用户id,如果传了，代表该消息是临时消息，该消息不会存数据库，但是会在频道内只给该用户推送临时消息。用于在频道内针对用户的操作进行单独的回应通知等。
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: object
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                 properties:
                   data:
                     properties:
                       msg_id:
                         type: string
                         description: 服务端生成的消息 id
-                        example: ""
+                        example: ''
                       msg_timestamp:
                         type: integer
                         description: 消息发送时间(ms, 服务器时间戳)
@@ -835,24 +834,24 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: "#/components/schemas/MessageId"
+                  $ref: '#/components/schemas/MessageId'
                 content:
                   type: string
                   description: 消息内容
                 quote:
                   allOf:
-                    - $ref: "#/components/schemas/MessageId"
+                    - $ref: '#/components/schemas/MessageId'
                   description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
                 temp_target_id:
                   type: string
                   description: 用户id，针对特定用户临时更新消息，必须是正常消息才能更新。与发送临时消息概念不同，但同样不保存数据库。
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /message/delete:
     post:
       tags:
@@ -868,14 +867,14 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: "#/components/schemas/MessageId"
+                  $ref: '#/components/schemas/MessageId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /message/reaction-list:
     get:
       tags:
@@ -887,28 +886,28 @@ paths:
           description: 频道消息的id
           required: true
           schema:
-            $ref: "#/components/schemas/MessageId"
+            $ref: '#/components/schemas/MessageId'
         - name: emoji
           in: query
           description: emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode
           schema:
-            $ref: "#/components/schemas/GuildEmojiId"
+            $ref: '#/components/schemas/GuildEmojiId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: object
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         type: array
                         items:
                           allOf:
-                            - $ref: "#/components/schemas/User"
+                            - $ref: '#/components/schemas/User'
                             - type: object
                               properties:
                                 reaction_time:
@@ -929,16 +928,16 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: "#/components/schemas/MessageId"
+                  $ref: '#/components/schemas/MessageId'
                 emoji:
-                  $ref: "#/components/schemas/GuildEmojiId"
+                  $ref: '#/components/schemas/GuildEmojiId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /message/delete-reaction:
     post:
       tags:
@@ -954,47 +953,47 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: "#/components/schemas/MessageId"
+                  $ref: '#/components/schemas/MessageId'
                 emoji:
-                  $ref: "#/components/schemas/GuildEmojiId"
+                  $ref: '#/components/schemas/GuildEmojiId'
                 user_id:
                   allOf:
-                    - $ref: "#/components/schemas/UserId"
+                    - $ref: '#/components/schemas/UserId'
                     - description: 用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /user-chat/list:
     get:
       tags:
         - user-chat
       summary: 获取私信频道列表
       parameters:
-        - $ref: "#/components/parameters/PageNumberParam"
-        - $ref: "#/components/parameters/PageSizeParam"
+        - $ref: '#/components/parameters/PageNumberParam'
+        - $ref: '#/components/parameters/PageSizeParam'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
-                          allOf:
-                          - $ref: "#/components/schemas/PaginationInfo"
+                        allOf:
+                          - $ref: '#/components/schemas/PaginationInfo'
                           - type: object
                             properties:
                               items:
                                 type: array
                                 items:
-                                  $ref: "#/components/schemas/UserChat"
+                                  $ref: '#/components/schemas/UserChat'
   /user-chat/view:
     get:
       tags:
@@ -1008,19 +1007,19 @@ paths:
           schema:
             type: string
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       items:
                         type: array
                         items:
-                          $ref: "#/components/schemas/UserChatDetail"
+                          $ref: '#/components/schemas/UserChatDetail'
   /user-chat/create:
     post:
       tags:
@@ -1034,22 +1033,22 @@ paths:
               properties:
                 target_id:
                   allOf:
-                    - $ref: "#/components/schemas/UserId"
+                    - $ref: '#/components/schemas/UserId'
                   description: 目标用户id
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       items:
                         type: array
                         items:
-                          $ref: "#/components/schemas/UserChatDetail"
+                          $ref: '#/components/schemas/UserChatDetail'
   /user-chat/delete:
     post:
       tags:
@@ -1063,15 +1062,15 @@ paths:
               properties:
                 target_id:
                   allOf:
-                    - $ref: "#/components/schemas/UserId"
+                    - $ref: '#/components/schemas/UserId'
                   description: 目标用户id
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /direct-message/list:
     get:
       tags:
@@ -1087,14 +1086,14 @@ paths:
           description: 目标用户 id，后端会自动创建会话。有此参数之后可不传`chat_code`参数
           in: query
           schema:
-            $ref: "#/components/schemas/UserId"
+            $ref: '#/components/schemas/UserId'
         - name: msg_id
           description: 参考消息 id，不传则查询最新消息
           in: query
           schema:
-            $ref: "#/components/schemas/MessageId"
-        - $ref: "#/components/parameters/MessageListFlagParam"
-        - $ref: "#/components/parameters/PageNumberParam"
+            $ref: '#/components/schemas/MessageId'
+        - $ref: '#/components/parameters/MessageListFlagParam'
+        - $ref: '#/components/parameters/PageNumberParam'
         - name: page_size
           in: query
           description: 当前分页消息数量, 默认50
@@ -1102,24 +1101,24 @@ paths:
             type: integer
             default: 50
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         allOf:
-                          - $ref: "#/components/schemas/PaginationInfo"
+                          - $ref: '#/components/schemas/PaginationInfo'
                           - type: object
                             properties:
                               items:
                                 type: array
                                 items:
-                                  $ref: "#/components/schemas/DirectMessage"
+                                  $ref: '#/components/schemas/DirectMessage'
   /direct-message/create:
     post:
       tags:
@@ -1130,22 +1129,22 @@ paths:
           application/json:
             schema:
               allOf:
-                - $ref: "#/components/schemas/SendMessageRequest"
+                - $ref: '#/components/schemas/SendMessageRequest'
               type: object
               properties:
                 target_id:
                   allOf:
-                    - $ref: "#/components/schemas/UserId"
+                    - $ref: '#/components/schemas/UserId'
                   description: 目标用户 id，后端会自动创建会话。有此参数之后可不传`chat_code`参数
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: object
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                 properties:
                   data:
                     properties:
@@ -1176,21 +1175,21 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: "#/components/schemas/MessageId"
+                  $ref: '#/components/schemas/MessageId'
                 content:
                   type: string
                   description: 消息内容
                 quote:
                   allOf:
-                    - $ref: "#/components/schemas/MessageId"
+                    - $ref: '#/components/schemas/MessageId'
                   description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /direct-message/delete:
     post:
       tags:
@@ -1206,14 +1205,14 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: "#/components/schemas/MessageId"
+                  $ref: '#/components/schemas/MessageId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /direct-message/reaction-list:
     get:
       tags:
@@ -1225,28 +1224,28 @@ paths:
           description: 消息的id
           required: true
           schema:
-            $ref: "#/components/schemas/MessageId"
+            $ref: '#/components/schemas/MessageId'
         - name: emoji
           in: query
           description: emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode
           schema:
-            $ref: "#/components/schemas/GuildEmojiId"
+            $ref: '#/components/schemas/GuildEmojiId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 type: object
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         type: array
                         items:
                           allOf:
-                            - $ref: "#/components/schemas/User"
+                            - $ref: '#/components/schemas/User'
                             - type: object
                               properties:
                                 reaction_time:
@@ -1267,16 +1266,16 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: "#/components/schemas/MessageId"
+                  $ref: '#/components/schemas/MessageId'
                 emoji:
-                  $ref: "#/components/schemas/GuildEmojiId"
+                  $ref: '#/components/schemas/GuildEmojiId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /direct-message/delete-reaction:
     post:
       tags:
@@ -1292,20 +1291,20 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: "#/components/schemas/MessageId"
+                  $ref: '#/components/schemas/MessageId'
                 emoji:
-                  $ref: "#/components/schemas/GuildEmojiId"
+                  $ref: '#/components/schemas/GuildEmojiId'
                 user_id:
                   allOf:
-                    - $ref: "#/components/schemas/UserId"
+                    - $ref: '#/components/schemas/UserId'
                     - description: 用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
   /gateway/index:
     get:
       tags:
@@ -1318,13 +1317,13 @@ paths:
           schema:
             type: integer
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       url:
@@ -1337,18 +1336,18 @@ paths:
         - user
       summary: 获取当前用户信息
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         allOf:
-                          - $ref: "#/components/schemas/User"
+                          - $ref: '#/components/schemas/User'
                           - type: object
                             properties:
                               mobile_verified:
@@ -1358,11 +1357,11 @@ paths:
                               mobile_prefix:
                                 type: string
                                 description: 手机区号,如中国为86
-                                example: "86"
+                                example: '86'
                               mobile:
                                 type: string
                                 description: 用户手机号，带掩码
-                                example: "110****2333"
+                                example: '110****2333'
                               invited_count:
                                 type: integer
                                 description: 当前邀请注册的人数
@@ -1373,25 +1372,25 @@ paths:
         - user
       summary: 获取目标用户信息
       parameters:
-        - $ref: "#/components/parameters/UserIdParam"
+        - $ref: '#/components/parameters/UserIdParam'
         - name: guild_id
           in: query
           description: 服务器id
           schema:
-            $ref: "#/components/schemas/GuildId"
+            $ref: '#/components/schemas/GuildId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         allOf:
-                          - $ref: "#/components/schemas/User"
+                          - $ref: '#/components/schemas/User'
                           - type: object
                             properties:
                               mobile_verified:
@@ -1402,7 +1401,7 @@ paths:
                                 type: array
                                 description: 用户在当前服务器中的角色 id 组成的列表
                                 items:
-                                  $ref: "#/components/schemas/GuildRoleId"
+                                  $ref: '#/components/schemas/GuildRoleId'
                               joined_at:
                                 type: integer
                                 description: 加入服务器时间
@@ -1426,13 +1425,13 @@ paths:
                   type: string
                   format: binary
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
@@ -1448,29 +1447,29 @@ paths:
         - guild-role
       summary: 获取服务器角色列表
       parameters:
-        - $ref: "#/components/parameters/GuildIdParam"
-        - $ref: "#/components/parameters/PageNumberParam"
-        - $ref: "#/components/parameters/PageSizeParam"
+        - $ref: '#/components/parameters/GuildIdParam'
+        - $ref: '#/components/parameters/PageNumberParam'
+        - $ref: '#/components/parameters/PageSizeParam'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         allOf:
-                          - $ref: "#/components/schemas/PaginationInfo"
+                          - $ref: '#/components/schemas/PaginationInfo'
                           - type: object
                             properties:
                               items:
                                 type: array
                                 items:
                                   type: object
-                                  $ref: "#/components/schemas/GuildRole"
+                                  $ref: '#/components/schemas/GuildRole'
   /guild-role/create:
     post:
       tags:
@@ -1485,22 +1484,22 @@ paths:
                 - guild_id
               properties:
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
                 name:
                   type: string
                   description: 如果不写，则为"新角色"
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
-                        $ref: "#/components/schemas/GuildRole"
+                        $ref: '#/components/schemas/GuildRole'
   /guild-role/update:
     post:
       tags:
@@ -1516,7 +1515,7 @@ paths:
                 - role_id
               properties:
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
                 role_id:
                   type: integer
                   format: unsigned integer
@@ -1553,17 +1552,17 @@ paths:
                   description: 权限,参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
                   example: 2048
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
-                        $ref: "#/components/schemas/GuildRole"
+                        $ref: '#/components/schemas/GuildRole'
   /guild-role/delete:
     post:
       tags:
@@ -1579,20 +1578,20 @@ paths:
                 - role_id
               properties:
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
                 role_id:
                   type: integer
                   format: unsigned integer
                   description: 角色id
                   example: 702
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
   /guild-role/grant:
     post:
       tags:
@@ -1609,33 +1608,33 @@ paths:
                 - role_id
               properties:
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
                 user_id:
-                  $ref: "#/components/schemas/UserId"
+                  $ref: '#/components/schemas/UserId'
                 role_id:
-                  $ref: "#/components/schemas/GuildRoleId"
+                  $ref: '#/components/schemas/GuildRoleId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         type: object
                         properties:
                           user_id:
-                            $ref: "#/components/schemas/UserId"
+                            $ref: '#/components/schemas/UserId'
                           guild_id:
-                            $ref: "#/components/schemas/GuildId"
+                            $ref: '#/components/schemas/GuildId'
                           roles:
                             type: array
                             description: 角色id的列表
                             items:
-                              $ref: "#/components/schemas/GuildRoleId"
+                              $ref: '#/components/schemas/GuildRoleId'
   /guild-role/revoke:
     post:
       tags:
@@ -1652,33 +1651,33 @@ paths:
                 - role_id
               properties:
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
                 user_id:
-                  $ref: "#/components/schemas/UserId"
+                  $ref: '#/components/schemas/UserId'
                 role_id:
-                  $ref: "#/components/schemas/GuildRoleId"
+                  $ref: '#/components/schemas/GuildRoleId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         type: object
                         properties:
                           user_id:
-                            $ref: "#/components/schemas/UserId"
+                            $ref: '#/components/schemas/UserId'
                           guild_id:
-                            $ref: "#/components/schemas/GuildId"
+                            $ref: '#/components/schemas/GuildId'
                           roles:
                             type: array
                             description: 角色id的列表
                             items:
-                              $ref: "#/components/schemas/GuildRoleId"
+                              $ref: '#/components/schemas/GuildRoleId'
   /intimacy/index:
     get:
       tags:
@@ -1686,15 +1685,15 @@ paths:
       summary: 获取用户的亲密度
       description: 机器人可以在后台配置默认的初始亲密度和形象，当用户触发某些事件时，机器人可以根据一些逻辑来更新与该用户的亲密度以及形象展示。
       parameters:
-        - $ref: "#/components/parameters/UserIdParam"
+        - $ref: '#/components/parameters/UserIdParam'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
@@ -1720,11 +1719,11 @@ paths:
                                 id:
                                   type: string
                                   description: 形象图片的 id
-                                  example: "11"
+                                  example: '11'
                                 url:
                                   type: string
                                   description: 形象图片的地址
-                                  example: ""
+                                  example: ''
   /intimacy/update:
     post:
       tags:
@@ -1739,7 +1738,7 @@ paths:
                 - user_id
               properties:
                 user_id:
-                  $ref: "#/components/schemas/UserId"
+                  $ref: '#/components/schemas/UserId'
                 score:
                   type: integer
                   description: 亲密度，0-2200
@@ -1751,44 +1750,44 @@ paths:
                 img_id:
                   type: string
                   description: 表情 ID
-                  example: "1"
+                  example: '1'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
   /guild-emoji/list:
     get:
       tags:
         - guild-emoji
       summary: 获取服务器表情列表
       parameters:
-        - $ref: "#/components/parameters/PageNumberParam"
-        - $ref: "#/components/parameters/PageSizeParam"
-        - $ref: "#/components/parameters/GuildIdParam"
+        - $ref: '#/components/parameters/PageNumberParam'
+        - $ref: '#/components/parameters/PageSizeParam'
+        - $ref: '#/components/parameters/GuildIdParam'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         allOf:
-                          - $ref: "#/components/schemas/PaginationInfo"
+                          - $ref: '#/components/schemas/PaginationInfo'
                           - type: object
                             properties:
                               items:
                                 type: array
                                 items:
                                   type: object
-                                  $ref: "#/components/schemas/GuildEmoji"
+                                  $ref: '#/components/schemas/GuildEmoji'
   /guild-emoji/create:
     post:
       tags:
@@ -1808,23 +1807,23 @@ paths:
                   type: string
                   description: 表情名。长度限制 2 - 32 字符，如果不写，则为随机字符串
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
                 emoji:
                   type: string
                   format: binary
                   description: 表情文件。必须为 PNG 类型，大小不能超过 256 KB
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
-                        $ref: "#/components/schemas/GuildEmoji"
+                        $ref: '#/components/schemas/GuildEmoji'
   /guild-emoji/update:
     post:
       tags:
@@ -1846,13 +1845,13 @@ paths:
                   type: string
                   description: 表情 ID
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
   /guild-emoji/delete:
     post:
       tags:
@@ -1870,13 +1869,13 @@ paths:
                   type: string
                   description: 表情 ID
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
   /invite/list:
     get:
       tags:
@@ -1889,23 +1888,23 @@ paths:
           description: 服务器id
           required: false
           schema:
-            $ref: "#/components/schemas/GuildId"
-        - $ref: "#/components/parameters/GuildChannelIdParam"
-        - $ref: "#/components/parameters/PageNumberParam"
-        - $ref: "#/components/parameters/PageSizeParam"
+            $ref: '#/components/schemas/GuildId'
+        - $ref: '#/components/parameters/GuildChannelIdParam'
+        - $ref: '#/components/parameters/PageNumberParam'
+        - $ref: '#/components/parameters/PageSizeParam'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
                         allOf:
-                          - $ref: "#/components/schemas/PaginationInfo"
+                          - $ref: '#/components/schemas/PaginationInfo'
                           - type: object
                             properties:
                               items:
@@ -1914,9 +1913,9 @@ paths:
                                   type: object
                                   properties:
                                     channel_id:
-                                      $ref: "#/components/schemas/GuildChannelId"
+                                      $ref: '#/components/schemas/GuildChannelId'
                                     guild_id:
-                                      $ref: "#/components/schemas/GuildId"
+                                      $ref: '#/components/schemas/GuildId'
                                     url_code:
                                       type: string
                                       description: 邀请码
@@ -1926,7 +1925,7 @@ paths:
                                       description: 邀请链接
                                       example: https://kaihei.co/XXX
                                     user:
-                                      $ref: "#/components/schemas/User"
+                                      $ref: '#/components/schemas/User'
   /invite/create:
     post:
       tags:
@@ -1940,17 +1939,17 @@ paths:
               type: object
               properties:
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
                 channel_id:
-                  $ref: "#/components/schemas/GuildChannelId"
+                  $ref: '#/components/schemas/GuildChannelId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
                 allOf:
-                  - $ref: "#/components/schemas/BasicResponse"
+                  - $ref: '#/components/schemas/BasicResponse'
                   - type: object
                     properties:
                       data:
@@ -1978,38 +1977,159 @@ paths:
                   type: string
                   example: XXX
                 guild_id:
-                  $ref: "#/components/schemas/GuildId"
+                  $ref: '#/components/schemas/GuildId'
                 channel_id:
-                  $ref: "#/components/schemas/GuildChannelId"
+                  $ref: '#/components/schemas/GuildChannelId'
       responses:
-        "200":
+        '200':
           description: OK
           content:
             application/json:
               schema:
-                $ref: "#/components/schemas/BasicResponse"
+                $ref: '#/components/schemas/BasicResponse'
 
-webhooks: 
-  事件结构说明: 
+webhooks:
+  事件结构说明:
     description: |
       # 事件结构说明
       ## 这是个二级说明
   userAddReaction:
-    post: 
-      summary: 用户添加Reaction
+    post:
+      tags:
+        - event/system/channel
+      summary: 用户添加reaction
       requestBody:
-        content:
-          application/json: 
-            schema: 
-              type: object
-              properties: 
-                newProperty:
-                  type: string
-                  example: "string"
+        $ref: './components/requestBodies/event-channel/reaction.yaml#/add'
+  userDeleteReaction:
+    post:
+      tags:
+        - event/system/channel
+      summary: 频道内用户取消reaction
+      requestBody:
+        $ref: './components/requestBodies/event-channel/reaction.yaml#/delete'
+  updateMessge:
+    post:
+      tags:
+        - event/system/channel
+      summary: 频道消息更新
+      requestBody:
+        $ref: './components/requestBodies/event-channel/message.yaml#/update'
+  deleteMessage:
+    post:
+      tags:
+        - event/system/channel
+      summary: 频道消息被删除
+      requestBody:
+        $ref: './components/requestBodies/event-channel/message.yaml#/delete'
+  createChannel:
+    post:
+      tags:
+        - event/system/channel
+      summary: 新增频道
+      requestBody:
+        $ref: './components/requestBodies/event-channel/channel.yaml#/create'
+  updateChannel:
+    post:
+      tags:
+        - event/system/channel
+      summary: 频道信息更新
+      requestBody:
+        $ref: './components/requestBodies/event-channel/channel.yaml#/update'
+  deleteChannel:
+    post:
+      tags:
+        - event/system/channel
+      summary: 删除频道
+      requestBody:
+        $ref: './components/requestBodies/event-channel/channel.yaml#/delete'
 
+  pinMessage:
+    post:
+      tags:
+        - event/system/channel
+      summary: 新的频道置顶消息
+      requestBody:
+        $ref: './components/requestBodies/event-channel/pin.yaml#/add'
+  unpinMessage:
+    post:
+      tags:
+        - event/system/channel
+      summary: 取消频道置顶消息
+      requestBody:
+        $ref: './components/requestBodies/event-channel/pin.yaml#/cancel'
+  updatePrivateMessage:
+    post:
+      tags:
+        - event/system/private-message
+      summary: 私聊消息更新
+      requestBody:
+        $ref: './components/requestBodies/event-direct-message/message.yaml#/update'
+  deletePrivateMessage:
+    post:
+      tags:
+        - event/system/private-message
+      summary: 私聊消息被删除
+      requestBody:
+        $ref: './components/requestBodies/event-direct-message/message.yaml#/delete'
+  privateAddReaction:
+    post:
+      tags:
+        - event/system/private-message
+      summary: 私聊内用户添加reaction
+      requestBody:
+        $ref: './components/requestBodies/event-direct-message/reaction.yaml#/add'
+  privateDeleteReaction:
+    post:
+      tags:
+        - event/system/private-message
+      summary: 私聊内用户删除reaction
+      requestBody:
+        $ref: './components/requestBodies/event-direct-message/reaction.yaml#/delete'
+  memberJoin:
+    post: 
+      tags:
+        - event/system/guild-member
+      summary: 新成员加入服务器
+      requestBody:
+        $ref: './components/requestBodies/event-member/member.yaml#/join'
+  memberExit:
+    post: 
+      tags:
+        - event/system/guild-member
+      summary: 服务器成员退出
+      requestBody:
+        $ref: './components/requestBodies/event-member/member.yaml#/exit'
+  memberUpdate:
+    post: 
+      tags:
+        - event/system/guild-member
+      summary: 服务器成员信息更新
+      requestBody:
+        $ref: './components/requestBodies/event-member/member.yaml#/update'
+  memberOnline:
+    post: 
+      tags:
+        - event/system/guild-member
+      summary: 服务器成员信息上线
+      requestBody:
+        $ref: './components/requestBodies/event-member/member.yaml#/online'
+  memberOffline:
+    post: 
+      tags:
+        - event/system/guild-member
+      summary: 服务器成员信息下线
+      requestBody:
+        $ref: './components/requestBodies/event-member/member.yaml#/offline'
+  # roleAdd:
+  #   post: 
+  #     tags:
+  #       - event/system/guild-role
+  #     summary: 服务器角色增加
+  #     requestBody:
+  #       $ref: './components/requestBodies/event-role/role.yaml#/add'
 components:
   parameters:
-    $ref: "./components/parameters/_index.yaml"
+    $ref: './components/parameters/_index.yaml'
   schemas:
-    $ref: "./components/schemas/_index.yaml"
+    $ref: './components/schemas/_index.yaml'
 security: []

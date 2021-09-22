@@ -1,0 +1,37 @@
+add:
+  content:
+    application/json: 
+      schema: 
+        allOf:
+          - $ref: "../../schemas/_index.yaml#/PersonEvent"
+          - $ref: "../../schemas/events/reaction.yaml"
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra: 
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`private_added_reaction`
+                        example: "private_added_reaction"
+
+delete:
+  content:
+    application/json: 
+      schema: 
+        allOf:
+          - $ref: "../../schemas/_index.yaml#/PersonEvent"
+          - $ref: "../../schemas/events/reaction.yaml"
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra: 
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`private_deleted_reaction`
+                        example: "private_deleted_reaction"

@@ -1,0 +1,141 @@
+join:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/SystemEvent'
+          - $ref: '../../schemas/events/member.yaml'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`joined_guild`
+                        example: 'joined_guild'
+                      body:
+                        type: object
+                        properties:
+                          joined_at:
+                            type: integer
+                            description: 加入服务器的时间(毫秒)
+                            example: 1612774315000
+
+exit:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/SystemEvent'
+          - $ref: '../../schemas/events/member.yaml'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`exited_guild`
+                        example: 'exited_guild'
+                      body:
+                        type: object
+                        properties:
+                          exited_at:
+                            type: integer
+                            description: 退出服务器的时间(毫秒)
+                            example: 1612774315000
+
+update:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/SystemEvent'
+          - $ref: '../../schemas/events/member.yaml'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`updated_guild_member`
+                        example: 'updated_guild_member'
+                      body:
+                        type: object
+                        properties:
+                          nickname:
+                            type: string
+                            description: 昵称
+                            example: '新昵称'
+
+online:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/SystemEvent'
+          - $ref: '../../schemas/events/member.yaml'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`guild_member_online`
+                        example: 'guild_member_online'
+                      body:
+                        type: object
+                        properties:
+                          event_time:
+                            type: integer
+                            description: 用户上线时间(毫秒)
+                            example: 1612774315000
+                          guilds:
+                            type: array
+                            description: 服务器id组成的数组, 代表与该用户所在的共同的服务器
+                            items:
+                              type: string
+                            example: ['601638990000000']
+
+offline:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/SystemEvent'
+          - $ref: '../../schemas/events/member.yaml'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`guild_member_offline`
+                        example: 'guild_member_offline'
+                      body:
+                        type: object
+                        properties:
+                          event_time:
+                            type: integer
+                            description: 用户下线时间(毫秒)
+                            example: 1612774315000
+                          guilds:
+                            type: array
+                            description: 服务器id组成的数组, 代表与该用户所在的共同的服务器
+                            items:
+                              type: string
+                            example: ['601638990000000']

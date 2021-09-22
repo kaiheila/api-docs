@@ -1,0 +1,81 @@
+update:
+  content:
+    application/json: 
+      schema: 
+        allOf:
+          - $ref: "../../schemas/_index.yaml#/PersonEvent"
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  channel_type:
+                    type: string
+                    description: 频道类型，私聊消息为`PERSON`
+                    example: "PERSON"
+                  extra: 
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`updated_private_message`
+                        example: "updated_private_message"
+                      body:
+                        type: object
+                        properties:
+                          msg_id:
+                            allOf:
+                              - $ref: "../../schemas/_index.yaml#/MessageId"
+                            description: 被更新的消息id
+                          author_id:
+                            allOf:
+                              - $ref: "../../schemas/_index.yaml#/UserId"
+                            description: 被更新的消息的创建者id
+                          target_id:
+                            allOf:
+                              - $ref: "../../schemas/_index.yaml#/UserId"
+                            description: 被更新的消息的目标用户id
+                          content:
+                            type: string
+                            description: 更新后的文本
+                            example: "asdaaad"
+                          updated_at: 
+                            type: integer
+                            description: 更新时间戳(毫秒)
+                            example: 1612778254192
+
+delete:
+  content:
+    application/json: 
+      schema: 
+        allOf:
+          - $ref: "../../schemas/_index.yaml#/PersonEvent"
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra: 
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`deleted_private_message`
+                        example: "deleted_private_message"
+                      body:
+                        type: object
+                        properties:
+                          msg_id:
+                            allOf:
+                              - $ref: "../../schemas/_index.yaml#/MessageId"
+                            description: 被删除的消息id
+                          author_id:
+                            allOf:
+                              - $ref: "../../schemas/_index.yaml#/UserId"
+                            description: 被删除的消息的创建者id
+                          target_id:
+                            allOf:
+                              - $ref: "../../schemas/_index.yaml#/UserId"
+                            description: 被删除的消息的目标用户id
+                          updated_at: 
+                            type: integer
+                            description: 删除的时间戳(毫秒)
+                            example: 1612778254192

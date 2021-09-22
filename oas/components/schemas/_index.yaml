@@ -15,6 +15,166 @@ BasicResponse:
     data:
       type: object
       description: 返回数据
+
+BasicEvent:
+  type: object
+  required:
+    - s
+    - d
+    - sn
+  properties: 
+    s:
+      type: integer
+      description: websocket信令，详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
+      example: 0
+    d: 
+      type: object
+      description: 具体数据
+      properties: 
+        channel_type:
+          type: string
+          description: 消息频道类型, 频道消息为`GROUP`，私聊消息为`PERSON`
+          example: GROUP
+          enum: 
+            - GROUP
+            - PERSON
+        type:
+          type: integer
+        target_id:
+          type: string
+          description: 发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id
+          example: "60163899100000"
+        author_id: 
+          type: string
+          description: 发送者 id, 1 代表系统
+        content: 
+          type: string
+          description: 消息内容, 文件，图片，视频时，content 为 url
+        msg_id: 
+          type: string
+          description: 消息的 id
+        msg_timestamp: 
+          type: integer
+          description: 消息发送时间的毫秒时间戳
+        nonce: 
+          type: string
+          description: 随机串，与用户消息发送 api 中传的 nonce 保持一致
+        verify_token:
+          type: string
+          description: webhook设置中的verify_token
+        extra:
+          type: object
+          description: 不同的消息类型，结构不一致
+          example: "xxx"
+      example: {}
+    sn:
+      type: integer
+      description: 消息序号，针对当前session。该字段并不一定有，只在s=0时有，与webhook一致。详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
+      example: 1
+
+MessageEvent:
+  type: object
+  description: 当事件的type非系统消息(255)时
+  allOf:
+    - $ref: "#/BasicEvent"
+    - type: object
+      properties:
+        d:
+          type: object
+          properties: 
+            extra: 
+              type: object
+              properties:
+                type: 
+                  type: integer
+                  description: 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息
+                guild_id: 
+                  type: string
+                  description: 服务器id
+                channel_name:
+                  type: string
+                  description: 频道名
+                mention:
+                  type: array
+                  description: "`\\@特定用户` 的用户ID数组，与`mention_info`中的数据对应"
+                  items:
+                    type: string
+                mention_all:
+                  type: boolean
+                  description: 是否含有`@全体人员`
+                mention_roles:
+                  type: array
+                  description: "`@特定角色` 的角色ID数组，与`mention_info`中的数据对应"
+                  items:
+                    type: string
+                mention_here:
+                  type: boolean
+                author:
+                  description: 消息作者
+                  allOf:
+                    - $ref: "#/User"
+
+SystemEvent: 
+  type: object
+  allOf:
+    - $ref: "#/BasicEvent"
+    - type: object
+      properties:
+        d:
+          type: object
+          properties: 
+            channel_type:
+              example: "GROUP"
+            type:
+              description: 消息类型，系统消息为255
+              example: 255
+            author_id:
+              description: 发送者id, 1 代表系统
+              example: 1
+            content: 
+              example: "[系统消息]"
+            extra: 
+              type: object
+              properties:
+                type: 
+                  type: string
+                body:
+                  type: object
+            msg_id:
+              example: "63d6a934-xxxx-a1f02c255213"
+            msg_timestamp:
+              example: 1612704007683
+            nonce:
+              example: ""
+            verify_token:
+              example: "xxx"
+
+PersonEvent:
+  type: object
+  allOf:
+    - $ref: "#/SystemEvent"
+    - type: object
+      properties:
+        d:
+          type: object
+          properties:
+            channel_type:
+              type: string
+              description: 频道类型，私聊消息为`PERSON`
+              example: "PERSON"
+            extra: 
+              type: object
+              properties:
+                body:
+                  type: object
+                  properties:
+                    msg_id:
+                      allOf:
+                        - $ref: "#/MessageId"
+                      description: 被操作的消息id
+                    chat_code: 
+                      $ref: "#/ChatCode"
+
 PaginationInfo:
   type: object
   properties:
@@ -237,6 +397,7 @@ GuildChannelRoleRequest:
       type: string
       description: 根据type，为用户id或频道id
       default: ""
+
 Message:
   type: object
   properties:
@@ -368,6 +529,12 @@ UserChatDetail:
         is_target_blocked:
           type: boolean
           description: 是否已被对方屏蔽
+          
+ChatCode:
+  type: string
+  description: 私聊会话 Code
+  example: "3b4aa448b8xxxxc87a1b3770792e7433"
+
 DirectMessage:
   type: object
   properties:
