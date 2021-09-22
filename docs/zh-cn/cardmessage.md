@@ -154,7 +154,7 @@ cardmessage主要由json构成，在卡片消息中，有四种类别的卡片�
 ```
 **说明：**
 - elements中可以为：plain-text, kmarkdown, image
-- elemetns最多可包含10个元素
+- elements最多可包含10个元素
 
 ### 分割线模块
 **作用说明：** 展示分割线。  
