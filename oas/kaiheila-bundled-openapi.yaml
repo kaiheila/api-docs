@@ -1,26 +1,26 @@
 openapi: 3.1.0
-
 servers:
-  - url: https://www.kaiheila.cn/api/v3
+  - url: 'https://www.kaiheila.cn/api/v3'
     description: 机器人接口
-
 info:
   title: 开黑啦机器人API v3 开发者版
   version: 3.0.0
-  termsOfService: https://developer.kaiheila.cn/doc/privacy
+  termsOfService: 'https://developer.kaiheila.cn/doc/privacy'
   contact:
     email: apiteam@swagger.io
   license:
     name: MIT
-    url: https://github.com/kaiheila/api-docs/blob/main/LICENSE
-  description: |
+    url: 'https://github.com/kaiheila/api-docs/blob/main/LICENSE'
+  description: >
     # 引言
+
     此文档仅用于方便开发者查看、确认开黑啦机器人API接口，官方文档地址：[开黑啦开发者平台](https://developer.kaiheila.cn/doc/)
+
 
     建议使用[rapidoc](https://mrin9.github.io/RapiDoc/index.html)查看此文档，示例链接：[文档查看示例](https://fi6.github.io/kaiheila-api-docs/rapidoc-view.html)
 
+
     如果发现有任何问题，请提交PR，我们将尽快进行修复与合并。
-# 如需合并，请执行：npx @redocly/openapi-cli bundle ./api-docs/oas/kaiheila-openapi.yaml -o ./api-docs/oas/bundled.yaml 
 tags:
   - name: guild
     description: 服务器相关接口
@@ -46,7 +46,6 @@ tags:
     description: 亲密度相关接口列表
   - name: asset
     description: 附件相关接口
-
 paths:
   /guild/list:
     get:
@@ -60,7 +59,7 @@ paths:
         - $ref: '#/components/parameters/PageSizeParam'
         - name: sort
           in: query
-          description: 代表排序的字段, 比如-id代表id按DESC排序，id代表id按ASC排序。不一定有, 如果有，接口中会声明支持的排序字段。
+          description: '代表排序的字段, 比如-id代表id按DESC排序，id代表id按ASC排序。不一定有, 如果有，接口中会声明支持的排序字段。'
           schema:
             type: string
       responses:
@@ -278,7 +277,7 @@ paths:
         - $ref: '#/components/parameters/GuildIdParam'
         - name: return_type
           in: query
-          description: 返回格式，建议为"detail", 其他情况仅作为兼容
+          description: '返回格式，建议为"detail", 其他情况仅作为兼容'
           schema:
             type: string
       responses:
@@ -469,7 +468,7 @@ paths:
                 type:
                   allOf:
                     - $ref: '#/components/schemas/GuildChannelType'
-                    - description: 频道类型, `1`为文字，`2`为语音, 默认为`1`
+                    - description: '频道类型, `1`为文字，`2`为语音, 默认为`1`'
                 limit_amount:
                   type: integer
                   maximum: 99
@@ -525,7 +524,7 @@ paths:
         - name: target_id
           required: true
           in: query
-          description: 目标频道id, 需要是语音频道
+          description: '目标频道id, 需要是语音频道'
           schema:
             $ref: '#/components/schemas/GuildChannelId'
       responses:
@@ -564,7 +563,7 @@ paths:
                 channel_id:
                   allOf:
                     - $ref: '#/components/schemas/GuildChannelId'
-                    - description: 目标频道id, 需要是语音频道
+                    - description: '目标频道id, 需要是语音频道'
                 user_ids:
                   type: array
                   description: 用户id的数组
@@ -610,7 +609,7 @@ paths:
                         properties:
                           permission_overwrites:
                             type: array
-                            description: 频道权限覆写的角色列表, role_id为角色id, 其它字段见下表
+                            description: '频道权限覆写的角色列表, role_id为角色id, 其它字段见下表'
                             items:
                               allOf:
                                 - type: object
@@ -670,11 +669,11 @@ paths:
                   properties:
                     allow:
                       type: integer
-                      description: 默认为0,想要设置的允许的权限值
+                      description: '默认为0,想要设置的允许的权限值'
                       default: 0
                     deny:
                       type: integer
-                      description: 默认为0,想要设置的拒绝的权限值
+                      description: '默认为0,想要设置的拒绝的权限值'
                       default: 0
       responses:
         '200':
@@ -753,7 +752,7 @@ paths:
         - $ref: '#/components/parameters/MessageListFlagParam'
         - name: page_size
           in: query
-          description: 当前分页消息数量, 默认50
+          description: '当前分页消息数量, 默认50'
           schema:
             type: integer
             default: 50
@@ -795,7 +794,8 @@ paths:
                       description: 目标频道 id
                     temp_target_id:
                       type: string
-                      description: 用户id,如果传了，代表该消息是临时消息，该消息不会存数据库，但是会在频道内只给该用户推送临时消息。用于在频道内针对用户的操作进行单独的回应通知等。
+                      description: >-
+                        用户id,如果传了，代表该消息是临时消息，该消息不会存数据库，但是会在频道内只给该用户推送临时消息。用于在频道内针对用户的操作进行单独的回应通知等。
       responses:
         '200':
           description: OK
@@ -814,7 +814,7 @@ paths:
                         example: ''
                       msg_timestamp:
                         type: integer
-                        description: 消息发送时间(ms, 服务器时间戳)
+                        description: '消息发送时间(ms, 服务器时间戳)'
                         example: 1607072537177
                       nonce:
                         type: string
@@ -890,7 +890,7 @@ paths:
             $ref: '#/components/schemas/MessageId'
         - name: emoji
           in: query
-          description: emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode
+          description: 'emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode'
           schema:
             $ref: '#/components/schemas/GuildEmojiId'
       responses:
@@ -960,7 +960,7 @@ paths:
                 user_id:
                   allOf:
                     - $ref: '#/components/schemas/UserId'
-                    - description: 用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限
+                    - description: '用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限'
       responses:
         '200':
           description: OK
@@ -1097,7 +1097,7 @@ paths:
         - $ref: '#/components/parameters/PageNumberParam'
         - name: page_size
           in: query
-          description: 当前分页消息数量, 默认50
+          description: '当前分页消息数量, 默认50'
           schema:
             type: integer
             default: 50
@@ -1155,7 +1155,7 @@ paths:
                         example: 50974c-364c983fa6cb
                       msg_timestamp:
                         type: integer
-                        description: 消息发送时间(ms, 服务器时间戳)
+                        description: '消息发送时间(ms, 服务器时间戳)'
                         example: 1607072537177
                       nonce:
                         type: string
@@ -1228,7 +1228,7 @@ paths:
             $ref: '#/components/schemas/MessageId'
         - name: emoji
           in: query
-          description: emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode
+          description: 'emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode'
           schema:
             $ref: '#/components/schemas/GuildEmojiId'
       responses:
@@ -1298,7 +1298,7 @@ paths:
                 user_id:
                   allOf:
                     - $ref: '#/components/schemas/UserId'
-                    - description: 用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限
+                    - description: '用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限'
       responses:
         '200':
           description: OK
@@ -1314,7 +1314,7 @@ paths:
       parameters:
         - name: compress
           in: query
-          description: 下发数据是否压缩，默认为`1`,代表压缩
+          description: '下发数据是否压缩，默认为`1`,代表压缩'
           schema:
             type: integer
       responses:
@@ -1330,7 +1330,7 @@ paths:
                       url:
                         type: string
                         description: 网关的连接地址
-                        example: wss://xxxx
+                        example: 'wss://xxxx'
   /user/me:
     get:
       tags:
@@ -1357,12 +1357,12 @@ paths:
                                 example: true
                               mobile_prefix:
                                 type: string
-                                description: 手机区号,如中国为86
+                                description: '手机区号,如中国为86'
                                 example: '86'
                               mobile:
                                 type: string
                                 description: 用户手机号，带掩码
-                                example: '110****2333'
+                                example: 110****2333
                               invited_count:
                                 type: integer
                                 description: 当前邀请注册的人数
@@ -1441,7 +1441,8 @@ paths:
                           url:
                             type: string
                             description: 资源url
-                            example: https://img.kaiheila.cn/attachments/2021-01/18/xxxxxxxxx.txt
+                            example: >-
+                              https://img.kaiheila.cn/attachments/2021-01/18/xxxxxxxxx.txt
   /guild-role/list:
     get:
       tags:
@@ -1550,7 +1551,8 @@ paths:
                 permissions:
                   type: integer
                   format: unsigned integer
-                  description: 权限,参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+                  description: >-
+                    权限,参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
                   example: 2048
       responses:
         '200':
@@ -1924,7 +1926,7 @@ paths:
                                     url:
                                       type: string
                                       description: 邀请链接
-                                      example: https://kaihei.co/XXX
+                                      example: 'https://kaihei.co/XXX'
                                     user:
                                       $ref: '#/components/schemas/User'
   /invite/create:
@@ -1959,7 +1961,7 @@ paths:
                           url:
                             type: string
                             description: 邀请链接
-                            example: https://kaihei.co/xxxx
+                            example: 'https://kaihei.co/xxxx'
   /invite/delete:
     post:
       tags:
@@ -1988,7 +1990,6 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/BasicResponse'
-
 webhooks:
   事件结构说明:
     description: |
@@ -2000,137 +2001,1457 @@ webhooks:
         - event/system/channel
       summary: 用户添加reaction
       requestBody:
-        $ref: './components/requestBodies/event-channel/reaction.yaml#/add'
+        $ref: '#/components/requestBodies/add'
   userDeleteReaction:
     post:
       tags:
         - event/system/channel
       summary: 频道内用户取消reaction
       requestBody:
-        $ref: './components/requestBodies/event-channel/reaction.yaml#/delete'
+        $ref: '#/components/requestBodies/delete'
   updateMessge:
     post:
       tags:
         - event/system/channel
       summary: 频道消息更新
       requestBody:
-        $ref: './components/requestBodies/event-channel/message.yaml#/update'
+        $ref: '#/components/requestBodies/update'
   deleteMessage:
     post:
       tags:
         - event/system/channel
       summary: 频道消息被删除
       requestBody:
-        $ref: './components/requestBodies/event-channel/message.yaml#/delete'
+        $ref: '#/components/requestBodies/message_delete'
   createChannel:
     post:
       tags:
         - event/system/channel
       summary: 新增频道
       requestBody:
-        $ref: './components/requestBodies/event-channel/channel.yaml#/create'
+        $ref: '#/components/requestBodies/create'
   updateChannel:
     post:
       tags:
         - event/system/channel
       summary: 频道信息更新
       requestBody:
-        $ref: './components/requestBodies/event-channel/channel.yaml#/update'
+        $ref: '#/components/requestBodies/channel_update'
   deleteChannel:
     post:
       tags:
         - event/system/channel
       summary: 删除频道
       requestBody:
-        $ref: './components/requestBodies/event-channel/channel.yaml#/delete'
-
+        $ref: '#/components/requestBodies/channel_delete'
   pinMessage:
     post:
       tags:
         - event/system/channel
       summary: 新的频道置顶消息
       requestBody:
-        $ref: './components/requestBodies/event-channel/pin.yaml#/add'
+        $ref: '#/components/requestBodies/pin_add'
   unpinMessage:
     post:
       tags:
         - event/system/channel
       summary: 取消频道置顶消息
       requestBody:
-        $ref: './components/requestBodies/event-channel/pin.yaml#/cancel'
+        $ref: '#/components/requestBodies/cancel'
   updatePrivateMessage:
     post:
       tags:
         - event/system/private-message
       summary: 私聊消息更新
       requestBody:
-        $ref: './components/requestBodies/event-direct-message/message.yaml#/update'
+        $ref: '#/components/requestBodies/message_update'
   deletePrivateMessage:
     post:
       tags:
         - event/system/private-message
       summary: 私聊消息被删除
       requestBody:
-        $ref: './components/requestBodies/event-direct-message/message.yaml#/delete'
+        $ref: '#/components/requestBodies/message_delete-2'
   privateAddReaction:
     post:
       tags:
         - event/system/private-message
       summary: 私聊内用户添加reaction
       requestBody:
-        $ref: './components/requestBodies/event-direct-message/reaction.yaml#/add'
+        $ref: '#/components/requestBodies/reaction_add'
   privateDeleteReaction:
     post:
       tags:
         - event/system/private-message
       summary: 私聊内用户删除reaction
       requestBody:
-        $ref: './components/requestBodies/event-direct-message/reaction.yaml#/delete'
+        $ref: '#/components/requestBodies/reaction_delete'
   memberJoin:
-    post: 
+    post:
       tags:
         - event/system/guild-member
       summary: 新成员加入服务器
       requestBody:
-        $ref: './components/requestBodies/event-member/member.yaml#/join'
+        $ref: '#/components/requestBodies/join'
   memberExit:
-    post: 
+    post:
       tags:
         - event/system/guild-member
       summary: 服务器成员退出
       requestBody:
-        $ref: './components/requestBodies/event-member/member.yaml#/exit'
+        $ref: '#/components/requestBodies/exit'
   memberUpdate:
-    post: 
+    post:
       tags:
         - event/system/guild-member
       summary: 服务器成员信息更新
       requestBody:
-        $ref: './components/requestBodies/event-member/member.yaml#/update'
+        $ref: '#/components/requestBodies/member_update'
   memberOnline:
-    post: 
+    post:
       tags:
         - event/system/guild-member
       summary: 服务器成员信息上线
       requestBody:
-        $ref: './components/requestBodies/event-member/member.yaml#/online'
+        $ref: '#/components/requestBodies/online'
   memberOffline:
-    post: 
+    post:
       tags:
         - event/system/guild-member
       summary: 服务器成员信息下线
       requestBody:
-        $ref: './components/requestBodies/event-member/member.yaml#/offline'
-  # roleAdd:
-  #   post: 
-  #     tags:
-  #       - event/system/guild-role
-  #     summary: 服务器角色增加
-  #     requestBody:
-  #       $ref: './components/requestBodies/event-role/role.yaml#/add'
+        $ref: '#/components/requestBodies/offline'
 components:
   parameters:
-    $ref: './components/parameters/_index.yaml'
+    PageNumberParam:
+      name: page
+      in: query
+      description: 目标页数
+      schema:
+        type: integer
+    PageSizeParam:
+      name: page_size
+      in: query
+      description: 每页数据数量
+      schema:
+        type: integer
+    GuildIdParam:
+      name: guild_id
+      in: query
+      description: 服务器id
+      required: true
+      schema:
+        $ref: '#/components/schemas/GuildId'
+    GuildChannelIdParam:
+      name: channel_id
+      in: query
+      description: 频道id
+      schema:
+        $ref: '#/components/schemas/GuildChannelId'
+    MobileVerifiedParam:
+      name: mobile_verified
+      in: query
+      description: 只能为`0`或`1`，`0`是未认证，`1`是已认证
+      schema:
+        type: integer
+        enum:
+          - 0
+          - 1
+    GuildChannelTypeParam:
+      name: type
+      in: query
+      description: '频道类型, `1`为文字，`2`为语音, 默认为`1`'
+      schema:
+        $ref: '#/components/schemas/GuildChannelType'
+    MessageListFlagParam:
+      name: flag
+      in: query
+      description: |-
+        查询模式，有三种模式可以选择。不传则默认查询最新的消息。  
+        before: 查询参考消息之前的消息，不包括参考消息  
+        around: 查询以参考消息为中心，前后一定数量的消息  
+        after: 查询参考消息之后的消息，不包括参考消息
+      schema:
+        type: string
+        enum:
+          - before
+          - around
+          - after
+    UserIdParam:
+      name: user_id
+      in: query
+      required: true
+      schema:
+        $ref: '#/components/schemas/UserId'
   schemas:
-    $ref: './components/schemas/_index.yaml'
+    BasicResponse:
+      type: object
+      required:
+        - message
+        - code
+      properties:
+        code:
+          type: integer
+          description: 错误码，0代表成功，非0代表失败，具体的错误码参见错误码一览
+          example: 0
+        message:
+          type: string
+          description: 错误消息，具体的返回消息会根据Accept-Language来返回。
+          example: 操作成功
+        data:
+          type: object
+          description: 返回数据
+    PaginationInfo:
+      type: object
+      properties:
+        items:
+          type: array
+          description: 数据列表
+          items:
+            type: object
+        meta:
+          type: object
+          description: 分页信息
+          properties:
+            page:
+              type: integer
+              description: 页码
+              example: 1
+            page_total:
+              type: integer
+              description: 总页数
+              example: 10
+            page_size:
+              type: integer
+              description: 每一页的数据
+              example: 50
+            total:
+              type: integer
+              description: 总数据量
+              example: 480
+        sort:
+          type: object
+          description: 'Map。分页的排序, key:+-1, 如果为1代表按key升序，如果为-1代表按key降序'
+          example:
+            id: 1
+    GuildId:
+      type: string
+      description: 服务器id
+      example: '91686000000'
+    Guild:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/GuildId'
+        name:
+          type: string
+          description: 服务器名称
+          example: Hello
+        topic:
+          type: string
+          description: 服务器主题
+        master_id:
+          type: string
+          description: 服务器主的id
+          example: '17000000'
+        icon:
+          type: string
+          description: 服务器icon的地址
+        notify_type:
+          type: integer
+          description: '通知类型, `0`代表默认使用服务器通知设置，`1`代表接收所有通知, `2`代表仅@被提及，`3`代表不接收通知'
+          enum:
+            - 0
+            - 1
+            - 2
+            - 3
+        region:
+          type: string
+          description: 服务器默认使用语音区域
+        enable_open:
+          type: boolean
+          description: 是否为公开服务器
+        open_id:
+          type: string
+          description: 公开服务器id
+        default_channel_id:
+          type: string
+          description: 默认频道id
+        welcome_channel_id:
+          type: string
+          description: 欢迎频道id
+      example:
+        id: '123123'
+        name: test server
+        topic: ''
+        master_id: ''
+        icon: ''
+        notify_type: 0
+        region: beijing
+    GuildChannelId:
+      type: string
+      description: 服务器频道ID
+      example: '00000000000000000000000'
+    UserId:
+      type: string
+      description: 用户id
+      example: '2418200000'
+    User:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/UserId'
+        username:
+          type: string
+          description: 用户的名称
+          example: tz-un
+        identify_num:
+          type: string
+          description: 用户名的认证数字，用户名正常为：user_name#identify_num
+          example: '5618'
+        online:
+          type: boolean
+          description: 当前是否在线
+          example: false
+        status:
+          type: integer
+          description: '用户的状态, 0代表正常，10代表被封禁'
+          enum:
+            - 0
+            - 10
+          example: 0
+        bot:
+          type: boolean
+          description: 是否为机器人
+        avatar:
+          type: string
+          description: 用户的头像的url地址
+          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
+        vip_avatar:
+          type: string
+          description: vip用户的头像的url地址，可能为gif动图
+          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
+    GuildChannelType:
+      type: integer
+      enum:
+        - 1
+        - 2
+      description: 频道类型，`1`为文字频道，`2`为语音频道
+    GuildChannel:
+      type: object
+      description: 服务器频道
+      properties:
+        id:
+          $ref: '#/components/schemas/GuildChannelId'
+        guild_id:
+          $ref: '#/components/schemas/GuildId'
+        master_id:
+          description: 频道创建者id
+          type: string
+        parent_id:
+          type: string
+          description: 父分组频道id
+        name:
+          type: string
+          description: 频道名称
+        topic:
+          type: string
+          description: 频道简介
+        type:
+          $ref: '#/components/schemas/GuildChannelType'
+        level:
+          type: integer
+          description: 频道排序
+        slow_mode:
+          type: integer
+          description: 慢速限制，单位秒。用户发送消息之后再次发送消息的等待时间。
+        limit_amount:
+          type: integer
+          description: 人数限制
+        is_category:
+          type: boolean
+          description: 是否为分组类型
+        server_url:
+          type: string
+          description: '语音服务器地址，`HOST:PORT`的格式'
+      example:
+        id: 123
+        guild_id: 123
+        master_id: 123
+        parent_id: 123
+        name: 测试频道
+        topic: 频道简介
+        type: 1
+        level: 10
+        slow_mode: 0
+        is_category: false
+    GuildChannelPermission:
+      type: object
+      required:
+        - allow
+        - deny
+      properties:
+        allow:
+          type: integer
+          description: 允许的权限的结果集
+          example: 2048
+        deny:
+          type: integer
+          description: 拒绝的权限的结果集
+          example: 0
+    GuildChannelRoleRequest:
+      type: object
+      required:
+        - channel_id
+      properties:
+        channel_id:
+          description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
+          allOf:
+            - $ref: '#/components/schemas/GuildChannelId'
+        type:
+          type: string
+          description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
+          enum:
+            - role_id
+            - user_id
+          default: user_id
+        value:
+          type: string
+          description: 根据type，为用户id或频道id
+          default: ''
+    GuildRoleId:
+      type: number
+      description: 服务器角色id
+      example: 113
+    MessageId:
+      type: string
+      description: 消息id
+      example: 1c4532f6-*********-93e9-6347f410f91c
+    MessageEmbed:
+      type: object
+      properties:
+        type:
+          type: string
+        url:
+          type: string
+      additionalProperties: true
+      example:
+        type: bili-video
+        url: ''
+        origin_url: 'https://www.bilibili.com/video/XXXXX'
+        av_no: 11J411E
+        iframe_path: 'https://player.bilibili.com/player.html?xxx=xxx'
+        duration: 97
+        title: Title
+        pic: 'https://**/lc01gi.jpg'
+    MessageAttachmentFile:
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - file
+        url:
+          type: string
+        name:
+          type: string
+          description: 多媒体名
+        size:
+          type: integer
+          description: 大小 单位（B）
+          example: 2575670
+    MessageAttachments:
+      oneOf:
+        - $ref: '#/components/schemas/MessageAttachmentFile'
+    MessageReaction:
+      type: object
+      properties:
+        emoji:
+          type: object
+          properties:
+            id:
+              type: string
+              example: '[#129315;]'
+            name:
+              type: string
+              example: '[#129315;]'
+        count:
+          type: integer
+        me:
+          type: boolean
+    MessageQuote:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 引用消息id
+          example: 1c4532f6-*********-93e9-6347f410f91c
+        type:
+          type: integer
+          description: 引用消息类型
+          example: 1
+        content:
+          type: string
+          description: 引用消息内容
+          example: hello world
+        create_at:
+          type: integer
+          description: 引用消息创建时间（毫秒）
+          example: 1628069285358
+        author:
+          description: 作者的用户信息
+          allOf:
+            - $ref: '#/components/schemas/User'
+    MessageMentionInfoPart:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 28444
+        username:
+          type: string
+          example: example
+        full_name:
+          type: string
+          example: example#1111
+        avatar:
+          type: string
+          example: '***.jpg'
+    GuildRole:
+      type: object
+      properties:
+        role_id:
+          type: integer
+          format: unsigned integer
+          description: 角色id
+          example: 702
+        name:
+          type: string
+          description: 角色名称
+          example: 管理员
+        color:
+          type: integer
+          format: unsigned integer
+          minimum: 0
+          maximum: 16777215
+          description: 颜色
+          example: 0
+        position:
+          type: integer
+          format: unsigned integer
+          description: 顺序，值越小载靠前
+          example: 1
+        hoist:
+          type: integer
+          format: unsigned integer
+          description: 只能为0或者1，是否把该角色的用户在用户列表排到前面
+          enum:
+            - 0
+            - 1
+        mentionable:
+          type: integer
+          format: unsigned integer
+          description: 只能为0或者1，该角色是否可以被提及
+          enum:
+            - 0
+            - 1
+        permissions:
+          type: integer
+          format: unsigned integer
+          description: '权限,参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)'
+          example: 2048
+    Message:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/MessageId'
+        type:
+          type: integer
+          description: 消息类型
+        author:
+          description: 消息作者
+          allOf:
+            - $ref: '#/components/schemas/User'
+        content:
+          type: string
+          description: 消息内容
+        mention:
+          type: array
+          description: '`\@特定用户` 的用户ID数组，与`mention_info`中的数据对应'
+          items:
+            type: string
+        mention_all:
+          type: boolean
+          description: 是否含有`@全体人员`
+        mention_roles:
+          type: array
+          description: '`@特定角色` 的角色ID数组，与`mention_info`中的数据对应'
+          items:
+            type: string
+        mention_here:
+          type: boolean
+        embeds:
+          type: array
+          description: 超链接解析数据
+          items:
+            $ref: '#/components/schemas/MessageEmbed'
+        attachments:
+          $ref: '#/components/schemas/MessageAttachments'
+        reactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageReaction'
+        quote:
+          $ref: '#/components/schemas/MessageQuote'
+        mention_info:
+          type: object
+          properties:
+            mention_part:
+              type: array
+              items:
+                $ref: '#/components/schemas/MessageMentionInfoPart'
+            mention_role_part:
+              type: array
+              items:
+                $ref: '#/components/schemas/GuildRole'
+    SendMessageRequest:
+      type: object
+      required:
+        - content
+      properties:
+        type:
+          type: integer
+          description: >-
+            消息类型, 见[type], 不传默认为`1`, 代表文本类型。`2`图片消息，`3`视频消息，`4`文件消息，`9`代表
+            kmarkdown 消息, `10`代表卡片消息。
+          example: 1
+        content:
+          type: string
+          description: 消息内容
+        quote:
+          allOf:
+            - $ref: '#/components/schemas/MessageId'
+          description: 回复某条消息的`msgId`
+        nonce:
+          type: string
+          description: 'nonce, 服务端不做处理, 原样返回'
+    GuildEmojiId:
+      type: string
+      description: 表情的 ID
+      example: XXXXXXXXX/4c43XXXXXXX
+    UserChat:
+      type: object
+      properties:
+        code:
+          type: string
+          description: 私信会话 Code
+          example: sderwrw**
+        last_read_time:
+          type: integer
+          description: 上次阅读消息的时间 (毫秒)
+          example: 1612696873000
+        latest_msg_time:
+          type: integer
+          description: 最新消息时间 (毫秒)
+          example: null
+        unread_count:
+          type: integer
+          description: 未读消息数
+        target_info:
+          type: object
+          description: 目标用户信息
+          properties:
+            id:
+              $ref: '#/components/schemas/UserId'
+            username:
+              type: string
+              description: 目标用户名
+              example: 工具
+            online:
+              type: boolean
+              description: 是否在线
+              example: false
+            avatar:
+              type: string
+              description: 头像图片链接
+              example: 'https://***.jpg'
+    UserChatDetail:
+      allOf:
+        - $ref: '#/components/schemas/UserChat'
+        - type: object
+          properties:
+            is_friend:
+              type: boolean
+              description: 是否是好友
+            is_blocked:
+              type: boolean
+              description: 是否已屏蔽对方
+            is_target_blocked:
+              type: boolean
+              description: 是否已被对方屏蔽
+    DirectMessage:
+      type: object
+      properties:
+        id:
+          $ref: '#/components/schemas/MessageId'
+        type:
+          type: integer
+          description: 消息类型
+        author_id:
+          description: 作者的用户ID
+          allOf:
+            - $ref: '#/components/schemas/UserId'
+        content:
+          type: string
+          description: 消息内容
+        embeds:
+          type: array
+          description: 超链接解析数据
+          items:
+            $ref: '#/components/schemas/MessageEmbed'
+        attachments:
+          type: object
+        reactions:
+          type: array
+          items:
+            $ref: '#/components/schemas/MessageReaction'
+        quote:
+          $ref: '#/components/schemas/MessageQuote'
+        read_status:
+          type: boolean
+          description: 是否已读
+    GuildEmoji:
+      type: object
+      properties:
+        name:
+          type: string
+          description: 表情的名称
+          example: 摇滚啊
+        id:
+          $ref: '#/components/schemas/GuildEmojiId'
+        user_info:
+          description: 上传用户
+          allOf:
+            - $ref: '#/components/schemas/User'
+    BasicEvent:
+      type: object
+      required:
+        - s
+        - d
+        - sn
+      properties:
+        s:
+          type: integer
+          description: >-
+            websocket信令，详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
+          example: 0
+        d:
+          type: object
+          description: 具体数据
+          properties:
+            channel_type:
+              type: string
+              description: '消息频道类型, 频道消息为`GROUP`，私聊消息为`PERSON`'
+              example: GROUP
+              enum:
+                - GROUP
+                - PERSON
+            type:
+              type: integer
+            target_id:
+              type: string
+              description: 发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id
+              example: '60163899100000'
+            author_id:
+              type: string
+              description: '发送者 id, 1 代表系统'
+            content:
+              type: string
+              description: '消息内容, 文件，图片，视频时，content 为 url'
+            msg_id:
+              type: string
+              description: 消息的 id
+            msg_timestamp:
+              type: integer
+              description: 消息发送时间的毫秒时间戳
+            nonce:
+              type: string
+              description: 随机串，与用户消息发送 api 中传的 nonce 保持一致
+            verify_token:
+              type: string
+              description: webhook设置中的verify_token
+            extra:
+              type: object
+              description: 不同的消息类型，结构不一致
+              example: xxx
+          example: {}
+        sn:
+          type: integer
+          description: >-
+            消息序号，针对当前session。该字段并不一定有，只在s=0时有，与webhook一致。详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
+          example: 1
+    SystemEvent:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/BasicEvent'
+        - type: object
+          properties:
+            d:
+              type: object
+              properties:
+                channel_type:
+                  example: GROUP
+                type:
+                  description: 消息类型，系统消息为255
+                  example: 255
+                author_id:
+                  description: '发送者id, 1 代表系统'
+                  example: 1
+                content:
+                  example: '[系统消息]'
+                extra:
+                  type: object
+                  properties:
+                    type:
+                      type: string
+                    body:
+                      type: object
+                msg_id:
+                  example: 63d6a934-xxxx-a1f02c255213
+                msg_timestamp:
+                  example: 1612704007683
+                nonce:
+                  example: ''
+                verify_token:
+                  example: xxx
+    reaction:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            extra:
+              type: object
+              properties:
+                body:
+                  type: object
+                  properties:
+                    channel_id:
+                      allOf:
+                        - $ref: '#/components/schemas/GuildChannelId'
+                        - description: 消息所在的频道id
+                    emoji:
+                      type: object
+                      properties:
+                        name:
+                          type: string
+                          description: 表情的名称
+                          example: 摇滚啊
+                        id:
+                          $ref: '#/components/schemas/GuildEmojiId'
+                    user_id:
+                      allOf:
+                        - $ref: '#/components/schemas/UserId'
+                        - description: 点击的用户
+                    msg_id:
+                      allOf:
+                        - $ref: '#/components/schemas/MessageId'
+                        - description: 用户点击的消息id
+    message:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            extra:
+              type: object
+              properties:
+                body:
+                  type: object
+                  properties:
+                    msg_id:
+                      allOf:
+                        - $ref: '#/components/schemas/MessageId'
+                      description: 消息id
+                    channel_id:
+                      allOf:
+                        - $ref: '#/components/schemas/GuildChannelId'
+                      description: 消息所在的频道id
+                    content:
+                      type: string
+                      description: 消息内容
+                    mention:
+                      type: array
+                      description: '`\@特定用户` 的用户ID数组，与`mention_info`中的数据对应'
+                      items:
+                        type: string
+                    mention_all:
+                      type: boolean
+                      description: 是否含有`@全体人员`
+                    mention_roles:
+                      type: array
+                      description: '`@特定角色` 的角色ID数组，与`mention_info`中的数据对应'
+                      items:
+                        type: string
+                    mention_here:
+                      type: boolean
+    pin:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            extra:
+              type: object
+              properties:
+                body:
+                  type: object
+                  properties:
+                    channel_id:
+                      allOf:
+                        - $ref: '#/components/schemas/GuildChannelId'
+                      description: 发生操作的频道id
+                    operator_id:
+                      allOf:
+                        - $ref: '#/components/schemas/UserId'
+                      description: 操作人的用户id
+                    msg_id:
+                      allOf:
+                        - $ref: '#/components/schemas/MessageId'
+                      description: 被操作的消息id
+    ChatCode:
+      type: string
+      description: 私聊会话 Code
+      example: 3b4aa448b8xxxxc87a1b3770792e7433
+    PersonEvent:
+      type: object
+      allOf:
+        - $ref: '#/components/schemas/SystemEvent'
+        - type: object
+          properties:
+            d:
+              type: object
+              properties:
+                channel_type:
+                  type: string
+                  description: 频道类型，私聊消息为`PERSON`
+                  example: PERSON
+                extra:
+                  type: object
+                  properties:
+                    body:
+                      type: object
+                      properties:
+                        msg_id:
+                          allOf:
+                            - $ref: '#/components/schemas/MessageId'
+                          description: 被操作的消息id
+                        chat_code:
+                          $ref: '#/components/schemas/ChatCode'
+    member:
+      type: object
+      properties:
+        d:
+          type: object
+          properties:
+            extra:
+              type: object
+              properties:
+                body:
+                  type: object
+                  properties:
+                    user_id:
+                      allOf:
+                        - $ref: '#/components/schemas/UserId'
+                      description: 用户id
+    MessageEvent:
+      type: object
+      description: 当事件的type非系统消息(255)时
+      allOf:
+        - $ref: '#/components/schemas/BasicEvent'
+        - type: object
+          properties:
+            d:
+              type: object
+              properties:
+                extra:
+                  type: object
+                  properties:
+                    type:
+                      type: integer
+                      description: >-
+                        1:文字消息, 2:图片消息，3:视频消息，4:文件消息，
+                        8:音频消息，9:KMarkdown，10:card消息
+                    guild_id:
+                      type: string
+                      description: 服务器id
+                    channel_name:
+                      type: string
+                      description: 频道名
+                    mention:
+                      type: array
+                      description: '`\@特定用户` 的用户ID数组，与`mention_info`中的数据对应'
+                      items:
+                        type: string
+                    mention_all:
+                      type: boolean
+                      description: 是否含有`@全体人员`
+                    mention_roles:
+                      type: array
+                      description: '`@特定角色` 的角色ID数组，与`mention_info`中的数据对应'
+                      items:
+                        type: string
+                    mention_here:
+                      type: boolean
+                    author:
+                      description: 消息作者
+                      allOf:
+                        - $ref: '#/components/schemas/User'
+  requestBodies:
+    add:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - $ref: '#/components/schemas/reaction'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`added_reaction`
+                            example: added_reaction
+    delete:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - $ref: '#/components/schemas/reaction'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`deleted_reaction`
+                            example: deleted_reaction
+    update:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - $ref: '#/components/schemas/message'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`updated_message`
+                            example: updated_message
+                          body:
+                            type: object
+                            properties:
+                              udpated_at:
+                                type: integer
+                                description: 更新时间戳(毫秒)
+                                example: 1612703810779
+    message_delete:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`deleted_message`
+                            example: updated_message
+                          body:
+                            type: object
+                            properties:
+                              msg_id:
+                                allOf:
+                                  - $ref: '#/components/schemas/MessageId'
+                                description: 被删除的消息id
+                              channel_id:
+                                allOf:
+                                  - $ref: '#/components/schemas/GuildChannelId'
+                                description: 消息所在频道id
+    create:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`added_channel`
+                            example: added_channel
+                          body:
+                            $ref: '#/components/schemas/GuildChannel'
+    channel_update:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`updated_channel`
+                            example: updated_channel
+                          body:
+                            $ref: '#/components/schemas/GuildChannel'
+    channel_delete:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`deleted_channel`
+                            example: deleted_channel
+                          body:
+                            type: object
+                            properties:
+                              id:
+                                allOf:
+                                  - $ref: '#/components/schemas/GuildChannelId'
+                                description: 被删除的频道id
+                              deleted_at:
+                                type: integer
+                                description: 删除操作的时间戳(毫秒)
+                                example: 1612777405595
+    pin_add:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - $ref: '#/components/schemas/pin'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`pinned_message`
+                            example: pinned_message
+    cancel:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - $ref: '#/components/schemas/pin'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`unpinned_message`
+                            example: unpinned_message
+    message_update:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/PersonEvent'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      channel_type:
+                        type: string
+                        description: 频道类型，私聊消息为`PERSON`
+                        example: PERSON
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`updated_private_message`
+                            example: updated_private_message
+                          body:
+                            type: object
+                            properties:
+                              msg_id:
+                                allOf:
+                                  - $ref: '#/components/schemas/MessageId'
+                                description: 被更新的消息id
+                              author_id:
+                                allOf:
+                                  - $ref: '#/components/schemas/UserId'
+                                description: 被更新的消息的创建者id
+                              target_id:
+                                allOf:
+                                  - $ref: '#/components/schemas/UserId'
+                                description: 被更新的消息的目标用户id
+                              content:
+                                type: string
+                                description: 更新后的文本
+                                example: asdaaad
+                              updated_at:
+                                type: integer
+                                description: 更新时间戳(毫秒)
+                                example: 1612778254192
+    message_delete-2:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/PersonEvent'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`deleted_private_message`
+                            example: deleted_private_message
+                          body:
+                            type: object
+                            properties:
+                              msg_id:
+                                allOf:
+                                  - $ref: '#/components/schemas/MessageId'
+                                description: 被删除的消息id
+                              author_id:
+                                allOf:
+                                  - $ref: '#/components/schemas/UserId'
+                                description: 被删除的消息的创建者id
+                              target_id:
+                                allOf:
+                                  - $ref: '#/components/schemas/UserId'
+                                description: 被删除的消息的目标用户id
+                              updated_at:
+                                type: integer
+                                description: 删除的时间戳(毫秒)
+                                example: 1612778254192
+    reaction_add:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/PersonEvent'
+              - $ref: '#/components/schemas/reaction'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`private_added_reaction`
+                            example: private_added_reaction
+    reaction_delete:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/PersonEvent'
+              - $ref: '#/components/schemas/reaction'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`private_deleted_reaction`
+                            example: private_deleted_reaction
+    join:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - $ref: '#/components/schemas/member'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`joined_guild`
+                            example: joined_guild
+                          body:
+                            type: object
+                            properties:
+                              joined_at:
+                                type: integer
+                                description: 加入服务器的时间(毫秒)
+                                example: 1612774315000
+    exit:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - $ref: '#/components/schemas/member'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`exited_guild`
+                            example: exited_guild
+                          body:
+                            type: object
+                            properties:
+                              exited_at:
+                                type: integer
+                                description: 退出服务器的时间(毫秒)
+                                example: 1612774315000
+    member_update:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - $ref: '#/components/schemas/member'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`updated_guild_member`
+                            example: updated_guild_member
+                          body:
+                            type: object
+                            properties:
+                              nickname:
+                                type: string
+                                description: 昵称
+                                example: 新昵称
+    online:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - $ref: '#/components/schemas/member'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`guild_member_online`
+                            example: guild_member_online
+                          body:
+                            type: object
+                            properties:
+                              event_time:
+                                type: integer
+                                description: 用户上线时间(毫秒)
+                                example: 1612774315000
+                              guilds:
+                                type: array
+                                description: '服务器id组成的数组, 代表与该用户所在的共同的服务器'
+                                items:
+                                  type: string
+                                example:
+                                  - '601638990000000'
+    offline:
+      content:
+        application/json:
+          schema:
+            allOf:
+              - $ref: '#/components/schemas/SystemEvent'
+              - $ref: '#/components/schemas/member'
+              - type: object
+                properties:
+                  d:
+                    type: object
+                    properties:
+                      extra:
+                        type: object
+                        properties:
+                          type:
+                            description: 消息类型，此处为`guild_member_offline`
+                            example: guild_member_offline
+                          body:
+                            type: object
+                            properties:
+                              event_time:
+                                type: integer
+                                description: 用户下线时间(毫秒)
+                                example: 1612774315000
+                              guilds:
+                                type: array
+                                description: '服务器id组成的数组, 代表与该用户所在的共同的服务器'
+                                items:
+                                  type: string
+                                example:
+                                  - '601638990000000'
 security: []
