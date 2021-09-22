@@ -39,6 +39,16 @@ tags:
     description: 服务器表情相关接口
   - name: invite
     description: 邀请相关接口
+  - name: message
+    description: 频道消息相关接口
+  - name: user-chat
+    description: 私信聊天会话接口
+  - name: direct-message
+    description: 用户私聊消息接口
+  - name: gateway
+    description: Gateway接口
+  - name: guild-role
+    description: 服务器角色权限相关接口
 
 paths:
   /guild/list:
@@ -804,7 +814,7 @@ paths:
                       msg_id:
                         type: string
                         description: 服务端生成的消息 id
-                        example: null
+                        example: ""
                       msg_timestamp:
                         type: integer
                         description: 消息发送时间(ms, 服务器时间戳)
@@ -1351,11 +1361,11 @@ paths:
                               mobile_prefix:
                                 type: string
                                 description: 手机区号,如中国为86
-                                example: 86
+                                example: "86"
                               mobile:
                                 type: string
                                 description: 用户手机号，带掩码
-                                example: 110****2333
+                                example: "110****2333"
                               invited_count:
                                 type: integer
                                 description: 当前邀请注册的人数
@@ -1713,7 +1723,7 @@ paths:
                                 id:
                                   type: string
                                   description: 形象图片的 id
-                                  example: 11
+                                  example: "11"
                                 url:
                                   type: string
                                   description: 形象图片的地址
@@ -1744,7 +1754,7 @@ paths:
                 img_id:
                   type: string
                   description: 表情 ID
-                  example: 1
+                  example: "1"
       responses:
         "200":
           description: OK
@@ -2102,7 +2112,7 @@ components:
         name:
           type: string
           description: 服务器名称
-          example: Hello
+          example: "Hello"
         topic:
           type: string
           description: 服务器主题
@@ -2137,7 +2147,7 @@ components:
           type: string
           description: 欢迎频道id
       example:
-        id: 123123
+        id: "123123"
         name: test server
         topic: ""
         master_id: ""
