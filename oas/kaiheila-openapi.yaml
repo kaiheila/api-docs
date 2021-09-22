@@ -39,12 +39,6 @@ tags:
     description: 服务器表情相关接口
   - name: invite
     description: 邀请相关接口
-  - name: message
-    description: 频道消息相关接口
-  - name: user-chat
-    description: 私信聊天会话接口
-  - name: direct-message
-    description: 用户私聊消息接口
   - name: gateway
     description: Gateway接口
   - name: guild-role
