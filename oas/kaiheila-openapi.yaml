@@ -5,7 +5,7 @@ servers:
     description: 机器人接口
 
 info:
-  title: Kaiheila API v3
+  title: 开黑啦机器人API v3 开发者版 
   version: 3.0.0
   termsOfService: https://developer.kaiheila.cn/doc/privacy
   contact:
@@ -14,13 +14,13 @@ info:
     name: MIT
     url: https://github.com/kaiheila/api-docs/blob/main/LICENSE
   description: |
-    开黑啦机器人API v3 开发者版  
-    官方文档地址：https://developer.kaiheila.cn/doc/  
-    建议使用rapidoc查看
+    # 引言
+    此文档仅用于方便开发者查看、确认开黑啦机器人API接口，官方文档地址：[开黑啦开发者平台](https://developer.kaiheila.cn/doc/)
+    建议使用[rapidoc](https://mrin9.github.io/RapiDoc/index.html)查看此文档，示例链接：[文档查看示例](https://fi6.github.io/kaiheila-api-docs/rapidoc-view.html)
 
+    如果发现有任何问题，请提交PR，我们将尽快进行修复与合并。
 tags:
-  - name: user
-    description: 用户相关接口
+
   - name: guild
     description: 服务器相关接口
   - name: channel
@@ -31,18 +31,21 @@ tags:
     description: 私聊会话相关接口
   - name: direct-message
     description: 私聊消息相关接口
-  - name: asset
-    description: 附件相关接口
-  - name: intimacy
-    description: 亲密度相关接口列表
+  - name: user
+    description: 用户相关接口
+  - name: guild-role
+    description: 服务器角色权限相关接口
   - name: guild-emoji
     description: 服务器表情相关接口
   - name: invite
     description: 邀请相关接口
   - name: gateway
     description: Gateway接口
-  - name: guild-role
-    description: 服务器角色权限相关接口
+  - name: intimacy
+    description: 亲密度相关接口列表
+  - name: asset
+    description: 附件相关接口
+
 
 paths:
   /guild/list:
@@ -1051,7 +1054,7 @@ paths:
     post:
       tags:
         - user-chat
-      summary: 创建私信频道
+      summary: 删除私信频道
       requestBody:
         content:
           application/json:
@@ -1985,614 +1988,28 @@ paths:
             application/json:
               schema:
                 $ref: "#/components/schemas/BasicResponse"
+
+webhooks: 
+  事件结构说明: 
+    description: |
+      # 事件结构说明
+      ## 这是个二级说明
+  userAddReaction:
+    post: 
+      summary: 用户添加Reaction
+      requestBody:
+        content:
+          application/json: 
+            schema: 
+              type: object
+              properties: 
+                newProperty:
+                  type: string
+                  example: "string"
+
 components:
   parameters:
-    PageNumberParam:
-      name: page
-      in: query
-      description: 目标页数
-      schema:
-        type: integer
-    PageSizeParam:
-      name: page_size
-      in: query
-      description: 每页数据数量
-      schema:
-        type: integer
-    GuildIdParam:
-      name: guild_id
-      in: query
-      description: 服务器id
-      required: true
-      schema:
-        $ref: "#/components/schemas/GuildId"
-    GuildChannelIdParam:
-      name: channel_id
-      in: query
-      description: 频道id
-      schema:
-        $ref: "#/components/schemas/GuildChannelId"
-    MobileVerifiedParam:
-      name: mobile_verified
-      in: query
-      description: 只能为`0`或`1`，`0`是未认证，`1`是已认证
-      schema:
-        type: integer
-        enum:
-          - 0
-          - 1
-    GuildChannelTypeParam:
-      name: type
-      in: query
-      description: 频道类型, `1`为文字，`2`为语音, 默认为`1`
-      schema:
-        $ref: "#/components/schemas/GuildChannelType"
-    MessageListFlagParam:
-      name: flag
-      in: query
-      description: |-
-        查询模式，有三种模式可以选择。不传则默认查询最新的消息。  
-        before: 查询参考消息之前的消息，不包括参考消息  
-        around: 查询以参考消息为中心，前后一定数量的消息  
-        after: 查询参考消息之后的消息，不包括参考消息
-      schema:
-        type: string
-        enum:
-          - before
-          - around
-          - after
-    UserIdParam:
-      name: user_id
-      in: query
-      required: true
-      schema:
-        $ref: "#/components/schemas/UserId"
+    $ref: "./components/parameters/_index.yaml"
   schemas:
-    BasicResponse:
-      type: object
-      required:
-        - message
-        - code
-      properties:
-        code:
-          type: integer
-          description: 错误码，0代表成功，非0代表失败，具体的错误码参见错误码一览
-          example: 0
-        message:
-          type: string
-          description: 错误消息，具体的返回消息会根据Accept-Language来返回。
-          example: 操作成功
-        data:
-          type: object
-          description: 返回数据
-    PaginationInfo:
-      type: object
-      properties:
-        items:
-          type: array
-          description: 数据列表
-          items:
-            type: object
-        meta:
-          type: object
-          description: 分页信息
-          properties:
-            page:
-              type: integer
-              description: 页码
-              example: 1
-            page_total:
-              type: integer
-              description: 总页数
-              example: 10
-            page_size:
-              type: integer
-              description: 每一页的数据
-              example: 50
-            total:
-              type: integer
-              description: 总数据量
-              example: 480
-        sort:
-          type: object
-          description: Map。分页的排序, key:+-1, 如果为1代表按key升序，如果为-1代表按key降序
-          example:
-            id: 1
-    Guild:
-      type: object
-      properties:
-        id:
-          $ref: "#/components/schemas/GuildId"
-        name:
-          type: string
-          description: 服务器名称
-          example: "Hello"
-        topic:
-          type: string
-          description: 服务器主题
-        master_id:
-          type: string
-          description: 服务器主的id
-          example: "17000000"
-        icon:
-          type: string
-          description: 服务器icon的地址
-        notify_type:
-          type: integer
-          description: 通知类型, `0`代表默认使用服务器通知设置，`1`代表接收所有通知, `2`代表仅@被提及，`3`代表不接收通知
-          enum:
-            - 0
-            - 1
-            - 2
-            - 3
-        region:
-          type: string
-          description: 服务器默认使用语音区域
-        enable_open:
-          type: boolean
-          description: 是否为公开服务器
-        open_id:
-          type: string
-          description: 公开服务器id
-        default_channel_id:
-          type: string
-          description: 默认频道id
-        welcome_channel_id:
-          type: string
-          description: 欢迎频道id
-      example:
-        id: "123123"
-        name: test server
-        topic: ""
-        master_id: ""
-        icon: ""
-        notify_type: 0
-        region: beijing
-    User:
-      type: object
-      properties:
-        id:
-          $ref: "#/components/schemas/UserId"
-        username:
-          type: string
-          description: 用户的名称
-          example: tz-un
-        identify_num:
-          type: string
-          description: 用户名的认证数字，用户名正常为：user_name#identify_num
-          example: "5618"
-        online:
-          type: boolean
-          description: 当前是否在线
-          example: false
-        status:
-          type: integer
-          description: 用户的状态, 0代表正常，10代表被封禁
-          enum:
-            - 0
-            - 10
-          example: 0
-        bot:
-          type: boolean
-          description: 是否为机器人
-        avatar:
-          type: string
-          description: 用户的头像的url地址
-          example: https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon
-        vip_avatar:
-          type: string
-          description: vip用户的头像的url地址，可能为gif动图
-          example: https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon
-    GuildId:
-      type: string
-      description: 服务器id
-      example: "91686000000"
-    UserId:
-      type: string
-      description: 用户id
-      example: "2418200000"
-    GuildChannel:
-      type: object
-      description: 服务器频道
-      properties:
-        id:
-          $ref: "#/components/schemas/GuildChannelId"
-        guild_id:
-          $ref: "#/components/schemas/GuildId"
-        master_id:
-          description: 频道创建者id
-          type: string
-        parent_id:
-          type: string
-          description: 父分组频道id
-        name:
-          type: string
-          description: 频道名称
-        topic:
-          type: string
-          description: 频道简介
-        type:
-          $ref: "#/components/schemas/GuildChannelType"
-        level:
-          type: integer
-          description: 频道排序
-        slow_mode:
-          type: integer
-          description: 慢速限制，单位秒。用户发送消息之后再次发送消息的等待时间。
-        limit_amount:
-          type: integer
-          description: 人数限制
-        is_category:
-          type: boolean
-          description: 是否为分组类型
-        server_url:
-          type: string
-          description: 语音服务器地址，`HOST:PORT`的格式
-      example:
-        id: 123
-        guild_id: 123
-        master_id: 123
-        parent_id: 123
-        name: 测试频道
-        topic: 频道简介
-        type: 1
-        level: 10
-        slow_mode: 0
-        is_category: false
-    GuildChannelId:
-      type: string
-      description: 服务器频道ID
-      example: "00000000000000000000000"
-    GuildChannelType:
-      type: integer
-      enum:
-        - 1
-        - 2
-      description: 频道类型，`1`为文字频道，`2`为语音频道
-    GuildChannelPermission:
-      type: object
-      required:
-        - allow
-        - deny
-      properties:
-        allow:
-          type: integer
-          description: 允许的权限的结果集
-          example: 2048
-        deny:
-          type: integer
-          description: 拒绝的权限的结果集
-          example: 0
-    GuildRoleId:
-      type: number
-      description: 服务器角色id
-      example: 113
-    GuildChannelRoleRequest:
-      type: object
-      required:
-        - channel_id
-      properties:
-        channel_id:
-          description: 频道id, 如果频道是分组的id,会同步给所有sync=1的子频道
-          allOf:
-            - $ref: "#/components/schemas/GuildChannelId"
-        type:
-          type: string
-          description: value的类型，只能为"role_id","user_id",不传则默认为"user_id"
-          enum:
-            - role_id
-            - user_id
-          default: user_id
-        value:
-          type: string
-          description: 根据type，为用户id或频道id
-          default: ""
-    Message:
-      type: object
-      properties:
-        id:
-          $ref: "#/components/schemas/MessageId"
-        type:
-          type: integer
-          description: 消息类型
-        author:
-          description: 消息作者
-          allOf:
-            - $ref: "#/components/schemas/User"
-        content:
-          type: string
-          description: 消息内容
-        mention:
-          type: array
-          description: "`\\@特定用户` 的用户ID数组，与`mention_info`中的数据对应"
-          items:
-            type: string
-        mention_all:
-          type: boolean
-          description: 是否含有`@全体人员`
-        mention_roles:
-          type: array
-          description: "`@特定角色` 的角色ID数组，与`mention_info`中的数据对应"
-          items:
-            type: string
-        mention_here:
-          type: boolean
-        embeds:
-          type: array
-          description: 超链接解析数据
-          items:
-            $ref: "#/components/schemas/MessageEmbed"
-        attachments:
-          $ref: "#/components/schemas/MessageAttachments"
-        reactions:
-          type: array
-          items:
-            $ref: "#/components/schemas/MessageReaction"
-        quote:
-          $ref: "#/components/schemas/MessageQuote"
-        mention_info:
-          type: object
-          properties:
-            mention_part:
-              type: array
-              items:
-                $ref: "#/components/schemas/MessageMentionInfoPart"
-            mention_role_part:
-              type: array
-              items:
-                $ref: "#/components/schemas/GuildRole"
-    SendMessageRequest:
-      type: object
-      required:
-        - content
-      properties:
-        type:
-          type: integer
-          description: 消息类型, 见[type], 不传默认为`1`, 代表文本类型。`2`图片消息，`3`视频消息，`4`文件消息，`9`代表 kmarkdown 消息, `10`代表卡片消息。
-          example: 1
-        content:
-          type: string
-          description: 消息内容
-        quote:
-          allOf:
-            - $ref: "#/components/schemas/MessageId"
-          description: 回复某条消息的`msgId`
-        nonce:
-          type: string
-          description: nonce, 服务端不做处理, 原样返回
-    MessageId:
-      type: string
-      description: 消息id
-      example: 1c4532f6-*********-93e9-6347f410f91c
-    GuildEmojiId:
-      type: string
-      description: 表情的 ID
-      example: XXXXXXXXX/4c43XXXXXXX
-    UserChat:
-      type: object
-      properties:
-        code:
-          type: string
-          description: 私信会话 Code
-          example: sderwrw**
-        last_read_time:
-          type: integer
-          description: 上次阅读消息的时间 (毫秒)
-          example: 1612696873000
-        latest_msg_time:
-          type: integer
-          description: 最新消息时间 (毫秒)
-          example: null
-        unread_count:
-          type: integer
-          description: 未读消息数
-        target_info:
-          type: object
-          description: 目标用户信息
-          properties:
-            id:
-              $ref: "#/components/schemas/UserId"
-            username:
-              type: string
-              description: 目标用户名
-              example: 工具
-            online:
-              type: boolean
-              description: 是否在线
-              example: false
-            avatar:
-              type: string
-              description: 头像图片链接
-              example: https://***.jpg
-    UserChatDetail:
-      allOf:
-        - $ref: "#/components/schemas/UserChat"
-        - type: object
-          properties:
-            is_friend:
-              type: boolean
-              description: 是否是好友
-            is_blocked:
-              type: boolean
-              description: 是否已屏蔽对方
-            is_target_blocked:
-              type: boolean
-              description: 是否已被对方屏蔽
-    DirectMessage:
-      type: object
-      properties:
-        id:
-          $ref: "#/components/schemas/MessageId"
-        type:
-          type: integer
-          description: 消息类型
-        author_id:
-          description: 作者的用户ID
-          allOf:
-            - $ref: "#/components/schemas/UserId"
-        content:
-          type: string
-          description: 消息内容
-        embeds:
-          type: array
-          description: 超链接解析数据
-          items:
-            $ref: "#/components/schemas/MessageEmbed"
-        attachments:
-          type: object
-        reactions:
-          type: array
-          items:
-            $ref: "#/components/schemas/MessageReaction"
-        quote:
-          $ref: "#/components/schemas/MessageQuote"
-        read_status:
-          type: boolean
-          description: 是否已读
-    GuildRole:
-      type: object
-      properties:
-        role_id:
-          type: integer
-          format: unsigned integer
-          description: 角色id
-          example: 702
-        name:
-          type: string
-          description: 角色名称
-          example: 管理员
-        color:
-          type: integer
-          format: unsigned integer
-          minimum: 0
-          maximum: 16777215
-          description: 颜色
-          example: 0
-        position:
-          type: integer
-          format: unsigned integer
-          description: 顺序，值越小载靠前
-          example: 1
-        hoist:
-          type: integer
-          format: unsigned integer
-          description: 只能为0或者1，是否把该角色的用户在用户列表排到前面
-          enum:
-            - 0
-            - 1
-        mentionable:
-          type: integer
-          format: unsigned integer
-          description: 只能为0或者1，该角色是否可以被提及
-          enum:
-            - 0
-            - 1
-        permissions:
-          type: integer
-          format: unsigned integer
-          description: 权限,参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
-          example: 2048
-    GuildEmoji:
-      type: object
-      properties:
-        name:
-          type: string
-          description: 表情的名称
-          example: 摇滚啊
-        id:
-          $ref: "#/components/schemas/GuildEmojiId"
-        user_info:
-          description: 上传用户
-          allOf:
-            - $ref: "#/components/schemas/User"
-    MessageEmbed:
-      type: object
-      properties:
-        type:
-          type: string
-        url:
-          type: string
-      additionalProperties: true
-      example:
-        type: bili-video
-        url: ""
-        origin_url: https://www.bilibili.com/video/XXXXX
-        av_no: 11J411E
-        iframe_path: https://player.bilibili.com/player.html?xxx=xxx
-        duration: 97
-        title: Title
-        pic: https://**/lc01gi.jpg
-    MessageAttachments:
-      oneOf:
-        - $ref: "#/components/schemas/MessageAttachmentFile"
-    MessageReaction:
-      type: object
-      properties:
-        emoji:
-          type: object
-          properties:
-            id:
-              type: string
-              example: "[#129315;]"
-            name:
-              type: string
-              example: "[#129315;]"
-        count:
-          type: integer
-        me:
-          type: boolean
-    MessageQuote:
-      type: object
-      properties:
-        id:
-          type: string
-          description: 引用消息id
-          example: 1c4532f6-*********-93e9-6347f410f91c
-        type:
-          type: integer
-          description: 引用消息类型
-          example: 1
-        content:
-          type: string
-          description: 引用消息内容
-          example: hello world
-        create_at:
-          type: integer
-          description: 引用消息创建时间（毫秒）
-          example: 1628069285358
-        author:
-          description: 作者的用户信息
-          allOf:
-            - $ref: "#/components/schemas/User"
-    MessageMentionInfoPart:
-      type: object
-      properties:
-        id:
-          type: string
-          example: 28444
-        username:
-          type: string
-          example: example
-        full_name:
-          type: string
-          example: example#1111
-        avatar:
-          type: string
-          example: "***.jpg"
-    MessageAttachmentFile:
-      type: object
-      properties:
-        type:
-          type: string
-          enum:
-            - file
-        url:
-          type: string
-        name:
-          type: string
-          description: 多媒体名
-        size:
-          type: integer
-          description: 大小 单位（B）
-          example: 2575670
+    $ref: "./components/schemas/_index.yaml"
 security: []

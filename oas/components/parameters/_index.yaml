@@ -1,0 +1,60 @@
+PageNumberParam:
+  name: page
+  in: query
+  description: 目标页数
+  schema:
+    type: integer
+PageSizeParam:
+  name: page_size
+  in: query
+  description: 每页数据数量
+  schema:
+    type: integer
+GuildIdParam:
+  name: guild_id
+  in: query
+  description: 服务器id
+  required: true
+  schema:
+    $ref: "../schemas/_index.yaml#/GuildId"
+GuildChannelIdParam:
+  name: channel_id
+  in: query
+  description: 频道id
+  schema:
+    $ref: "../schemas/_index.yaml#/GuildChannelId"
+MobileVerifiedParam:
+  name: mobile_verified
+  in: query
+  description: 只能为`0`或`1`，`0`是未认证，`1`是已认证
+  schema:
+    type: integer
+    enum:
+      - 0
+      - 1
+GuildChannelTypeParam:
+  name: type
+  in: query
+  description: 频道类型, `1`为文字，`2`为语音, 默认为`1`
+  schema:
+    $ref: "../schemas/_index.yaml#/GuildChannelType"
+MessageListFlagParam:
+  name: flag
+  in: query
+  description: |-
+    查询模式，有三种模式可以选择。不传则默认查询最新的消息。  
+    before: 查询参考消息之前的消息，不包括参考消息  
+    around: 查询以参考消息为中心，前后一定数量的消息  
+    after: 查询参考消息之后的消息，不包括参考消息
+  schema:
+    type: string
+    enum:
+      - before
+      - around
+      - after
+UserIdParam:
+  name: user_id
+  in: query
+  required: true
+  schema:
+    $ref: "../schemas/_index.yaml#/UserId"
