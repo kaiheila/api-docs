@@ -30,6 +30,15 @@ BasicEvent:
     d:
       type: object
       description: 具体数据
+      required:
+        - channel_type
+        - type
+        - target_id
+        - author_id
+        - content
+        - msg_id
+        - msg_timestamp
+        - extra
       properties:
         channel_type:
           type: string
@@ -47,6 +56,7 @@ BasicEvent:
         author_id:
           type: string
           description: 发送者 id, 1 代表系统
+          example: 1
         content:
           type: string
           description: 消息内容, 文件，图片，视频时，content 为 url
@@ -76,45 +86,44 @@ MessageEvent:
   description: 当事件的type非系统消息(255)时
   allOf:
     - $ref: '#/BasicEvent'
-    - type: object
+  properties:
+    d:
+      type: object
       properties:
-        d:
+        author_id:
+          description: 发送者的用户id
+          example: '2418200000'
+        extra:
           type: object
           properties:
-            author_id:
-              description: 发送者的用户id
-              example: '2418200000'
-            extra:
-              type: object
-              properties:
-                type:
-                  type: integer
-                  description: 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息
-                guild_id:
-                  type: string
-                  description: 服务器id
-                channel_name:
-                  type: string
-                  description: 频道名
-                mention:
-                  type: array
-                  description: "`\\@特定用户` 的用户ID数组，与`mention_info`中的数据对应"
-                  items:
-                    type: string
-                mention_all:
-                  type: boolean
-                  description: 是否含有`@全体人员`
-                mention_roles:
-                  type: array
-                  description: '`@特定角色` 的角色ID数组，与`mention_info`中的数据对应'
-                  items:
-                    type: string
-                mention_here:
-                  type: boolean
-                author:
-                  description: 消息作者
-                  allOf:
-                    - $ref: '#/User'
+            type:
+              type: integer
+              description: 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息
+            guild_id:
+              type: string
+              description: 服务器id
+            channel_name:
+              type: string
+              description: 频道名
+            mention:
+              type: array
+              description: "`\\@特定用户` 的用户ID数组，与`mention_info`中的数据对应"
+              items:
+                type: string
+            mention_all:
+              type: boolean
+              description: 是否含有`@全体人员`
+            mention_roles:
+              type: array
+              description: '`@特定角色` 的角色ID数组，与`mention_info`中的数据对应'
+              items:
+                type: string
+            mention_here:
+              type: boolean
+            author:
+              description: 消息作者
+              allOf:
+                - $ref: '#/User'
 
 SystemEvent:
   type: object
@@ -155,27 +164,26 @@ PersonEvent:
   type: object
   allOf:
     - $ref: '#/SystemEvent'
-    - type: object
+  properties:
+    d:
+      type: object
       properties:
-        d:
+        channel_type:
+          type: string
+          description: 频道类型，私聊消息为`PERSON`
+          example: 'PERSON'
+        extra:
           type: object
           properties:
-            channel_type:
-              type: string
-              description: 频道类型，私聊消息为`PERSON`
-              example: 'PERSON'
-            extra:
+            body:
               type: object
               properties:
-                body:
-                  type: object
-                  properties:
-                    msg_id:
-                      allOf:
-                        - $ref: './message/_fields.yaml#/id'
-                      description: 被操作的消息id
-                    chat_code:
-                      $ref: '#/ChatCode'
+                msg_id:
+                  allOf:
+                    - $ref: './message/_fields.yaml#/id'
+                  description: 被操作的消息id
+                chat_code:
+                  $ref: '#/ChatCode'
 
 PaginationInfo:
   type: object
@@ -223,9 +231,9 @@ Guild:
       type: string
       description: 服务器主题
     master_id:
-      type: string
+      allOf:
+        - $ref: './user/_fields.yaml#/id'
       description: 服务器主的id
-      example: '17000000'
     icon:
       type: string
       description: 服务器icon的地址
@@ -238,29 +246,26 @@ Guild:
         - 1
         - 2
         - 3
+      example: 0
     region:
       type: string
       description: 服务器默认使用语音区域
+      example: beijing
     enable_open:
       type: boolean
       description: 是否为公开服务器
+      example: true
     open_id:
       type: string
       description: 公开服务器id
+      example: '012312413'
     default_channel_id:
       type: string
       description: 默认频道id
     welcome_channel_id:
       type: string
       description: 欢迎频道id
-  example:
-    id: '123123'
-    name: test server
-    topic: ''
-    master_id: ''
-    icon: ''
-    notify_type: 0
-    region: beijing
+
 User:
   $ref: './user/_index.yaml#/basic'
 GuildId:
