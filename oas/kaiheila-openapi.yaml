@@ -13,45 +13,55 @@ info:
   license:
     name: MIT
     url: https://github.com/kaiheila/api-docs/blob/main/LICENSE
-  description: |
-    # 引言
-    此文档仅用于方便开发者查看、确认开黑啦机器人API接口，官方文档地址：[开黑啦开发者平台](https://developer.kaiheila.cn/doc/)
+  description: 
+    $ref: "./descriptions.yaml#/intro"
 
-    建议使用[rapidoc](https://mrin9.github.io/RapiDoc/index.html)查看此文档，示例链接：[文档查看示例](https://fi6.github.io/kaiheila-api-docs/rapidoc-view.html)
-
-    如果发现有任何问题，请提交PR，我们将尽快进行修复与合并。
 # 如需合并，请执行：npx @redocly/openapi-cli bundle ./api-docs/oas/kaiheila-openapi.yaml -o ./api-docs/oas/bundled.yaml 
 tags:
-  - name: guild
+  - name: KMarkDown
+    description: 
+      $ref: "./descriptions.yaml#/kmarkdown"
+  - name: 卡片消息
+    description: 
+      $ref: "./descriptions.yaml#/cardMessage"
+  - name: 服务器
     description: 服务器相关接口
-  - name: channel
+  - name: 频道
     description: 服务器频道相关接口
-  - name: message
+  - name: 频道消息
     description: 频道消息相关接口
-  - name: user-chat
+  - name: 私聊会话
     description: 私聊会话相关接口
-  - name: direct-message
+  - name: 私聊消息
     description: 私聊消息相关接口
-  - name: user
+  - name: 用户
     description: 用户相关接口
-  - name: guild-role
+  - name: 服务器角色权限
     description: 服务器角色权限相关接口
-  - name: guild-emoji
+  - name: 服务器表情
     description: 服务器表情相关接口
-  - name: invite
+  - name: 邀请
     description: 邀请相关接口
   - name: gateway
     description: Gateway接口
-  - name: intimacy
+  - name: 亲密度
     description: 亲密度相关接口列表
-  - name: asset
+  - name: 附件
     description: 附件相关接口
-
+  - name: 事件结构/格式说明
+    description:
+      $ref: "./descriptions.yaml#/event"
+  - name: 频道相关事件
+    description: 频道相关事件
+  - name: 私聊相关事件
+    description: 私聊相关事件
+  - name: 服务器成员相关事件
+    description: 服务器成员相关事件
 paths:
   /guild/list:
     get:
       tags:
-        - guild
+        - 服务器
       summary: 获取当前用户加入的服务器列表
       description: ''
       operationId: getJoinedGuilds
@@ -85,7 +95,7 @@ paths:
   /guild/index:
     get:
       tags:
-        - guild
+        - 服务器
       deprecated: true
       summary: 获取当前用户加入的服务器列表
       description: ''
@@ -101,7 +111,7 @@ paths:
   /guild/view:
     get:
       tags:
-        - guild
+        - 服务器
       summary: 获取服务器详情
       operationId: getGuildById
       parameters:
@@ -121,7 +131,7 @@ paths:
   /guild/user-list:
     get:
       tags:
-        - guild
+        - 服务器
       summary: 获取服务器的用户列表
       operationId: getUsersInGuild
       parameters:
@@ -190,7 +200,7 @@ paths:
   /guild/nickname:
     post:
       tags:
-        - guild
+        - 服务器
       summary: 修改服务器中的用户昵称
       operationId: changeUserNickname
       requestBody:
@@ -220,7 +230,7 @@ paths:
   /guild/leave:
     post:
       tags:
-        - guild
+        - 服务器
       summary: 离开服务器
       operationId: leaveGuild
       requestBody:
@@ -243,7 +253,7 @@ paths:
   /guild/kickout:
     post:
       tags:
-        - guild
+        - 服务器
       summary: 踢出服务器
       operationId: kickUserById
       requestBody:
@@ -271,7 +281,7 @@ paths:
   /guild-mute/list:
     get:
       tags:
-        - guild
+        - 服务器
       summary: 服务器静音闭麦列表
       operationId: getGuildMuteUsers
       parameters:
@@ -323,7 +333,7 @@ paths:
   /guild-mute/create:
     post:
       tags:
-        - guild
+        - 服务器
       summary: 添加服务器闭麦或静音
       operationId: muteUserById
       requestBody:
@@ -358,7 +368,7 @@ paths:
   /guild-mute/delete:
     post:
       tags:
-        - guild
+        - 服务器
       summary: 删除服务器闭麦或静音
       operationId: unmuteUserById
       requestBody:
@@ -393,7 +403,7 @@ paths:
   /channel/list:
     get:
       tags:
-        - channel
+        - 频道
       summary: 获取频道列表
       operationId: getGuildChannels
       parameters:
@@ -423,7 +433,7 @@ paths:
   /channel/view:
     get:
       tags:
-        - channel
+        - 频道
       summary: 获取频道详情
       parameters:
         - name: target_id
@@ -446,7 +456,7 @@ paths:
   /channel/create:
     post:
       tags:
-        - channel
+        - 频道
       summary: 创建频道
       requestBody:
         content:
@@ -496,7 +506,7 @@ paths:
   /channel/delete:
     post:
       tags:
-        - channel
+        - 频道
       summary: 删除频道
       requestBody:
         content:
@@ -518,7 +528,7 @@ paths:
   /channel/user-list:
     get:
       tags:
-        - channel
+        - 频道
       summary: 查询语音频道内用户
       description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
       parameters:
@@ -549,7 +559,7 @@ paths:
   /channel/move-user:
     post:
       tags:
-        - channel
+        - 频道
       summary: 语音频道之间移动用户
       description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
       requestBody:
@@ -591,7 +601,7 @@ paths:
   /channel-role/index:
     get:
       tags:
-        - channel
+        - 频道
       summary: 频道角色权限详情
       parameters:
         - $ref: '#/components/parameters/GuildChannelIdParam'
@@ -635,7 +645,7 @@ paths:
   /channel-role/create:
     post:
       tags:
-        - channel
+        - 频道
       summary: 创建频道角色权限
       requestBody:
         content:
@@ -658,7 +668,7 @@ paths:
   /channel-role/update:
     post:
       tags:
-        - channel
+        - 频道
       summary: 更新频道角色权限
       requestBody:
         content:
@@ -703,7 +713,7 @@ paths:
   /channel-role/delete:
     post:
       tags:
-        - channel
+        - 频道
       summary: 删除频道角色权限
       requestBody:
         content:
@@ -726,7 +736,7 @@ paths:
   /message/list:
     get:
       tags:
-        - message
+        - 频道消息
       summary: 获取频道聊天消息列表
       description: 此接口非标准分页，需要根据参考消息来查询相邻分页的消息
       parameters:
@@ -777,7 +787,7 @@ paths:
   /message/create:
     post:
       tags:
-        - message
+        - 频道消息
       summary: 发送频道聊天消息
       requestBody:
         content:
@@ -823,7 +833,7 @@ paths:
   /message/update:
     post:
       tags:
-        - message
+        - 频道消息
       summary: 更新频道聊天消息
       requestBody:
         content:
@@ -856,7 +866,7 @@ paths:
   /message/delete:
     post:
       tags:
-        - message
+        - 频道消息
       summary: 删除频道聊天消息
       requestBody:
         content:
@@ -879,7 +889,7 @@ paths:
   /message/reaction-list:
     get:
       tags:
-        - message
+        - 频道消息
       summary: 获取频道消息某个回应的用户列表
       parameters:
         - name: msg_id
@@ -917,7 +927,7 @@ paths:
   /message/add-reaction:
     post:
       tags:
-        - message
+        - 频道消息
       summary: 为消息添加回应
       requestBody:
         content:
@@ -942,7 +952,7 @@ paths:
   /message/delete-reaction:
     post:
       tags:
-        - message
+        - 频道消息
       summary: 为消息删除回应
       requestBody:
         content:
@@ -971,7 +981,7 @@ paths:
   /user-chat/list:
     get:
       tags:
-        - user-chat
+        - 私聊会话
       summary: 获取私信频道列表
       parameters:
         - $ref: '#/components/parameters/PageNumberParam'
@@ -998,7 +1008,7 @@ paths:
   /user-chat/view:
     get:
       tags:
-        - user-chat
+        - 私聊会话
       summary: 获取私信频道详情
       parameters:
         - name: chat_code
@@ -1024,7 +1034,7 @@ paths:
   /user-chat/create:
     post:
       tags:
-        - user-chat
+        - 私聊会话
       summary: 创建私信频道
       requestBody:
         content:
@@ -1053,7 +1063,7 @@ paths:
   /user-chat/delete:
     post:
       tags:
-        - user-chat
+        - 私聊会话
       summary: 删除私信频道
       requestBody:
         content:
@@ -1075,7 +1085,7 @@ paths:
   /direct-message/list:
     get:
       tags:
-        - direct-message
+        - 私聊消息
       summary: 获取私信消息列表
       parameters:
         - name: chat_code
@@ -1123,7 +1133,7 @@ paths:
   /direct-message/create:
     post:
       tags:
-        - direct-message
+        - 私聊消息
       summary: 发送私信聊天消息
       requestBody:
         content:
@@ -1164,7 +1174,7 @@ paths:
   /direct-message/update:
     post:
       tags:
-        - direct-message
+        - 私聊消息
       summary: 更新私信聊天消息
       requestBody:
         content:
@@ -1194,7 +1204,7 @@ paths:
   /direct-message/delete:
     post:
       tags:
-        - direct-message
+        - 私聊消息
       summary: 删除私信聊天消息
       requestBody:
         content:
@@ -1217,7 +1227,7 @@ paths:
   /direct-message/reaction-list:
     get:
       tags:
-        - direct-message
+        - 私聊消息
       summary: 获取消息某个回应的用户列表
       parameters:
         - name: msg_id
@@ -1255,7 +1265,7 @@ paths:
   /direct-message/add-reaction:
     post:
       tags:
-        - direct-message
+        - 私聊消息
       summary: 为消息添加回应
       requestBody:
         content:
@@ -1280,7 +1290,7 @@ paths:
   /direct-message/delete-reaction:
     post:
       tags:
-        - direct-message
+        - 私聊消息
       summary: 为消息删除回应
       requestBody:
         content:
@@ -1334,7 +1344,7 @@ paths:
   /user/me:
     get:
       tags:
-        - user
+        - 用户
       summary: 获取当前用户信息
       responses:
         '200':
@@ -1370,7 +1380,7 @@ paths:
   /user/view:
     get:
       tags:
-        - user
+        - 用户
       summary: 获取目标用户信息
       parameters:
         - $ref: '#/components/parameters/UserIdParam'
@@ -1414,7 +1424,7 @@ paths:
   /asset/create:
     post:
       tags:
-        - asset
+        - 附件
       summary: 上传多媒体文件
       requestBody:
         content:
@@ -1445,7 +1455,7 @@ paths:
   /guild-role/list:
     get:
       tags:
-        - guild-role
+        - 服务器角色权限
       summary: 获取服务器角色列表
       parameters:
         - $ref: '#/components/parameters/GuildIdParam'
@@ -1474,7 +1484,7 @@ paths:
   /guild-role/create:
     post:
       tags:
-        - guild-role
+        - 服务器角色权限
       summary: 创建服务器角色
       requestBody:
         content:
@@ -1504,7 +1514,7 @@ paths:
   /guild-role/update:
     post:
       tags:
-        - guild-role
+        - 服务器角色权限
       summary: 更新服务器角色
       requestBody:
         content:
@@ -1567,7 +1577,7 @@ paths:
   /guild-role/delete:
     post:
       tags:
-        - guild-role
+        - 服务器角色权限
       summary: 删除服务器角色
       requestBody:
         content:
@@ -1596,7 +1606,7 @@ paths:
   /guild-role/grant:
     post:
       tags:
-        - guild-role
+        - 服务器角色权限
       summary: 赋予用户角色
       requestBody:
         content:
@@ -1639,7 +1649,7 @@ paths:
   /guild-role/revoke:
     post:
       tags:
-        - guild-role
+        - 服务器角色权限
       summary: 删除用户角色
       requestBody:
         content:
@@ -1682,7 +1692,7 @@ paths:
   /intimacy/index:
     get:
       tags:
-        - intimacy
+        - 亲密度
       summary: 获取用户的亲密度
       description: 机器人可以在后台配置默认的初始亲密度和形象，当用户触发某些事件时，机器人可以根据一些逻辑来更新与该用户的亲密度以及形象展示。
       parameters:
@@ -1728,7 +1738,7 @@ paths:
   /intimacy/update:
     post:
       tags:
-        - intimacy
+        - 亲密度
       summary: 更新用户亲密度
       requestBody:
         content:
@@ -1763,7 +1773,7 @@ paths:
   /guild-emoji/list:
     get:
       tags:
-        - guild-emoji
+        - 服务器表情
       summary: 获取服务器表情列表
       parameters:
         - $ref: '#/components/parameters/PageNumberParam'
@@ -1792,7 +1802,7 @@ paths:
   /guild-emoji/create:
     post:
       tags:
-        - guild-emoji
+        - 服务器表情
       summary: 创建服务器表情
       description: Header 中 Content-Type 必须为 multipart/form-data
       requestBody:
@@ -1828,7 +1838,7 @@ paths:
   /guild-emoji/update:
     post:
       tags:
-        - guild-emoji
+        - 服务器表情
       summary: 更新服务器表情
       requestBody:
         content:
@@ -1856,7 +1866,7 @@ paths:
   /guild-emoji/delete:
     post:
       tags:
-        - guild-emoji
+        - 服务器表情
       summary: 删除服务器表情
       requestBody:
         content:
@@ -1880,7 +1890,7 @@ paths:
   /invite/list:
     get:
       tags:
-        - invite
+        - 邀请
       summary: 获取邀请列表
       description: 服务器id或者频道id必须填一个
       parameters:
@@ -1930,7 +1940,7 @@ paths:
   /invite/create:
     post:
       tags:
-        - invite
+        - 邀请
       summary: 创建邀请链接
       description: 服务器id或者频道id必须填一个
       requestBody:
@@ -1963,7 +1973,7 @@ paths:
   /invite/delete:
     post:
       tags:
-        - invite
+        - 邀请
       summary: 删除邀请链接
       description: 服务器id或者频道id必须填一个
       requestBody:
@@ -1997,49 +2007,49 @@ webhooks:
   userAddReaction:
     post:
       tags:
-        - event/system/channel
+        - 频道相关事件
       summary: 用户添加reaction
       requestBody:
         $ref: './components/requestBodies/event-channel/reaction.yaml#/add'
   userDeleteReaction:
     post:
       tags:
-        - event/system/channel
+        - 频道相关事件
       summary: 频道内用户取消reaction
       requestBody:
         $ref: './components/requestBodies/event-channel/reaction.yaml#/delete'
   updateMessge:
     post:
       tags:
-        - event/system/channel
+        - 频道相关事件
       summary: 频道消息更新
       requestBody:
         $ref: './components/requestBodies/event-channel/message.yaml#/update'
   deleteMessage:
     post:
       tags:
-        - event/system/channel
+        - 频道相关事件
       summary: 频道消息被删除
       requestBody:
         $ref: './components/requestBodies/event-channel/message.yaml#/delete'
   createChannel:
     post:
       tags:
-        - event/system/channel
+        - 频道相关事件
       summary: 新增频道
       requestBody:
         $ref: './components/requestBodies/event-channel/channel.yaml#/create'
   updateChannel:
     post:
       tags:
-        - event/system/channel
+        - 频道相关事件
       summary: 频道信息更新
       requestBody:
         $ref: './components/requestBodies/event-channel/channel.yaml#/update'
   deleteChannel:
     post:
       tags:
-        - event/system/channel
+        - 频道相关事件
       summary: 删除频道
       requestBody:
         $ref: './components/requestBodies/event-channel/channel.yaml#/delete'
@@ -2047,77 +2057,77 @@ webhooks:
   pinMessage:
     post:
       tags:
-        - event/system/channel
+        - 频道相关事件
       summary: 新的频道置顶消息
       requestBody:
         $ref: './components/requestBodies/event-channel/pin.yaml#/add'
   unpinMessage:
     post:
       tags:
-        - event/system/channel
+        - 频道相关事件
       summary: 取消频道置顶消息
       requestBody:
         $ref: './components/requestBodies/event-channel/pin.yaml#/cancel'
   updatePrivateMessage:
     post:
       tags:
-        - event/system/private-message
+        - 私聊相关事件
       summary: 私聊消息更新
       requestBody:
         $ref: './components/requestBodies/event-direct-message/message.yaml#/update'
   deletePrivateMessage:
     post:
       tags:
-        - event/system/private-message
+        - 私聊相关事件
       summary: 私聊消息被删除
       requestBody:
         $ref: './components/requestBodies/event-direct-message/message.yaml#/delete'
   privateAddReaction:
     post:
       tags:
-        - event/system/private-message
+        - 私聊相关事件
       summary: 私聊内用户添加reaction
       requestBody:
         $ref: './components/requestBodies/event-direct-message/reaction.yaml#/add'
   privateDeleteReaction:
     post:
       tags:
-        - event/system/private-message
+        - 私聊相关事件
       summary: 私聊内用户删除reaction
       requestBody:
         $ref: './components/requestBodies/event-direct-message/reaction.yaml#/delete'
   memberJoin:
     post: 
       tags:
-        - event/system/guild-member
+        - 服务器成员相关事件
       summary: 新成员加入服务器
       requestBody:
         $ref: './components/requestBodies/event-member/member.yaml#/join'
   memberExit:
     post: 
       tags:
-        - event/system/guild-member
+        - 服务器成员相关事件
       summary: 服务器成员退出
       requestBody:
         $ref: './components/requestBodies/event-member/member.yaml#/exit'
   memberUpdate:
     post: 
       tags:
-        - event/system/guild-member
+        - 服务器成员相关事件
       summary: 服务器成员信息更新
       requestBody:
         $ref: './components/requestBodies/event-member/member.yaml#/update'
   memberOnline:
     post: 
       tags:
-        - event/system/guild-member
+        - 服务器成员相关事件
       summary: 服务器成员信息上线
       requestBody:
         $ref: './components/requestBodies/event-member/member.yaml#/online'
   memberOffline:
     post: 
       tags:
-        - event/system/guild-member
+        - 服务器成员相关事件
       summary: 服务器成员信息下线
       requestBody:
         $ref: './components/requestBodies/event-member/member.yaml#/offline'
