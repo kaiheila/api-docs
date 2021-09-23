@@ -37,7 +37,8 @@ tags:
   - name: 用户
     description: 用户相关接口
   - name: 服务器角色权限
-    description: 服务器角色权限相关接口
+    description: 
+      $ref: "./descriptions/_index.yaml#/permissions"
   - name: 服务器表情
     description: 服务器表情相关接口
   - name: 邀请
