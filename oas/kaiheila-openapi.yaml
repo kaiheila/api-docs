@@ -98,7 +98,7 @@ paths:
                               items:
                                 type: array
                                 items:
-                                  $ref: '#/components/schemas/Guild'
+                                  $ref: './components/schemas/_index.yaml#/Guild'
   /guild/index:
     get:
       tags:
