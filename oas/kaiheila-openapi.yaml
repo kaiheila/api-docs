@@ -16,7 +16,7 @@ info:
   description: 
     $ref: "./descriptions/_index.yaml#/intro"
 
-# 如需合并，请执行：npx @redocly/openapi-cli bundle ./api-docs/oas/kaiheila-openapi.yaml -o ./api-docs/oas/bundled.yaml 
+# 如需合并，请执行：npx @redocly/openapi-cli bundle ./api-docs/oas/kaiheila-openapi.yaml -o ./api-docs/oas/kaiheila-openapi-bundled.yaml 
 tags:
   - name: KMarkDown
     description: 
