@@ -1342,7 +1342,9 @@ paths:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/BasicResponse'
-                  - type: object
+                properties:
+                  data:
+                    type: object
                     properties:
                       url:
                         type: string
