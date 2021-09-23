@@ -119,8 +119,10 @@ intro: |
 
 
 kmarkdown:
-  $ref: "../docs/zh-cn/kmarkdown.md"
+  $ref: "../../docs/zh-cn/kmarkdown.md"
 cardMessage:
-  $ref: "../docs/zh-cn/cardmessage.md"
+  $ref: "../../docs/zh-cn/cardmessage.md"
 event:
-  $ref: "../docs/zh-cn/event/event-introduction.md"
+  $ref: "../../docs/zh-cn/event/event-introduction.md"
+permissions:
+  $ref: "./permissions.md"

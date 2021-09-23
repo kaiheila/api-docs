@@ -14,16 +14,16 @@ info:
     name: MIT
     url: https://github.com/kaiheila/api-docs/blob/main/LICENSE
   description: 
-    $ref: "./descriptions.yaml#/intro"
+    $ref: "./descriptions/_index.yaml#/intro"
 
 # 如需合并，请执行：npx @redocly/openapi-cli bundle ./api-docs/oas/kaiheila-openapi.yaml -o ./api-docs/oas/bundled.yaml 
 tags:
   - name: KMarkDown
     description: 
-      $ref: "./descriptions.yaml#/kmarkdown"
+      $ref: "./descriptions/_index.yaml#/kmarkdown"
   - name: 卡片消息
     description: 
-      $ref: "./descriptions.yaml#/cardMessage"
+      $ref: "./descriptions/_index.yaml#/cardMessage"
   - name: 服务器
     description: 服务器相关接口
   - name: 频道
@@ -50,7 +50,7 @@ tags:
     description: 附件相关接口
   - name: 事件结构/格式说明
     description:
-      $ref: "./descriptions.yaml#/event"
+      $ref: "./descriptions/_index.yaml#/event"
   - name: 频道相关事件
     description: 频道相关事件
   - name: 私聊相关事件
