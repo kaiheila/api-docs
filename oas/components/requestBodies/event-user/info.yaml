@@ -1,0 +1,30 @@
+update:
+  content: 
+    application/json:
+      schema:
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/SystemEvent'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`user_updated`
+                        example: 'user_updated'
+                      body:
+                        type: object
+                        properties:
+                          user_id:
+                            $ref: '../../schemas/user/_fields.yaml#/id'
+                          username:
+                            type: string
+                            description: 用户名
+                            example: 一个新用户名
+                          avatar:
+                            type: string
+                            description: 头像地址
+                            example: "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon"

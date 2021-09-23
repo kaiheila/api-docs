@@ -33,7 +33,7 @@ BasicEvent:
       properties:
         channel_type:
           type: string
-          description: 消息频道类型, 频道消息为`GROUP`，私聊消息为`PERSON`
+          description: 消息频道类型, 群体消息为`GROUP`，个人消息为`PERSON`。例如，向频道内发送的消息为`GROUP`, 按钮返回事件为`PERSON`
           example: GROUP
           enum:
             - GROUP
@@ -321,7 +321,7 @@ GuildChannel:
 GuildChannelId:
   type: string
   description: 服务器频道ID
-  example: '00000000000000000000000'
+  example: '9219038000000'
 GuildChannelType:
   type: integer
   enum:

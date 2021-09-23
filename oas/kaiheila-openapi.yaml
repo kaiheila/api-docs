@@ -2249,6 +2249,8 @@ webhooks:
         - 用户相关事件
         - 频道相关事件
       summary: 用户加入语音频道
+      description: | 
+        当自己被邀请或主动加入新的服务器时, 产生该事件（对于机器人来说，就是机器人被邀请进入新服务器）
       requestBody:
         $ref: './components/requestBodies/event-user/guild.yaml#/join'
   userExitGuild:
@@ -2257,6 +2259,8 @@ webhooks:
         - 用户相关事件
         - 频道相关事件
       summary: 用户加入语音频道
+      description: | 
+        当自己被踢出服务器或被拉黑或主动退出服务器时, 产生该事件（对于机器人来说，就是机器人被踢出/拉黑/主动退出新服务器）
       requestBody:
         $ref: './components/requestBodies/event-user/guild.yaml#/exit'
   userUpdateInfo:
@@ -2265,6 +2269,10 @@ webhooks:
         - 用户相关事件
         - 频道相关事件
       summary: 用户加入语音频道
+      description: | 
+        **该事件与服务器无关, 遵循以下条件**
+        - 仅当用户的 **用户名** 或 **头像** 变更时;
+        - 仅通知与该用户存在关联的用户或Bot: a. 存在聊天会话 b. 双方好友关系
       requestBody:
         $ref: './components/requestBodies/event-user/info.yaml#/update'
   userClickButton:

@@ -1,0 +1,49 @@
+join:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/SystemEvent'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      channel_type:
+                        example: 'PERSON'
+                      type:
+                        description: 消息类型，此处为`self_joined_guild`
+                        example: 'self_joined_guild'
+                      body:
+                        type: object
+                        properties:
+                          guild_id:
+                            $ref: '../../schemas/_index.yaml#/GuildId'
+                            
+exit:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/SystemEvent'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      channel_type:
+                        example: 'PERSON'
+                      type:
+                        description: 消息类型，此处为`self_exited_guild`
+                        example: 'self_exited_guild'
+                      body:
+                        type: object
+                        properties:
+                          guild_id:
+                            $ref: '../../schemas/_index.yaml#/GuildId'
