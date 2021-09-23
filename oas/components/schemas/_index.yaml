@@ -66,7 +66,6 @@ BasicEvent:
           type: object
           description: 不同的消息类型，结构不一致
           example: 'xxx'
-      example: {}
     sn:
       type: integer
       description: 消息序号，针对当前session。该字段并不一定有，只在s=0时有，与webhook一致。详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
