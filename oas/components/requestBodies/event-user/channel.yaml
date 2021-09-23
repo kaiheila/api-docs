@@ -1,0 +1,22 @@
+join:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/SystemEvent'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`joined_channel`
+                        example: 'joined_channel'
+                      body:
+                        type: object
+                        properties:
+                          user_id:
+                            

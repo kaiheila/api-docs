@@ -3173,11 +3173,11 @@ components:
         avatar:
           type: string
           description: 用户的头像的url地址
-          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
+          example: 'https://img.kaiheila.cn/avatars/2020-02/r26z1exxxx0j9.jpg/icon'
         vip_avatar:
           type: string
           description: vip用户的头像的url地址，可能为gif动图
-          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
+          example: 'https://img.kaiheila.cn/avatars/2020-02/r26z1exxxx0j9.jpg/icon'
     GuildChannelType:
       type: integer
       enum:

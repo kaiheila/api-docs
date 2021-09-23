@@ -52,8 +52,14 @@ tags:
   - name: 事件结构/格式说明
     description:
       $ref: "./descriptions/_index.yaml#/event"
+  - name: 消息相关事件
+    description: 消息相关事件
   - name: 频道相关事件
     description: 频道相关事件
+  - name: 服务器相关事件
+    description: 服务器相关事件
+  - name: 用户相关事件
+    description: 用户相关事件
   - name: 私聊相关事件
     description: 私聊相关事件
   - name: 服务器成员相关事件
@@ -846,13 +852,13 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/MessageId'
+                  $ref: './components/schemas/message/_fields.yaml#/id'
                 content:
                   type: string
                   description: 消息内容
                 quote:
                   allOf:
-                    - $ref: '#/components/schemas/MessageId'
+                    - $ref: './components/schemas/message/_fields.yaml#/id'
                   description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
                 temp_target_id:
                   type: string
@@ -879,7 +885,7 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/MessageId'
+                  $ref: './components/schemas/message/_fields.yaml#/id'
       responses:
         '200':
           description: OK
@@ -898,7 +904,7 @@ paths:
           description: 频道消息的id
           required: true
           schema:
-            $ref: '#/components/schemas/MessageId'
+            $ref: './components/schemas/message/_fields.yaml#/id'
         - name: emoji
           in: query
           description: emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode
@@ -940,7 +946,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/MessageId'
+                  $ref: './components/schemas/message/_fields.yaml#/id'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
       responses:
@@ -965,7 +971,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/MessageId'
+                  $ref: './components/schemas/message/_fields.yaml#/id'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
                 user_id:
@@ -1103,7 +1109,7 @@ paths:
           description: 参考消息 id，不传则查询最新消息
           in: query
           schema:
-            $ref: '#/components/schemas/MessageId'
+            $ref: './components/schemas/message/_fields.yaml#/id'
         - $ref: '#/components/parameters/MessageListFlagParam'
         - $ref: '#/components/parameters/PageNumberParam'
         - name: page_size
@@ -1187,13 +1193,13 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/MessageId'
+                  $ref: './components/schemas/message/_fields.yaml#/id'
                 content:
                   type: string
                   description: 消息内容
                 quote:
                   allOf:
-                    - $ref: '#/components/schemas/MessageId'
+                    - $ref: './components/schemas/message/_fields.yaml#/id'
                   description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
       responses:
         '200':
@@ -1217,7 +1223,7 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/MessageId'
+                  $ref: './components/schemas/message/_fields.yaml#/id'
       responses:
         '200':
           description: OK
@@ -1236,7 +1242,7 @@ paths:
           description: 消息的id
           required: true
           schema:
-            $ref: '#/components/schemas/MessageId'
+            $ref: './components/schemas/message/_fields.yaml#/id'
         - name: emoji
           in: query
           description: emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode
@@ -1278,7 +1284,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/MessageId'
+                  $ref: './components/schemas/message/_fields.yaml#/id'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
       responses:
@@ -1303,7 +1309,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/MessageId'
+                  $ref: './components/schemas/message/_fields.yaml#/id'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
                 user_id:
@@ -2001,10 +2007,48 @@ paths:
                 $ref: '#/components/schemas/BasicResponse'
 
 webhooks:
-  事件结构说明:
-    description: |
-      # 事件结构说明
-      ## 这是个二级说明
+  textMessage:
+    post: 
+      tags:
+        - 消息相关事件
+      summary: 文字消息
+      requestBody:
+        $ref: './components/requestBodies/event-message/rich-text.yaml#/text'
+  imageMessage:
+    post: 
+      tags:
+        - 消息相关事件
+      summary: 图片消息
+      requestBody:
+        $ref: './components/requestBodies/event-message/multimedia.yaml#/image'
+  videoMessage:
+    post: 
+      tags:
+        - 消息相关事件
+      summary: 视频消息
+      requestBody:
+        $ref: './components/requestBodies/event-message/multimedia.yaml#/video'
+  fileMessage:
+    post: 
+      tags:
+        - 消息相关事件
+      summary: 文件消息
+      requestBody:
+        $ref: './components/requestBodies/event-message/multimedia.yaml#/file'
+  kmarkdownMessage:
+    post: 
+      tags:
+        - 消息相关事件
+      summary: KMarkDown消息
+      requestBody:
+        $ref: './components/requestBodies/event-message/rich-text.yaml#/kmarkdown'
+  cardMessage:
+    post: 
+      tags:
+        - 消息相关事件
+      summary: 卡片消息
+      requestBody:
+        $ref: './components/requestBodies/event-message/rich-text.yaml#/card'
   userAddReaction:
     post:
       tags:
@@ -2023,6 +2067,7 @@ webhooks:
     post:
       tags:
         - 频道相关事件
+        - 消息相关事件
       summary: 频道消息更新
       requestBody:
         $ref: './components/requestBodies/event-channel/message.yaml#/update'
@@ -2030,6 +2075,7 @@ webhooks:
     post:
       tags:
         - 频道相关事件
+        - 消息相关事件
       summary: 频道消息被删除
       requestBody:
         $ref: './components/requestBodies/event-channel/message.yaml#/delete'
@@ -2132,13 +2178,103 @@ webhooks:
       summary: 服务器成员信息下线
       requestBody:
         $ref: './components/requestBodies/event-member/member.yaml#/offline'
-  # roleAdd:
-  #   post: 
-  #     tags:
-  #       - event/system/guild-role
-  #     summary: 服务器角色增加
-  #     requestBody:
-  #       $ref: './components/requestBodies/event-role/role.yaml#/add'
+  roleAdd:
+    post: 
+      tags:
+        - 服务器角色相关事件
+      summary: 服务器角色增加
+      requestBody:
+        $ref: './components/requestBodies/event-role/role.yaml#/add'
+  roleUpdate:
+    post: 
+      tags:
+        - 服务器角色相关事件
+      summary: 服务器角色更新
+      requestBody:
+        $ref: './components/requestBodies/event-role/role.yaml#/update'
+  roleDelete:
+    post: 
+      tags:
+        - 服务器角色相关事件
+      summary: 服务器角色删除
+      requestBody:
+        $ref: './components/requestBodies/event-role/role.yaml#/delete'
+  guildUpdate: 
+    post: 
+      tags:
+        - 服务器相关事件
+      summary: 服务器信息更新
+      requestBody:
+        $ref: './components/requestBodies/event-guild/guild.yaml#/update'
+  guildDelete:
+    post: 
+      tags:
+        - 服务器相关事件
+      summary: 服务器删除
+      requestBody:
+        $ref: './components/requestBodies/event-guild/guild.yaml#/delete'
+  guildBanUser:
+    post: 
+      tags:
+        - 服务器相关事件
+      summary: 服务器封禁用户
+      requestBody:
+        $ref: './components/requestBodies/event-guild/user.yaml#/ban'
+  guildUnbanUser: 
+    post: 
+      tags:
+        - 服务器相关事件
+      summary: 服务器解除封禁用户
+      requestBody:
+        $ref: './components/requestBodies/event-guild/user.yaml#/unban'
+  userJoinChannel:
+    post: 
+      tags:
+        - 用户相关事件
+        - 频道相关事件
+      summary: 用户加入语音频道
+      requestBody:
+        $ref: './components/requestBodies/event-user/channel.yaml#/join'
+  userExitChannel:
+    post: 
+      tags:
+        - 用户相关事件
+        - 频道相关事件
+      summary: 用户加入语音频道
+      requestBody:
+        $ref: './components/requestBodies/event-user/channel.yaml#/exit'
+  userJoinGuild:
+    post: 
+      tags:
+        - 用户相关事件
+        - 频道相关事件
+      summary: 用户加入语音频道
+      requestBody:
+        $ref: './components/requestBodies/event-user/guild.yaml#/join'
+  userExitGuild:
+    post: 
+      tags:
+        - 用户相关事件
+        - 频道相关事件
+      summary: 用户加入语音频道
+      requestBody:
+        $ref: './components/requestBodies/event-user/guild.yaml#/exit'
+  userUpdateInfo:
+    post: 
+      tags:
+        - 用户相关事件
+        - 频道相关事件
+      summary: 用户加入语音频道
+      requestBody:
+        $ref: './components/requestBodies/event-user/info.yaml#/update'
+  userClickButton:
+    post:
+      tags:
+        - 用户相关事件
+        - 消息相关事件
+      summary: 用户点击按钮（Card Message）
+      requestBody:
+        $ref: './components/requestBodies/event-user/message.yaml#/click-button'
 components:
   parameters:
     $ref: './components/parameters/_index.yaml'

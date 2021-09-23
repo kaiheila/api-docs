@@ -46,7 +46,7 @@ delete:
                         properties:
                           msg_id:
                             allOf:
-                              - $ref: "../../schemas/_index.yaml#/MessageId"
+                              - $ref: "../../schemas/message/_fields.yaml#/id"
                             description: 被删除的消息id
                           channel_id:
                             allOf:

@@ -11,7 +11,7 @@ properties:
             properties:
               msg_id:
                 allOf:
-                  - $ref: "../_index.yaml#/MessageId"
+                  - $ref: "../message/_fields.yaml#/id"
                 description: 消息id
               channel_id:
                 allOf:

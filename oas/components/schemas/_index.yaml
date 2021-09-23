@@ -22,20 +22,20 @@ BasicEvent:
     - s
     - d
     - sn
-  properties: 
+  properties:
     s:
       type: integer
       description: websocket信令，详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
       example: 0
-    d: 
+    d:
       type: object
       description: 具体数据
-      properties: 
+      properties:
         channel_type:
           type: string
           description: 消息频道类型, 频道消息为`GROUP`，私聊消息为`PERSON`
           example: GROUP
-          enum: 
+          enum:
             - GROUP
             - PERSON
         type:
@@ -43,20 +43,20 @@ BasicEvent:
         target_id:
           type: string
           description: 发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id
-          example: "60163899100000"
-        author_id: 
+          example: '60163899100000'
+        author_id:
           type: string
           description: 发送者 id, 1 代表系统
-        content: 
+        content:
           type: string
           description: 消息内容, 文件，图片，视频时，content 为 url
-        msg_id: 
+        msg_id:
           type: string
           description: 消息的 id
-        msg_timestamp: 
+        msg_timestamp:
           type: integer
           description: 消息发送时间的毫秒时间戳
-        nonce: 
+        nonce:
           type: string
           description: 随机串，与用户消息发送 api 中传的 nonce 保持一致
         verify_token:
@@ -65,7 +65,7 @@ BasicEvent:
         extra:
           type: object
           description: 不同的消息类型，结构不一致
-          example: "xxx"
+          example: 'xxx'
       example: {}
     sn:
       type: integer
@@ -76,19 +76,22 @@ MessageEvent:
   type: object
   description: 当事件的type非系统消息(255)时
   allOf:
-    - $ref: "#/BasicEvent"
+    - $ref: '#/BasicEvent'
     - type: object
       properties:
         d:
           type: object
-          properties: 
-            extra: 
+          properties:
+            author_id:
+              description: 发送者的用户id
+              example: '2418200000'
+            extra:
               type: object
               properties:
-                type: 
+                type:
                   type: integer
                   description: 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息
-                guild_id: 
+                guild_id:
                   type: string
                   description: 服务器id
                 channel_name:
@@ -104,7 +107,7 @@ MessageEvent:
                   description: 是否含有`@全体人员`
                 mention_roles:
                   type: array
-                  description: "`@特定角色` 的角色ID数组，与`mention_info`中的数据对应"
+                  description: '`@特定角色` 的角色ID数组，与`mention_info`中的数据对应'
                   items:
                     type: string
                 mention_here:
@@ -112,47 +115,47 @@ MessageEvent:
                 author:
                   description: 消息作者
                   allOf:
-                    - $ref: "#/User"
+                    - $ref: '#/User'
 
-SystemEvent: 
+SystemEvent:
   type: object
   allOf:
-    - $ref: "#/BasicEvent"
+    - $ref: '#/BasicEvent'
     - type: object
       properties:
         d:
           type: object
-          properties: 
+          properties:
             channel_type:
-              example: "GROUP"
+              example: 'GROUP'
             type:
               description: 消息类型，系统消息为255
               example: 255
             author_id:
               description: 发送者id, 1 代表系统
               example: 1
-            content: 
-              example: "[系统消息]"
-            extra: 
+            content:
+              example: '[系统消息]'
+            extra:
               type: object
               properties:
-                type: 
+                type:
                   type: string
                 body:
                   type: object
             msg_id:
-              example: "63d6a934-xxxx-a1f02c255213"
+              example: '63d6a934-xxxx-a1f02c255213'
             msg_timestamp:
               example: 1612704007683
             nonce:
-              example: ""
+              example: ''
             verify_token:
-              example: "xxx"
+              example: 'xxx'
 
 PersonEvent:
   type: object
   allOf:
-    - $ref: "#/SystemEvent"
+    - $ref: '#/SystemEvent'
     - type: object
       properties:
         d:
@@ -161,8 +164,8 @@ PersonEvent:
             channel_type:
               type: string
               description: 频道类型，私聊消息为`PERSON`
-              example: "PERSON"
-            extra: 
+              example: 'PERSON'
+            extra:
               type: object
               properties:
                 body:
@@ -170,10 +173,10 @@ PersonEvent:
                   properties:
                     msg_id:
                       allOf:
-                        - $ref: "#/MessageId"
+                        - $ref: './message/_fields.yaml#/id'
                       description: 被操作的消息id
-                    chat_code: 
-                      $ref: "#/ChatCode"
+                    chat_code:
+                      $ref: '#/ChatCode'
 
 PaginationInfo:
   type: object
@@ -212,21 +215,22 @@ Guild:
   type: object
   properties:
     id:
-      $ref: "#/GuildId"
+      $ref: '#/GuildId'
     name:
       type: string
       description: 服务器名称
-      example: "Hello"
+      example: 'Hello'
     topic:
       type: string
       description: 服务器主题
     master_id:
       type: string
       description: 服务器主的id
-      example: "17000000"
+      example: '17000000'
     icon:
       type: string
       description: 服务器icon的地址
+      example: 'https://xxx/icons/2020-05/YQyfHxxx.png/icon'
     notify_type:
       type: integer
       description: 通知类型, `0`代表默认使用服务器通知设置，`1`代表接收所有通知, `2`代表仅@被提及，`3`代表不接收通知
@@ -251,64 +255,29 @@ Guild:
       type: string
       description: 欢迎频道id
   example:
-    id: "123123"
+    id: '123123'
     name: test server
-    topic: ""
-    master_id: ""
-    icon: ""
+    topic: ''
+    master_id: ''
+    icon: ''
     notify_type: 0
     region: beijing
 User:
-  type: object
-  properties:
-    id:
-      $ref: "#/UserId"
-    username:
-      type: string
-      description: 用户的名称
-      example: tz-un
-    identify_num:
-      type: string
-      description: 用户名的认证数字，用户名正常为：user_name#identify_num
-      example: "5618"
-    online:
-      type: boolean
-      description: 当前是否在线
-      example: false
-    status:
-      type: integer
-      description: 用户的状态, 0代表正常，10代表被封禁
-      enum:
-        - 0
-        - 10
-      example: 0
-    bot:
-      type: boolean
-      description: 是否为机器人
-    avatar:
-      type: string
-      description: 用户的头像的url地址
-      example: https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon
-    vip_avatar:
-      type: string
-      description: vip用户的头像的url地址，可能为gif动图
-      example: https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon
+  $ref: './user/_index.yaml#/basic'
 GuildId:
   type: string
   description: 服务器id
-  example: "91686000000"
+  example: '91686000000'
 UserId:
-  type: string
-  description: 用户id
-  example: "2418200000"
+  $ref: './user/_fields.yaml#/id'
 GuildChannel:
   type: object
   description: 服务器频道
   properties:
     id:
-      $ref: "#/GuildChannelId"
+      $ref: '#/GuildChannelId'
     guild_id:
-      $ref: "#/GuildId"
+      $ref: '#/GuildId'
     master_id:
       description: 频道创建者id
       type: string
@@ -322,7 +291,7 @@ GuildChannel:
       type: string
       description: 频道简介
     type:
-      $ref: "#/GuildChannelType"
+      $ref: '#/GuildChannelType'
     level:
       type: integer
       description: 频道排序
@@ -352,7 +321,7 @@ GuildChannel:
 GuildChannelId:
   type: string
   description: 服务器频道ID
-  example: "00000000000000000000000"
+  example: '00000000000000000000000'
 GuildChannelType:
   type: integer
   enum:
@@ -385,7 +354,7 @@ GuildChannelRoleRequest:
     channel_id:
       description: 频道id, 如果频道是分组的id,会同步给所有sync=1的子频道
       allOf:
-        - $ref: "#/GuildChannelId"
+        - $ref: '#/GuildChannelId'
     type:
       type: string
       description: value的类型，只能为"role_id","user_id",不传则默认为"user_id"
@@ -396,62 +365,11 @@ GuildChannelRoleRequest:
     value:
       type: string
       description: 根据type，为用户id或频道id
-      default: ""
+      default: ''
 
 Message:
-  type: object
-  properties:
-    id:
-      $ref: "#/MessageId"
-    type:
-      type: integer
-      description: 消息类型
-    author:
-      description: 消息作者
-      allOf:
-        - $ref: "#/User"
-    content:
-      type: string
-      description: 消息内容
-    mention:
-      type: array
-      description: "`\\@特定用户` 的用户ID数组，与`mention_info`中的数据对应"
-      items:
-        type: string
-    mention_all:
-      type: boolean
-      description: 是否含有`@全体人员`
-    mention_roles:
-      type: array
-      description: "`@特定角色` 的角色ID数组，与`mention_info`中的数据对应"
-      items:
-        type: string
-    mention_here:
-      type: boolean
-    embeds:
-      type: array
-      description: 超链接解析数据
-      items:
-        $ref: "#/MessageEmbed"
-    attachments:
-      $ref: "#/MessageAttachments"
-    reactions:
-      type: array
-      items:
-        $ref: "#/MessageReaction"
-    quote:
-      $ref: "#/MessageQuote"
-    mention_info:
-      type: object
-      properties:
-        mention_part:
-          type: array
-          items:
-            $ref: "#/MessageMentionInfoPart"
-        mention_role_part:
-          type: array
-          items:
-            $ref: "#/GuildRole"
+  $ref: './message/_index.yaml#/basic'
+
 SendMessageRequest:
   type: object
   required:
@@ -460,21 +378,19 @@ SendMessageRequest:
     type:
       type: integer
       description: 消息类型, 见[type], 不传默认为`1`, 代表文本类型。`2`图片消息，`3`视频消息，`4`文件消息，`9`代表 kmarkdown 消息, `10`代表卡片消息。
-      example: 1
+      example: 9
+      default: 1
     content:
       type: string
       description: 消息内容
     quote:
       allOf:
-        - $ref: "#/MessageId"
-      description: 回复某条消息的`msgId`
+        - $ref: './message/_fields.yaml#/id'
+      description: 回复某条消息的`msg_id`
     nonce:
       type: string
       description: nonce, 服务端不做处理, 原样返回
-MessageId:
-  type: string
-  description: 消息id
-  example: 1c4532f6-*********-93e9-6347f410f91c
+
 GuildEmojiId:
   type: string
   description: 表情的 ID
@@ -502,7 +418,7 @@ UserChat:
       description: 目标用户信息
       properties:
         id:
-          $ref: "#/UserId"
+          $ref: '#/UserId'
         username:
           type: string
           description: 目标用户名
@@ -517,7 +433,7 @@ UserChat:
           example: https://***.jpg
 UserChatDetail:
   allOf:
-    - $ref: "#/UserChat"
+    - $ref: '#/UserChat'
     - type: object
       properties:
         is_friend:
@@ -529,40 +445,35 @@ UserChatDetail:
         is_target_blocked:
           type: boolean
           description: 是否已被对方屏蔽
-          
+
 ChatCode:
   type: string
   description: 私聊会话 Code
-  example: "3b4aa448b8xxxxc87a1b3770792e7433"
+  example: '3b4aa448b8xxxxc87a1b3770792e7433'
 
 DirectMessage:
   type: object
   properties:
     id:
-      $ref: "#/MessageId"
+      $ref: './message/_fields.yaml#/id'
     type:
       type: integer
       description: 消息类型
     author_id:
       description: 作者的用户ID
       allOf:
-        - $ref: "#/UserId"
+        - $ref: '#/UserId'
     content:
       type: string
       description: 消息内容
     embeds:
-      type: array
-      description: 超链接解析数据
-      items:
-        $ref: "#/MessageEmbed"
+      $ref: './message/_fields.yaml#/embeds'
     attachments:
       type: object
     reactions:
-      type: array
-      items:
-        $ref: "#/MessageReaction"
+      $ref: './message/_fields.yaml#/reactions'
     quote:
-      $ref: "#/MessageQuote"
+      $ref: './message/_fields.yaml#/quote'
     read_status:
       type: boolean
       description: 是否已读
@@ -617,98 +528,9 @@ GuildEmoji:
       description: 表情的名称
       example: 摇滚啊
     id:
-      $ref: "#/GuildEmojiId"
+      $ref: '#/GuildEmojiId'
     user_info:
       description: 上传用户
       allOf:
-        - $ref: "#/User"
-MessageEmbed:
-  type: object
-  properties:
-    type:
-      type: string
-    url:
-      type: string
-  additionalProperties: true
-  example:
-    type: bili-video
-    url: ""
-    origin_url: https://www.bilibili.com/video/XXXXX
-    av_no: 11J411E
-    iframe_path: https://player.bilibili.com/player.html?xxx=xxx
-    duration: 97
-    title: Title
-    pic: https://**/lc01gi.jpg
-MessageAttachments:
-  oneOf:
-    - $ref: "#/MessageAttachmentFile"
-MessageReaction:
-  type: object
-  properties:
-    emoji:
-      type: object
-      properties:
-        id:
-          type: string
-          example: "[#129315;]"
-        name:
-          type: string
-          example: "[#129315;]"
-    count:
-      type: integer
-    me:
-      type: boolean
-MessageQuote:
-  type: object
-  properties:
-    id:
-      type: string
-      description: 引用消息id
-      example: 1c4532f6-*********-93e9-6347f410f91c
-    type:
-      type: integer
-      description: 引用消息类型
-      example: 1
-    content:
-      type: string
-      description: 引用消息内容
-      example: hello world
-    create_at:
-      type: integer
-      description: 引用消息创建时间（毫秒）
-      example: 1628069285358
-    author:
-      description: 作者的用户信息
-      allOf:
-        - $ref: "#/User"
-MessageMentionInfoPart:
-  type: object
-  properties:
-    id:
-      type: string
-      example: 28444
-    username:
-      type: string
-      example: example
-    full_name:
-      type: string
-      example: example#1111
-    avatar:
-      type: string
-      example: "***.jpg"
-MessageAttachmentFile:
-  type: object
-  properties:
-    type:
-      type: string
-      enum:
-        - file
-    url:
-      type: string
-    name:
-      type: string
-      description: 多媒体名
-    size:
-      type: integer
-      description: 大小 单位（B）
-      example: 2575670
+        - $ref: '#/User'
+  

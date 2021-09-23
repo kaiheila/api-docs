@@ -1,0 +1,4 @@
+id:
+  type: string
+  description: 用户id
+  example: '2418200000'

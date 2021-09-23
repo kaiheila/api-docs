@@ -1,0 +1,62 @@
+ban:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/SystemEvent'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`added_block_list`
+                        example: 'added_block_list'
+                      body:
+                        type: object
+                        properties:
+                          operator_id:
+                            allOf:
+                              - $ref: '../../schemas/_index.yaml#/UserId'
+                            description: 操作人id
+                          user_id:
+                            type: array
+                            description: 被封禁成员id列表
+                            items:
+                              $ref: '../../schemas/_index.yaml#/UserId'
+                          remark:
+                            type: string
+                            description: 封禁理由
+                            example: '频繁发广告'
+unban:
+  content:
+    application/json:
+      schema:
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/SystemEvent'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`added_block_list`
+                        example: 'added_block_list'
+                      body:
+                        type: object
+                        properties:
+                          operator_id:
+                            allOf:
+                              - $ref: '../../schemas/_index.yaml#/UserId'
+                            description: 操作人id
+                          user_id:
+                            type: array
+                            description: 被封禁成员id列表
+                            items:
+                              $ref: '../../schemas/_index.yaml#/UserId'

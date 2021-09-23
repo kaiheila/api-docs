@@ -1,0 +1,56 @@
+text:
+  content: 
+    application/json: 
+      schema: 
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/MessageEvent'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      type:
+                        example: 1
+                      body:
+                        $ref: '../../schemas/message/text.yaml'
+
+kmarkdown:
+  content: 
+    application/json: 
+      schema: 
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/MessageEvent'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      type:
+                        example: 9
+                      body:
+                        $ref: '../../schemas/message/rich-text.yaml#/kmarkdown'
+
+card:
+  content: 
+    application/json: 
+      schema: 
+        allOf:
+          - $ref: '../../schemas/_index.yaml#/MessageEvent'
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra:
+                    type: object
+                    properties:
+                      type:
+                        example: 10
+                      body:
+                        $ref: '../../schemas/message/rich-text.yaml#/card'
