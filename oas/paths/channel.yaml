@@ -1,0 +1,208 @@
+list:
+  get:
+    tags:
+      - 频道
+    summary: 获取频道列表
+    operationId: getGuildChannels
+    parameters:
+      - $ref: '../components/parameters/_index.yaml#/PageNumberParam'
+      - $ref: '../components/parameters/_index.yaml#/PageSizeParam'
+      - $ref: '../components/parameters/_index.yaml#/GuildIdParam'
+      - $ref: '../components/parameters/_index.yaml#/GuildChannelTypeParam'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '../components/schemas/_index.yaml#/BasicResponse'
+                - type: object
+                  properties:
+                    data:
+                      allOf:
+                        - $ref: '../components/schemas/_index.yaml#/PaginationInfo'
+                        - type: object
+                          properties:
+                            items:
+                              type: array
+                              items:
+                                $ref: '../components/schemas/_index.yaml#/GuildChannel'
+view:
+  get:
+    operationId: getChannelById
+    tags:
+      - 频道
+    summary: 获取频道详情
+    parameters:
+      - name: target_id
+        required: true
+        in: query
+        description: 目标频道id
+        schema:
+          $ref: '../components/schemas/_index.yaml#/GuildChannelId'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '../components/schemas/_index.yaml#/BasicResponse'
+                - type: object
+                  properties:
+                    data:
+                      $ref: '../components/schemas/_index.yaml#/GuildChannel'
+
+create:
+  post:
+    tags:
+      - 频道
+    summary: 创建频道
+    operationId: createChannel
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - guild_id
+              - name
+            properties:
+              guild_id:
+                $ref: '../components/schemas/_index.yaml#/GuildId'
+              parent_id:
+                allOf:
+                  - $ref: '../components/schemas/_index.yaml#/GuildChannelId'
+                description: 父分组id
+              name:
+                type: string
+                description: 频道名称
+              type:
+                allOf:
+                  - $ref: '../components/schemas/_index.yaml#/GuildChannelType'
+                description: 频道类型, `1`为文字，`2`为语音, 默认为`1`
+              limit_amount:
+                type: integer
+                maximum: 99
+                description: 语音频道人数限制，最大99
+              voice_quality:
+                type: integer
+                description: 语音音质，默认为`2`。`1`流畅，`2`正常，`3`高质量
+                enum:
+                  - 1
+                  - 2
+                  - 3
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '../components/schemas/_index.yaml#/BasicResponse'
+                - type: object
+                  properties:
+                    data:
+                      $ref: '../components/schemas/_index.yaml#/GuildChannel'
+
+delete: 
+  post:
+    tags:
+      - 频道
+    summary: 删除频道
+    operationId: deleteChannelById
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - channel_id
+            properties:
+              channel_id:
+                $ref: '../components/schemas/_index.yaml#/GuildChannelId'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              $ref: '../components/schemas/_index.yaml#/BasicResponse'
+
+user-list:
+  get:
+    tags:
+      - 频道
+    summary: 查询语音频道内用户
+    operationId: getVoiceChannelUsers
+    description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
+    parameters:
+      - name: target_id
+        required: true
+        in: query
+        description: 目标频道id, 需要是语音频道
+        schema:
+          $ref: '../components/schemas/_index.yaml#/GuildChannelId'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '../components/schemas/_index.yaml#/BasicResponse'
+                - type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        user_ids:
+                          type: array
+                          description: 用户id的数组
+                          items:
+                            $ref: '../components/schemas/_index.yaml#/UserId'
+
+move-user:
+  post:
+    tags:
+      - 频道
+    summary: 语音频道之间移动用户
+    operationId: moveUsersInVoiceChannel
+    description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
+    requestBody:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - channel_id
+              - user_ids
+            properties:
+              channel_id:
+                allOf:
+                  - $ref: '../components/schemas/_index.yaml#/GuildChannelId'
+                  - description: 目标频道id, 需要是语音频道
+              user_ids:
+                type: array
+                description: 用户id的数组
+                items:
+                  $ref: '../components/schemas/_index.yaml#/UserId'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '../components/schemas/_index.yaml#/BasicResponse'
+                - type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        user_ids:
+                          type: array
+                          description: 用户id的数组
+                          items:
+                            $ref: '../components/schemas/_index.yaml#/UserId'

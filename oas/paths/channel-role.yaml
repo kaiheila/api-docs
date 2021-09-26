@@ -1,0 +1,121 @@
+index:
+  get:
+    tags:
+      - 频道
+    summary: 频道角色权限详情
+    operationId: getChannelRoleById
+    parameters:
+      - $ref: '../components/parameters/_index.yaml#/GuildChannelIdParam'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '../components/schemas/_index.yaml#/BasicResponse'
+                - type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        permission_overwrites:
+                          type: array
+                          description: 频道权限覆写的角色列表, role_id为角色id, 其它字段见下表
+                          items:
+                            allOf:
+                              - type: object
+                                properties:
+                                  role_id:
+                                    type: string
+                              - $ref: '../components/schemas/_index.yaml#/GuildChannelPermission'
+                        permission_users:
+                          type: array
+                          description: 频道权限覆写的用户列表
+                          items:
+                            allOf:
+                              - type: object
+                                properties:
+                                  user:
+                                    $ref: '../components/schemas/_index.yaml#/User'
+                              - $ref: '../components/schemas/_index.yaml#/GuildChannelPermission'
+                        permission_sync:
+                          type: integer
+                          description: 是否同步分组的权限
+                          example: 0
+
+create:
+  post:
+    tags:
+      - 频道
+    operationId: createChannelRole
+    summary: 创建频道角色权限
+    requestBody:
+      $ref: '../components/requestBodies/channel-role.yaml#/create'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '../components/schemas/_index.yaml#/BasicResponse'
+                - type: object
+                  properties:
+                    data:
+                      type: object
+                      example: {}
+
+update:
+  post:
+    tags:
+      - 频道
+    summary: 更新频道角色权限
+    operationId: updateChannelRole
+    requestBody:
+      $ref: '../components/requestBodies/channel-role.yaml#/update'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '../components/schemas/_index.yaml#/BasicResponse'
+                - type: object
+                  properties:
+                    data:
+                      type: object
+                      example:
+                        user_id: '2418200000'
+                        allow: 2048
+                        deny: 0
+                      allOf:
+                        - type: object
+                          properties:
+                            user_id:
+                              $ref: '../components/schemas/_index.yaml#/UserId'
+                            role_id:
+                              $ref: '../components/schemas/_index.yaml#/GuildRoleId'
+                        - $ref: '../components/schemas/_index.yaml#/GuildChannelPermission'
+
+delete:
+  post:
+    tags:
+      - 频道
+    summary: 删除频道角色权限
+    requestBody:
+      $ref: '../components/requestBodies/channel-role.yaml#/delete'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '../components/schemas/_index.yaml#/BasicResponse'
+                - type: object
+                  properties:
+                    data:
+                      type: object
+                      example: {}
