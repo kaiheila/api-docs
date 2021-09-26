@@ -262,9 +262,20 @@ Guild:
     default_channel_id:
       type: string
       description: 默认频道id
+      example: '5915900001396830'
     welcome_channel_id:
       type: string
       description: 欢迎频道id
+      example: '5789900001312330'
+    boost_num:
+      type: integer
+      description: 服务器助力数量
+      example: 3
+    level:
+      type: integer
+      description: 服务器等级
+      example: 0
+
 
 User:
   $ref: './user/_index.yaml#/basic'

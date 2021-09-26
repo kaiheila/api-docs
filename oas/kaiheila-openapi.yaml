@@ -134,7 +134,18 @@ paths:
                   - type: object
                     properties:
                       data:
-                        $ref: '#/components/schemas/Guild'
+                        type: object
+                        allOf:
+                          - $ref: '#/components/schemas/Guild'
+                        properties:
+                          roles:
+                            type: array
+                            items:
+                              - $ref: './components/schemas/_index.yaml#/GuildRole'
+                          channels:
+                            type: array
+                            items: 
+                              - $ref: "./components/schemas/_index.yaml#/GuildChannel"
   /guild/user-list:
     get:
       tags:
