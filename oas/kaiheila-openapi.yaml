@@ -783,8 +783,8 @@ paths:
               properties:
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/UserId'
-                  description: 目标用户id
+                    - $ref: '#/components/schemas/ChatCode'
+                  description: 私信会话Code
       responses:
         '200':
           description: OK
