@@ -419,343 +419,31 @@ paths:
               schema:
                 $ref: '#/components/schemas/BasicResponse'
   /channel/list:
-    get:
-      tags:
-        - 频道
-      summary: 获取频道列表
-      operationId: getGuildChannels
-      parameters:
-        - $ref: '#/components/parameters/PageNumberParam'
-        - $ref: '#/components/parameters/PageSizeParam'
-        - $ref: '#/components/parameters/GuildIdParam'
-        - $ref: '#/components/parameters/GuildChannelTypeParam'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/BasicResponse'
-                  - type: object
-                    properties:
-                      data:
-                        allOf:
-                          - $ref: '#/components/schemas/PaginationInfo'
-                          - type: object
-                            properties:
-                              items:
-                                type: array
-                                items:
-                                  $ref: '#/components/schemas/GuildChannel'
+    $ref: './paths/channel.yaml#/list'
   /channel/view:
-    get:
-      tags:
-        - 频道
-      summary: 获取频道详情
-      parameters:
-        - name: target_id
-          required: true
-          in: query
-          schema:
-            $ref: '#/components/schemas/GuildChannelId'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/BasicResponse'
-                  - type: object
-                    properties:
-                      data:
-                        $ref: '#/components/schemas/GuildChannel'
+    $ref: './paths/channel.yaml#/view'
   /channel/create:
-    post:
-      tags:
-        - 频道
-      summary: 创建频道
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - guild_id
-                - name
-              properties:
-                guild_id:
-                  $ref: '#/components/schemas/GuildId'
-                parent_id:
-                  allOf:
-                    - $ref: '#/components/schemas/GuildChannelId'
-                    - description: 父分组id
-                name:
-                  type: string
-                  description: 频道名称
-                type:
-                  allOf:
-                    - $ref: '#/components/schemas/GuildChannelType'
-                    - description: 频道类型, `1`为文字，`2`为语音, 默认为`1`
-                limit_amount:
-                  type: integer
-                  maximum: 99
-                  description: 语音频道人数限制，最大99
-                voice_quality:
-                  type: integer
-                  description: 语音音质，默认为`2`。`1`流畅，`2`正常，`3`高质量
-                  enum:
-                    - 1
-                    - 2
-                    - 3
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/BasicResponse'
-                  - type: object
-                    properties:
-                      data:
-                        $ref: '#/components/schemas/GuildChannel'
+    $ref: './paths/channel.yaml#/create'
   /channel/delete:
-    post:
-      tags:
-        - 频道
-      summary: 删除频道
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - channel_id
-              properties:
-                channel_id:
-                  $ref: '#/components/schemas/GuildChannelId'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/BasicResponse'
+    $ref: './paths/channel.yaml#/delete'
   /channel/user-list:
-    get:
-      tags:
-        - 频道
-      summary: 查询语音频道内用户
-      description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
-      parameters:
-        - name: target_id
-          required: true
-          in: query
-          description: 目标频道id, 需要是语音频道
-          schema:
-            $ref: '#/components/schemas/GuildChannelId'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/BasicResponse'
-                  - type: object
-                    properties:
-                      data:
-                        type: object
-                        properties:
-                          user_ids:
-                            type: array
-                            description: 用户id的数组
-                            items:
-                              $ref: '#/components/schemas/UserId'
+    $ref: './paths/channel.yaml#/user-list'
   /channel/move-user:
-    post:
-      tags:
-        - 频道
-      summary: 语音频道之间移动用户
-      description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
-      requestBody:
-        content:
-          application/json:
-            schema:
-              type: object
-              required:
-                - channel_id
-                - user_ids
-              properties:
-                channel_id:
-                  allOf:
-                    - $ref: '#/components/schemas/GuildChannelId'
-                    - description: 目标频道id, 需要是语音频道
-                user_ids:
-                  type: array
-                  description: 用户id的数组
-                  items:
-                    $ref: '#/components/schemas/UserId'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/BasicResponse'
-                  - type: object
-                    properties:
-                      data:
-                        type: object
-                        properties:
-                          user_ids:
-                            type: array
-                            description: 用户id的数组
-                            items:
-                              $ref: '#/components/schemas/UserId'
+    $ref: './paths/channel.yaml#/move-user'
   /channel-role/index:
-    get:
-      tags:
-        - 频道
-      summary: 频道角色权限详情
-      parameters:
-        - $ref: '#/components/parameters/GuildChannelIdParam'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/BasicResponse'
-                  - type: object
-                    properties:
-                      data:
-                        type: object
-                        properties:
-                          permission_overwrites:
-                            type: array
-                            description: 频道权限覆写的角色列表, role_id为角色id, 其它字段见下表
-                            items:
-                              allOf:
-                                - type: object
-                                  properties:
-                                    role_id:
-                                      type: string
-                                - $ref: '#/components/schemas/GuildChannelPermission'
-                          permission_users:
-                            type: array
-                            description: 频道权限覆写的用户列表
-                            items:
-                              allOf:
-                                - type: object
-                                  properties:
-                                    user:
-                                      $ref: '#/components/schemas/User'
-                                - $ref: '#/components/schemas/GuildChannelPermission'
-                          permission_sync:
-                            type: integer
-                            description: 是否同步分组的权限
-                            example: 0
+    $ref: './paths/channel-role.yaml#/index'
   /channel-role/create:
-    post:
-      tags:
-        - 频道
-      summary: 创建频道角色权限
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GuildChannelRoleRequest'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/BasicResponse'
-                  - type: object
-                    properties:
-                      data:
-                        type: object
-                        example: {}
+    $ref: './paths/channel-role.yaml#/create'
   /channel-role/update:
-    post:
-      tags:
-        - 频道
-      summary: 更新频道角色权限
-      requestBody:
-        content:
-          application/json:
-            schema:
-              allOf:
-                - $ref: '#/components/schemas/GuildChannelRoleRequest'
-                - type: object
-                  properties:
-                    allow:
-                      type: integer
-                      description: 默认为0,想要设置的允许的权限值
-                      default: 0
-                    deny:
-                      type: integer
-                      description: 默认为0,想要设置的拒绝的权限值
-                      default: 0
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/BasicResponse'
-                  - type: object
-                    properties:
-                      data:
-                        type: object
-                        example:
-                          user_id: '2418200000'
-                          allow: 2048
-                          deny: 0
-                        allOf:
-                          - type: object
-                            properties:
-                              user_id:
-                                $ref: '#/components/schemas/UserId'
-                              role_id:
-                                $ref: '#/components/schemas/GuildRoleId'
-                          - $ref: '#/components/schemas/GuildChannelPermission'
+    $ref: './paths/channel-role.yaml#/update'
   /channel-role/delete:
-    post:
-      tags:
-        - 频道
-      summary: 删除频道角色权限
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GuildChannelRoleRequest'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/BasicResponse'
-                  - type: object
-                    properties:
-                      data:
-                        type: object
-                        example: {}
+    $ref: './paths/channel-role.yaml#/delete'
   /message/list:
     get:
       tags:
         - 频道消息
       summary: 获取频道聊天消息列表
+      operationId: getChannelMessages
       description: 此接口非标准分页，需要根据参考消息来查询相邻分页的消息
       parameters:
         - name: target_id
@@ -807,6 +495,7 @@ paths:
       tags:
         - 频道消息
       summary: 发送频道聊天消息
+      operationId: sendChannelMessage
       requestBody:
         content:
           application/json:

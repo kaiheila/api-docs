@@ -1285,6 +1285,7 @@ paths:
                                   $ref: '#/components/schemas/GuildChannel'
   /channel/view:
     get:
+      operationId: getChannelById
       tags:
         - 频道
       summary: 获取频道详情
@@ -1292,6 +1293,7 @@ paths:
         - name: target_id
           required: true
           in: query
+          description: 目标频道id
           schema:
             $ref: '#/components/schemas/GuildChannelId'
       responses:
@@ -1311,6 +1313,7 @@ paths:
       tags:
         - 频道
       summary: 创建频道
+      operationId: createChannel
       requestBody:
         content:
           application/json:
@@ -1325,14 +1328,14 @@ paths:
                 parent_id:
                   allOf:
                     - $ref: '#/components/schemas/GuildChannelId'
-                    - description: 父分组id
+                  description: 父分组id
                 name:
                   type: string
                   description: 频道名称
                 type:
                   allOf:
                     - $ref: '#/components/schemas/GuildChannelType'
-                    - description: '频道类型, `1`为文字，`2`为语音, 默认为`1`'
+                  description: '频道类型, `1`为文字，`2`为语音, 默认为`1`'
                 limit_amount:
                   type: integer
                   maximum: 99
@@ -1361,6 +1364,7 @@ paths:
       tags:
         - 频道
       summary: 删除频道
+      operationId: deleteChannelById
       requestBody:
         content:
           application/json:
@@ -1383,6 +1387,7 @@ paths:
       tags:
         - 频道
       summary: 查询语音频道内用户
+      operationId: getVoiceChannelUsers
       description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
       parameters:
         - name: target_id
@@ -1414,6 +1419,7 @@ paths:
       tags:
         - 频道
       summary: 语音频道之间移动用户
+      operationId: moveUsersInVoiceChannel
       description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
       requestBody:
         content:
@@ -1456,6 +1462,7 @@ paths:
       tags:
         - 频道
       summary: 频道角色权限详情
+      operationId: getChannelRoleById
       parameters:
         - $ref: '#/components/parameters/GuildChannelIdParam'
       responses:
@@ -1499,12 +1506,10 @@ paths:
     post:
       tags:
         - 频道
+      operationId: createChannelRole
       summary: 创建频道角色权限
       requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GuildChannelRoleRequest'
+        $ref: '#/components/requestBodies/create'
       responses:
         '200':
           description: OK
@@ -1523,22 +1528,9 @@ paths:
       tags:
         - 频道
       summary: 更新频道角色权限
+      operationId: updateChannelRole
       requestBody:
-        content:
-          application/json:
-            schema:
-              allOf:
-                - $ref: '#/components/schemas/GuildChannelRoleRequest'
-                - type: object
-                  properties:
-                    allow:
-                      type: integer
-                      description: '默认为0,想要设置的允许的权限值'
-                      default: 0
-                    deny:
-                      type: integer
-                      description: '默认为0,想要设置的拒绝的权限值'
-                      default: 0
+        $ref: '#/components/requestBodies/update'
       responses:
         '200':
           description: OK
@@ -1569,10 +1561,7 @@ paths:
         - 频道
       summary: 删除频道角色权限
       requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/GuildChannelRoleRequest'
+        $ref: '#/components/requestBodies/delete'
       responses:
         '200':
           description: OK
@@ -1591,6 +1580,7 @@ paths:
       tags:
         - 频道消息
       summary: 获取频道聊天消息列表
+      operationId: getChannelMessages
       description: 此接口非标准分页，需要根据参考消息来查询相邻分页的消息
       parameters:
         - name: target_id
@@ -1642,6 +1632,7 @@ paths:
       tags:
         - 频道消息
       summary: 发送频道聊天消息
+      operationId: sendChannelMessage
       requestBody:
         content:
           application/json:
@@ -2912,7 +2903,7 @@ webhooks:
         - 频道相关事件
       summary: 频道内用户取消reaction
       requestBody:
-        $ref: '#/components/requestBodies/delete'
+        $ref: '#/components/requestBodies/reaction_delete'
   updateMessge:
     post:
       tags:
@@ -2920,7 +2911,7 @@ webhooks:
         - 消息相关事件
       summary: 频道消息更新
       requestBody:
-        $ref: '#/components/requestBodies/update'
+        $ref: '#/components/requestBodies/message_update'
   deleteMessage:
     post:
       tags:
@@ -2935,7 +2926,7 @@ webhooks:
         - 频道相关事件
       summary: 新增频道
       requestBody:
-        $ref: '#/components/requestBodies/create'
+        $ref: '#/components/requestBodies/channel_create'
   updateChannel:
     post:
       tags:
@@ -2970,7 +2961,7 @@ webhooks:
         - 私聊相关事件
       summary: 私聊消息更新
       requestBody:
-        $ref: '#/components/requestBodies/message_update'
+        $ref: '#/components/requestBodies/message_update-2'
   deletePrivateMessage:
     post:
       tags:
@@ -2991,7 +2982,7 @@ webhooks:
         - 私聊相关事件
       summary: 私聊内用户删除reaction
       requestBody:
-        $ref: '#/components/requestBodies/reaction_delete'
+        $ref: '#/components/requestBodies/reaction_delete-2'
   memberJoin:
     post:
       tags:
@@ -3370,48 +3361,47 @@ components:
       properties:
         id:
           $ref: '#/components/schemas/GuildChannelId'
+          example: '3321010478582000'
         guild_id:
           $ref: '#/components/schemas/GuildId'
         master_id:
           description: 频道创建者id
           type: string
+          example: '1700000'
         parent_id:
           type: string
           description: 父分组频道id
+          example: '7480000000000000'
         name:
           type: string
           description: 频道名称
+          example: 示例频道
         topic:
           type: string
           description: 频道简介
+          example: 这是示例频道的示例简介
         type:
           $ref: '#/components/schemas/GuildChannelType'
         level:
           type: integer
           description: 频道排序
+          example: 30
         slow_mode:
           type: integer
           description: 慢速限制，单位秒。用户发送消息之后再次发送消息的等待时间。
+          example: 0
         limit_amount:
           type: integer
-          description: 人数限制
+          description: 人数限制（如果为语音频道）
+          example: 0
         is_category:
           type: boolean
           description: 是否为分组类型
+          example: false
         server_url:
           type: string
           description: '语音服务器地址，`HOST:PORT`的格式'
-      example:
-        id: 123
-        guild_id: 123
-        master_id: 123
-        parent_id: 123
-        name: 测试频道
-        topic: 频道简介
-        type: 1
-        level: 10
-        slow_mode: 0
-        is_category: false
+          example: 'HOST:PORT'
     basic:
       type: object
       description: 用户对象
@@ -3464,26 +3454,6 @@ components:
           description: >-
             拒绝的权限的结果集，详见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
           example: 0
-    GuildChannelRoleRequest:
-      type: object
-      required:
-        - channel_id
-      properties:
-        channel_id:
-          description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
-          allOf:
-            - $ref: '#/components/schemas/GuildChannelId'
-        type:
-          type: string
-          description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
-          enum:
-            - role_id
-            - user_id
-          default: user_id
-        value:
-          type: string
-          description: 根据type，为用户id或频道id
-          default: ''
     GuildRoleId:
       type: number
       description: 服务器角色id
@@ -4286,9 +4256,106 @@ components:
       $ref: '#/components/schemas/basic'
     UserId:
       $ref: '#/components/schemas/id'
+    GuildChannelRoleRequest:
+      type: object
+      required:
+        - channel_id
+      properties:
+        channel_id:
+          description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
+          allOf:
+            - $ref: '#/components/schemas/GuildChannelId'
+        type:
+          type: string
+          description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
+          enum:
+            - role_id
+            - user_id
+          default: user_id
+        value:
+          type: string
+          description: 根据type，为用户id或频道id
+          default: ''
     Message:
       $ref: '#/components/schemas/_index_basic'
   requestBodies:
+    create:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - channel_id
+            properties:
+              channel_id:
+                description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
+                allOf:
+                  - $ref: '#/components/schemas/GuildChannelId'
+              type:
+                type: string
+                description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
+                enum:
+                  - role_id
+                  - user_id
+                default: user_id
+              value:
+                type: string
+                description: 根据type，为用户id或频道id
+                default: ''
+    update:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - channel_id
+            properties:
+              channel_id:
+                description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
+                allOf:
+                  - $ref: '#/components/schemas/GuildChannelId'
+              type:
+                type: string
+                description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
+                enum:
+                  - role_id
+                  - user_id
+                default: user_id
+              value:
+                type: string
+                description: 根据type，为用户id或频道id
+                default: ''
+              allow:
+                type: integer
+                description: '默认为0,想要设置的允许的权限值'
+                default: 0
+              deny:
+                type: integer
+                description: '默认为0,想要设置的拒绝的权限值'
+                default: 0
+    delete:
+      content:
+        application/json:
+          schema:
+            type: object
+            required:
+              - channel_id
+            properties:
+              channel_id:
+                description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
+                allOf:
+                  - $ref: '#/components/schemas/GuildChannelId'
+              type:
+                type: string
+                description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
+                enum:
+                  - role_id
+                  - user_id
+                default: user_id
+              value:
+                type: string
+                description: 根据type，为用户id或频道id
+                default: ''
     text:
       content:
         application/json:
@@ -4425,7 +4492,7 @@ components:
                           type:
                             description: 消息类型，此处为`added_reaction`
                             example: added_reaction
-    delete:
+    reaction_delete:
       content:
         application/json:
           schema:
@@ -4443,7 +4510,7 @@ components:
                           type:
                             description: 消息类型，此处为`deleted_reaction`
                             example: deleted_reaction
-    update:
+    message_update:
       content:
         application/json:
           schema:
@@ -4496,7 +4563,7 @@ components:
                                 allOf:
                                   - $ref: '#/components/schemas/GuildChannelId'
                                 description: 消息所在频道id
-    create:
+    channel_create:
       content:
         application/json:
           schema:
@@ -4598,7 +4665,7 @@ components:
                           type:
                             description: 消息类型，此处为`unpinned_message`
                             example: unpinned_message
-    message_update:
+    message_update-2:
       content:
         application/json:
           schema:
@@ -4696,7 +4763,7 @@ components:
                           type:
                             description: 消息类型，此处为`private_added_reaction`
                             example: private_added_reaction
-    reaction_delete:
+    reaction_delete-2:
       content:
         application/json:
           schema:
