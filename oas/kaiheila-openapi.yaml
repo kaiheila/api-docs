@@ -598,6 +598,7 @@ paths:
       tags:
         - 频道消息
       summary: 获取频道消息某个回应的用户列表
+      operationId: getMessageReactionUsers
       parameters:
         - name: msg_id
           in: query
@@ -631,11 +632,13 @@ paths:
                                 reaction_time:
                                   type: integer
                                   description: 用户点击reaction的毫秒时间戳
+                                  example: 1612323994414
   /message/add-reaction:
     post:
       tags:
         - 频道消息
       summary: 为消息添加回应
+      operationId: addMessageReaction
       requestBody:
         content:
           application/json:
