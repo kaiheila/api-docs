@@ -740,7 +740,7 @@ paths:
                       items:
                         type: array
                         items:
-                          $ref: '#/components/schemas/UserChatDetail'
+                          $ref: './components/schemas/_index.yaml#/UserChatDetail'
   /user-chat/create:
     post:
       tags:
