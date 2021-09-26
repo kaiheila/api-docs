@@ -832,14 +832,12 @@ paths:
                   - type: object
                     properties:
                       data:
-                        allOf:
-                          - $ref: '#/components/schemas/PaginationInfo'
-                          - type: object
-                            properties:
-                              items:
-                                type: array
-                                items:
-                                  $ref: '#/components/schemas/DirectMessage'
+                        type: object
+                        properties:
+                          items:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/DirectMessage'
   /direct-message/create:
     post:
       tags:
