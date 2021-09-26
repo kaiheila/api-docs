@@ -291,48 +291,48 @@ GuildChannel:
   properties:
     id:
       $ref: '#/GuildChannelId'
+      example: "3321010478582000"
     guild_id:
       $ref: '#/GuildId'
     master_id:
       description: 频道创建者id
       type: string
+      example: "1700000"
     parent_id:
       type: string
       description: 父分组频道id
+      example: "7480000000000000"
     name:
       type: string
       description: 频道名称
+      example: "示例频道"
     topic:
       type: string
       description: 频道简介
+      example: "这是示例频道的示例简介"
     type:
       $ref: '#/GuildChannelType'
     level:
       type: integer
       description: 频道排序
+      example: 30
     slow_mode:
       type: integer
       description: 慢速限制，单位秒。用户发送消息之后再次发送消息的等待时间。
+      example: 0
     limit_amount:
       type: integer
-      description: 人数限制
+      description: 人数限制（如果为语音频道）
+      example: 0
     is_category:
       type: boolean
       description: 是否为分组类型
+      example: false
     server_url:
       type: string
       description: 语音服务器地址，`HOST:PORT`的格式
-  example:
-    id: 123
-    guild_id: 123
-    master_id: 123
-    parent_id: 123
-    name: 测试频道
-    topic: 频道简介
-    type: 1
-    level: 10
-    slow_mode: 0
-    is_category: false
+      example: "HOST:PORT"
+
 GuildChannelId:
   type: string
   description: 服务器频道ID
