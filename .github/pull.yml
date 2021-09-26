@@ -12,5 +12,6 @@ rules:                      # Array of rules
       - fi6
     conflictReviewers:      # Optional, on merge conflict assign a reviewer
       - fi6
+    mergeMethod: squash
 label: ":arrow_heading_down: pull"  # Optional
 conflictLabel: "merge-conflict"     # Optional, on merge conflict assign a custom label, Default: merge-conflict
