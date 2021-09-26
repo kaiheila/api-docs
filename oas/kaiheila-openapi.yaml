@@ -526,9 +526,9 @@ paths:
                   data:
                     properties:
                       msg_id:
-                        type: string
+                        allOf:
+                          - $ref: './components/schemas/message/_fields.yaml#/id'
                         description: 服务端生成的消息 id
-                        example: ''
                       msg_timestamp:
                         type: integer
                         description: 消息发送时间(ms, 服务器时间戳)
