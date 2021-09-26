@@ -279,45 +279,45 @@
 
 ### 返回示例
 
-```javascript
+```json
 {
-    "code": 0,
-    "message": "操作成功",
-    "data": {
-        "permission_overwrites": [
-            {
-                "role_id": 7,
-                "allow": 0,
-                "deny": 0
-            },
-            {
-                "role_id": 0,
-                "allow": 0,
-                "deny": 0
-            }
-        ],
-        "permission_users": [
-            {
-                "user": {
-                    "id": "0",
-                    "username": "花荣",
-                    "identify_num": "12",
-                    "online": true,
-                    "os": "Websocket",
-                    "status": 1,
-                    "avatar": "xxxx",
-                    "mobile_verified": true,
-                    "nickname": "test",
-                    "roles": [],
-                    "joined_at": 1602596021000,
-                    "active_time": 1612703344396
-                },
-                "allow": 0,
-                "deny": 0
-            }
-        ],
-        "permission_sync": 0
-    }
+  "code": 0,
+  "message": "操作成功",
+  "data": {
+    "permission_overwrites": [
+      {
+        "role_id": 7,
+        "allow": 0,
+        "deny": 0
+      },
+      {
+        "role_id": 0,
+        "allow": 0,
+        "deny": 0
+      }
+    ],
+    "permission_users": [
+      {
+        "user": {
+          "id": "0",
+          "username": "花荣",
+          "identify_num": "12",
+          "online": true,
+          "os": "Websocket",
+          "status": 1,
+          "avatar": "xxxx",
+          "mobile_verified": true,
+          "nickname": "test",
+          "roles": [],
+          "joined_at": 1602596021000,
+          "active_time": 1612703344396
+        },
+        "allow": 0,
+        "deny": 0
+      }
+    ],
+    "permission_sync": 0
+  }
 }
 ```
 
@@ -331,11 +331,12 @@
 
 ### 参数列表
 
-| 参数名     | 类型   | 必传 | 参数区域 | 说明                                                          |
-| ---------- | ------ | ---- | -------- | ------------------------------------------------------------- |
-| channel_id | string | 是   | POST     | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
-| type       | string | 否   | POST     | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
-| value      | string | 否   | POST     | value 的值                                                    |
+| 参数名       | 位置 | 类型   | 必需  | 说明                                                          |
+| ------------ | ---- | ------ | ----- | ------------------------------------------------------------- |
+| body         | body | object | false | none                                                          |
+| » channel_id | body | string | true  | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
+| » type       | body | string | false | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
+| » value      | body | string | false | 根据 type，为用户 id 或频道 id                                |
 
 ### 返回参数说明
 
@@ -344,11 +345,11 @@
 
 ### 返回示例
 
-```javascript
+```json
 {
-    "code": 0,
-    "message": "操作成功",
-    "data": []
+  "code": 0,
+  "message": "操作成功",
+  "data": {}
 }
 ```
 
@@ -362,13 +363,14 @@
 
 ### 参数列表
 
-| 参数名     | 类型   | 必传 | 参数区域 | 说明                                                          |
-| ---------- | ------ | ---- | -------- | ------------------------------------------------------------- |
-| channel_id | string | 是   | POST     | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
-| type       | string | 否   | POST     | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
-| value      | string | 否   | POST     | value 的值                                                    |
-| allow      | int    | 否   | POST     | 默认为 0,想要设置的允许的权限值                               |
-| deny       | int    | 否   | POST     | 默认为 0,想要设置的拒绝的权限值                               |
+| 参数名       | 位置 | 类型    | 必需  | 说明                                                          |
+| ------------ | ---- | ------- | ----- | ------------------------------------------------------------- |
+| body         | body | object  | false | none                                                          |
+| » channel_id | body | string  | true  | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
+| » type       | body | string  | false | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
+| » value      | body | string  | false | 根据 type，为用户 id 或频道 id                                |
+| » allow      | body | integer | false | 默认为 0,想要设置的允许的权限值                               |
+| » deny       | body | integer | false | 默认为 0,想要设置的拒绝的权限值                               |
 
 ### 返回参数说明
 
@@ -380,15 +382,15 @@
 
 ### 返回示例
 
-```javascript
+```json
 {
-    "code": 0,
-    "message": "操作成功",
-    "data": {
-        "role" : 0,
-        "allow" : 0,
-        "deny" : 0
-    }
+  "code": 0,
+  "message": "操作成功",
+  "data": {
+    "role": 0,
+    "allow": 0,
+    "deny": 0
+  }
 }
 ```
 
@@ -402,11 +404,12 @@
 
 ### 参数列表
 
-| 参数名     | 类型   | 必传 | 参数区域 | 说明                                                          |
-| ---------- | ------ | ---- | -------- | ------------------------------------------------------------- |
-| channel_id | string | 是   | POST     | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
-| type       | string | 否   | POST     | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
-| value      | string | 否   | POST     | value 的值，默认为 0                                          |
+| 参数名       | 位置 | 类型   | 必需  | 说明                                                          |
+| ------------ | ---- | ------ | ----- | ------------------------------------------------------------- |
+| body         | body | object | false | none                                                          |
+| » channel_id | body | string | true  | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
+| » type       | body | string | false | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
+| » value      | body | string | false | 根据 type，为用户 id 或频道 id                                |
 
 ### 返回参数说明
 
@@ -415,11 +418,10 @@
 
 ### 返回示例
 
-```javascript
+```json
 {
-    "code": 0,
-    "message": "操作成功",
-    "data": {
-    }
+  "code": 0,
+  "message": "操作成功",
+  "data": {}
 }
 ```
