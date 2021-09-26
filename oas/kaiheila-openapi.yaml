@@ -651,7 +651,7 @@ paths:
                 msg_id:
                   $ref: './components/schemas/message/_fields.yaml#/id'
                 emoji:
-                  $ref: '#/components/schemas/GuildEmojiId'
+                  $ref: './components/schemas/_index.yaml#/GuildEmojiId'
       responses:
         '200':
           description: OK
