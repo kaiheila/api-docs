@@ -210,7 +210,7 @@ info:
 
     不论是以何种方式来接受消息，它们都遵循着相同的规范：
 
-    - 消息推送时，可能会有压缩(压缩默认采用zlib压缩【deflate】)。
+    - 消息推送时，可能会有压缩（压缩默认采用zlib压缩`deflate`)。
 
     - 消息的含义，结构格式等基本保持一致。
 tags:
@@ -969,7 +969,18 @@ paths:
                   - type: object
                     properties:
                       data:
-                        $ref: '#/components/schemas/Guild'
+                        type: object
+                        allOf:
+                          - $ref: '#/components/schemas/Guild'
+                        properties:
+                          roles:
+                            type: array
+                            items:
+                              - $ref: '#/components/schemas/GuildRole'
+                          channels:
+                            type: array
+                            items:
+                              - $ref: '#/components/schemas/GuildChannel'
   /guild/user-list:
     get:
       tags:
@@ -2178,7 +2189,9 @@ paths:
               schema:
                 allOf:
                   - $ref: '#/components/schemas/BasicResponse'
-                  - type: object
+                properties:
+                  data:
+                    type: object
                     properties:
                       url:
                         type: string
@@ -3236,6 +3249,10 @@ components:
       type: string
       description: 服务器id
       example: '91686000000'
+    id:
+      type: string
+      description: 用户id
+      example: '2418200000'
     Guild:
       type: object
       properties:
@@ -3249,9 +3266,9 @@ components:
           type: string
           description: 服务器主题
         master_id:
-          type: string
+          allOf:
+            - $ref: '#/components/schemas/id'
           description: 服务器主的id
-          example: '17000000'
         icon:
           type: string
           description: 服务器icon的地址
@@ -3264,73 +3281,83 @@ components:
             - 1
             - 2
             - 3
+          example: 0
         region:
           type: string
           description: 服务器默认使用语音区域
+          example: beijing
         enable_open:
           type: boolean
           description: 是否为公开服务器
+          example: true
         open_id:
           type: string
           description: 公开服务器id
+          example: '012312413'
         default_channel_id:
           type: string
           description: 默认频道id
+          example: '5915900001396830'
         welcome_channel_id:
           type: string
           description: 欢迎频道id
-      example:
-        id: '123123'
-        name: test server
-        topic: ''
-        master_id: ''
-        icon: ''
-        notify_type: 0
-        region: beijing
+          example: '5789900001312330'
+        boost_num:
+          type: integer
+          description: 服务器助力数量
+          example: 3
+        level:
+          type: integer
+          description: 服务器等级
+          example: 0
+    GuildRole:
+      type: object
+      properties:
+        role_id:
+          type: integer
+          format: unsigned integer
+          description: 角色id
+          example: 702
+        name:
+          type: string
+          description: 角色名称
+          example: 管理员
+        color:
+          type: integer
+          format: unsigned integer
+          minimum: 0
+          maximum: 16777215
+          description: 颜色
+          example: 0
+        position:
+          type: integer
+          format: unsigned integer
+          description: 顺序，值越小载靠前
+          example: 1
+        hoist:
+          type: integer
+          format: unsigned integer
+          description: 只能为0或者1，是否把该角色的用户在用户列表排到前面
+          enum:
+            - 0
+            - 1
+        mentionable:
+          type: integer
+          format: unsigned integer
+          description: 只能为0或者1，该角色是否可以被提及
+          enum:
+            - 0
+            - 1
+        permissions:
+          type: integer
+          format: unsigned integer
+          description: >-
+            允许的权限，参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+          example: 2048
     GuildChannelId:
       type: string
       description: 服务器频道ID
       example: '9219038000000'
-    id:
-      type: string
-      description: 用户id
-      example: '2418200000'
-    basic:
-      type: object
-      description: 用户对象
-      properties:
-        id:
-          $ref: '#/components/schemas/id'
-        username:
-          type: string
-          description: 用户的名称
-          example: tz-un
-        identify_num:
-          type: string
-          description: 用户名的认证数字，用户名正常为：user_name#identify_num
-          example: '5618'
-        online:
-          type: boolean
-          description: 当前是否在线
-          example: false
-        status:
-          type: integer
-          description: '用户的状态, 0代表正常，10代表被封禁'
-          enum:
-            - 0
-            - 10
-          example: 0
-        bot:
-          type: boolean
-          description: 是否为机器人
-        avatar:
-          type: string
-          description: 用户的头像的url地址
-          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
-        vip_avatar:
-          type: string
-          description: vip用户的头像的url地址，可能为gif动图
-          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
     GuildChannelType:
       type: integer
       enum:
@@ -3385,6 +3412,42 @@ components:
         level: 10
         slow_mode: 0
         is_category: false
+    basic:
+      type: object
+      description: 用户对象
+      properties:
+        id:
+          $ref: '#/components/schemas/id'
+        username:
+          type: string
+          description: 用户的名称
+          example: tz-un
+        identify_num:
+          type: string
+          description: 用户名的认证数字，用户名正常为：user_name#identify_num
+          example: '5618'
+        online:
+          type: boolean
+          description: 当前是否在线
+          example: false
+        status:
+          type: integer
+          description: '用户的状态, 0代表正常，10代表被封禁'
+          enum:
+            - 0
+            - 10
+          example: 0
+        bot:
+          type: boolean
+          description: 是否为机器人
+        avatar:
+          type: string
+          description: 用户的头像的url地址
+          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
+        vip_avatar:
+          type: string
+          description: vip用户的头像的url地址，可能为gif动图
+          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
     GuildChannelPermission:
       type: object
       required:
@@ -3581,50 +3644,6 @@ components:
         avatar:
           type: string
           example: '***.jpg'
-    GuildRole:
-      type: object
-      properties:
-        role_id:
-          type: integer
-          format: unsigned integer
-          description: 角色id
-          example: 702
-        name:
-          type: string
-          description: 角色名称
-          example: 管理员
-        color:
-          type: integer
-          format: unsigned integer
-          minimum: 0
-          maximum: 16777215
-          description: 颜色
-          example: 0
-        position:
-          type: integer
-          format: unsigned integer
-          description: 顺序，值越小载靠前
-          example: 1
-        hoist:
-          type: integer
-          format: unsigned integer
-          description: 只能为0或者1，是否把该角色的用户在用户列表排到前面
-          enum:
-            - 0
-            - 1
-        mentionable:
-          type: integer
-          format: unsigned integer
-          description: 只能为0或者1，该角色是否可以被提及
-          enum:
-            - 0
-            - 1
-        permissions:
-          type: integer
-          format: unsigned integer
-          description: >-
-            允许的权限，参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
-          example: 2048
     mention_info:
       type: object
       properties:
@@ -3820,6 +3839,15 @@ components:
         d:
           type: object
           description: 具体数据
+          required:
+            - channel_type
+            - type
+            - target_id
+            - author_id
+            - content
+            - msg_id
+            - msg_timestamp
+            - extra
           properties:
             channel_type:
               type: string
@@ -3839,6 +3867,7 @@ components:
             author_id:
               type: string
               description: '发送者 id, 1 代表系统'
+              example: 1
             content:
               type: string
               description: '消息内容, 文件，图片，视频时，content 为 url'
@@ -3858,7 +3887,6 @@ components:
               type: object
               description: 不同的消息类型，结构不一致
               example: xxx
-          example: {}
         sn:
           type: integer
           description: >-
@@ -3869,47 +3897,44 @@ components:
       description: 当事件的type非系统消息(255)时
       allOf:
         - $ref: '#/components/schemas/BasicEvent'
-        - type: object
+      properties:
+        d:
+          type: object
           properties:
-            d:
+            author_id:
+              description: 发送者的用户id
+              example: '2418200000'
+            extra:
               type: object
               properties:
-                author_id:
-                  description: 发送者的用户id
-                  example: '2418200000'
-                extra:
-                  type: object
-                  properties:
-                    type:
-                      type: integer
-                      description: >-
-                        1:文字消息, 2:图片消息，3:视频消息，4:文件消息，
-                        8:音频消息，9:KMarkdown，10:card消息
-                    guild_id:
-                      type: string
-                      description: 服务器id
-                    channel_name:
-                      type: string
-                      description: 频道名
-                    mention:
-                      type: array
-                      description: '`\@特定用户` 的用户ID数组，与`mention_info`中的数据对应'
-                      items:
-                        type: string
-                    mention_all:
-                      type: boolean
-                      description: 是否含有`@全体人员`
-                    mention_roles:
-                      type: array
-                      description: '`@特定角色` 的角色ID数组，与`mention_info`中的数据对应'
-                      items:
-                        type: string
-                    mention_here:
-                      type: boolean
-                    author:
-                      description: 消息作者
-                      allOf:
-                        - $ref: '#/components/schemas/basic'
+                type:
+                  type: integer
+                  description: '1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息'
+                guild_id:
+                  type: string
+                  description: 服务器id
+                channel_name:
+                  type: string
+                  description: 频道名
+                mention:
+                  type: array
+                  description: '`\@特定用户` 的用户ID数组，与`mention_info`中的数据对应'
+                  items:
+                    type: string
+                mention_all:
+                  type: boolean
+                  description: 是否含有`@全体人员`
+                mention_roles:
+                  type: array
+                  description: '`@特定角色` 的角色ID数组，与`mention_info`中的数据对应'
+                  items:
+                    type: string
+                mention_here:
+                  type: boolean
+                author:
+                  description: 消息作者
+                  allOf:
+                    - $ref: '#/components/schemas/basic'
     text:
       type: object
       properties:
@@ -4174,27 +4199,26 @@ components:
       type: object
       allOf:
         - $ref: '#/components/schemas/SystemEvent'
-        - type: object
+      properties:
+        d:
+          type: object
           properties:
-            d:
+            channel_type:
+              type: string
+              description: 频道类型，私聊消息为`PERSON`
+              example: PERSON
+            extra:
               type: object
               properties:
-                channel_type:
-                  type: string
-                  description: 频道类型，私聊消息为`PERSON`
-                  example: PERSON
-                extra:
+                body:
                   type: object
                   properties:
-                    body:
-                      type: object
-                      properties:
-                        msg_id:
-                          allOf:
-                            - $ref: '#/components/schemas/_fields_id'
-                          description: 被操作的消息id
-                        chat_code:
-                          $ref: '#/components/schemas/ChatCode'
+                    msg_id:
+                      allOf:
+                        - $ref: '#/components/schemas/_fields_id'
+                      description: 被操作的消息id
+                    chat_code:
+                      $ref: '#/components/schemas/ChatCode'
     member:
       type: object
       properties:
