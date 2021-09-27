@@ -1,6 +1,6 @@
 # 频道相关事件列表
 
-### 事件格式说明：请查看 [[事件结构/格式说明]]( https://developer.kaiheila.cn/doc/event/event-introduction )
+### 事件格式说明：请查看 \[[事件结构/格式说明]\]( https://developer.kaiheila.cn/doc/event/event-introduction )
 
 ## 频道内用户添加 reaction
 

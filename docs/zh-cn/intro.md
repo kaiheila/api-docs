@@ -35,6 +35,10 @@ Go:
 
 - lonelyevil/khl [仓库链接](https://github.com/lonelyevil/khl) 服务器邀请
 
+## OpenAPI 描述文件
+
+我们也提供了 OpenAPI 描述文件，你可以用来部署测试用的 Mock Server，或使用生成器生成可互动文档。示例链接：[点击跳转](https://fi6.github.io/kaiheila-api-docs/oas/rapidoc-view.html)
+
 ## 机器人
 
 机器人是增加聊天乐趣和提升管理服务器效率的新方式。你可以通过调整机器人的[亲密度](https://developer.kaiheila.cn/bot)设置，来赋予它们独特的生命力，让它们与用户产生更为亲密的交互。当然你也可以创造一个严肃的管理机器人，或将他变成任何你想象中的样子，充分发挥你的想象力，让你的机器人变得与众不同！

@@ -1,6 +1,6 @@
 # 服务器相关事件
 
-### 事件格式说明：请查看 [[事件结构/格式说明]]( https://developer.kaiheila.cn/doc/event/event-introduction )
+### 事件格式说明：请查看 \[[事件结构/格式说明]\]( https://developer.kaiheila.cn/doc/event/event-introduction )
 
 ## 服务器信息更新
 
