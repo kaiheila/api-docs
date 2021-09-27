@@ -11,12 +11,14 @@ info:
   license:
     name: MIT
     url: 'https://github.com/kaiheila/api-docs/blob/main/LICENSE'
-  description: >
+  description: >+
     <br>
 
     <div style="background-color: #F0F0F0;padding: 12px 0px 12px
     12px;border-left: 5px solid #F90258;">
-      这不是一份官方文档，仅用于查看官方提供的OAS文件。
+
+    这不是一份官方文档，仅用于查看官方提供的OAS文件。
+
     </div>  
 
     <br>
@@ -24,16 +26,91 @@ info:
 
     # 引言
 
-    此文档仅用于方便开发者查看、确认开黑啦机器人API接口，官方文档地址：[开黑啦开发者平台](https://developer.kaiheila.cn/doc/)
+
+    此文档仅用于方便开发者查看、确认开黑啦机器人 API
+    接口，官方文档地址：[开黑啦开发者平台](https://developer.kaiheila.cn/doc/)
 
 
-    建议使用[rapidoc](https://mrin9.github.io/RapiDoc/index.html)查看此文档，示例链接：[文档查看示例](https://fi6.github.io/kaiheila-api-docs/oas/rapidoc-view.html)
+    两份文档内容基本相同，你可以选择自己习惯的查看方式。
 
 
-    如果发现有任何问题，请提交PR，我们将尽快进行修复与合并。
+    建议使用[rapidoc](https://mrin9.github.io/RapiDoc/index.html)查看此 OpenAPI
+    描述文件，示例链接：[文档查看示例](https://fi6.github.io/kaiheila-api-docs/oas/rapidoc-view.html)
+
+
+    如果发现有任何问题，请提交 Issue/Pull Request，我们将尽快进行修复与合并。
+
+
+    # 简介
+
+
+    欢迎来到开发者酒馆，快找个位置随便坐！开发者中心的文档提供了丰富的 API
+    接口，介绍了机器人的开发语言、能力、调试等内容，帮助你快速了解机器人开发的方方面面，相信你在这里永远都不会空手而归。
+
+
+    我们将所有文档都藏在了 [GitHub](https://github.com/kaiheila/api-docs) 上，而且我们会不断添加新的功能！
+
+
+    ## Bugs
+
+
+    如果你在使用开黑啦的 API 过程中遇见了 Bug，并且希望上报给我们来纠正这个错误的话，我们提供了两种反馈方式。
+
+
+    - 你可以直接在开黑啦官方的[吐槽中心](https://kaihei.co/MqWk5H)中进行实时反馈；
+
+    - 同时我们我们也提供了在 [GitHub](https://github.com/kaiheila/api-docs) 中的 [issue
+    tracker](https://github.com/kaiheila/api-docs) 中进行反馈。
+
+
+    ## SDK
+
+
+    热心的社区开发者们已经为大家准备了多种语言的 SDK，无需重复造轮子，上手即可轻松使用！如果希望你的 SDK
+    展示在此处，请于开发者服务器内联系`冰飞FlappyIce`。
+
+
+    PHP:
+
+
+    - kaiheila/php-bot [仓库链接](https://github.com/kaiheila/php-bot)
+
+
+    JavaScript/TypeScript:
+
+
+    - fi6/KBotify & shugen002/BotRoot [仓库链接](https://github.com/fi6/kBotify)
+    [服务器邀请](https://kaihei.co/GO6qHj)
+
+
+    Python:
+
+
+    - TWT233/khl.py [仓库链接](https://github.com/TWT233/khl.py)
+    [服务器邀请](https://kaihei.co/JJE0Es)
+
+
+    易语言：
+
+
+    - 大鑫/酷黑 仓库链接 [服务器邀请](https://kaihei.co/GymA7P)
+
+
+    Go:
+
+
+    - lonelyevil/khl [仓库链接](https://github.com/lonelyevil/khl) 服务器邀请
+
+
+    ## OpenAPI 描述文件
+
+
+    我们也提供了 OpenAPI 描述文件，你可以用来部署测试用的 Mock
+    Server，或使用生成器生成可互动文档。示例链接：[点击跳转](https://fi6.github.io/kaiheila-api-docs/oas/rapidoc-view.html)
 
 
     ## 机器人
+
 
     机器人是增加聊天乐趣和提升管理服务器效率的新方式。你可以通过调整机器人的[亲密度](https://developer.kaiheila.cn/bot)设置，来赋予它们独特的生命力，让它们与用户产生更为亲密的交互。当然你也可以创造一个严肃的管理机器人，或将他变成任何你想象中的样子，充分发挥你的想象力，让你的机器人变得与众不同！
 
@@ -41,11 +118,152 @@ info:
     快去创建一个属于你的[机器人](https://developer.kaiheila.cn/bot)吧！
 
 
-    # 参考
+    # 开黑啦开发者隐私政策
 
-    ## 简介
+
+    **更新日期：2020 年 12 月 9 日**
+
+
+    **生效日期：2020 年 12 月 9 日**
+
+
+    欢迎使用由**北京逍遥一下科技有限公司**（简称**“我们”**或**“开黑啦”**）提供服务或运营控制的“开黑啦”系列产品和服务，包括开黑啦应用程序、开黑啦移动端产品和服务（以下简称“**本平台**”）。
+
+
+    本隐私政策构成您与我们之间具法律约束力的协议，我们在此特别提醒您认真阅读、充分理解本协议各条款，特别是其中所涉及的免除、减轻我们责任的条款、对您权利限制条款、争议解决和法律适用等。**其中，限制、免责条款可能以黑体加粗或加下划线的形式提示您重点注意**。请您审慎阅读并选择接受或不接受本协议。若您不同意本隐私政策，请您停止访问或使用本平台。同时您也可以通过本隐私政策提供的联系方式与我们联系，我们将在我们的能力范围内配合您处理相关事宜。
+
+
+    ## 用户信息
+
+
+    **开黑啦 API 不得用于以下用途：**
+
+
+    - **未经开黑啦用户的明确许可**，修改开黑啦用户的账号信息。例如，未经用户允许，机器人主动将用户加入到一个新的服务器当中；
+
+    - 替代开黑啦用户**发送消息、上传文件或播放音频**；
+
+    - 无论在何种情况下，**未经开黑啦用户的明确许可**，**获取用户的密码或网页证书**。
+
+
+    ## 数据信息
+
+
+    **开黑啦 API 不得用于以下用途：**
+
+
+    - **抓取**任何开黑啦数据；
+
+    - 将开黑啦的数据用于运营机器人以外的其他用途；
+
+    - 未经用户明确许可，**分享**或**披露**任何用户的开黑啦的相关数据；
+
+    - 向任何**第三方**网络广告，数据服务商或其他**获利渠道**披露开黑啦的相关数据；
+
+    - **保留相关数据的时间**超出机器人正常运营所需要的时间；
+
+    - 违反开黑啦的**用户隐私政策**；
+
+    - 获取开黑啦**用户密码**访问开黑啦进行操作；
+
+    - **出售，许可**或以**其他方式**将开黑啦的数据商业化；
+
+    - 以违反常识或违反用户预期的方式处理开黑啦数据。
+
+
+    ## 法律规定
+
+
+    **开黑啦 API 不得用于以下用途：**
+
+
+    - 推送包含**违反法律规定的信息**（色情、赌博、毒品、政治、人身攻击、欺诈信息等）；
+
+    - **导致死亡**，**人身伤害**或**破坏环境**等任何活动；
+
+    - 鼓励或促进**非法活动**或侵犯**第三方权益**；
+
+    - **诽谤**，**骚扰**，**跟踪**，**威胁他人**或以**其他方式**违反开黑啦**用户社区准则**。
+
+
+    ## 滥用
+
+
+    **允许：**
+
+
+    - 要求您的最终用户**遵守**（非故意违反）法律、法规；
+
+    - 仅允许使用**开发者平台文档中规定的方式**访问开黑啦的 API
+
+
+    **禁止**
+
+
+    - **删除、模糊或更改**开黑啦的服务条款或这些条款中的任何**链接**、**通知**、**内容**；
+
+    - **鼓励或为用户创建**违反开黑啦服务条款的功能；
+
+    - 将 API**转授权**给第三方使用；
+
+    - 向开黑啦的产品和服务中引入**任何病毒，蠕虫，缺陷，特洛伊木马，恶意软件**或**任何具有破坏性**的内容；
+
+    - **逆向工程**或尝试从任何 API 或相关软件中**提取源代码**；
+
+    - 使用**虚假**的身份登记、登录开黑啦的开发者账户；
+
+    - 鼓励或允许第三方**违反开黑啦开发者隐私政策**；
+
+    - **干扰**或**中断**开黑啦的 API 服务器或网络。
+
+
+    ## 限制
+
+
+    开黑啦规定了对 API 的**使用限制**（例如：单位时间内发送 API 请求的数量，机器人所在服务器的数量，机器人可以服务的用户数量）。
+
+    如果您想使用超出此类限制的任何 API，必须获得开黑啦的书面授权。
+
+
+    ## 投诉与处罚规范
+
+
+    开黑啦的机器人已启用用户投诉处理机制，我们会根据用户的投诉，视违规程度予以不同程度的处罚措施。
+
+
+    我们理解你的违规行为可能基于失误、疏忽等过失，因此，若你的机器人存在不符合法律法规和平台规则等情形而被处理，开黑啦提供了邮件申诉渠道，你可以对你的机器人进行整改后，通过申诉渠道重新向开黑啦提交发布审核。
+
+
+    ## 变更
+
+
+    本隐私政策一旦发生任何重大变更，我们将尽合理努力向所有用户广而告之，例如通过在本平台上发布通知；但您应定期查看本隐私政策，以查看有关变更。我们还会更新本隐私政策顶部的“更新日期”和“生效日期”。您在本隐私政策更新之后继续访问或使用本平台，即视为您接受更新后的隐私政策。如果您不同意更新后的隐私政策，请您停止访问或使用本平台。
+
+
+    ## 联系方式
+
+
+    与本政策相关的任何疑问、意见或请求，请发送至
+
+    [service@kaiheila.cn](mailto:service@kaiheila.cn)。
+
+    一般情况下，我们会在收到您相关联系信息并核实您身份后的【15】日内回复。
+
+
+    ## 其他
+
+
+    （一）本隐私政策仅适用于您在中国大陆（仅为本条款之目的，不含香港、澳门、台湾地区）境内使用本平台服务的情形。本隐私政策可能存在多种语言版本，如各语言版本条款出现不一致或冲突，以中文版本为准。
+
+
+    （二）本隐私政策中的标题仅为方便及阅读而设，并不影响本隐私政策中任何规定的含义或解释。
+
+
+    # 简介
+
 
     开黑啦的 API 正常分为两个核心层：
+
 
     - 常规的 http 接口，你可以用它来做一些常规操作。
 
@@ -53,7 +271,6 @@ info:
 
 
     通过上述两层的接口，我们可以在开黑啦中做出机器人，或者提供服务等。
-
 
 
     ## 常规 http 接口规范
@@ -69,26 +286,27 @@ info:
     ```
 
 
-    ### API版本管理
+    ### API 版本管理
+
 
     开黑啦后续可能会有不同版本的 API。您可以通过像 `https://www.kaiheila.cn/api/v{version_number}`
     这样在请求路径中明确指定所要使用的 API 版本。如果省略掉 version_number, 它会指向默认的版本。目前支持的版本列表如下所示：
 
 
+    | 版本 | 状态   | 默认 |
 
-    版本  | 状态| 默认
+    | ---- | ------ | ---- |
 
-    ---|---|--
-
-    3| 开发中| 是
-
+    | 3    | 开发中 | 是   |
 
 
     ### 鉴权
 
+
     在开发者中心，在创建机器人后，我们可以得到一个 token，在请求所有的开黑啦接口时，我们需要在 http header 的
     `Authorization` 中加入该 token 以进行鉴权,格式为 `Authorization: TOKEN_TYPE
     TOKEN`。目前支持两种格式的鉴权：
+
 
     - 机器人。TOKEN_TYPE = Bot。
 
@@ -107,13 +325,17 @@ info:
 
     ### 速度限制
 
+
     为了保护我们的系统，我们在 [RFC 6585](https://tools.ietf.org/html/rfc6585#section-4)
-    的基础上做了一些扩展，来限制用户的接口调用速度。经常达到限速阀值或者忽略速度限制的API用户将会被撤销API密钥，并且被限制登录。有关速度限制的问题，请参阅[速率限制](https://developer.kaiheila.cn/doc/rate-limit)一节
+    的基础上做了一些扩展，来限制用户的接口调用速度。经常达到限速阀值或者忽略速度限制的 API 用户将会被撤销 API
+    密钥，并且被限制登录。有关速度限制的问题，请参阅[速率限制](https://developer.kaiheila.cn/doc/rate-limit)一节
 
 
     ### i18N
 
+
     如果希望本地化，可以在 http 头中加入 `Accept-Language` 头，如下为一个示例：
+
 
     ```
 
@@ -125,8 +347,8 @@ info:
     系统如果支持该语言，系统会以该语言返回错误消息等。如果系统不支持，系统会以默认的 zh-cn 来返回接口的消息，提示等。
 
 
-
     ### 接口格式及返回说明
+
 
     - 接口分为 GET 请求和 POST 请求，所有找服务器拿数据均使用 GET 请求，提交数据给服务器使用 POST 请求
 
@@ -146,10 +368,11 @@ info:
 
     ```
 
+
     ### 接口字段说明
 
-    由于一些历史原因，接口中可能会有一些不在文档中的字段，请大家务必使用文档中的字段，不在文档中的字段后续可能会更改。
 
+    由于一些历史原因，接口中可能会有一些不在文档中的字段，请大家务必使用文档中的字段，不在文档中的字段后续可能会更改。
 
 
     ### 请求参数
@@ -161,47 +384,60 @@ info:
     正常的列表页，一般会有类似如下的参数：
 
 
-    参数名 | 类型 |区域| 说明
+    | 参数名    | 类型   | 区域 |
+    说明                                                                                                                  
+    |
 
-    ---|---|---|---
+    | --------- | ------ | ---- |
+    ----------------------------------------------------------------------------------------------------------------------
+    |
 
-    page |int|GET|列表页中有，代表页
+    | page      | int    | GET  |
+    列表页中有，代表页                                                                                                    
+    |
 
-    page_size|int|GET|列表页中有，每页数据大小，默认为 50, 常规情况下page_size最大为50
+    | page_size | int    | GET  | 列表页中有，每页数据大小，默认为 50, 常规情况下 page_size 最大为
+    50                                                    |
 
-    sort|string|GET|代表排序的字段, 比如`-id`代表`id`按`DESC`排序，`id`代表`id`按`ASC`排序。不一定有,
-    如果有，接口中会声明支持的排序字段。
+    | sort      | string | GET  | 代表排序的字段,
+    比如`-id`代表`id`按`DESC`排序，`id`代表`id`按`ASC`排序。不一定有, 如果有，接口中会声明支持的排序字段。 |
 
 
     正常的列表页的返回参数会保持如下的格式:
 
 
-    | 参数名   | 类型         |
-    说明                                                         |
+    | 参数名      | 类型  |
+    说明                                                                    |
 
-    | -------- | ------------ |
-    ------------------------------------------------------------ |
+    | ----------- | ----- |
+    ----------------------------------------------------------------------- |
 
-    |items|Array|数据列表|
+    | items       | Array |
+    数据列表                                                                |
 
-    |meta|Map|分页的信息|
+    | meta        | Map   |
+    分页的信息                                                              |
 
-    |»page|int|页码|
+    | »page       | int   |
+    页码                                                                    |
 
-    |»page_total|int|总页数|
+    | »page_total | int   |
+    总页数                                                                  |
 
-    |»page_size|int|每一页的数据|
+    | »page_size  | int   |
+    每一页的数据                                                            |
 
-    |»total|int|总数据量|
+    | »total      | int   |
+    总数据量                                                                |
 
-    |sort|Map|分页的排序, key:+-1, 如果为1代表按key升序，如果为-1代表按key降序|
-
-
+    | sort        | Map   | 分页的排序, key:+-1, 如果为 1 代表按 key 升序，如果为-1 代表按 key 降序 |
 
 
     ## 消息通知
 
+
     消息通知在整个开黑啦体系中比较复杂，我们目前支持两种消息通知机制：
+
 
     - [Webhook](https://developer.kaiheila.cn/doc/webhook)
 
@@ -210,9 +446,618 @@ info:
 
     不论是以何种方式来接受消息，它们都遵循着相同的规范：
 
-    - 消息推送时，可能会有压缩（压缩默认采用zlib压缩`deflate`)。
+
+    - 消息推送时，可能会有压缩(压缩默认采用 zlib 压缩【deflate】)。
 
     - 消息的含义，结构格式等基本保持一致。
+
+
+    # Webhook
+
+
+    通过 Webhook
+    进行消息订阅可以让你的应用或机器人能够及时响应用户的消息，在用户量较多的情况下，可以提供更好的并发性能控制。你需要的只是告诉我们该向哪里（URL）发送消息。当消息发生时，Kaiheila
+    开放平台会以 HTTP POST 请求的方式将消息内容推送到你设置的回调地址。
+
+
+    **注意：** Webhook 模式与 Websocket 模式是互斥的，如果选择了 Webhook 模式，将不能再使用 Websocket
+    接收用户消息。同理，设置了 Websocket 后，平台将不会再向回调地址推送消息。
+
+
+    ## 如何配置 Webhook
+
+
+    1. 在开发者后台，点击进入机器人详情页面，选择 Webhook。
+
+    2. 按照下面的说明，配置好接口。
+
+    3. 将接口的地址填入回调地址中，系统会 check 地址是否符合协议规范。如果符合，我们就能收到回调事件了。
+
+
+    ## 配置回调地址
+
+
+    为了能够接收推送消息，首先你必须在开发者后台配置回调地址。当收到相应的触发消息时，开放平台会向该回调地址发送相应的 `HTTP POST` 请求。
+
+
+    每个应用/机器人只能配置一个请求网址，该应用/机器人在所有服务器的消息都会发送到这个地址。
+
+
+    点击编辑标示，在文本框内填写你要配置的请求网址。完成请求网址编辑后，点击保存按钮时，开放平台会向你配置的网址推送一个
+    `application/json` 格式的 POST 请求, 该请求用于验证你配置的网址的合法性。请求如下：
+
+
+    ```javascript
+
+    {
+        "s": 0, // 信令类型
+        "d": {
+            "type": 255,
+            "channel_type": "WEBHOOK_CHALLENGE", //表示这是一个验证请求
+            "challenge" : "bkes654x09XY" , //客户端需要原样返回
+            "verify_token": "xxxxxx",   //机器人的token
+        }
+    }
+
+
+    // 设置了Encrypt Key时
+
+    {
+        "encrypt": "adfw232sdssdfadfas98XX" // 加密字符串，解密方法请看下方的消息解密模块
+    }
+
+    ```
+
+
+    当你收到开放平台 POST 验证请求时，你需要解析出 challenge 值(如果应用设置了 Encrypt
+    Key，需要做解密，解密方法[参考这里](#消息解密))，并在 1s 内原样返回该 challenge 值作为响应。响应示例如下：
+
+
+    ```javascript
+
+    {
+        "challenge": "bkes654x09XY" // 应用需要原样返回的值
+    }
+
+    ```
+
+
+    ## 接收并响应事件
+
+
+    当有消息发生时，开放平台将会通过 HTTP POST 请求发送 Json compress 格式的事件数据到你预先提供的回调地址。
+
+
+    你可能需要注意如下情况：
+
+
+    1. 为了避免同一个事件处理了多次，你可能需要使用 `sn` 对事件的唯一性进行检查。
+
+    2. 在正常配置好后，系统会给回调地址推送消息，你需要在 1s 内返回 http 200 响应。如果失败或超时，系统会按 2s, 4s, 8s,
+    16s, 32, 64s 的大致间隔，给你回调，直到 5 次都失败。
+
+    3. 默认配置为 Webhook
+    机器人且设置好回调地址后，系统会认为机器人自动上线。如果一段时间内，用户的失败次数达到警告阀值，系统会发送站内消息给相应开发者。如果失败次数过多，平台会认为机器人出现故障，平台会给开发者发送站内消息，并下线该机器人。机器人下线后，平台会停止向该机器人发送任何消息。用户在排除故障后，可以在开发者后台，重新点击上线，恢复该机器人。在恢复时，系统会再次重复之前的验证
+    Url 流程，来确保该 Url 依然属于您。
+
+    4. 在消息中，我们会带上 verify_token, 你可以检查 `verify_token` 是否与开发者后台的 `verify_token` 是否
+    相同以确保这个事件的来源确实是 Kaiheila 开放平台，而不是恶意的第三方伪造的事件。
+
+    5. 如果你需要更安全的事件回调机制，建议填写 `EncryptKey`，在进行业务逻辑处理前请先参考[这里](#消息解密)进行解密。
+
+    6. 默认情况下，我们的数据会进行 zlib 压缩 (**deflate**)，相应的数据你可能需要先进行 zlib
+    解压缩，再进行处理。如果不需要压缩，可以在传入的 callbackUrl 中加上 `compress=0`。
+
+
+    ## 消息解密
+
+
+    如果你对消息有较高的安全需求，可以通过 Encrypt Key 来加密数据, 采用了 aes-256-cbc 来加密数据。主要解密逻辑如下：
+
+
+    1. 将密文用 base64 解码
+
+    2. 截取前 16 位得到 iv, 截取 16 位之后的数据为新的密文
+
+    3. 用 base64 解码新的密文, 得到待解密数据
+
+    4. 在 encrpytKey 后面补\0 至长度等于 32 位，得到 key
+
+    5. 利用上面的 iv, key, 待解密数据，采用 aes-256-cbc 解密数据。
+
+
+    ### python 代码示例
+
+
+    ```python
+
+    from Crypto.Cipher import AES
+
+    import base64
+
+
+    class Encrypt:
+        def __init__(self, key, bs=32):
+            pad = lambda s: s + (bs-len(s))*"\0"
+            key = pad(key)
+            self.key = key.encode('utf-8')
+
+        def aes_decrypt(self, content):
+            str = base64.b64decode(content)
+            iv = str[0:16]
+            cipher = AES.new(self.key, AES.MODE_CBC, iv)
+            return cipher.decrypt(base64.b64decode(str[16:])).decode('utf-8')
+    ```
+
+
+    ### php 代码示例
+
+
+    ```php
+
+    $encryptKey = "testKey";
+
+    $data = "Kaiheila's bot is awesome";
+
+    $encrypt = encryptData($data, $encryptKey);
+
+    echo $encrypt. "\n";
+
+    echo decryptData($encrypt, $encryptKey);
+
+
+    function encryptData($data, $key)
+
+    {
+        $iv = substr(md5(uniqid()), 0, 16);
+        return base64_encode($iv.openssl_encrypt($data, 'aes-256-cbc', $key, 0, $iv));
+    }
+
+
+    function decryptData($eData, $key)
+
+    {
+        $eData = base64_decode($eData);
+        $iv = substr($eData, 0, 16);
+        return openssl_decrypt(substr($eData, 16), 'aes-256-cbc', $key, 0, $iv);
+    }
+
+    ```
+
+
+    ## 消息格式及说明
+
+
+    在配置完上述回调地址之后，我们就可以接收并处理事件了，事件的详情参见[事件格式说明](https://developer.kaiheila.cn/doc/event)
+
+
+    # Websocket
+
+
+    通过 Websocket，客户端可以与开黑啦进行实时通信，来接收事件和数据。websocket
+    的协议交互非常复杂，而且较差的实现会给服务端和客户端都带来较大困扰，因此建议你在编写自己的实现时，详细阅读本文档。
+
+
+    **重要提示：** 并不是所有的字段都有文档记录，你应该依赖文档，而不是依赖接口中的字段。我们可能随时更改不在文档中的字段。
+
+
+    **注意：** Webhook 模式与 Websocket 模式是互斥的，如果选择了 Webhook 模式，将不能再使用 Websocket
+    接收用户消息。同理，设置了 Websocket 后，平台将不会再向回调地址推送消息。
+
+
+    ## Gateway
+
+
+    Gateway 是 websocket 的网关，客户端通过连接 Gateway 可以获取到相应的推送消息等。
+
+
+    Gateway 的获取需要走 http
+    接口获取，参见[Gateway](https://developer.kaiheila.cn/doc/http/gateway)
+
+
+    ## 消息压缩
+
+
+    - 如果客户端连接中 `compress` 参数为 `1`, 所有方向为 `server->client` 的消息都是经过压缩后的`binary`
+    类型的消息.
+
+    - 与 Webhook 保持一样，默认情况下，我们的数据会进行 zlib 压缩 (deflate)，相应的数据你可能需要先进行 zlib
+    解压缩，再进行处理。如果不需要压缩，可以在获取 gateway 时加上参数`compress=0`。
+
+    - 客户端发给服务端的消息不要压缩。
+
+
+    ## 连接流程
+
+
+    常规连接流程如下：
+
+
+    1. 获取 Gateway
+
+    2. 连接 Gateway。如果连接失败，回退到第 1 步。
+
+    3. 收到 hello 包，如果成功，开始接收事件。如果失败，回退至第 1 步。
+
+    4. 在连接中，每隔 30 秒发一次心跳 ping 包，如果 6 秒内，没有收到心跳 pong 包，则超时。进入到指数回退，重试。
+
+    5. 先发两次心跳 ping(间隔为 2,4),判断连接是否成功。如果成功，则连接恢复。
+
+    6. 如果不成功，再回退到第 2 步，尝试两次 resume(间隔为 8,16)。如果成功，会按正常往下走，但有一个 resume
+    过程（同步中间的离线消息），resume 完了，会收到一个 resumeOK 包。
+
+    7. 如果失败，再回到第 1 步，尝试无数次获取 Gateway(指数倒退，最大间隔为 60),直到成功为止。
+
+    8. 任何时候，收到 reconnect 包，应该将当前消息队列，`sn`等全部清空，然后回到第 1 步，否则可能会有消息错乱等各种问题。
+
+
+    ### 关于重连
+
+
+    当 WebSocket 链接彻底中断, 尝试重新建立链接并恢复, 需要在已断开的链接 url 后继续拼接以下参数:
+
+    resume : 固定值 1
+
+    sn : 当前客户端处理成功的最后一条消息的 sn, 没有收到过任何消息传 0。需自行记录（可保存至文件，以实现代码升级重启后恢复会话）。
+
+    sessionId: 前一个链接中的 sessionId , 参考 [信令 1 握手结果](#信令[1]%20HELLO)
+
+
+    ```
+
+    wss://test.kaiheila.com:8888/gateway?{compress/token
+    parameters}&resume=1&sn=5&sessionId=20****ae-1fa4-4d19-805f-6f0f****d534
+
+    ```
+
+
+    连接流程示意图：
+
+    ![image](/img/state.png)
+
+
+    参考代码:
+    [php-bot](https://github.com/kaiheila/php-bot/blob/main/src/base/StateSession.php)
+
+
+    ## 信令格式
+
+
+    ### 信令基本格式
+
+
+    ```javascript
+
+    {
+        "s" : 1,  // int, 信令，详情参照信令说明
+        "d" : [], // 数据字段mixed
+        "sn" : 0, // int, 该字段并不一定有，只在s=0时有，与webhook一致。
+    }
+
+    ```
+
+
+    具体参见[Event](https://developer.kaiheila.cn/doc/event)
+
+
+    ### 信令说明
+
+
+    | 信令 | 方向           | 说明                                      |
+
+    | ---- | -------------- | ----------------------------------------- |
+
+    | 0    | server->client | 消息(包含聊天和通知消息)                  |
+
+    | 1    | server->client | 客户端连接 ws 时, 服务端返回握手结果      |
+
+    | 2    | client->server | 心跳，ping                                |
+
+    | 3    | server->client | 心跳，pong                                |
+
+    | 4    | client->server | resume, 恢复会话                          |
+
+    | 5    | server->client | reconnect, 要求客户端断开当前连接重新连接 |
+
+    | 6    | server->client | resume ack                                |
+
+
+    ## 信令[1] HELLO
+
+
+    **方向：** server->client  
+
+    **说明：** 当我们成功连接 websocket 后，客户端应该在 6s 内收到该包，否则认为连接超时。  
+
+    **成功示例：**
+
+
+    ```javascript
+
+    {
+        "s": 1,
+        "d": {
+            "code": 0,
+            "session_id": "xxxx"
+        }
+    }
+
+    ```
+
+
+    **失败：**
+
+
+    | 状态码 | 含义           | 备注         |
+
+    | ------ | -------------- | ------------ |
+
+    | 40100  | 缺少参数       |              |
+
+    | 40101  | 无效的 token   |              |
+
+    | 40102  | token 验证失败 |              |
+
+    | 40103  | token 过期     | 需要重新连接 |
+
+
+    **示例：**
+
+
+    ```javascript
+
+    {
+        "s": 1,
+        "d": {
+            "code": 40103
+        }
+    }
+
+    ```
+
+
+    ## 信令[0] EVENT
+
+
+    **方向：** server->client  
+
+    **说明：** 在正常连接状态下，收到的消息事件等。  
+
+    **参数列表：**
+
+
+    具体参见[Event](https://developer.kaiheila.cn/doc/event)
+
+
+    **注意：** 该消息会有 `sn`, 代表消息序号, 针对当前 `session` 的消息的序号, 客户端需记录该数字,并按顺序接收消息，
+    **resume** 时需传入该参数才能完成。
+
+
+    **示例：**
+
+
+    ```javascript
+
+    {
+        "s": 0,
+        "d": {
+            // 参见event
+        },
+        "sn": 1000
+    }
+
+    ```
+
+
+    **注意事项：**
+
+
+    1. 收到消息时需要按照 `sn` 顺序处理, 服务端会尽可能保证 `sn` 的顺序性
+
+    2. 假设收到消息的 `sn` 出现乱序, 需要先存入暂存区 (`buffer`) 等待正确的 `sn` 消息处理后再从暂存区顺序处理
+
+    3. 假设收到了一条已处理过的 `sn` 的消息, 则直接抛弃不处理
+
+    4. 客户端需要存储当前已处理成功的最大的 `sn`, 待心跳 ping 时回传服务端, 如果服务端发现当前客户端最新处理成功的消息 `sn`
+    落后于最新消息 (丢包等异常情况), 服务端将会按照客户端指定的 `sn` 将之后所有最新的消息重传给客户端.
+
+    5. 消息内容与 webhook 保持一致
+
+
+    ## 信令[2] PING
+
+
+    **方向：** client -> server  
+
+    **说明：** 每隔 30s(随机-5，+5),将当前的最大 `sn` 传给服务端,客户端应该在 6s 内收到 PONG, 否则心跳超时。  
+
+    **参数列表：**
+
+
+    | 参数 | 描述                              | 类型 | 必传 |
+
+    | ---- | --------------------------------- | ---- | ---- |
+
+    | sn   | 客户端目前收到的最新的消息 **sn** | int  | Y    |
+
+
+    **示例：**
+
+
+    ```javascript
+
+    {
+        "s": 2,
+        "sn": 6
+    }
+
+    ```
+
+
+    **注意事项：**
+
+
+    1. 心跳间隔： 30 秒 + rand(-5,5)秒
+
+    2. 如果发了 ping, 6 秒内没有收到 pong，我们应该进入到超时状态。
+
+
+    ## 信令[3] PONG
+
+
+    **方向：** server -> client  
+
+    **说明：** 回应客户端发出的 ping  
+
+    **示例：**
+
+
+    ```javascript
+
+    {
+        "s": 3
+    }
+
+    ```
+
+
+    ## 信令[4] RESUME
+
+
+    当链接未断开时
+
+    客户端需传入 当前收到的最后一个 sn 序号
+
+    例:
+
+
+    ```javascript
+
+    {
+        "s": 4,
+        "sn": 100
+    }
+
+    ```
+
+
+    ## 信令[5] RECONNECT
+
+
+    **方向：** server->client
+
+
+    **说明：** 服务端通知客户端, 代表该连接已失效, 请重新连接。客户端收到后应该主动断开当前连接。
+
+
+    **注意：** 客户端收到该信令代表因为某些原因导致当前连接已失效, 需要进行以下操作以避免消息丢失.
+
+
+    1. 重新获取 gateway;
+
+    2. 清空本地的 sn 计数;
+
+    3. 清空本地消息队列.
+
+
+    | 状态码 | 描述                                                             
+    |     |
+
+    | ------ | -----------------------------------------------------------------
+    | --- |
+
+    | 40106  | resume 失败, 缺少参数                                             |    
+    |
+
+    | 40107  | 当前 `session` 已过期 (resume 失败, PING 的 sn 无效)              |     |
+
+    | 40108  | 无效的 `sn` , 或 `sn` 已经不存在 (resume 失败, PING 的 `sn` 无效) |     |
+
+
+    **示例：**
+
+
+    ```javascript
+
+    {
+        "s": 5
+        "d": {
+            "code": 41008,
+            "err": "Missing params"
+        }
+    }
+
+    ```
+
+
+    ## 信令[6] RESUME ACK
+
+
+    **方向：** server->client  
+
+    **说明：** 服务端通知客户端 resume 动作成功，中间所有离线消息已经全部发送成功  
+
+    **示例：**
+
+
+    ```javascript
+
+    {
+        "s": 6
+        "d": {
+            "session_id": "xxxx-xxxxxx-xxx-xxx"
+        }
+    }
+
+    ```
+
+
+    # 速率限制
+
+    为了防止接口滥用和超速，我们会通过速率限制来限制 API 接口请求。
+
+
+    ## http头格式
+
+    在每个 API 请求中，我们会在需要速率控制的请求的 http 响应的 header 中，包含如下的速度控制的头：
+
+    ```
+
+    // 一段时间内允许的最大请求次数
+
+    X-Rate-Limit-Limit: 5  
+
+    // 一段时间内还剩下的请求数
+
+    X-Rate-Limit-Remaining: 0
+
+    // 回复到最大请求次数需要等待的时间
+
+    X-Rate-Limit-Reset: 14
+
+    // 请求数的bucket
+
+    X-Rate-Limit-Bucket: user/info
+
+    // 触犯全局请求次数限制
+
+    X-Rate-Limit-Global
+
+    ```
+
+
+    ## 超速响应
+
+    当触犯速度限制时，系统会返回 http 429 响应。返回的消息格式与标准格式也是一致的。同时，上文中提到的 http 头也依旧会传。
+
+
+
+    ## 封禁措施
+
+    如果多次超速，系统会发出警告信息。bot 需要按照 rate limit 的头进行速度控制。  
+
+    如果多次警告后依然不更改，系统可能会禁用 bot。  
+
 tags:
   - name: KMarkDown
     description: >+
@@ -278,7 +1123,7 @@ tags:
       |` ```语言\n ``` `|markdown|代码块|
 
   - name: 卡片消息
-    description: >+
+    description: >
       # 卡片消息
 
 
@@ -290,43 +1135,48 @@ tags:
 
       ## 整体结构说明
 
-      cardmessage主要由json构成，在卡片消息中，有四种类别的卡片结构：
 
-      - 卡片，目前只有card。
+      cardmessage 主要由 json 构成，在卡片消息中，有四种类别的卡片结构：
 
-      - 模块，主要有section, header, context等。
 
-      - 元素：主要有plain-text, image, button等。
+      - 卡片，目前只有 card。
 
-      - 结构：目前只有paragraph。
+      - 模块，主要有 section, header, context 等。
+
+      - 元素：主要有 plain-text, image, button 等。
+
+      - 结构：目前只有 paragraph。
 
 
       ### 消息的主要结构
 
-      - 一个卡片消息最多只允许5个卡片
 
-      - 一个卡片可以有多个模块，但是一个卡片消息总共不允许超过50个模块
+      - 一个卡片消息最多只允许 5 个卡片
+
+      - 一个卡片可以有多个模块，但是一个卡片消息总共不允许超过 50 个模块
 
 
       ```javascript
 
       [
-          {
-              "type": "card",
-              //...
-              "modules" : [
-                  // ...
-              ]
-          }
-          // 其它card
-      ]
+        {
+          type: 'card',
+          //...
+          modules: [
+            // ...
+          ],
+        },
+        // 其它card
+      ];
 
       ```
 
 
       ### 主要结构说明
 
+
       所有的元素都有相似的结构，大体如下：
+
 
       ```javascript
 
@@ -341,22 +1191,29 @@ tags:
 
       ### 一些全局字段说明
 
+
       在很多结构中，有一些字段都是一样的，因此在此处说明，后面就不单独说明了：
 
 
-      |字段|类型|说明|
+      | 字段  | 类型   |
+      说明                                                                            
+      |
 
-      |--|--|--|
+      | ----- | ------ |
+      --------------------------------------------------------------------------------
+      |
 
-      |theme|string|主题，可选的值为：primary,success,danger,warning,info,secondary.默认为primary。|
+      | theme | string | 主题，可选的值为：primary,success,danger,warning,info,secondary,
+      none.默认为 primary，为none时不显示侧边框。 |
 
-      |size|string|大小，可选值为：xs,sm, md, lg, 一般默认为lg|
+      | size  | string | 大小，可选值为：xs,sm, md, lg, 一般默认为
+      lg                                     |
 
 
       ### 卡片消息发送说明
 
-      在消息发送时，卡片消息的发送类型为`10`, 在发送时，content字段为json的字符串。详情参见消息发送接口。
 
+      在消息发送时，卡片消息的发送类型为`10`, 在发送时，content 字段为 json 的字符串。详情参见消息发送接口。
 
 
       ## 卡片
@@ -364,16 +1221,18 @@ tags:
 
       ### card
 
+
       **作用说明：** 标题模块只能支持展示标准文本（text），突出标题样式。
 
 
       **主要结构**：
 
+
       ```javascript
 
       {
           "type": "card",
-          "theme" : "primary|warning|danger|info...", // 卡片风格，默认为primay
+          "theme" : "primary|warning|danger|info|none...", // 卡片风格，默认为primay
           "color":"#aaaaaa", //色值
           "size": "sm|lg", //目前只支持sm与lg, 如果不填为lg。 lg仅在PC端有效, 在移动端不管填什么，均为sm。
           "modules": [
@@ -383,17 +1242,17 @@ tags:
 
       ```
 
+
       **说明：**
 
-      - modules只能为模块
 
-      - 单个card模块数量不限制，但是总消息最多只能有50个模块
+      - modules 只能为模块
 
-      - theme, size参见[全局字段说明
+      - 单个 card 模块数量不限制，但是总消息最多只能有 50 个模块
 
-      ](#一些全局字段说明),卡片中，size只允许lg和sm
-
-      - color代表卡片边框具体颜色，如果填了，则使用该color，如果未填，则使用theme来渲染卡片颜色。
+      - theme, size 参见[全局字段说明
+        ](#一些全局字段说明),卡片中，size 只允许 lg 和 sm
+      - color 代表卡片边框具体颜色，如果填了，则使用该 color，如果未填，则使用 theme 来渲染卡片颜色。
 
 
       ## 模块
@@ -401,9 +1260,11 @@ tags:
 
       ### 标题模块
 
+
       **作用说明：** 标题用于卡片中，突出标题样式。  
 
       **主要结构：**
+
 
       ```javascript
 
@@ -412,21 +1273,25 @@ tags:
           "text" : {
               "type": "plain-text",
               "content": "标题1"
-          } 
+          }
       }
 
       ```
 
+
       **说明：**
 
-      - text 为文字元素且content不能超过100个字
+
+      - text 为文字元素且 content 不能超过 100 个字
 
 
       ### 内容模块
 
+
       **作用说明：** 结构化的内容，显示文本+其它元素。  
 
       **主要结构：**
+
 
       ```javascript
 
@@ -445,22 +1310,26 @@ tags:
 
       ```
 
+
       **说明：**
 
-      - text可以为 plain-text, kmarkdown或者paragraph
 
-      - accessory可以为image或者button
+      - text 可以为 plain-text, kmarkdown 或者 paragraph
 
-      - button不能放置在左侧
+      - accessory 可以为 image 或者 button
 
-      - mode代表accessory是放置在左侧还是在右侧
+      - button 不能放置在左侧
+
+      - mode 代表 accessory 是放置在左侧还是在右侧
 
 
-      ### 图片模块
+      ### 图片组模块
 
-      **作用说明：** 1到多张图片的组合  
+
+      **作用说明：** 1 到多张图片的组合  
 
       **主要结构:**
+
 
       ```javascript
 
@@ -473,16 +1342,46 @@ tags:
 
       ```
 
+
       **说明：**
 
-      - elements只能有image元素，只能有1-9张图片
+
+      - elements 只能有 image 元素，只能有 1-9 张图片
+
+
+      ### 容器模块
+
+
+      **作用说明：** 1 到多张图片的组合，与图片组模块不同，图片并不会裁切为正方形。多张图片会纵向排列。  
+
+      **主要结构:**
+
+
+      ```javascript
+
+      {
+          "type" : "container",
+          "elements": [
+              //图片元素，其它元素无效
+          ],
+      }
+
+      ```
+
+
+      **说明：**
+
+
+      - elements 只能有 image 元素，只能有 1-9 张图片
 
 
       ### 交互模块
 
+
       **作用说明：** 交互模块中包含交互控件元素，目前支持的交互控件为按钮（button）  
 
       **主要结构:**
+
 
       ```javascript
 
@@ -495,18 +1394,22 @@ tags:
 
       ```
 
+
       **说明：**
 
-      - elements中只能为button
 
-      - elements最多只能有4个
+      - elements 中只能为 button
+
+      - elements 最多只能有 4 个
 
 
       ### 备注模块
 
+
       **作用说明：** 展示图文混合的内容。  
 
       **主要结构：**
+
 
       ```javascript
 
@@ -517,18 +1420,22 @@ tags:
 
       ```
 
+
       **说明：**
 
-      - elements中可以为：plain-text, kmarkdown, image
 
-      - elements最多可包含10个元素
+      - elements 中可以为：plain-text, kmarkdown, image
+
+      - elements 最多可包含 10 个元素
 
 
       ### 分割线模块
 
+
       **作用说明：** 展示分割线。  
 
       **主要结构：**
+
 
       ```javascript
 
@@ -541,9 +1448,11 @@ tags:
 
       ### 文件模块
 
+
       **作用说明：** 展示文件，目前有三种，文件，视频和音频。  
 
       **主要结构：**
+
 
       ```javascript
 
@@ -556,17 +1465,20 @@ tags:
 
       ```
 
+
       规则：
 
-      - cover仅在音频的时候有效，是音频的封面图。
 
+      - cover 仅在音频的时候有效，是音频的封面图。
 
 
       ### 倒计时模块
 
+
       **作用说明：** 展示倒计时。  
 
       **主要结构：**
+
 
       ```javascript
 
@@ -579,22 +1491,25 @@ tags:
 
       ```
 
+
       规则：
 
-      - mode主要是倒计时的样式，目前支持三种样式。
 
-      - startTime和endTime为毫秒时间戳，startTime和endTime不能小于服务器当前时间戳。
+      - mode 主要是倒计时的样式，目前支持三种样式。
+
+      - startTime 和 endTime 为毫秒时间戳，startTime 和 endTime 不能小于服务器当前时间戳。
 
 
       ## 元素
 
 
-
       ### 普通文本
+
 
       **作用说明：** 显示文字。  
 
       **主要结构：**
+
 
       ```javascript
 
@@ -606,20 +1521,22 @@ tags:
 
       ```
 
+
       **规则：**
 
-      - emoji为布尔型，默认为true。如果为true,会把emoji的shortcut转为emoji 
 
-      - 为了方便书写，所有plain-text的使用处可以简单的用字符串代替。
+      - emoji 为布尔型，默认为 true。如果为 true,会把 emoji 的 shortcut 转为 emoji
 
-      - 最大2000个字
+      - 为了方便书写，所有 plain-text 的使用处可以简单的用字符串代替。
+
+      - 最大 2000 个字
 
 
       ```javascript
 
       // "hello world" 等价于：
 
-      {  
+      {
           "type" : "plain-text",
           "emoji": true,
           "content" : "hello world",
@@ -630,9 +1547,11 @@ tags:
 
       ### kmarkdown
 
+
       **作用说明：** 显示文字。  
 
       **主要结构：**
+
 
       ```javascript
 
@@ -643,16 +1562,20 @@ tags:
 
       ```
 
+
       **规则：**
 
-      - 最大5000个字
+
+      - 最大 5000 个字
 
 
       ### 图片
 
+
       **作用说明：** 显示图片。  
 
       **主要结构：**
+
 
       ```javascript
 
@@ -666,16 +1589,20 @@ tags:
 
       ```
 
+
       **规则：**
 
-      - 图片类型（MimeType）限制说明：目前仅支持`image/jpeg`, `image/gif`, `image/png`这3种
 
-      - 图片的size默认为lg
+      - 图片类型（MimeType）限制说明：目前仅支持`image/jpeg`, `image/gif`, `image/png`这 3 种
+
+      - 图片的 size 默认为 lg
 
 
       ### 按钮
 
+
       **作用说明：** 提供交互的功能
+
 
       ```javascript
 
@@ -689,22 +1616,25 @@ tags:
 
       ```
 
-      - value只能为string
 
-      - text可以为plain-text, kmarkdown
+      - value 只能为 string
 
-      - click代表用户点击的事件,默认为""，代表无任何事件。
-          - 当为link时，会跳转到value代表的链接;
-          - 当为return-val时，系统会通过系统消息将消息id,点击用户id和value发回给发送者，发送者可以根据自己的需求进行处理,消息事件参见[button点击事件](https://developer.kaiheila.cn/doc/event/user#Card%E6%B6%88%E6%81%AF%E4%B8%AD%E7%9A%84Button%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6)。
+      - text 可以为 plain-text, kmarkdown
+
+      - click 代表用户点击的事件,默认为""，代表无任何事件。
+        - 当为 link 时，会跳转到 value 代表的链接;
+        - 当为 return-val 时，系统会通过系统消息将消息 id,点击用户 id 和 value 发回给发送者，发送者可以根据自己的需求进行处理,消息事件参见[button 点击事件](https://developer.kaiheila.cn/doc/event/user#Card%E6%B6%88%E6%81%AF%E4%B8%AD%E7%9A%84Button%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6)。
 
       ## 结构体
 
 
       ### 区域文本
 
-      **作用说明：** 支持分栏结构，将模块分为左右两栏，根据顺序自动排列，支持更自由的文字排版模式，提高可维护性   
+
+      **作用说明：** 支持分栏结构，将模块分为左右两栏，根据顺序自动排列，支持更自由的文字排版模式，提高可维护性  
 
       **主要结构：**
+
 
       ```javascript
 
@@ -717,14 +1647,15 @@ tags:
 
       ```
 
+
       **规则：**
 
-      - cols是int,可以的取值为1-3
 
-      - fields可以的元素为text, kmarkdown或context
+      - cols 是 int,可以的取值为 1-3
 
-      - paragraph最多有50个元素
+      - fields 可以的元素为 text, kmarkdown 或 context
 
+      - paragraph 最多有 50 个元素
   - name: 服务器
     description: 服务器相关接口
   - name: 频道
@@ -1666,9 +2597,9 @@ paths:
                   data:
                     properties:
                       msg_id:
-                        type: string
+                        allOf:
+                          - $ref: '#/components/schemas/_fields_id'
                         description: 服务端生成的消息 id
-                        example: ''
                       msg_timestamp:
                         type: integer
                         description: '消息发送时间(ms, 服务器时间戳)'
@@ -1738,6 +2669,7 @@ paths:
       tags:
         - 频道消息
       summary: 获取频道消息某个回应的用户列表
+      operationId: getMessageReactionUsers
       parameters:
         - name: msg_id
           in: query
@@ -1771,11 +2703,13 @@ paths:
                                 reaction_time:
                                   type: integer
                                   description: 用户点击reaction的毫秒时间戳
+                                  example: 1612323994414
   /message/add-reaction:
     post:
       tags:
         - 频道消息
       summary: 为消息添加回应
+      operationId: addMessageReaction
       requestBody:
         content:
           application/json:
@@ -1920,8 +2854,8 @@ paths:
               properties:
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
-                  description: 目标用户id
+                    - $ref: '#/components/schemas/ChatCode'
+                  description: 私信会话Code
       responses:
         '200':
           description: OK
@@ -1969,14 +2903,12 @@ paths:
                   - type: object
                     properties:
                       data:
-                        allOf:
-                          - $ref: '#/components/schemas/PaginationInfo'
-                          - type: object
-                            properties:
-                              items:
-                                type: array
-                                items:
-                                  $ref: '#/components/schemas/DirectMessage'
+                        type: object
+                        properties:
+                          items:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/DirectMessage'
   /direct-message/create:
     post:
       tags:
@@ -2168,6 +3100,7 @@ paths:
       tags:
         - gateway
       summary: 获取网关连接地址
+      operationId: getIndex
       parameters:
         - name: compress
           in: query
@@ -2284,6 +3217,7 @@ paths:
                 file:
                   type: string
                   format: binary
+                  description: '目前支持 **图片**, **视频(.mp4 .mov)**, **文件**'
       responses:
         '200':
           description: OK
@@ -2459,6 +3393,7 @@ paths:
       tags:
         - 服务器角色权限
       summary: 赋予用户角色
+      operationId: grantGuildRole
       requestBody:
         content:
           application/json:
@@ -2545,6 +3480,7 @@ paths:
       tags:
         - 亲密度
       summary: 获取用户的亲密度
+      operationId: getIntimacy
       description: 机器人可以在后台配置默认的初始亲密度和形象，当用户触发某些事件时，机器人可以根据一些逻辑来更新与该用户的亲密度以及形象展示。
       parameters:
         - $ref: '#/components/parameters/UserIdParam'
@@ -2591,6 +3527,7 @@ paths:
       tags:
         - 亲密度
       summary: 更新用户亲密度
+      operationId: updateIntimacy
       requestBody:
         content:
           application/json:
@@ -2600,7 +3537,9 @@ paths:
                 - user_id
               properties:
                 user_id:
-                  $ref: '#/components/schemas/id'
+                  allOf:
+                    - $ref: '#/components/schemas/id'
+                  description: 用户的id
                 score:
                   type: integer
                   description: 亲密度，0-2200
@@ -2626,6 +3565,7 @@ paths:
       tags:
         - 服务器表情
       summary: 获取服务器表情列表
+      operationId: getGuildEmojis
       parameters:
         - $ref: '#/components/parameters/PageNumberParam'
         - $ref: '#/components/parameters/PageSizeParam'
@@ -2655,6 +3595,7 @@ paths:
       tags:
         - 服务器表情
       summary: 创建服务器表情
+      operationId: createGuildEmoji
       description: Header 中 Content-Type 必须为 multipart/form-data
       requestBody:
         content:
@@ -2691,6 +3632,7 @@ paths:
       tags:
         - 服务器表情
       summary: 更新服务器表情
+      operationId: updateGuildEmoji
       requestBody:
         content:
           application/json:
@@ -2718,6 +3660,7 @@ paths:
     post:
       tags:
         - 服务器表情
+      operationId: deleteGuildEmoji
       summary: 删除服务器表情
       requestBody:
         content:
@@ -2743,6 +3686,7 @@ paths:
       tags:
         - 邀请
       summary: 获取邀请列表
+      operationId: listInvites
       description: 服务器id或者频道id必须填一个
       parameters:
         - name: guild_id
@@ -2792,6 +3736,7 @@ paths:
     post:
       tags:
         - 邀请
+      operationId: createInvite
       summary: 创建邀请链接
       description: 服务器id或者频道id必须填一个
       requestBody:
@@ -2804,6 +3749,36 @@ paths:
                   $ref: '#/components/schemas/GuildId'
                 channel_id:
                   $ref: '#/components/schemas/GuildChannelId'
+                duration:
+                  type: integer
+                  description: >-
+                    邀请链接有效时长（秒）（ 0 => 永不； 1800 => 0.5小时； 3600 => 1个小时； 21600 =>
+                    6个小时； 43200 => 12个小时； 86400 => 1天； 604800 => 7天）
+                  default: 604800
+                  example: 604800
+                  enum:
+                    - 0
+                    - 1800
+                    - 3600
+                    - 32600
+                    - 43200
+                    - 86400
+                    - 604800
+                setting_times:
+                  type: integer
+                  description: >-
+                    设置的次数 （ -1 => 无限制； 1 => 1次使用； 5 => 5次使用； 10 => 10次使用 ；25 =>
+                    25次使用； 50 => 50次使用； 100 => 100次使用）
+                  default: -1
+                  example: -1
+                  enum:
+                    - -1
+                    - 1
+                    - 5
+                    - 10
+                    - 25
+                    - 50
+                    - 100
       responses:
         '200':
           description: OK
@@ -2826,6 +3801,7 @@ paths:
       tags:
         - 邀请
       summary: 删除邀请链接
+      operationId: deleteInvite
       description: 服务器id或者频道id必须填一个
       requestBody:
         content:
@@ -3185,6 +4161,7 @@ components:
       name: user_id
       in: query
       required: true
+      description: 用户id
       schema:
         $ref: '#/components/schemas/id'
   schemas:
@@ -3457,7 +4434,8 @@ components:
             拒绝的权限的结果集，详见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
           example: 0
     GuildRoleId:
-      type: number
+      type: integer
+      format: unsigned integer
       description: 服务器角色id
       example: 113
     _fields_id:
@@ -3682,26 +4660,27 @@ components:
           description: 'nonce, 服务端不做处理, 原样返回'
     GuildEmojiId:
       type: string
-      description: 表情的 ID
-      example: XXXXXXXXX/4c43XXXXXXX
+      description: '表情的id, 可以为Guild Emoji Id或Emoji Id'
+      example: 1333609240026275/zTpnkS****0c80ck
     UserChat:
       type: object
       properties:
         code:
           type: string
           description: 私信会话 Code
-          example: sderwrw**
+          example: 5c7ec6d021216c136c9198285c15ed47
         last_read_time:
           type: integer
           description: 上次阅读消息的时间 (毫秒)
-          example: 1612696873000
+          example: 1612175653000
         latest_msg_time:
           type: integer
           description: 最新消息时间 (毫秒)
-          example: null
+          example: 1612160693000
         unread_count:
           type: integer
           description: 未读消息数
+          example: 0
         target_info:
           type: object
           description: 目标用户信息
@@ -3711,7 +4690,7 @@ components:
             username:
               type: string
               description: 目标用户名
-              example: 工具
+              example: 夏天1
             online:
               type: boolean
               description: 是否在线
@@ -3719,7 +4698,7 @@ components:
             avatar:
               type: string
               description: 头像图片链接
-              example: 'https://***.jpg'
+              example: 'https://xxx.jpg/icon'
     UserChatDetail:
       allOf:
         - $ref: '#/components/schemas/UserChat'
@@ -3728,12 +4707,19 @@ components:
             is_friend:
               type: boolean
               description: 是否是好友
+              example: true
             is_blocked:
               type: boolean
               description: 是否已屏蔽对方
+              example: false
             is_target_blocked:
               type: boolean
               description: 是否已被对方屏蔽
+              example: false
+    ChatCode:
+      type: string
+      description: 私聊会话 Code
+      example: 3b4aa448b8xxxxc87a1b3770792e7433
     quote:
       type: object
       properties:
@@ -4163,10 +5149,6 @@ components:
                       allOf:
                         - $ref: '#/components/schemas/_fields_id'
                       description: 被操作的消息id
-    ChatCode:
-      type: string
-      description: 私聊会话 Code
-      example: 3b4aa448b8xxxxc87a1b3770792e7433
     PersonEvent:
       type: object
       allOf:
