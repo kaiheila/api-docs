@@ -7,7 +7,7 @@ info:
   version: 3.0.0
   termsOfService: 'https://developer.kaiheila.cn/doc/privacy'
   contact:
-    email: apiteam@swagger.io
+    email: service@kaiheila.cn
   license:
     name: MIT
     url: 'https://github.com/kaiheila/api-docs/blob/main/LICENSE'
@@ -24,7 +24,7 @@ info:
     <br>
 
 
-    # 引言
+    ## 引言
 
 
     此文档仅用于方便开发者查看、确认开黑啦机器人 API
@@ -41,7 +41,7 @@ info:
     如果发现有任何问题，请提交 Issue/Pull Request，我们将尽快进行修复与合并。
 
 
-    # 简介
+    ## 简介
 
 
     欢迎来到开发者酒馆，快找个位置随便坐！开发者中心的文档提供了丰富的 API
@@ -51,7 +51,7 @@ info:
     我们将所有文档都藏在了 [GitHub](https://github.com/kaiheila/api-docs) 上，而且我们会不断添加新的功能！
 
 
-    ## Bugs
+    ### Bugs
 
 
     如果你在使用开黑啦的 API 过程中遇见了 Bug，并且希望上报给我们来纠正这个错误的话，我们提供了两种反馈方式。
@@ -63,7 +63,7 @@ info:
     tracker](https://github.com/kaiheila/api-docs) 中进行反馈。
 
 
-    ## SDK
+    ### SDK
 
 
     热心的社区开发者们已经为大家准备了多种语言的 SDK，无需重复造轮子，上手即可轻松使用！如果希望你的 SDK
@@ -102,14 +102,14 @@ info:
     - lonelyevil/khl [仓库链接](https://github.com/lonelyevil/khl) 服务器邀请
 
 
-    ## OpenAPI 描述文件
+    ### OpenAPI 描述文件
 
 
     我们也提供了 OpenAPI 描述文件，你可以用来部署测试用的 Mock
     Server，或使用生成器生成可互动文档。示例链接：[点击跳转](https://fi6.github.io/kaiheila-api-docs/oas/rapidoc-view.html)
 
 
-    ## 机器人
+    ### 机器人
 
 
     机器人是增加聊天乐趣和提升管理服务器效率的新方式。你可以通过调整机器人的[亲密度](https://developer.kaiheila.cn/bot)设置，来赋予它们独特的生命力，让它们与用户产生更为亲密的交互。当然你也可以创造一个严肃的管理机器人，或将他变成任何你想象中的样子，充分发挥你的想象力，让你的机器人变得与众不同！
@@ -118,7 +118,7 @@ info:
     快去创建一个属于你的[机器人](https://developer.kaiheila.cn/bot)吧！
 
 
-    # 开黑啦开发者隐私政策
+    ## 开黑啦开发者隐私政策
 
 
     **更新日期：2020 年 12 月 9 日**
@@ -133,7 +133,7 @@ info:
     本隐私政策构成您与我们之间具法律约束力的协议，我们在此特别提醒您认真阅读、充分理解本协议各条款，特别是其中所涉及的免除、减轻我们责任的条款、对您权利限制条款、争议解决和法律适用等。**其中，限制、免责条款可能以黑体加粗或加下划线的形式提示您重点注意**。请您审慎阅读并选择接受或不接受本协议。若您不同意本隐私政策，请您停止访问或使用本平台。同时您也可以通过本隐私政策提供的联系方式与我们联系，我们将在我们的能力范围内配合您处理相关事宜。
 
 
-    ## 用户信息
+    ### 用户信息
 
 
     **开黑啦 API 不得用于以下用途：**
@@ -146,7 +146,7 @@ info:
     - 无论在何种情况下，**未经开黑啦用户的明确许可**，**获取用户的密码或网页证书**。
 
 
-    ## 数据信息
+    ### 数据信息
 
 
     **开黑啦 API 不得用于以下用途：**
@@ -171,7 +171,7 @@ info:
     - 以违反常识或违反用户预期的方式处理开黑啦数据。
 
 
-    ## 法律规定
+    ### 法律规定
 
 
     **开黑啦 API 不得用于以下用途：**
@@ -186,7 +186,7 @@ info:
     - **诽谤**，**骚扰**，**跟踪**，**威胁他人**或以**其他方式**违反开黑啦**用户社区准则**。
 
 
-    ## 滥用
+    ### 滥用
 
 
     **允许：**
@@ -217,7 +217,7 @@ info:
     - **干扰**或**中断**开黑啦的 API 服务器或网络。
 
 
-    ## 限制
+    ### 限制
 
 
     开黑啦规定了对 API 的**使用限制**（例如：单位时间内发送 API 请求的数量，机器人所在服务器的数量，机器人可以服务的用户数量）。
@@ -225,7 +225,7 @@ info:
     如果您想使用超出此类限制的任何 API，必须获得开黑啦的书面授权。
 
 
-    ## 投诉与处罚规范
+    ### 投诉与处罚规范
 
 
     开黑啦的机器人已启用用户投诉处理机制，我们会根据用户的投诉，视违规程度予以不同程度的处罚措施。
@@ -234,13 +234,13 @@ info:
     我们理解你的违规行为可能基于失误、疏忽等过失，因此，若你的机器人存在不符合法律法规和平台规则等情形而被处理，开黑啦提供了邮件申诉渠道，你可以对你的机器人进行整改后，通过申诉渠道重新向开黑啦提交发布审核。
 
 
-    ## 变更
+    ### 变更
 
 
     本隐私政策一旦发生任何重大变更，我们将尽合理努力向所有用户广而告之，例如通过在本平台上发布通知；但您应定期查看本隐私政策，以查看有关变更。我们还会更新本隐私政策顶部的“更新日期”和“生效日期”。您在本隐私政策更新之后继续访问或使用本平台，即视为您接受更新后的隐私政策。如果您不同意更新后的隐私政策，请您停止访问或使用本平台。
 
 
-    ## 联系方式
+    ### 联系方式
 
 
     与本政策相关的任何疑问、意见或请求，请发送至
@@ -250,7 +250,7 @@ info:
     一般情况下，我们会在收到您相关联系信息并核实您身份后的【15】日内回复。
 
 
-    ## 其他
+    ### 其他
 
 
     （一）本隐私政策仅适用于您在中国大陆（仅为本条款之目的，不含香港、澳门、台湾地区）境内使用本平台服务的情形。本隐私政策可能存在多种语言版本，如各语言版本条款出现不一致或冲突，以中文版本为准。
@@ -259,7 +259,7 @@ info:
     （二）本隐私政策中的标题仅为方便及阅读而设，并不影响本隐私政策中任何规定的含义或解释。
 
 
-    # 简介
+    ## 简介
 
 
     开黑啦的 API 正常分为两个核心层：
@@ -273,10 +273,10 @@ info:
     通过上述两层的接口，我们可以在开黑啦中做出机器人，或者提供服务等。
 
 
-    ## 常规 http 接口规范
+    ### 常规 http 接口规范
 
 
-    ### BaseUrl
+    #### BaseUrl
 
 
     ```
@@ -286,7 +286,7 @@ info:
     ```
 
 
-    ### API 版本管理
+    #### API 版本管理
 
 
     开黑啦后续可能会有不同版本的 API。您可以通过像 `https://www.kaiheila.cn/api/v{version_number}`
@@ -300,7 +300,7 @@ info:
     | 3    | 开发中 | 是   |
 
 
-    ### 鉴权
+    #### 鉴权
 
 
     在开发者中心，在创建机器人后，我们可以得到一个 token，在请求所有的开黑啦接口时，我们需要在 http header 的
@@ -323,7 +323,7 @@ info:
     ```
 
 
-    ### 速度限制
+    #### 速度限制
 
 
     为了保护我们的系统，我们在 [RFC 6585](https://tools.ietf.org/html/rfc6585#section-4)
@@ -331,7 +331,7 @@ info:
     密钥，并且被限制登录。有关速度限制的问题，请参阅[速率限制](https://developer.kaiheila.cn/doc/rate-limit)一节
 
 
-    ### i18N
+    #### i18N
 
 
     如果希望本地化，可以在 http 头中加入 `Accept-Language` 头，如下为一个示例：
@@ -347,7 +347,7 @@ info:
     系统如果支持该语言，系统会以该语言返回错误消息等。如果系统不支持，系统会以默认的 zh-cn 来返回接口的消息，提示等。
 
 
-    ### 接口格式及返回说明
+    #### 接口格式及返回说明
 
 
     - 接口分为 GET 请求和 POST 请求，所有找服务器拿数据均使用 GET 请求，提交数据给服务器使用 POST 请求
@@ -369,13 +369,13 @@ info:
     ```
 
 
-    ### 接口字段说明
+    #### 接口字段说明
 
 
     由于一些历史原因，接口中可能会有一些不在文档中的字段，请大家务必使用文档中的字段，不在文档中的字段后续可能会更改。
 
 
-    ### 请求参数
+    #### 请求参数
 
 
     在开黑啦整个 API 体系中，有一些参数是一致的，会在此处统一列出，后续不会再单独详细说明。
@@ -433,7 +433,7 @@ info:
     | sort        | Map   | 分页的排序, key:+-1, 如果为 1 代表按 key 升序，如果为-1 代表按 key 降序 |
 
 
-    ## 消息通知
+    ### 消息通知
 
 
     消息通知在整个开黑啦体系中比较复杂，我们目前支持两种消息通知机制：
@@ -452,7 +452,7 @@ info:
     - 消息的含义，结构格式等基本保持一致。
 
 
-    # Webhook
+    ## Webhook
 
 
     通过 Webhook
@@ -464,7 +464,7 @@ info:
     接收用户消息。同理，设置了 Websocket 后，平台将不会再向回调地址推送消息。
 
 
-    ## 如何配置 Webhook
+    ### 如何配置 Webhook
 
 
     1. 在开发者后台，点击进入机器人详情页面，选择 Webhook。
@@ -474,7 +474,7 @@ info:
     3. 将接口的地址填入回调地址中，系统会 check 地址是否符合协议规范。如果符合，我们就能收到回调事件了。
 
 
-    ## 配置回调地址
+    ### 配置回调地址
 
 
     为了能够接收推送消息，首先你必须在开发者后台配置回调地址。当收到相应的触发消息时，开放平台会向该回调地址发送相应的 `HTTP POST` 请求。
@@ -522,7 +522,7 @@ info:
     ```
 
 
-    ## 接收并响应事件
+    ### 接收并响应事件
 
 
     当有消息发生时，开放平台将会通过 HTTP POST 请求发送 Json compress 格式的事件数据到你预先提供的回调地址。
@@ -549,7 +549,7 @@ info:
     解压缩，再进行处理。如果不需要压缩，可以在传入的 callbackUrl 中加上 `compress=0`。
 
 
-    ## 消息解密
+    ### 消息解密
 
 
     如果你对消息有较高的安全需求，可以通过 Encrypt Key 来加密数据, 采用了 aes-256-cbc 来加密数据。主要解密逻辑如下：
@@ -566,7 +566,7 @@ info:
     5. 利用上面的 iv, key, 待解密数据，采用 aes-256-cbc 解密数据。
 
 
-    ### python 代码示例
+    #### python 代码示例
 
 
     ```python
@@ -590,7 +590,7 @@ info:
     ```
 
 
-    ### php 代码示例
+    #### php 代码示例
 
 
     ```php
@@ -625,13 +625,13 @@ info:
     ```
 
 
-    ## 消息格式及说明
+    ### 消息格式及说明
 
 
     在配置完上述回调地址之后，我们就可以接收并处理事件了，事件的详情参见[事件格式说明](https://developer.kaiheila.cn/doc/event)
 
 
-    # Websocket
+    ## Websocket
 
 
     通过 Websocket，客户端可以与开黑啦进行实时通信，来接收事件和数据。websocket
@@ -645,7 +645,7 @@ info:
     接收用户消息。同理，设置了 Websocket 后，平台将不会再向回调地址推送消息。
 
 
-    ## Gateway
+    ### Gateway
 
 
     Gateway 是 websocket 的网关，客户端通过连接 Gateway 可以获取到相应的推送消息等。
@@ -655,7 +655,7 @@ info:
     接口获取，参见[Gateway](https://developer.kaiheila.cn/doc/http/gateway)
 
 
-    ## 消息压缩
+    ### 消息压缩
 
 
     - 如果客户端连接中 `compress` 参数为 `1`, 所有方向为 `server->client` 的消息都是经过压缩后的`binary`
@@ -667,7 +667,7 @@ info:
     - 客户端发给服务端的消息不要压缩。
 
 
-    ## 连接流程
+    ### 连接流程
 
 
     常规连接流程如下：
@@ -691,7 +691,7 @@ info:
     8. 任何时候，收到 reconnect 包，应该将当前消息队列，`sn`等全部清空，然后回到第 1 步，否则可能会有消息错乱等各种问题。
 
 
-    ### 关于重连
+    #### 关于重连
 
 
     当 WebSocket 链接彻底中断, 尝试重新建立链接并恢复, 需要在已断开的链接 url 后继续拼接以下参数:
@@ -720,10 +720,10 @@ info:
     [php-bot](https://github.com/kaiheila/php-bot/blob/main/src/base/StateSession.php)
 
 
-    ## 信令格式
+    ### 信令格式
 
 
-    ### 信令基本格式
+    #### 信令基本格式
 
 
     ```javascript
@@ -740,7 +740,7 @@ info:
     具体参见[Event](https://developer.kaiheila.cn/doc/event)
 
 
-    ### 信令说明
+    #### 信令说明
 
 
     | 信令 | 方向           | 说明                                      |
@@ -762,7 +762,7 @@ info:
     | 6    | server->client | resume ack                                |
 
 
-    ## 信令[1] HELLO
+    ### 信令[1] HELLO
 
 
     **方向：** server->client  
@@ -816,7 +816,7 @@ info:
     ```
 
 
-    ## 信令[0] EVENT
+    ### 信令[0] EVENT
 
 
     **方向：** server->client  
@@ -864,7 +864,7 @@ info:
     5. 消息内容与 webhook 保持一致
 
 
-    ## 信令[2] PING
+    ### 信令[2] PING
 
 
     **方向：** client -> server  
@@ -902,7 +902,7 @@ info:
     2. 如果发了 ping, 6 秒内没有收到 pong，我们应该进入到超时状态。
 
 
-    ## 信令[3] PONG
+    ### 信令[3] PONG
 
 
     **方向：** server -> client  
@@ -921,7 +921,7 @@ info:
     ```
 
 
-    ## 信令[4] RESUME
+    ### 信令[4] RESUME
 
 
     当链接未断开时
@@ -941,7 +941,7 @@ info:
     ```
 
 
-    ## 信令[5] RECONNECT
+    ### 信令[5] RECONNECT
 
 
     **方向：** server->client
@@ -990,7 +990,7 @@ info:
     ```
 
 
-    ## 信令[6] RESUME ACK
+    ### 信令[6] RESUME ACK
 
 
     **方向：** server->client  
@@ -1012,12 +1012,12 @@ info:
     ```
 
 
-    # 速率限制
+    ## 速率限制
 
     为了防止接口滥用和超速，我们会通过速率限制来限制 API 接口请求。
 
 
-    ## http头格式
+    ### http头格式
 
     在每个 API 请求中，我们会在需要速率控制的请求的 http 响应的 header 中，包含如下的速度控制的头：
 
@@ -1046,13 +1046,13 @@ info:
     ```
 
 
-    ## 超速响应
+    ### 超速响应
 
     当触犯速度限制时，系统会返回 http 429 响应。返回的消息格式与标准格式也是一致的。同时，上文中提到的 http 头也依旧会传。
 
 
 
-    ## 封禁措施
+    ### 封禁措施
 
     如果多次超速，系统会发出警告信息。bot 需要按照 rate limit 的头进行速度控制。  
 
@@ -1816,8 +1816,8 @@ tags:
     description: 亲密度相关接口列表
   - name: 附件
     description: 附件相关接口
-  - name: 事件结构/格式说明
-    description: "# 事件结构/格式说明\r\n\r\n当 websocket 或 webhook 收到 `s=0` 的消息时，代表当前收到的消息是事件(包含用户的聊天消息及系统的通知消息等)。本文会具体描述所有的事件类型，并且明确其字段的含义。开发者可以根据本文档做出相应的开发处理。\r\n\r\n## 事件基本结构及含义说明\r\n\r\n目前所有的消息都会有如下的结构：\r\n\r\n```json\r\n{\r\n    s: 0, // 信令类型\r\n    d: [...], //数据\r\n}\r\n```\r\n\r\n本文主要讲述的是当 `s=0` 时，data 的数据结构，信令的具体含义参见[websocket](https://developer.kaiheila.cn/doc/websocket).\r\n\r\n## 事件主要格式\r\n\r\n### 格式说明\r\n\r\n| 字段          | 类型   | 说明                                                         |\r\n| ------------- | ------ | ------------------------------------------------------------ |\r\n| channel_type  | string | 消息频道类型, `GROUP` 为频道消息                             |\r\n| type          | int    | 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息，255:系统消息, 其它的暂未开放 |\r\n| target_id     | string | 发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id   |\r\n| author_id     | string | 发送者 id, 1 代表系统                                        |\r\n| content       | string | 消息内容, 文件，图片，视频时，content 为 url                 |\r\n| msg_id        | string | 消息的 id                                                    |\r\n| msg_timestamp | int    | 消息发送时间的毫秒时间戳                                     |\r\n| nonce         | string | 随机串，与用户消息发送 api 中传的 nonce 保持一致             |\r\n| extra         | mixed  | 不同的消息类型，结构不一致                                   |\r\n\r\n### 文字频道消息extra说明\r\n\r\n**当type非系统消息(255)时**\r\n\r\n| 字段          | 类型    | 说明                                                         |\r\n| ------------- | ------- | ------------------------------------------------------------ |\r\n| type          | int     | 同上面 type                                                  |\r\n| guild_id      | string  | 服务器 id                                                    |\r\n| channel_name  | string  | 频道名                                                       |\r\n| mention       | Array   | 提及到的用户 id 的列表                                       |\r\n| mention_all   | boolean | 是否 mention 所有用户                                        |\r\n| mention_roles | Array   | mention 用户角色的数组                                       |\r\n| mention_here  | boolean | 是否 mention 在线用户                                        |\r\n| author        | Map     | 用户信息, 见[对象-用户User](https://developer.kaiheila.cn/doc/objects#用户User) |\r\n\r\n### 系统事件消息extra说明\r\n\r\n**当type为系统消息(255)时**\r\n\r\n| 字段 | 类型   | 说明                                         |\r\n| ---- | ------ | -------------------------------------------- |\r\n| type | string | 标识该事件的类型                             |\r\n| body | Map    | 该事件关联的具体数据, 详见各系统消息事件示例 |\r\n\r\n\r\n## "
+  - name: 事件结构与格式说明
+    description: "# 事件结构/格式说明\r\n\r\n当 websocket 或 webhook 收到 `s=0` 的消息时，代表当前收到的消息是事件(包含用户的聊天消息及系统的通知消息等)。本文会具体描述所有的事件类型，并且明确其字段的含义。开发者可以根据本文档做出相应的开发处理。\r\n\r\n## 事件基本结构及含义说明\r\n\r\n目前所有的消息都会有如下的结构：\r\n\r\n```json\r\n{\r\n    \"s\": 0, // 信令类型\r\n    \"d\": [], //数据\r\n}\r\n```\r\n\r\n本文主要讲述的是当 `s=0` 时，data 的数据结构，信令的具体含义参见[websocket](https://developer.kaiheila.cn/doc/websocket).\r\n\r\n## 事件主要格式\r\n\r\n### 格式说明\r\n\r\n| 字段          | 类型   | 说明                                                         |\r\n| ------------- | ------ | ------------------------------------------------------------ |\r\n| channel_type  | string | 消息频道类型, `GROUP` 为频道消息                             |\r\n| type          | int    | 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息，255:系统消息, 其它的暂未开放 |\r\n| target_id     | string | 发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id   |\r\n| author_id     | string | 发送者 id, 1 代表系统                                        |\r\n| content       | string | 消息内容, 文件，图片，视频时，content 为 url                 |\r\n| msg_id        | string | 消息的 id                                                    |\r\n| msg_timestamp | int    | 消息发送时间的毫秒时间戳                                     |\r\n| nonce         | string | 随机串，与用户消息发送 api 中传的 nonce 保持一致             |\r\n| extra         | mixed  | 不同的消息类型，结构不一致                                   |\r\n\r\n### 文字频道消息extra说明\r\n\r\n**当type非系统消息(255)时**\r\n\r\n| 字段          | 类型    | 说明                                                         |\r\n| ------------- | ------- | ------------------------------------------------------------ |\r\n| type          | int     | 同上面 type                                                  |\r\n| guild_id      | string  | 服务器 id                                                    |\r\n| channel_name  | string  | 频道名                                                       |\r\n| mention       | Array   | 提及到的用户 id 的列表                                       |\r\n| mention_all   | boolean | 是否 mention 所有用户                                        |\r\n| mention_roles | Array   | mention 用户角色的数组                                       |\r\n| mention_here  | boolean | 是否 mention 在线用户                                        |\r\n| author        | Map     | 用户信息, 见[对象-用户User](https://developer.kaiheila.cn/doc/objects#用户User) |\r\n\r\n### 系统事件消息extra说明\r\n\r\n**当type为系统消息(255)时**\r\n\r\n| 字段 | 类型   | 说明                                         |\r\n| ---- | ------ | -------------------------------------------- |\r\n| type | string | 标识该事件的类型                             |\r\n| body | Map    | 该事件关联的具体数据, 详见各系统消息事件示例 |\r\n\r\n\r\n## "
   - name: 消息相关事件
     description: 消息相关事件
   - name: 频道相关事件
@@ -1831,6 +1831,36 @@ tags:
   - name: 服务器成员相关事件
     description: 服务器成员相关事件
 paths:
+  /kmarkdown:
+    post:
+      tags:
+        - KMarkDown
+      summary: 事件中的kmarkdown消息格式
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/kmarkdown'
+  /cardMessage:
+    post:
+      tags:
+        - 卡片消息
+      summary: 事件中的卡片消息格式
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/card'
+  /event:
+    post:
+      tags:
+        - 事件结构与格式说明
+      summary: 事件结构示例
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/basic-2'
   /guild/list:
     get:
       tags:
@@ -4165,6 +4195,265 @@ components:
       schema:
         $ref: '#/components/schemas/id'
   schemas:
+    type:
+      type: integer
+      description: '消息类型, 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息'
+    GuildId:
+      type: string
+      description: 服务器id
+      example: '91686000000'
+    mention:
+      type: array
+      description: '`@特定用户` 的用户ID数组'
+      items:
+        type: string
+    mention_all:
+      type: boolean
+      description: 是否含有`@全体人员`
+    mention_roles:
+      type: array
+      description: '`@特定角色` 的角色ID数组'
+      items:
+        type: string
+    mention_here:
+      type: boolean
+      description: 是否含有`@在线成员`
+    id:
+      type: string
+      description: 用户id
+      example: '2418200000'
+    basic:
+      type: object
+      description: 用户对象
+      properties:
+        id:
+          $ref: '#/components/schemas/id'
+        username:
+          type: string
+          description: 用户的名称
+          example: tz-un
+        identify_num:
+          type: string
+          description: 用户名的认证数字，用户名正常为：user_name#identify_num
+          example: '5618'
+        online:
+          type: boolean
+          description: 当前是否在线
+          example: false
+        status:
+          type: integer
+          description: '用户的状态, 0代表正常，10代表被封禁'
+          enum:
+            - 0
+            - 10
+          example: 0
+        bot:
+          type: boolean
+          description: 是否为机器人
+        avatar:
+          type: string
+          description: 用户的头像的url地址
+          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
+        vip_avatar:
+          type: string
+          description: vip用户的头像的url地址，可能为gif动图
+          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
+    mention_part:
+      type: object
+      properties:
+        id:
+          type: string
+          example: 28444
+        username:
+          type: string
+          example: example
+        full_name:
+          type: string
+          example: example#1111
+        avatar:
+          type: string
+          example: '***.jpg'
+    GuildRole:
+      type: object
+      properties:
+        role_id:
+          type: integer
+          format: unsigned integer
+          description: 角色id
+          example: 702
+        name:
+          type: string
+          description: 角色名称
+          example: 管理员
+        color:
+          type: integer
+          format: unsigned integer
+          minimum: 0
+          maximum: 16777215
+          description: 颜色
+          example: 0
+        position:
+          type: integer
+          format: unsigned integer
+          description: 顺序，值越小载靠前
+          example: 1
+        hoist:
+          type: integer
+          format: unsigned integer
+          description: 只能为0或者1，是否把该角色的用户在用户列表排到前面
+          enum:
+            - 0
+            - 1
+        mentionable:
+          type: integer
+          format: unsigned integer
+          description: 只能为0或者1，该角色是否可以被提及
+          enum:
+            - 0
+            - 1
+        permissions:
+          type: integer
+          format: unsigned integer
+          description: >-
+            允许的权限，参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+          example: 2048
+    mention_info:
+      type: object
+      properties:
+        mention_part:
+          description: '`@特定用户` 的用户ID信息，与`mention`中数据对应'
+          type: array
+          items:
+            $ref: '#/components/schemas/mention_part'
+        mention_role_part:
+          type: array
+          description: '`@特定角色` 的角色ID信息，与`mention_roles`中数据对应'
+          items:
+            $ref: '#/components/schemas/GuildRole'
+    kmarkdownElement:
+      allOf:
+        - $ref: '#/components/schemas/mention_info'
+        - type: object
+          properties:
+            raw_content:
+              type: string
+              description: '经过编译的纯文本，如原始文本为"*Hello World*", 则此处为"Hello World"'
+    kmarkdown:
+      type: object
+      properties:
+        type:
+          allOf:
+            - $ref: '#/components/schemas/type'
+          example: 9
+        guild_id:
+          $ref: '#/components/schemas/GuildId'
+        channel_name:
+          type: string
+          description: 频道名
+          example: 一个频道
+        mention:
+          $ref: '#/components/schemas/mention'
+        mention_all:
+          $ref: '#/components/schemas/mention_all'
+        mention_roles:
+          $ref: '#/components/schemas/mention_roles'
+        mention_here:
+          $ref: '#/components/schemas/mention_here'
+        author:
+          $ref: '#/components/schemas/basic'
+        kmarkdown:
+          $ref: '#/components/schemas/kmarkdownElement'
+    card:
+      type: object
+      properties:
+        type:
+          allOf:
+            - $ref: '#/components/schemas/type'
+          example: 9
+        guild_id:
+          $ref: '#/components/schemas/GuildId'
+        channel_name:
+          type: string
+          description: 频道名
+          example: 一个频道
+        mention:
+          $ref: '#/components/schemas/mention'
+        mention_all:
+          $ref: '#/components/schemas/mention_all'
+        mention_roles:
+          $ref: '#/components/schemas/mention_roles'
+        mention_here:
+          $ref: '#/components/schemas/mention_here'
+        author:
+          $ref: '#/components/schemas/basic'
+    basic-2:
+      type: object
+      required:
+        - s
+        - d
+        - sn
+      properties:
+        s:
+          type: integer
+          description: >-
+            websocket信令，详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
+          example: 0
+        d:
+          type: object
+          description: 具体数据
+          required:
+            - channel_type
+            - type
+            - target_id
+            - author_id
+            - content
+            - msg_id
+            - msg_timestamp
+            - extra
+          properties:
+            channel_type:
+              type: string
+              description: >-
+                消息频道类型, 群体消息为`GROUP`，个人消息为`PERSON`。例如，向频道内发送的消息为`GROUP`,
+                按钮返回事件为`PERSON`
+              example: GROUP
+              enum:
+                - GROUP
+                - PERSON
+            type:
+              type: integer
+            target_id:
+              type: string
+              description: 发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id
+              example: '60163899100000'
+            author_id:
+              type: string
+              description: '发送者 id, 1 代表系统'
+              example: 1
+            content:
+              type: string
+              description: '消息内容, 文件，图片，视频时，content 为 url'
+            msg_id:
+              type: string
+              description: 消息的 id
+            msg_timestamp:
+              type: integer
+              description: 消息发送时间的毫秒时间戳
+            nonce:
+              type: string
+              description: 随机串，与用户消息发送 api 中传的 nonce 保持一致
+            verify_token:
+              type: string
+              description: webhook设置中的verify_token
+            extra:
+              type: object
+              description: 不同的消息类型，结构不一致
+              example: xxx
+        sn:
+          type: integer
+          description: >-
+            消息序号，针对当前session。该字段并不一定有，只在s=0时有，与webhook一致。详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
+          example: 1
     BasicResponse:
       type: object
       required:
@@ -4215,14 +4504,6 @@ components:
           description: 'Map。分页的排序, key:+-1, 如果为1代表按key升序，如果为-1代表按key降序'
           example:
             id: 1
-    GuildId:
-      type: string
-      description: 服务器id
-      example: '91686000000'
-    id:
-      type: string
-      description: 用户id
-      example: '2418200000'
     Guild:
       type: object
       properties:
@@ -4280,50 +4561,6 @@ components:
           type: integer
           description: 服务器等级
           example: 0
-    GuildRole:
-      type: object
-      properties:
-        role_id:
-          type: integer
-          format: unsigned integer
-          description: 角色id
-          example: 702
-        name:
-          type: string
-          description: 角色名称
-          example: 管理员
-        color:
-          type: integer
-          format: unsigned integer
-          minimum: 0
-          maximum: 16777215
-          description: 颜色
-          example: 0
-        position:
-          type: integer
-          format: unsigned integer
-          description: 顺序，值越小载靠前
-          example: 1
-        hoist:
-          type: integer
-          format: unsigned integer
-          description: 只能为0或者1，是否把该角色的用户在用户列表排到前面
-          enum:
-            - 0
-            - 1
-        mentionable:
-          type: integer
-          format: unsigned integer
-          description: 只能为0或者1，该角色是否可以被提及
-          enum:
-            - 0
-            - 1
-        permissions:
-          type: integer
-          format: unsigned integer
-          description: >-
-            允许的权限，参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
-          example: 2048
     GuildChannelId:
       type: string
       description: 服务器频道ID
@@ -4381,42 +4618,6 @@ components:
           type: string
           description: '语音服务器地址，`HOST:PORT`的格式'
           example: 'HOST:PORT'
-    basic:
-      type: object
-      description: 用户对象
-      properties:
-        id:
-          $ref: '#/components/schemas/id'
-        username:
-          type: string
-          description: 用户的名称
-          example: tz-un
-        identify_num:
-          type: string
-          description: 用户名的认证数字，用户名正常为：user_name#identify_num
-          example: '5618'
-        online:
-          type: boolean
-          description: 当前是否在线
-          example: false
-        status:
-          type: integer
-          description: '用户的状态, 0代表正常，10代表被封禁'
-          enum:
-            - 0
-            - 10
-          example: 0
-        bot:
-          type: boolean
-          description: 是否为机器人
-        avatar:
-          type: string
-          description: 用户的头像的url地址
-          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
-        vip_avatar:
-          type: string
-          description: vip用户的头像的url地址，可能为gif动图
-          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
     GuildChannelPermission:
       type: object
       required:
@@ -4442,9 +4643,6 @@ components:
       type: string
       description: 消息id
       example: 1c4532f6-*********-93e9-6347f410f91c
-    type:
-      type: integer
-      description: '消息类型, 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息'
     author:
       description: 消息作者
       allOf:
@@ -4452,22 +4650,6 @@ components:
     content:
       type: string
       description: 消息内容
-    mention:
-      type: array
-      description: '`@特定用户` 的用户ID数组'
-      items:
-        type: string
-    mention_all:
-      type: boolean
-      description: 是否含有`@全体人员`
-    mention_roles:
-      type: array
-      description: '`@特定角色` 的角色ID数组'
-      items:
-        type: string
-    mention_here:
-      type: boolean
-      description: 是否含有`@在线成员`
     embed:
       type: object
       properties:
@@ -4579,34 +4761,6 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/reaction'
-    mention_part:
-      type: object
-      properties:
-        id:
-          type: string
-          example: 28444
-        username:
-          type: string
-          example: example
-        full_name:
-          type: string
-          example: example#1111
-        avatar:
-          type: string
-          example: '***.jpg'
-    mention_info:
-      type: object
-      properties:
-        mention_part:
-          description: '`@特定用户` 的用户ID信息，与`mention`中数据对应'
-          type: array
-          items:
-            $ref: '#/components/schemas/mention_part'
-        mention_role_part:
-          type: array
-          description: '`@特定角色` 的角色ID信息，与`mention_roles`中数据对应'
-          items:
-            $ref: '#/components/schemas/GuildRole'
     _index_basic:
       type: object
       properties:
@@ -4782,79 +4936,11 @@ components:
           description: 上传用户
           allOf:
             - $ref: '#/components/schemas/basic'
-    BasicEvent:
-      type: object
-      required:
-        - s
-        - d
-        - sn
-      properties:
-        s:
-          type: integer
-          description: >-
-            websocket信令，详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
-          example: 0
-        d:
-          type: object
-          description: 具体数据
-          required:
-            - channel_type
-            - type
-            - target_id
-            - author_id
-            - content
-            - msg_id
-            - msg_timestamp
-            - extra
-          properties:
-            channel_type:
-              type: string
-              description: >-
-                消息频道类型, 群体消息为`GROUP`，个人消息为`PERSON`。例如，向频道内发送的消息为`GROUP`,
-                按钮返回事件为`PERSON`
-              example: GROUP
-              enum:
-                - GROUP
-                - PERSON
-            type:
-              type: integer
-            target_id:
-              type: string
-              description: 发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id
-              example: '60163899100000'
-            author_id:
-              type: string
-              description: '发送者 id, 1 代表系统'
-              example: 1
-            content:
-              type: string
-              description: '消息内容, 文件，图片，视频时，content 为 url'
-            msg_id:
-              type: string
-              description: 消息的 id
-            msg_timestamp:
-              type: integer
-              description: 消息发送时间的毫秒时间戳
-            nonce:
-              type: string
-              description: 随机串，与用户消息发送 api 中传的 nonce 保持一致
-            verify_token:
-              type: string
-              description: webhook设置中的verify_token
-            extra:
-              type: object
-              description: 不同的消息类型，结构不一致
-              example: xxx
-        sn:
-          type: integer
-          description: >-
-            消息序号，针对当前session。该字段并不一定有，只在s=0时有，与webhook一致。详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
-          example: 1
     MessageEvent:
       type: object
       description: 当事件的type非系统消息(255)时
       allOf:
-        - $ref: '#/components/schemas/BasicEvent'
+        - $ref: '#/components/schemas/basic-2'
       properties:
         d:
           type: object
@@ -4893,38 +4979,6 @@ components:
                   description: 消息作者
                   allOf:
                     - $ref: '#/components/schemas/basic'
-    text:
-      type: object
-      properties:
-        d:
-          type: object
-          properties:
-            extra:
-              type: object
-              properties:
-                body:
-                  type: object
-                  properties:
-                    type:
-                      allOf:
-                        - $ref: '#/components/schemas/type'
-                      example: 1
-                    guild_id:
-                      $ref: '#/components/schemas/GuildId'
-                    channel_name:
-                      type: string
-                      description: 频道名
-                      example: 一个频道
-                    mention:
-                      $ref: '#/components/schemas/mention'
-                    mention_all:
-                      $ref: '#/components/schemas/mention_all'
-                    mention_roles:
-                      $ref: '#/components/schemas/mention_roles'
-                    mention_here:
-                      $ref: '#/components/schemas/mention_here'
-                    author:
-                      $ref: '#/components/schemas/basic'
     multimedia_image:
       type: object
       properties:
@@ -4964,66 +5018,10 @@ components:
           $ref: '#/components/schemas/basic'
         attachments:
           $ref: '#/components/schemas/file'
-    kmarkdownElement:
-      allOf:
-        - $ref: '#/components/schemas/mention_info'
-        - type: object
-          properties:
-            raw_content:
-              type: string
-              description: '经过编译的纯文本，如原始文本为"*Hello World*", 则此处为"Hello World"'
-    kmarkdown:
-      type: object
-      properties:
-        type:
-          allOf:
-            - $ref: '#/components/schemas/type'
-          example: 9
-        guild_id:
-          $ref: '#/components/schemas/GuildId'
-        channel_name:
-          type: string
-          description: 频道名
-          example: 一个频道
-        mention:
-          $ref: '#/components/schemas/mention'
-        mention_all:
-          $ref: '#/components/schemas/mention_all'
-        mention_roles:
-          $ref: '#/components/schemas/mention_roles'
-        mention_here:
-          $ref: '#/components/schemas/mention_here'
-        author:
-          $ref: '#/components/schemas/basic'
-        kmarkdown:
-          $ref: '#/components/schemas/kmarkdownElement'
-    card:
-      type: object
-      properties:
-        type:
-          allOf:
-            - $ref: '#/components/schemas/type'
-          example: 9
-        guild_id:
-          $ref: '#/components/schemas/GuildId'
-        channel_name:
-          type: string
-          description: 频道名
-          example: 一个频道
-        mention:
-          $ref: '#/components/schemas/mention'
-        mention_all:
-          $ref: '#/components/schemas/mention_all'
-        mention_roles:
-          $ref: '#/components/schemas/mention_roles'
-        mention_here:
-          $ref: '#/components/schemas/mention_here'
-        author:
-          $ref: '#/components/schemas/basic'
     SystemEvent:
       type: object
       allOf:
-        - $ref: '#/components/schemas/BasicEvent'
+        - $ref: '#/components/schemas/basic-2'
         - type: object
           properties:
             d:
@@ -5236,6 +5234,8 @@ components:
                     welcome_channel_id:
                       type: string
                       description: 欢迎频道id
+    BasicEvent:
+      $ref: '#/components/schemas/basic-2'
     User:
       $ref: '#/components/schemas/basic'
     UserId:
@@ -5337,7 +5337,28 @@ components:
                           type:
                             example: 1
                           body:
-                            $ref: '#/components/schemas/text'
+                            type: object
+                            properties:
+                              type:
+                                allOf:
+                                  - $ref: '#/components/schemas/type'
+                                example: 1
+                              guild_id:
+                                $ref: '#/components/schemas/GuildId'
+                              channel_name:
+                                type: string
+                                description: 频道名
+                                example: 一个频道
+                              mention:
+                                $ref: '#/components/schemas/mention'
+                              mention_all:
+                                $ref: '#/components/schemas/mention_all'
+                              mention_roles:
+                                $ref: '#/components/schemas/mention_roles'
+                              mention_here:
+                                $ref: '#/components/schemas/mention_here'
+                              author:
+                                $ref: '#/components/schemas/basic'
     image:
       content:
         application/json:

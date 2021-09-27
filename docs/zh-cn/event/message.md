@@ -208,8 +208,6 @@
 }
 ```
 
-###
-
 ## KMarkdown 消息
 
 #### extra 字段说明
@@ -279,8 +277,6 @@
 }
 ```
 
-###
-
 ## Card 消息
 
 #### extra 字段说明
@@ -297,7 +293,6 @@
 | nav_channels  | Array   |                                                                                  |
 | code          | string  |                                                                                  |
 | author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User) |
-| kmarkdown     | Map     |                                                                                  |
 
 #### Card 消息示例
 
@@ -335,11 +330,6 @@
         },
         "nickname": "12316993",
         "roles": [111, 112]
-      },
-      "kmarkdown": {
-        "raw_content": "",
-        "mention_part": [],
-        "mention_role_part": []
       }
     },
     "msg_id": "553f1f78-xxxxx-39c65d9c5584",
