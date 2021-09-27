@@ -19,9 +19,9 @@
 
 ### 参数列表
 
-| 参数名  | 类型   | 参数区域 | 是否必填 | 说明      |
-| ------- | ------ | -------- | -------- | --------- |
-| user_id | string | GET      | 是       | 用户的 id |
+| 参数名  | 位置  | 类型   | 必需 | 说明      |
+| ------- | ----- | ------ | ---- | --------- |
+| user_id | query | string | true | 用户的 id |
 
 ### 返回参数说明
 
@@ -44,27 +44,27 @@ curl -H "Authorization: Bot your_token" "https://www.kaiheila.cn/api/v3/intimacy
 
 返回示例：
 
-```javascript
+```json
 {
-    "code": 0,
-    "message": "操作成功",
-    "data": {
-        "img_url": "",
-        "social_info": "test",
-        "last_modify": 1607432478030,
-        "last_read": 0,
-        "score": 123,
-        "img_list": [
-            {
-                "id": "11",
-                "url": ""
-            },
-            {
-                "id": "8821",
-                "url": ""
-            }
-        ]
-    }
+  "code": 0,
+  "message": "操作成功",
+  "data": {
+    "img_url": "",
+    "social_info": "test",
+    "last_modify": 1607432478030,
+    "last_read": 0,
+    "score": 123,
+    "img_list": [
+      {
+        "id": "11",
+        "url": ""
+      },
+      {
+        "id": "8821",
+        "url": ""
+      }
+    ]
+  }
 }
 ```
 
@@ -78,12 +78,13 @@ curl -H "Authorization: Bot your_token" "https://www.kaiheila.cn/api/v3/intimacy
 
 ### 参数列表
 
-| 参数名      | 类型   | 参数区域 | 是否必填 | 说明                                        |
-| ----------- | ------ | -------- | -------- | ------------------------------------------- |
-| user_id     | string | POST     | 是       | 用户的 id                                   |
-| score       | int    | POST     | 否       | 亲密度，0-2200                              |
-| social_info | string | POST     | 否       | 机器人与用户的社交信息，500 字以内          |
-| img_id      | int    | POST     | 否       | id 必须在用户亲密度接口返回的 `img_list` 中 |
+| 参数名        | 位置 | 类型    | 必需  | 说明                               |
+| ------------- | ---- | ------- | ----- | ---------------------------------- |
+| body          | body | object  | false | none                               |
+| » user_id     | body | string  | true  | 用户 id                            |
+| » score       | body | integer | false | 亲密度，0-2200                     |
+| » social_info | body | string  | false | 机器人与用户的社交信息，500 字以内 |
+| » img_id      | body | string  | false | 表情 ID                            |
 
 ### 返回参数说明
 
@@ -102,10 +103,10 @@ curl "https://www.kaiheila.cn/api/v3/intimacy/update" -L \
 
 返回示例
 
-```javascript
+```json
 {
-    "code":0,
-    "message":"操作成功",
-    "data":[]
+  "code": 0,
+  "message": "操作成功",
+  "data": {}
 }
 ```
