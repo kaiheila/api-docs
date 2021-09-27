@@ -358,7 +358,8 @@ GuildChannelPermission:
       description: 拒绝的权限的结果集，详见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
       example: 0
 GuildRoleId:
-  type: number
+  type: integer
+  format: unsigned integer
   description: 服务器角色id
   example: 113
 

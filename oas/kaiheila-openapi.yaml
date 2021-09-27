@@ -1318,6 +1318,7 @@ paths:
       tags:
         - 服务器角色权限
       summary: 赋予用户角色
+      operationId: grantGuildRole
       requestBody:
         content:
           application/json:
@@ -1355,7 +1356,7 @@ paths:
                             type: array
                             description: 角色id的列表
                             items:
-                              $ref: '#/components/schemas/GuildRoleId'
+                              $ref: './components/schemas/_index.yaml#/GuildRoleId'
   /guild-role/revoke:
     post:
       tags:
