@@ -1029,6 +1029,15 @@ paths:
       tags:
         - gateway
       summary: 获取网关连接地址
+      operationId: getIndex
+      description: |
+        ## 关于gateway重连
+        如果需要websocket重连，请在连接 gateway 时加入 resume=1，如下方示例：
+
+        ```
+        wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&sessionId=20****ae-1fa4-4d19-805f-6f0f****d534
+        ```
+        sn需自行记录（可保存至文件，以实现代码升级重启后恢复会话）
       parameters:
         - name: compress
           in: query
@@ -1607,6 +1616,7 @@ paths:
       tags:
         - 邀请
       summary: 获取邀请列表
+      operationId: listInvites
       description: 服务器id或者频道id必须填一个
       parameters:
         - name: guild_id
@@ -1717,6 +1727,7 @@ paths:
       tags:
         - 邀请
       summary: 删除邀请链接
+      operationId: deleteInvite
       description: 服务器id或者频道id必须填一个
       requestBody:
         content:
