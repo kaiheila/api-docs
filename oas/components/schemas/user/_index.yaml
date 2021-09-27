@@ -1,0 +1,36 @@
+basic:
+  type: object
+  description: 用户对象
+  properties:
+    id:
+      $ref: './_fields.yaml#/id'
+    username:
+      type: string
+      description: 用户的名称
+      example: tz-un
+    identify_num:
+      type: string
+      description: 用户名的认证数字，用户名正常为：user_name#identify_num
+      example: '5618'
+    online:
+      type: boolean
+      description: 当前是否在线
+      example: false
+    status:
+      type: integer
+      description: 用户的状态, 0代表正常，10代表被封禁
+      enum:
+        - 0
+        - 10
+      example: 0
+    bot:
+      type: boolean
+      description: 是否为机器人
+    avatar:
+      type: string
+      description: 用户的头像的url地址
+      example: https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon
+    vip_avatar:
+      type: string
+      description: vip用户的头像的url地址，可能为gif动图
+      example: https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon

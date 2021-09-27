@@ -1,0 +1,2064 @@
+openapi: 3.1.0
+
+servers:
+  - url: https://www.kaiheila.cn/api/v3
+    description: 机器人接口
+
+info:
+  title: 开黑啦机器人API v3 开发者版
+  version: 3.0.0
+  termsOfService: https://developer.kaiheila.cn/doc/privacy
+  contact:
+    email: service@kaiheila.cn
+  license:
+    name: MIT
+    url: https://github.com/kaiheila/api-docs/blob/main/LICENSE
+  description: 
+    $ref: "./descriptions/_index.yaml#/intro"
+
+# 如需合并，请执行：npx @redocly/openapi-cli bundle ./api-docs/oas/kaiheila-openapi.yaml -o ./api-docs/oas/kaiheila-openapi-bundled.yaml 
+tags:
+  - name: KMarkDown
+    description: 
+      $ref: "./descriptions/_index.yaml#/kmarkdown"
+  - name: 卡片消息
+    description: 
+      $ref: "./descriptions/_index.yaml#/cardMessage"
+  - name: 服务器
+    description: 服务器相关接口
+  - name: 频道
+    description: 服务器频道相关接口
+  - name: 频道消息
+    description: 频道消息相关接口
+  - name: 私聊会话
+    description: 私聊会话相关接口
+  - name: 私聊消息
+    description: 私聊消息相关接口
+  - name: 用户
+    description: 用户相关接口
+  - name: 服务器角色权限
+    description: 
+      $ref: "./descriptions/_index.yaml#/permissions"
+  - name: 服务器表情
+    description: 服务器表情相关接口
+  - name: 邀请
+    description: 邀请相关接口
+  - name: gateway
+    description: Gateway接口
+  - name: 亲密度
+    description: 亲密度相关接口列表
+  - name: 附件
+    description: 附件相关接口
+  - name: 事件结构与格式说明
+    description:
+      $ref: "./descriptions/_index.yaml#/event"
+  - name: 消息相关事件
+    description: 消息相关事件
+  - name: 频道相关事件
+    description: 频道相关事件
+  - name: 服务器相关事件
+    description: 服务器相关事件
+  - name: 用户相关事件
+    description: 用户相关事件
+  - name: 私聊相关事件
+    description: 私聊相关事件
+  - name: 服务器成员相关事件
+    description: 服务器成员相关事件
+paths:
+  /kmarkdown:
+    post: 
+      tags:
+        - KMarkDown
+      summary: 事件中的kmarkdown消息格式
+      requestBody:
+        content: 
+          application/json: 
+            schema: 
+              $ref: './components/schemas/message/rich-text.yaml#/kmarkdown'
+  /cardMessage:
+    post: 
+      tags:
+        - 卡片消息
+      summary: 事件中的卡片消息格式
+      requestBody:
+        content: 
+          application/json: 
+            schema: 
+              $ref: './components/schemas/message/rich-text.yaml#/card'
+  /event:
+    post:
+      tags:
+        - 事件结构与格式说明
+      summary: 事件结构示例
+      requestBody:
+        content: 
+          application/json: 
+            schema: 
+              $ref: './components/schemas/events/basic.yaml'
+  /guild/list:
+    get:
+      tags:
+        - 服务器
+      summary: 获取当前用户加入的服务器列表
+      description: ''
+      operationId: getJoinedGuilds
+      parameters:
+        - $ref: '#/components/parameters/PageNumberParam'
+        - $ref: '#/components/parameters/PageSizeParam'
+        - name: sort
+          in: query
+          description: 代表排序的字段, 比如-id代表id按DESC排序，id代表id按ASC排序。不一定有, 如果有，接口中会声明支持的排序字段。
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        allOf:
+                          - $ref: '#/components/schemas/PaginationInfo'
+                          - type: object
+                            properties:
+                              items:
+                                type: array
+                                items:
+                                  $ref: './components/schemas/_index.yaml#/Guild'
+  /guild/index:
+    get:
+      tags:
+        - 服务器
+      deprecated: true
+      summary: 获取当前用户加入的服务器列表
+      description: ''
+      parameters: []
+      operationId: getJoinedGuildsOld
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Guild'
+  /guild/view:
+    get:
+      tags:
+        - 服务器
+      summary: 获取服务器详情
+      operationId: getGuildById
+      parameters:
+        - $ref: '#/components/parameters/GuildIdParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+                        allOf:
+                          - $ref: '#/components/schemas/Guild'
+                        properties:
+                          roles:
+                            type: array
+                            items:
+                              - $ref: './components/schemas/_index.yaml#/GuildRole'
+                          channels:
+                            type: array
+                            items: 
+                              - $ref: "./components/schemas/_index.yaml#/GuildChannel"
+  /guild/user-list:
+    get:
+      tags:
+        - 服务器
+      summary: 获取服务器的用户列表
+      operationId: getUsersInGuild
+      parameters:
+        - $ref: '#/components/parameters/GuildIdParam'
+        - $ref: '#/components/parameters/GuildChannelIdParam'
+          required: false
+        - name: search
+          in: query
+          description: 搜索关键字，在用户名或昵称中搜索
+          schema:
+            type: string
+        - name: role_id
+          in: query
+          description: 角色 ID，获取特定角色的用户列表
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/MobileVerifiedParam'
+        - name: active_time
+          in: query
+          description: 根据活跃时间排序，`0`是顺序排列，`1`是倒序排列
+          schema:
+            type: integer
+        - name: joined_at
+          in: query
+          description: 根据加入时间排序，`0`是顺序排列，`1`是倒序排列
+          schema:
+            type: integer
+        - $ref: '#/components/parameters/PageNumberParam'
+        - $ref: '#/components/parameters/PageSizeParam'
+        - name: filter_user_id
+          in: query
+          description: 获取指定id所属用户的信息
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        allOf:
+                          - $ref: '#/components/schemas/PaginationInfo'
+                          - type: object
+                            properties:
+                              items:
+                                type: array
+                                items:
+                                  $ref: '#/components/schemas/User'
+                              user_count:
+                                type: integer
+                                description: 用户数量
+                                example: 10
+                              online_count:
+                                type: integer
+                                description: 用户数量
+                                example: 3
+                              offline_count:
+                                type: integer
+                                description: 离线用户数量
+                                example: 7
+  /guild/nickname:
+    post:
+      tags:
+        - 服务器
+      summary: 修改服务器中的用户昵称
+      operationId: changeUserNickname
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - guild_id
+              properties:
+                guild_id:
+                  $ref: '#/components/schemas/GuildId'
+                nickname:
+                  type: string
+                  description: 昵称，2 - 64 长度，不传则清空昵称
+                user_id:
+                  allOf:
+                    - $ref: '#/components/schemas/UserId'
+                    - description: 要修改昵称的目标用户 ID，不传则修改当前登陆用户的昵称
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /guild/leave:
+    post:
+      tags:
+        - 服务器
+      summary: 离开服务器
+      operationId: leaveGuild
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - guild_id
+              properties:
+                guild_id:
+                  $ref: '#/components/schemas/GuildId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /guild/kickout:
+    post:
+      tags:
+        - 服务器
+      summary: 踢出服务器
+      operationId: kickUserById
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - guild_id
+                - target_id
+              properties:
+                guild_id:
+                  $ref: '#/components/schemas/GuildId'
+                target_id:
+                  allOf:
+                    - $ref: '#/components/schemas/UserId'
+                    - description: 目标用户ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /guild-mute/list:
+    get:
+      tags:
+        - 服务器
+      summary: 服务器静音闭麦列表
+      operationId: getGuildMuteUsers
+      parameters:
+        - $ref: '#/components/parameters/GuildIdParam'
+        - name: return_type
+          in: query
+          description: 返回格式，建议为"detail", 其他情况仅作为兼容
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          mic:
+                            description: return_type为detail时返回
+                            type: object
+                            properties:
+                              type:
+                                type: integer
+                                description: 闭麦类型，1为麦克风闭麦
+                                enum:
+                                  - 1
+                              user_ids:
+                                type: array
+                                items:
+                                  $ref: '#/components/schemas/UserId'
+                          headset:
+                            description: return_type为detail时返回
+                            type: object
+                            properties:
+                              type:
+                                type: integer
+                                description: 闭麦类型，2为耳机静音
+                                enum:
+                                  - 2
+                              user_ids:
+                                type: array
+                                items:
+                                  $ref: '#/components/schemas/UserId'
+  /guild-mute/create:
+    post:
+      tags:
+        - 服务器
+      summary: 添加服务器闭麦或静音
+      operationId: muteUserById
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - guild_id
+                - target_id
+                - type
+              properties:
+                guild_id:
+                  $ref: '#/components/schemas/GuildId'
+                target_id:
+                  allOf:
+                    - $ref: '#/components/schemas/UserId'
+                    - description: 目标用户ID
+                type:
+                  type: integer
+                  description: 静音类型，`1`代表麦克风闭麦，`2`代表耳机静音
+                  enum:
+                    - 1
+                    - 2
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /guild-mute/delete:
+    post:
+      tags:
+        - 服务器
+      summary: 删除服务器闭麦或静音
+      operationId: unmuteUserById
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - guild_id
+                - target_id
+                - type
+              properties:
+                guild_id:
+                  $ref: '#/components/schemas/GuildId'
+                target_id:
+                  allOf:
+                    - $ref: '#/components/schemas/UserId'
+                    - description: 目标用户ID
+                type:
+                  type: integer
+                  description: 静音类型，`1`代表麦克风闭麦，`2`代表耳机静音
+                  enum:
+                    - 1
+                    - 2
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /channel/list:
+    $ref: './paths/channel.yaml#/list'
+  /channel/view:
+    $ref: './paths/channel.yaml#/view'
+  /channel/create:
+    $ref: './paths/channel.yaml#/create'
+  /channel/delete:
+    $ref: './paths/channel.yaml#/delete'
+  /channel/user-list:
+    $ref: './paths/channel.yaml#/user-list'
+  /channel/move-user:
+    $ref: './paths/channel.yaml#/move-user'
+  /channel-role/index:
+    $ref: './paths/channel-role.yaml#/index'
+  /channel-role/create:
+    $ref: './paths/channel-role.yaml#/create'
+  /channel-role/update:
+    $ref: './paths/channel-role.yaml#/update'
+  /channel-role/delete:
+    $ref: './paths/channel-role.yaml#/delete'
+  /message/list:
+    get:
+      tags:
+        - 频道消息
+      summary: 获取频道聊天消息列表
+      operationId: getChannelMessages
+      description: 此接口非标准分页，需要根据参考消息来查询相邻分页的消息
+      parameters:
+        - name: target_id
+          in: query
+          description: 频道id
+          required: true
+          schema:
+            $ref: '#/components/schemas/GuildChannelId'
+        - name: msg_id
+          in: query
+          description: 参考消息id，不传则查询最新消息
+          schema:
+            type: string
+        - name: pin
+          in: query
+          description: 只能为0或者1，是否查询置顶消息。 置顶消息只支持查询最新的消息
+          schema:
+            type: integer
+            format: unsigned integer
+            enum:
+              - 0
+              - 1
+        - $ref: '#/components/parameters/MessageListFlagParam'
+        - name: page_size
+          in: query
+          description: 当前分页消息数量, 默认50
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          items:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/Message'
+  /message/create:
+    post:
+      tags:
+        - 频道消息
+      summary: 发送频道聊天消息
+      operationId: sendChannelMessage
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/SendMessageRequest'
+                - type: object
+                  required:
+                    - target_id
+                  properties:
+                    target_id:
+                      allOf:
+                        - $ref: '#/components/schemas/GuildChannelId'
+                      description: 目标频道 id
+                    temp_target_id:
+                      type: string
+                      description: 用户id,如果传了，代表该消息是临时消息，该消息不会存数据库，但是会在频道内只给该用户推送临时消息。用于在频道内针对用户的操作进行单独的回应通知等。
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                properties:
+                  data:
+                    properties:
+                      msg_id:
+                        allOf:
+                          - $ref: './components/schemas/message/_fields.yaml#/id'
+                        description: 服务端生成的消息 id
+                      msg_timestamp:
+                        type: integer
+                        description: 消息发送时间(ms, 服务器时间戳)
+                        example: 1607072537177
+                      nonce:
+                        type: string
+                        description: 原样返回的字符串
+                        example: xxxx
+  /message/update:
+    post:
+      tags:
+        - 频道消息
+      summary: 更新频道聊天消息
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - target_id
+                - content
+              properties:
+                msg_id:
+                  $ref: './components/schemas/message/_fields.yaml#/id'
+                content:
+                  type: string
+                  description: 消息内容
+                quote:
+                  allOf:
+                    - $ref: './components/schemas/message/_fields.yaml#/id'
+                  description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
+                temp_target_id:
+                  type: string
+                  description: 用户id，针对特定用户临时更新消息，必须是正常消息才能更新。与发送临时消息概念不同，但同样不保存数据库。
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /message/delete:
+    post:
+      tags:
+        - 频道消息
+      summary: 删除频道聊天消息
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - target_id
+                - content
+              properties:
+                msg_id:
+                  $ref: './components/schemas/message/_fields.yaml#/id'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /message/reaction-list:
+    get:
+      tags:
+        - 频道消息
+      summary: 获取频道消息某个回应的用户列表
+      operationId: getMessageReactionUsers
+      parameters:
+        - name: msg_id
+          in: query
+          description: 频道消息的id
+          required: true
+          schema:
+            $ref: './components/schemas/message/_fields.yaml#/id'
+        - name: emoji
+          in: query
+          description: emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode
+          schema:
+            $ref: '#/components/schemas/GuildEmojiId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          allOf:
+                            - $ref: '#/components/schemas/User'
+                            - type: object
+                              properties:
+                                reaction_time:
+                                  type: integer
+                                  description: 用户点击reaction的毫秒时间戳
+                                  example: 1612323994414
+  /message/add-reaction:
+    post:
+      tags:
+        - 频道消息
+      summary: 为消息添加回应
+      operationId: addMessageReaction
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - msg_id
+                - emoji
+              properties:
+                msg_id:
+                  $ref: './components/schemas/message/_fields.yaml#/id'
+                emoji:
+                  $ref: './components/schemas/_index.yaml#/GuildEmojiId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /message/delete-reaction:
+    post:
+      tags:
+        - 频道消息
+      summary: 为消息删除回应
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - msg_id
+                - emoji
+              properties:
+                msg_id:
+                  $ref: './components/schemas/message/_fields.yaml#/id'
+                emoji:
+                  $ref: '#/components/schemas/GuildEmojiId'
+                user_id:
+                  allOf:
+                    - $ref: '#/components/schemas/UserId'
+                    - description: 用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /user-chat/list:
+    get:
+      tags:
+        - 私聊会话
+      summary: 获取私信频道列表
+      parameters:
+        - $ref: '#/components/parameters/PageNumberParam'
+        - $ref: '#/components/parameters/PageSizeParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        allOf:
+                          - $ref: '#/components/schemas/PaginationInfo'
+                          - type: object
+                            properties:
+                              items:
+                                type: array
+                                items:
+                                  $ref: '#/components/schemas/UserChat'
+  /user-chat/view:
+    get:
+      tags:
+        - 私聊会话
+      summary: 获取私信频道详情
+      parameters:
+        - name: chat_code
+          in: query
+          description: 私聊会话 Code
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      items:
+                        type: array
+                        items:
+                          $ref: './components/schemas/_index.yaml#/UserChatDetail'
+  /user-chat/create:
+    post:
+      tags:
+        - 私聊会话
+      summary: 创建私信频道
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                target_id:
+                  allOf:
+                    - $ref: '#/components/schemas/UserId'
+                  description: 目标用户id
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      items:
+                        type: array
+                        items:
+                          $ref: '#/components/schemas/UserChatDetail'
+  /user-chat/delete:
+    post:
+      tags:
+        - 私聊会话
+      summary: 删除私信频道
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                target_id:
+                  allOf:
+                    - $ref: '#/components/schemas/ChatCode'
+                  description: 私信会话Code
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /direct-message/list:
+    get:
+      tags:
+        - 私聊消息
+      summary: 获取私信消息列表
+      parameters:
+        - name: chat_code
+          in: query
+          description: 私信会话 Code。`chat_code`与`target_id`必须传一个
+          schema:
+            type: string
+        - name: target_id
+          description: 目标用户 id，后端会自动创建会话。有此参数之后可不传`chat_code`参数
+          in: query
+          schema:
+            $ref: '#/components/schemas/UserId'
+        - name: msg_id
+          description: 参考消息 id，不传则查询最新消息
+          in: query
+          schema:
+            $ref: './components/schemas/message/_fields.yaml#/id'
+        - $ref: '#/components/parameters/MessageListFlagParam'
+        - $ref: '#/components/parameters/PageNumberParam'
+        - name: page_size
+          in: query
+          description: 当前分页消息数量, 默认50
+          schema:
+            type: integer
+            default: 50
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          items:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/DirectMessage'
+  /direct-message/create:
+    post:
+      tags:
+        - 私聊消息
+      summary: 发送私信聊天消息
+      requestBody:
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '#/components/schemas/SendMessageRequest'
+              type: object
+              properties:
+                target_id:
+                  allOf:
+                    - $ref: '#/components/schemas/UserId'
+                  description: 目标用户 id，后端会自动创建会话。有此参数之后可不传`chat_code`参数
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                properties:
+                  data:
+                    properties:
+                      msg_id:
+                        type: string
+                        description: 服务端生成的消息 id
+                        example: 50974c-364c983fa6cb
+                      msg_timestamp:
+                        type: integer
+                        description: 消息发送时间(ms, 服务器时间戳)
+                        example: 1607072537177
+                      nonce:
+                        type: string
+                        description: 原样返回的字符串
+                        example: xxxx
+  /direct-message/update:
+    post:
+      tags:
+        - 私聊消息
+      summary: 更新私信聊天消息
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - target_id
+                - content
+              properties:
+                msg_id:
+                  $ref: './components/schemas/message/_fields.yaml#/id'
+                content:
+                  type: string
+                  description: 消息内容
+                quote:
+                  allOf:
+                    - $ref: './components/schemas/message/_fields.yaml#/id'
+                  description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /direct-message/delete:
+    post:
+      tags:
+        - 私聊消息
+      summary: 删除私信聊天消息
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - target_id
+                - content
+              properties:
+                msg_id:
+                  $ref: './components/schemas/message/_fields.yaml#/id'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /direct-message/reaction-list:
+    get:
+      tags:
+        - 私聊消息
+      summary: 获取消息某个回应的用户列表
+      parameters:
+        - name: msg_id
+          in: query
+          description: 消息的id
+          required: true
+          schema:
+            $ref: './components/schemas/message/_fields.yaml#/id'
+        - name: emoji
+          in: query
+          description: emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode
+          schema:
+            $ref: '#/components/schemas/GuildEmojiId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                type: object
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: array
+                        items:
+                          allOf:
+                            - $ref: '#/components/schemas/User'
+                            - type: object
+                              properties:
+                                reaction_time:
+                                  type: integer
+                                  description: 用户点击reaction的毫秒时间戳
+  /direct-message/add-reaction:
+    post:
+      tags:
+        - 私聊消息
+      summary: 为消息添加回应
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - msg_id
+                - emoji
+              properties:
+                msg_id:
+                  $ref: './components/schemas/message/_fields.yaml#/id'
+                emoji:
+                  $ref: '#/components/schemas/GuildEmojiId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /direct-message/delete-reaction:
+    post:
+      tags:
+        - 私聊消息
+      summary: 为消息删除回应
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - msg_id
+                - emoji
+              properties:
+                msg_id:
+                  $ref: './components/schemas/message/_fields.yaml#/id'
+                emoji:
+                  $ref: '#/components/schemas/GuildEmojiId'
+                user_id:
+                  allOf:
+                    - $ref: '#/components/schemas/UserId'
+                    - description: 用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+  /gateway/index:
+    get:
+      tags:
+        - gateway
+      summary: 获取网关连接地址
+      operationId: getIndex
+      parameters:
+        - name: compress
+          in: query
+          description: 下发数据是否压缩，默认为`1`,代表压缩
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                properties:
+                  data:
+                    type: object
+                    properties:
+                      url:
+                        type: string
+                        description: 网关的连接地址
+                        example: wss://xxxx
+  /user/me:
+    get:
+      tags:
+        - 用户
+      summary: 获取当前用户信息
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        allOf:
+                          - $ref: '#/components/schemas/User'
+                          - type: object
+                            properties:
+                              mobile_verified:
+                                type: boolean
+                                description: 手机号是否已验证
+                                example: true
+                              mobile_prefix:
+                                type: string
+                                description: 手机区号,如中国为86
+                                example: '86'
+                              mobile:
+                                type: string
+                                description: 用户手机号，带掩码
+                                example: '110****2333'
+                              invited_count:
+                                type: integer
+                                description: 当前邀请注册的人数
+                                example: 3
+  /user/view:
+    get:
+      tags:
+        - 用户
+      summary: 获取目标用户信息
+      parameters:
+        - $ref: '#/components/parameters/UserIdParam'
+        - name: guild_id
+          in: query
+          description: 服务器id
+          schema:
+            $ref: '#/components/schemas/GuildId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        allOf:
+                          - $ref: '#/components/schemas/User'
+                          - type: object
+                            properties:
+                              mobile_verified:
+                                type: boolean
+                                description: 手机号是否已验证
+                                example: true
+                              roles:
+                                type: array
+                                description: 用户在当前服务器中的角色 id 组成的列表
+                                items:
+                                  $ref: '#/components/schemas/GuildRoleId'
+                              joined_at:
+                                type: integer
+                                description: 加入服务器时间
+                                example: 1621338425000
+                              active_time:
+                                type: integer
+                                description: 活跃时间
+                                example: 1628688607719
+  /asset/create:
+    post:
+      tags:
+        - 附件
+      summary: 上传多媒体文件
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              properties:
+                file:
+                  type: string
+                  format: binary
+                  description: 目前支持 **图片**, **视频(.mp4 .mov)**, **文件**
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          url:
+                            type: string
+                            description: 资源url
+                            example: https://img.kaiheila.cn/attachments/2021-01/18/xxxxxxxxx.txt
+  /guild-role/list:
+    get:
+      tags:
+        - 服务器角色权限
+      summary: 获取服务器角色列表
+      parameters:
+        - $ref: '#/components/parameters/GuildIdParam'
+        - $ref: '#/components/parameters/PageNumberParam'
+        - $ref: '#/components/parameters/PageSizeParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        allOf:
+                          - $ref: '#/components/schemas/PaginationInfo'
+                          - type: object
+                            properties:
+                              items:
+                                type: array
+                                items:
+                                  type: object
+                                  $ref: './components/schemas/_index.yaml#/GuildRole'
+  /guild-role/create:
+    post:
+      tags:
+        - 服务器角色权限
+      summary: 创建服务器角色
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - guild_id
+              properties:
+                guild_id:
+                  $ref: '#/components/schemas/GuildId'
+                name:
+                  type: string
+                  description: 如果不写，则为"新角色"
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/GuildRole'
+  /guild-role/update:
+    post:
+      tags:
+        - 服务器角色权限
+      summary: 更新服务器角色
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - guild_id
+                - role_id
+              properties:
+                guild_id:
+                  $ref: '#/components/schemas/GuildId'
+                role_id:
+                  type: integer
+                  format: unsigned integer
+                  description: 角色id
+                  example: 702
+                name:
+                  type: string
+                  description: 角色名称
+                  example: 管理员
+                color:
+                  type: integer
+                  format: unsigned integer
+                  minimum: 0
+                  maximum: 16777215
+                  description: 颜色
+                  example: 0
+                hoist:
+                  type: integer
+                  format: unsigned integer
+                  description: 只能为0或者1，是否把该角色的用户在用户列表排到前面
+                  enum:
+                    - 0
+                    - 1
+                mentionable:
+                  type: integer
+                  format: unsigned integer
+                  description: 只能为0或者1，该角色是否可以被提及
+                  enum:
+                    - 0
+                    - 1
+                permissions:
+                  type: integer
+                  format: unsigned integer
+                  description: 权限,参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+                  example: 2048
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/GuildRole'
+  /guild-role/delete:
+    post:
+      tags:
+        - 服务器角色权限
+      summary: 删除服务器角色
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - guild_id
+                - role_id
+              properties:
+                guild_id:
+                  $ref: '#/components/schemas/GuildId'
+                role_id:
+                  type: integer
+                  format: unsigned integer
+                  description: 角色id
+                  example: 702
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+  /guild-role/grant:
+    post:
+      tags:
+        - 服务器角色权限
+      summary: 赋予用户角色
+      operationId: grantGuildRole
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - guild_id
+                - user_id
+                - role_id
+              properties:
+                guild_id:
+                  $ref: '#/components/schemas/GuildId'
+                user_id:
+                  $ref: '#/components/schemas/UserId'
+                role_id:
+                  $ref: '#/components/schemas/GuildRoleId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          user_id:
+                            $ref: '#/components/schemas/UserId'
+                          guild_id:
+                            $ref: '#/components/schemas/GuildId'
+                          roles:
+                            type: array
+                            description: 角色id的列表
+                            items:
+                              $ref: './components/schemas/_index.yaml#/GuildRoleId'
+  /guild-role/revoke:
+    post:
+      tags:
+        - 服务器角色权限
+      summary: 删除用户角色
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - guild_id
+                - user_id
+                - role_id
+              properties:
+                guild_id:
+                  $ref: '#/components/schemas/GuildId'
+                user_id:
+                  $ref: '#/components/schemas/UserId'
+                role_id:
+                  $ref: '#/components/schemas/GuildRoleId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          user_id:
+                            $ref: '#/components/schemas/UserId'
+                          guild_id:
+                            $ref: '#/components/schemas/GuildId'
+                          roles:
+                            type: array
+                            description: 角色id的列表
+                            items:
+                              $ref: '#/components/schemas/GuildRoleId'
+  /intimacy/index:
+    get:
+      tags:
+        - 亲密度
+      summary: 获取用户的亲密度
+      operationId: getIntimacy
+      description: 机器人可以在后台配置默认的初始亲密度和形象，当用户触发某些事件时，机器人可以根据一些逻辑来更新与该用户的亲密度以及形象展示。
+      parameters:
+        - $ref: './components/parameters/_index.yaml#/UserIdParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          img_url:
+                            type: string
+                            description: 机器人给用户显示的形象图片地址
+                          social_info:
+                            type: string
+                            description: 机器人显示给用户的社交信息
+                            example: test
+                          last_read:
+                            type: integer
+                            description: 用户上次查看的时间戳
+                            example: 0
+                          img_list:
+                            type: array
+                            description: 形象图片的总列表
+                            items:
+                              type: object
+                              properties:
+                                id:
+                                  type: string
+                                  description: 形象图片的 id
+                                  example: '11'
+                                url:
+                                  type: string
+                                  description: 形象图片的地址
+                                  example: ''
+  /intimacy/update:
+    post:
+      tags:
+        - 亲密度
+      summary: 更新用户亲密度
+      operationId: updateIntimacy
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - user_id
+              properties:
+                user_id:
+                  allOf:
+                    - $ref: '#/components/schemas/UserId'
+                  description: 用户的id
+                score:
+                  type: integer
+                  description: 亲密度，0-2200
+                  example: 123
+                social_info:
+                  type: string
+                  description: 机器人与用户的社交信息，500 字以内
+                  example: test
+                img_id:
+                  type: string
+                  description: 表情 ID
+                  example: '1'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+  /guild-emoji/list:
+    get:
+      tags:
+        - 服务器表情
+      summary: 获取服务器表情列表
+      operationId: getGuildEmojis
+      parameters:
+        - $ref: '#/components/parameters/PageNumberParam'
+        - $ref: '#/components/parameters/PageSizeParam'
+        - $ref: '#/components/parameters/GuildIdParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        allOf:
+                          - $ref: '#/components/schemas/PaginationInfo'
+                          - type: object
+                            properties:
+                              items:
+                                type: array
+                                items:
+                                  type: object
+                                  $ref: '#/components/schemas/GuildEmoji'
+  /guild-emoji/create:
+    post:
+      tags:
+        - 服务器表情
+      summary: 创建服务器表情
+      operationId: createGuildEmoji
+      description: Header 中 Content-Type 必须为 multipart/form-data
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - guild_id
+                - emoji
+              properties:
+                name:
+                  type: string
+                  description: 表情名。长度限制 2 - 32 字符，如果不写，则为随机字符串
+                guild_id:
+                  $ref: '#/components/schemas/GuildId'
+                emoji:
+                  type: string
+                  format: binary
+                  description: 表情文件。必须为 PNG 类型，大小不能超过 256 KB
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        $ref: '#/components/schemas/GuildEmoji'
+  /guild-emoji/update:
+    post:
+      tags:
+        - 服务器表情
+      summary: 更新服务器表情
+      operationId: updateGuildEmoji
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - name
+                - id
+              properties:
+                name:
+                  type: string
+                  description: 表情名。长度限制 2 - 32 字符，如果不写，则为随机字符串
+                id:
+                  type: string
+                  description: 表情 ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+  /guild-emoji/delete:
+    post:
+      tags:
+        - 服务器表情
+      operationId: deleteGuildEmoji
+      summary: 删除服务器表情
+      requestBody:
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required:
+                - id
+              properties:
+                id:
+                  type: string
+                  description: 表情 ID
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+  /invite/list:
+    get:
+      tags:
+        - 邀请
+      summary: 获取邀请列表
+      operationId: listInvites
+      description: 服务器id或者频道id必须填一个
+      parameters:
+        - name: guild_id
+          in: query
+          description: 服务器id
+          required: false
+          schema:
+            $ref: '#/components/schemas/GuildId'
+        - $ref: '#/components/parameters/GuildChannelIdParam'
+        - $ref: '#/components/parameters/PageNumberParam'
+        - $ref: '#/components/parameters/PageSizeParam'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        allOf:
+                          - $ref: '#/components/schemas/PaginationInfo'
+                          - type: object
+                            properties:
+                              items:
+                                type: array
+                                items:
+                                  type: object
+                                  properties:
+                                    channel_id:
+                                      $ref: '#/components/schemas/GuildChannelId'
+                                    guild_id:
+                                      $ref: '#/components/schemas/GuildId'
+                                    url_code:
+                                      type: string
+                                      description: 邀请码
+                                      example: XXX
+                                    url:
+                                      type: string
+                                      description: 邀请链接
+                                      example: https://kaihei.co/XXX
+                                    user:
+                                      $ref: '#/components/schemas/User'
+  /invite/create:
+    post:
+      tags:
+        - 邀请
+      operationId: createInvite
+      summary: 创建邀请链接
+      description: 服务器id或者频道id必须填一个
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                guild_id:
+                  $ref: '#/components/schemas/GuildId'
+                channel_id:
+                  $ref: '#/components/schemas/GuildChannelId'
+                duration:
+                  type: integer
+                  description: 邀请链接有效时长（秒）（ 0 => 永不； 1800 => 0.5小时； 3600 => 1个小时； 21600 => 6个小时； 43200 => 12个小时； 86400 => 1天； 604800 => 7天）
+                  default: 604800
+                  example: 604800
+                  enum: 
+                    - 0
+                    - 1800
+                    - 3600
+                    - 32600
+                    - 43200
+                    - 86400
+                    - 604800
+                setting_times:
+                  type: integer
+                  description: 设置的次数 （ -1 => 无限制； 1 => 1次使用； 5 => 5次使用； 10 => 10次使用 ；25 => 25次使用； 50 => 50次使用； 100 => 100次使用）
+                  default: -1
+                  example: -1
+                  enum: 
+                    - -1
+                    - 1
+                    - 5
+                    - 10
+                    - 25
+                    - 50
+                    - 100
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
+                  - type: object
+                    properties:
+                      data:
+                        type: object
+                        properties:
+                          url:
+                            type: string
+                            description: 邀请链接
+                            example: https://kaihei.co/xxxx
+  /invite/delete:
+    post:
+      tags:
+        - 邀请
+      summary: 删除邀请链接
+      operationId: deleteInvite
+      description: 服务器id或者频道id必须填一个
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - url_code
+              properties:
+                url_code:
+                  type: string
+                  example: XXX
+                guild_id:
+                  $ref: '#/components/schemas/GuildId'
+                channel_id:
+                  $ref: '#/components/schemas/GuildChannelId'
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BasicResponse'
+
+webhooks:
+  textMessage:
+    post: 
+      tags:
+        - 消息相关事件
+      summary: 文字消息
+      requestBody:
+        $ref: './components/requestBodies/event-message/rich-text.yaml#/text'
+  imageMessage:
+    post: 
+      tags:
+        - 消息相关事件
+      summary: 图片消息
+      requestBody:
+        $ref: './components/requestBodies/event-message/multimedia.yaml#/image'
+  videoMessage:
+    post: 
+      tags:
+        - 消息相关事件
+      summary: 视频消息
+      requestBody:
+        $ref: './components/requestBodies/event-message/multimedia.yaml#/video'
+  fileMessage:
+    post: 
+      tags:
+        - 消息相关事件
+      summary: 文件消息
+      requestBody:
+        $ref: './components/requestBodies/event-message/multimedia.yaml#/file'
+  kmarkdownMessage:
+    post: 
+      tags:
+        - 消息相关事件
+      summary: KMarkDown消息
+      requestBody:
+        $ref: './components/requestBodies/event-message/rich-text.yaml#/kmarkdown'
+  cardMessage:
+    post: 
+      tags:
+        - 消息相关事件
+      summary: 卡片消息
+      requestBody:
+        $ref: './components/requestBodies/event-message/rich-text.yaml#/card'
+  userAddReaction:
+    post:
+      tags:
+        - 频道相关事件
+      summary: 用户添加reaction
+      requestBody:
+        $ref: './components/requestBodies/event-channel/reaction.yaml#/add'
+  userDeleteReaction:
+    post:
+      tags:
+        - 频道相关事件
+      summary: 频道内用户取消reaction
+      requestBody:
+        $ref: './components/requestBodies/event-channel/reaction.yaml#/delete'
+  updateMessge:
+    post:
+      tags:
+        - 频道相关事件
+        - 消息相关事件
+      summary: 频道消息更新
+      requestBody:
+        $ref: './components/requestBodies/event-channel/message.yaml#/update'
+  deleteMessage:
+    post:
+      tags:
+        - 频道相关事件
+        - 消息相关事件
+      summary: 频道消息被删除
+      requestBody:
+        $ref: './components/requestBodies/event-channel/message.yaml#/delete'
+  createChannel:
+    post:
+      tags:
+        - 频道相关事件
+      summary: 新增频道
+      requestBody:
+        $ref: './components/requestBodies/event-channel/channel.yaml#/create'
+  updateChannel:
+    post:
+      tags:
+        - 频道相关事件
+      summary: 频道信息更新
+      requestBody:
+        $ref: './components/requestBodies/event-channel/channel.yaml#/update'
+  deleteChannel:
+    post:
+      tags:
+        - 频道相关事件
+      summary: 删除频道
+      requestBody:
+        $ref: './components/requestBodies/event-channel/channel.yaml#/delete'
+
+  pinMessage:
+    post:
+      tags:
+        - 频道相关事件
+      summary: 新的频道置顶消息
+      requestBody:
+        $ref: './components/requestBodies/event-channel/pin.yaml#/add'
+  unpinMessage:
+    post:
+      tags:
+        - 频道相关事件
+      summary: 取消频道置顶消息
+      requestBody:
+        $ref: './components/requestBodies/event-channel/pin.yaml#/cancel'
+  updatePrivateMessage:
+    post:
+      tags:
+        - 私聊相关事件
+      summary: 私聊消息更新
+      requestBody:
+        $ref: './components/requestBodies/event-direct-message/message.yaml#/update'
+  deletePrivateMessage:
+    post:
+      tags:
+        - 私聊相关事件
+      summary: 私聊消息被删除
+      requestBody:
+        $ref: './components/requestBodies/event-direct-message/message.yaml#/delete'
+  privateAddReaction:
+    post:
+      tags:
+        - 私聊相关事件
+      summary: 私聊内用户添加reaction
+      requestBody:
+        $ref: './components/requestBodies/event-direct-message/reaction.yaml#/add'
+  privateDeleteReaction:
+    post:
+      tags:
+        - 私聊相关事件
+      summary: 私聊内用户删除reaction
+      requestBody:
+        $ref: './components/requestBodies/event-direct-message/reaction.yaml#/delete'
+  memberJoin:
+    post: 
+      tags:
+        - 服务器成员相关事件
+      summary: 新成员加入服务器
+      requestBody:
+        $ref: './components/requestBodies/event-member/member.yaml#/join'
+  memberExit:
+    post: 
+      tags:
+        - 服务器成员相关事件
+      summary: 服务器成员退出
+      requestBody:
+        $ref: './components/requestBodies/event-member/member.yaml#/exit'
+  memberUpdate:
+    post: 
+      tags:
+        - 服务器成员相关事件
+      summary: 服务器成员信息更新
+      requestBody:
+        $ref: './components/requestBodies/event-member/member.yaml#/update'
+  memberOnline:
+    post: 
+      tags:
+        - 服务器成员相关事件
+      summary: 服务器成员信息上线
+      requestBody:
+        $ref: './components/requestBodies/event-member/member.yaml#/online'
+  memberOffline:
+    post: 
+      tags:
+        - 服务器成员相关事件
+      summary: 服务器成员信息下线
+      requestBody:
+        $ref: './components/requestBodies/event-member/member.yaml#/offline'
+  roleAdd:
+    post: 
+      tags:
+        - 服务器角色相关事件
+      summary: 服务器角色增加
+      requestBody:
+        $ref: './components/requestBodies/event-role/role.yaml#/add'
+  roleUpdate:
+    post: 
+      tags:
+        - 服务器角色相关事件
+      summary: 服务器角色更新
+      requestBody:
+        $ref: './components/requestBodies/event-role/role.yaml#/update'
+  roleDelete:
+    post: 
+      tags:
+        - 服务器角色相关事件
+      summary: 服务器角色删除
+      requestBody:
+        $ref: './components/requestBodies/event-role/role.yaml#/delete'
+  guildUpdate: 
+    post: 
+      tags:
+        - 服务器相关事件
+      summary: 服务器信息更新
+      requestBody:
+        $ref: './components/requestBodies/event-guild/guild.yaml#/update'
+  guildDelete:
+    post: 
+      tags:
+        - 服务器相关事件
+      summary: 服务器删除
+      requestBody:
+        $ref: './components/requestBodies/event-guild/guild.yaml#/delete'
+  guildBanUser:
+    post: 
+      tags:
+        - 服务器相关事件
+      summary: 服务器封禁用户
+      requestBody:
+        $ref: './components/requestBodies/event-guild/user.yaml#/ban'
+  guildUnbanUser: 
+    post: 
+      tags:
+        - 服务器相关事件
+      summary: 服务器解除封禁用户
+      requestBody:
+        $ref: './components/requestBodies/event-guild/user.yaml#/unban'
+  userJoinChannel:
+    post: 
+      tags:
+        - 用户相关事件
+        - 频道相关事件
+      summary: 用户加入语音频道
+      requestBody:
+        $ref: './components/requestBodies/event-user/channel.yaml#/join'
+  userExitChannel:
+    post: 
+      tags:
+        - 用户相关事件
+        - 频道相关事件
+      summary: 用户退出语音频道
+      requestBody:
+        $ref: './components/requestBodies/event-user/channel.yaml#/exit'
+  userJoinGuild:
+    post: 
+      tags:
+        - 用户相关事件
+        - 频道相关事件
+      summary: 自己加入服务器
+      description: | 
+        当自己被邀请或主动加入新的服务器时, 产生该事件（对于机器人来说，就是机器人被邀请进入新服务器）
+      requestBody:
+        $ref: './components/requestBodies/event-user/guild.yaml#/join'
+  userExitGuild:
+    post: 
+      tags:
+        - 用户相关事件
+        - 频道相关事件
+      summary: 自己退出服务器
+      description: | 
+        当自己被踢出服务器或被拉黑或主动退出服务器时, 产生该事件（对于机器人来说，就是机器人被踢出/拉黑/主动退出新服务器）
+      requestBody:
+        $ref: './components/requestBodies/event-user/guild.yaml#/exit'
+  userUpdateInfo:
+    post: 
+      tags:
+        - 用户相关事件
+        - 频道相关事件
+      summary: 用户信息更新
+      description: | 
+        **该事件与服务器无关, 遵循以下条件**
+        - 仅当用户的 **用户名** 或 **头像** 变更时;
+        - 仅通知与该用户存在关联的用户或Bot: a. 存在聊天会话 b. 双方好友关系
+      requestBody:
+        $ref: './components/requestBodies/event-user/info.yaml#/update'
+  userClickButton:
+    post:
+      tags:
+        - 用户相关事件
+        - 消息相关事件
+      summary: 用户点击按钮（Card Message）
+      requestBody:
+        $ref: './components/requestBodies/event-user/message.yaml#/click-button'
+components:
+  parameters:
+    $ref: './components/parameters/_index.yaml'
+  schemas:
+    $ref: './components/schemas/_index.yaml'
+security: []

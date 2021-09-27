@@ -1,0 +1,54 @@
+update:
+  content:
+    application/json: 
+      schema: 
+        allOf:
+          - $ref: "../../schemas/_index.yaml#/SystemEvent"
+          - $ref: "../../schemas/events/message.yaml"
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra: 
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`updated_message`
+                        example: "updated_message"
+                      body:
+                        type: object
+                        properties:
+                          udpated_at:
+                            type: integer
+                            description: 更新时间戳(毫秒)
+                            example: 1612703810779
+
+delete:
+  content:
+    application/json: 
+      schema: 
+        allOf:
+          - $ref: "../../schemas/_index.yaml#/SystemEvent"
+          - type: object
+            properties:
+              d:
+                type: object
+                properties:
+                  extra: 
+                    type: object
+                    properties:
+                      type:
+                        description: 消息类型，此处为`deleted_message`
+                        example: "updated_message"
+                      body:
+                        type: object
+                        properties:
+                          msg_id:
+                            allOf:
+                              - $ref: "../../schemas/message/_fields.yaml#/id"
+                            description: 被删除的消息id
+                          channel_id:
+                            allOf:
+                              - $ref: "../../schemas/_index.yaml#/GuildChannelId"
+                            description: 消息所在频道id
