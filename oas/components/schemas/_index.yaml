@@ -390,7 +390,7 @@ SendMessageRequest:
 GuildEmojiId:
   type: string
   description: 表情的id, 可以为Guild Emoji Id或Emoji Id
-  example: XXXXXXXXX/4c43XXXXXXX
+  example: 1333609240026275/zTpnkS****0c80ck
 UserChat:
   type: object
   properties:
