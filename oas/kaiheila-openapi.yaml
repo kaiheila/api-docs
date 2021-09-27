@@ -18,6 +18,9 @@ info:
 
 # 如需合并，请执行：npx @redocly/openapi-cli bundle ./api-docs/oas/kaiheila-openapi.yaml -o ./api-docs/oas/kaiheila-openapi-bundled.yaml 
 tags:
+  - name: 将Bot连接到开黑啦服务器
+    description: 
+      使用Websocket或Webhook将Bot连接至服务器
   - name: KMarkdown与卡片消息
     description: 
       $ref: "./descriptions/_index.yaml#/kmarkdown-card"
@@ -92,6 +95,26 @@ paths:
           application/json: 
             schema: 
               $ref: './components/schemas/events/basic.yaml'
+  /connect-websocket:
+    get: 
+      tags:
+        - 将Bot连接到开黑啦服务器
+      summary: 使用Websocket进行连接
+      description: 
+        $ref: './descriptions/websocket.md'
+      responses: 
+        '200':
+          description: 连接成功
+  /connect-webhook:
+    get: 
+      tags:
+        - 将Bot连接到开黑啦服务器
+      summary: 使用Webhook进行连接
+      description: 
+        $ref: './descriptions/webhook.md'
+      responses: 
+        '200':
+          description: 连接成功
   /guild/list:
     get:
       tags:
