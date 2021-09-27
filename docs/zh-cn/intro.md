@@ -33,7 +33,7 @@ Python:
 
 Go:
 
-- lonelyevil/khl [仓库链接](https://github.com/lonelyevil/khl) 服务器邀请
+- lonelyevil/khl [仓库链接](https://github.com/lonelyevil/khl) [服务器邀请](https://kaihei.co/r5s1WO)
 
 ## OpenAPI 描述文件
 
