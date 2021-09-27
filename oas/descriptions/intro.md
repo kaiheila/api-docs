@@ -4,7 +4,7 @@
 </div>  
 <br>
 
-# 引言
+## 引言
 
 此文档仅用于方便开发者查看、确认开黑啦机器人 API 接口，官方文档地址：[开黑啦开发者平台](https://developer.kaiheila.cn/doc/)
 
@@ -14,20 +14,20 @@
 
 如果发现有任何问题，请提交 Issue/Pull Request，我们将尽快进行修复与合并。
 
-# 简介
+## 简介
 
 欢迎来到开发者酒馆，快找个位置随便坐！开发者中心的文档提供了丰富的 API 接口，介绍了机器人的开发语言、能力、调试等内容，帮助你快速了解机器人开发的方方面面，相信你在这里永远都不会空手而归。
 
 我们将所有文档都藏在了 [GitHub](https://github.com/kaiheila/api-docs) 上，而且我们会不断添加新的功能！
 
-## Bugs
+### Bugs
 
 如果你在使用开黑啦的 API 过程中遇见了 Bug，并且希望上报给我们来纠正这个错误的话，我们提供了两种反馈方式。
 
 - 你可以直接在开黑啦官方的[吐槽中心](https://kaihei.co/MqWk5H)中进行实时反馈；
 - 同时我们我们也提供了在 [GitHub](https://github.com/kaiheila/api-docs) 中的 [issue tracker](https://github.com/kaiheila/api-docs) 中进行反馈。
 
-## SDK
+### SDK
 
 热心的社区开发者们已经为大家准备了多种语言的 SDK，无需重复造轮子，上手即可轻松使用！如果希望你的 SDK 展示在此处，请于开发者服务器内联系`冰飞FlappyIce`。
 
@@ -51,17 +51,17 @@ Go:
 
 - lonelyevil/khl [仓库链接](https://github.com/lonelyevil/khl) 服务器邀请
 
-## OpenAPI 描述文件
+### OpenAPI 描述文件
 
 我们也提供了 OpenAPI 描述文件，你可以用来部署测试用的 Mock Server，或使用生成器生成可互动文档。示例链接：[点击跳转](https://fi6.github.io/kaiheila-api-docs/oas/rapidoc-view.html)
 
-## 机器人
+### 机器人
 
 机器人是增加聊天乐趣和提升管理服务器效率的新方式。你可以通过调整机器人的[亲密度](https://developer.kaiheila.cn/bot)设置，来赋予它们独特的生命力，让它们与用户产生更为亲密的交互。当然你也可以创造一个严肃的管理机器人，或将他变成任何你想象中的样子，充分发挥你的想象力，让你的机器人变得与众不同！
 
 快去创建一个属于你的[机器人](https://developer.kaiheila.cn/bot)吧！
 
-# 开黑啦开发者隐私政策
+## 开黑啦开发者隐私政策
 
 **更新日期：2020 年 12 月 9 日**
 
@@ -71,7 +71,7 @@ Go:
 
 本隐私政策构成您与我们之间具法律约束力的协议，我们在此特别提醒您认真阅读、充分理解本协议各条款，特别是其中所涉及的免除、减轻我们责任的条款、对您权利限制条款、争议解决和法律适用等。**其中，限制、免责条款可能以黑体加粗或加下划线的形式提示您重点注意**。请您审慎阅读并选择接受或不接受本协议。若您不同意本隐私政策，请您停止访问或使用本平台。同时您也可以通过本隐私政策提供的联系方式与我们联系，我们将在我们的能力范围内配合您处理相关事宜。
 
-## 用户信息
+### 用户信息
 
 **开黑啦 API 不得用于以下用途：**
 
@@ -79,7 +79,7 @@ Go:
 - 替代开黑啦用户**发送消息、上传文件或播放音频**；
 - 无论在何种情况下，**未经开黑啦用户的明确许可**，**获取用户的密码或网页证书**。
 
-## 数据信息
+### 数据信息
 
 **开黑啦 API 不得用于以下用途：**
 
@@ -93,7 +93,7 @@ Go:
 - **出售，许可**或以**其他方式**将开黑啦的数据商业化；
 - 以违反常识或违反用户预期的方式处理开黑啦数据。
 
-## 法律规定
+### 法律规定
 
 **开黑啦 API 不得用于以下用途：**
 
@@ -102,7 +102,7 @@ Go:
 - 鼓励或促进**非法活动**或侵犯**第三方权益**；
 - **诽谤**，**骚扰**，**跟踪**，**威胁他人**或以**其他方式**违反开黑啦**用户社区准则**。
 
-## 滥用
+### 滥用
 
 **允许：**
 
@@ -120,34 +120,34 @@ Go:
 - 鼓励或允许第三方**违反开黑啦开发者隐私政策**；
 - **干扰**或**中断**开黑啦的 API 服务器或网络。
 
-## 限制
+### 限制
 
 开黑啦规定了对 API 的**使用限制**（例如：单位时间内发送 API 请求的数量，机器人所在服务器的数量，机器人可以服务的用户数量）。
 如果您想使用超出此类限制的任何 API，必须获得开黑啦的书面授权。
 
-## 投诉与处罚规范
+### 投诉与处罚规范
 
 开黑啦的机器人已启用用户投诉处理机制，我们会根据用户的投诉，视违规程度予以不同程度的处罚措施。
 
 我们理解你的违规行为可能基于失误、疏忽等过失，因此，若你的机器人存在不符合法律法规和平台规则等情形而被处理，开黑啦提供了邮件申诉渠道，你可以对你的机器人进行整改后，通过申诉渠道重新向开黑啦提交发布审核。
 
-## 变更
+### 变更
 
 本隐私政策一旦发生任何重大变更，我们将尽合理努力向所有用户广而告之，例如通过在本平台上发布通知；但您应定期查看本隐私政策，以查看有关变更。我们还会更新本隐私政策顶部的“更新日期”和“生效日期”。您在本隐私政策更新之后继续访问或使用本平台，即视为您接受更新后的隐私政策。如果您不同意更新后的隐私政策，请您停止访问或使用本平台。
 
-## 联系方式
+### 联系方式
 
 与本政策相关的任何疑问、意见或请求，请发送至
 [service@kaiheila.cn](mailto:service@kaiheila.cn)。
 一般情况下，我们会在收到您相关联系信息并核实您身份后的【15】日内回复。
 
-## 其他
+### 其他
 
 （一）本隐私政策仅适用于您在中国大陆（仅为本条款之目的，不含香港、澳门、台湾地区）境内使用本平台服务的情形。本隐私政策可能存在多种语言版本，如各语言版本条款出现不一致或冲突，以中文版本为准。
 
 （二）本隐私政策中的标题仅为方便及阅读而设，并不影响本隐私政策中任何规定的含义或解释。
 
-# 简介
+## 简介
 
 开黑啦的 API 正常分为两个核心层：
 
@@ -156,15 +156,15 @@ Go:
 
 通过上述两层的接口，我们可以在开黑啦中做出机器人，或者提供服务等。
 
-## 常规 http 接口规范
+### 常规 http 接口规范
 
-### BaseUrl
+#### BaseUrl
 
 ```
 https://www.kaiheila.cn/api
 ```
 
-### API 版本管理
+#### API 版本管理
 
 开黑啦后续可能会有不同版本的 API。您可以通过像 `https://www.kaiheila.cn/api/v{version_number}` 这样在请求路径中明确指定所要使用的 API 版本。如果省略掉 version_number, 它会指向默认的版本。目前支持的版本列表如下所示：
 
@@ -172,7 +172,7 @@ https://www.kaiheila.cn/api
 | ---- | ------ | ---- |
 | 3    | 开发中 | 是   |
 
-### 鉴权
+#### 鉴权
 
 在开发者中心，在创建机器人后，我们可以得到一个 token，在请求所有的开黑啦接口时，我们需要在 http header 的 `Authorization` 中加入该 token 以进行鉴权,格式为 `Authorization: TOKEN_TYPE TOKEN`。目前支持两种格式的鉴权：
 
@@ -185,11 +185,11 @@ https://www.kaiheila.cn/api
 Authorization: Bot BHsTZ4232tLatgV5AFyjoqZGAHHmpl9mTxYQ/u4/80=
 ```
 
-### 速度限制
+#### 速度限制
 
 为了保护我们的系统，我们在 [RFC 6585](https://tools.ietf.org/html/rfc6585#section-4) 的基础上做了一些扩展，来限制用户的接口调用速度。经常达到限速阀值或者忽略速度限制的 API 用户将会被撤销 API 密钥，并且被限制登录。有关速度限制的问题，请参阅[速率限制](https://developer.kaiheila.cn/doc/rate-limit)一节
 
-### i18N
+#### i18N
 
 如果希望本地化，可以在 http 头中加入 `Accept-Language` 头，如下为一个示例：
 
@@ -199,7 +199,7 @@ Accept-Language: en-us
 
 系统如果支持该语言，系统会以该语言返回错误消息等。如果系统不支持，系统会以默认的 zh-cn 来返回接口的消息，提示等。
 
-### 接口格式及返回说明
+#### 接口格式及返回说明
 
 - 接口分为 GET 请求和 POST 请求，所有找服务器拿数据均使用 GET 请求，提交数据给服务器使用 POST 请求
 - POST 请求若无特殊说明，均为 POST JSON 格式，即在 http header 中加入`Content-type: application/json`，并将数据以 json 字符串传递。
@@ -213,11 +213,11 @@ Accept-Language: en-us
 }
 ```
 
-### 接口字段说明
+#### 接口字段说明
 
 由于一些历史原因，接口中可能会有一些不在文档中的字段，请大家务必使用文档中的字段，不在文档中的字段后续可能会更改。
 
-### 请求参数
+#### 请求参数
 
 在开黑啦整个 API 体系中，有一些参数是一致的，会在此处统一列出，后续不会再单独详细说明。
 
@@ -241,7 +241,7 @@ Accept-Language: en-us
 | »total      | int   | 总数据量                                                                |
 | sort        | Map   | 分页的排序, key:+-1, 如果为 1 代表按 key 升序，如果为-1 代表按 key 降序 |
 
-## 消息通知
+### 消息通知
 
 消息通知在整个开黑啦体系中比较复杂，我们目前支持两种消息通知机制：
 
@@ -253,19 +253,19 @@ Accept-Language: en-us
 - 消息推送时，可能会有压缩(压缩默认采用 zlib 压缩【deflate】)。
 - 消息的含义，结构格式等基本保持一致。
 
-# Webhook
+## Webhook
 
 通过 Webhook 进行消息订阅可以让你的应用或机器人能够及时响应用户的消息，在用户量较多的情况下，可以提供更好的并发性能控制。你需要的只是告诉我们该向哪里（URL）发送消息。当消息发生时，Kaiheila 开放平台会以 HTTP POST 请求的方式将消息内容推送到你设置的回调地址。
 
 **注意：** Webhook 模式与 Websocket 模式是互斥的，如果选择了 Webhook 模式，将不能再使用 Websocket 接收用户消息。同理，设置了 Websocket 后，平台将不会再向回调地址推送消息。
 
-## 如何配置 Webhook
+### 如何配置 Webhook
 
 1. 在开发者后台，点击进入机器人详情页面，选择 Webhook。
 2. 按照下面的说明，配置好接口。
 3. 将接口的地址填入回调地址中，系统会 check 地址是否符合协议规范。如果符合，我们就能收到回调事件了。
 
-## 配置回调地址
+### 配置回调地址
 
 为了能够接收推送消息，首先你必须在开发者后台配置回调地址。当收到相应的触发消息时，开放平台会向该回调地址发送相应的 `HTTP POST` 请求。
 
@@ -298,7 +298,7 @@ Accept-Language: en-us
 }
 ```
 
-## 接收并响应事件
+### 接收并响应事件
 
 当有消息发生时，开放平台将会通过 HTTP POST 请求发送 Json compress 格式的事件数据到你预先提供的回调地址。
 
@@ -311,7 +311,7 @@ Accept-Language: en-us
 5. 如果你需要更安全的事件回调机制，建议填写 `EncryptKey`，在进行业务逻辑处理前请先参考[这里](#消息解密)进行解密。
 6. 默认情况下，我们的数据会进行 zlib 压缩 (**deflate**)，相应的数据你可能需要先进行 zlib 解压缩，再进行处理。如果不需要压缩，可以在传入的 callbackUrl 中加上 `compress=0`。
 
-## 消息解密
+### 消息解密
 
 如果你对消息有较高的安全需求，可以通过 Encrypt Key 来加密数据, 采用了 aes-256-cbc 来加密数据。主要解密逻辑如下：
 
@@ -321,7 +321,7 @@ Accept-Language: en-us
 4. 在 encrpytKey 后面补\0 至长度等于 32 位，得到 key
 5. 利用上面的 iv, key, 待解密数据，采用 aes-256-cbc 解密数据。
 
-### python 代码示例
+#### python 代码示例
 
 ```python
 from Crypto.Cipher import AES
@@ -340,7 +340,7 @@ class Encrypt:
         return cipher.decrypt(base64.b64decode(str[16:])).decode('utf-8')
 ```
 
-### php 代码示例
+#### php 代码示例
 
 ```php
 $encryptKey = "testKey";
@@ -363,11 +363,11 @@ function decryptData($eData, $key)
 }
 ```
 
-## 消息格式及说明
+### 消息格式及说明
 
 在配置完上述回调地址之后，我们就可以接收并处理事件了，事件的详情参见[事件格式说明](https://developer.kaiheila.cn/doc/event)
 
-# Websocket
+## Websocket
 
 通过 Websocket，客户端可以与开黑啦进行实时通信，来接收事件和数据。websocket 的协议交互非常复杂，而且较差的实现会给服务端和客户端都带来较大困扰，因此建议你在编写自己的实现时，详细阅读本文档。
 
@@ -375,19 +375,19 @@ function decryptData($eData, $key)
 
 **注意：** Webhook 模式与 Websocket 模式是互斥的，如果选择了 Webhook 模式，将不能再使用 Websocket 接收用户消息。同理，设置了 Websocket 后，平台将不会再向回调地址推送消息。
 
-## Gateway
+### Gateway
 
 Gateway 是 websocket 的网关，客户端通过连接 Gateway 可以获取到相应的推送消息等。
 
 Gateway 的获取需要走 http 接口获取，参见[Gateway](https://developer.kaiheila.cn/doc/http/gateway)
 
-## 消息压缩
+### 消息压缩
 
 - 如果客户端连接中 `compress` 参数为 `1`, 所有方向为 `server->client` 的消息都是经过压缩后的`binary` 类型的消息.
 - 与 Webhook 保持一样，默认情况下，我们的数据会进行 zlib 压缩 (deflate)，相应的数据你可能需要先进行 zlib 解压缩，再进行处理。如果不需要压缩，可以在获取 gateway 时加上参数`compress=0`。
 - 客户端发给服务端的消息不要压缩。
 
-## 连接流程
+### 连接流程
 
 常规连接流程如下：
 
@@ -400,7 +400,7 @@ Gateway 的获取需要走 http 接口获取，参见[Gateway](https://developer
 7. 如果失败，再回到第 1 步，尝试无数次获取 Gateway(指数倒退，最大间隔为 60),直到成功为止。
 8. 任何时候，收到 reconnect 包，应该将当前消息队列，`sn`等全部清空，然后回到第 1 步，否则可能会有消息错乱等各种问题。
 
-### 关于重连
+#### 关于重连
 
 当 WebSocket 链接彻底中断, 尝试重新建立链接并恢复, 需要在已断开的链接 url 后继续拼接以下参数:
 resume : 固定值 1
@@ -416,9 +416,9 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 
 参考代码: [php-bot](https://github.com/kaiheila/php-bot/blob/main/src/base/StateSession.php)
 
-## 信令格式
+### 信令格式
 
-### 信令基本格式
+#### 信令基本格式
 
 ```javascript
 {
@@ -430,7 +430,7 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 
 具体参见[Event](https://developer.kaiheila.cn/doc/event)
 
-### 信令说明
+#### 信令说明
 
 | 信令 | 方向           | 说明                                      |
 | ---- | -------------- | ----------------------------------------- |
@@ -442,7 +442,7 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 | 5    | server->client | reconnect, 要求客户端断开当前连接重新连接 |
 | 6    | server->client | resume ack                                |
 
-## 信令[1] HELLO
+### 信令[1] HELLO
 
 **方向：** server->client  
 **说明：** 当我们成功连接 websocket 后，客户端应该在 6s 内收到该包，否则认为连接超时。  
@@ -478,7 +478,7 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 }
 ```
 
-## 信令[0] EVENT
+### 信令[0] EVENT
 
 **方向：** server->client  
 **说明：** 在正常连接状态下，收到的消息事件等。  
@@ -508,7 +508,7 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 4. 客户端需要存储当前已处理成功的最大的 `sn`, 待心跳 ping 时回传服务端, 如果服务端发现当前客户端最新处理成功的消息 `sn` 落后于最新消息 (丢包等异常情况), 服务端将会按照客户端指定的 `sn` 将之后所有最新的消息重传给客户端.
 5. 消息内容与 webhook 保持一致
 
-## 信令[2] PING
+### 信令[2] PING
 
 **方向：** client -> server  
 **说明：** 每隔 30s(随机-5，+5),将当前的最大 `sn` 传给服务端,客户端应该在 6s 内收到 PONG, 否则心跳超时。  
@@ -532,7 +532,7 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 1. 心跳间隔： 30 秒 + rand(-5,5)秒
 2. 如果发了 ping, 6 秒内没有收到 pong，我们应该进入到超时状态。
 
-## 信令[3] PONG
+### 信令[3] PONG
 
 **方向：** server -> client  
 **说明：** 回应客户端发出的 ping  
@@ -544,7 +544,7 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 }
 ```
 
-## 信令[4] RESUME
+### 信令[4] RESUME
 
 当链接未断开时
 客户端需传入 当前收到的最后一个 sn 序号
@@ -557,7 +557,7 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 }
 ```
 
-## 信令[5] RECONNECT
+### 信令[5] RECONNECT
 
 **方向：** server->client
 
@@ -587,7 +587,7 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 }
 ```
 
-## 信令[6] RESUME ACK
+### 信令[6] RESUME ACK
 
 **方向：** server->client  
 **说明：** 服务端通知客户端 resume 动作成功，中间所有离线消息已经全部发送成功  
@@ -602,10 +602,10 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 }
 ```
 
-# 速率限制
+## 速率限制
 为了防止接口滥用和超速，我们会通过速率限制来限制 API 接口请求。
 
-## http头格式
+### http头格式
 在每个 API 请求中，我们会在需要速率控制的请求的 http 响应的 header 中，包含如下的速度控制的头：
 ```
 // 一段时间内允许的最大请求次数
@@ -620,11 +620,11 @@ X-Rate-Limit-Bucket: user/info
 X-Rate-Limit-Global
 ```
 
-## 超速响应
+### 超速响应
 当触犯速度限制时，系统会返回 http 429 响应。返回的消息格式与标准格式也是一致的。同时，上文中提到的 http 头也依旧会传。
 
 
-## 封禁措施
+### 封禁措施
 如果多次超速，系统会发出警告信息。bot 需要按照 rate limit 的头进行速度控制。  
 如果多次警告后依然不更改，系统可能会禁用 bot。  
 

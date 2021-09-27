@@ -1,0 +1,63 @@
+type: object
+required:
+  - s
+  - d
+  - sn
+properties:
+  s:
+    type: integer
+    description: websocket信令，详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
+    example: 0
+  d:
+    type: object
+    description: 具体数据
+    required:
+      - channel_type
+      - type
+      - target_id
+      - author_id
+      - content
+      - msg_id
+      - msg_timestamp
+      - extra
+    properties:
+      channel_type:
+        type: string
+        description: 消息频道类型, 群体消息为`GROUP`，个人消息为`PERSON`。例如，向频道内发送的消息为`GROUP`, 按钮返回事件为`PERSON`
+        example: GROUP
+        enum:
+          - GROUP
+          - PERSON
+      type:
+        type: integer
+      target_id:
+        type: string
+        description: 发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id
+        example: '60163899100000'
+      author_id:
+        type: string
+        description: 发送者 id, 1 代表系统
+        example: 1
+      content:
+        type: string
+        description: 消息内容, 文件，图片，视频时，content 为 url
+      msg_id:
+        type: string
+        description: 消息的 id
+      msg_timestamp:
+        type: integer
+        description: 消息发送时间的毫秒时间戳
+      nonce:
+        type: string
+        description: 随机串，与用户消息发送 api 中传的 nonce 保持一致
+      verify_token:
+        type: string
+        description: webhook设置中的verify_token
+      extra:
+        type: object
+        description: 不同的消息类型，结构不一致
+        example: 'xxx'
+  sn:
+    type: integer
+    description: 消息序号，针对当前session。该字段并不一定有，只在s=0时有，与webhook一致。详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
+    example: 1
