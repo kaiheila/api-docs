@@ -61,7 +61,7 @@ Go:
 
 快去创建一个属于你的[机器人](https://developer.kaiheila.cn/bot)吧！
 
-## 开黑啦开发者隐私政策
+## 隐私政策
 
 **更新日期：2020 年 12 月 9 日**
 
@@ -147,7 +147,7 @@ Go:
 
 （二）本隐私政策中的标题仅为方便及阅读而设，并不影响本隐私政策中任何规定的含义或解释。
 
-## 简介
+## 参考
 
 开黑啦的 API 正常分为两个核心层：
 
@@ -546,8 +546,7 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 
 ### 信令[4] RESUME
 
-当链接未断开时
-客户端需传入 当前收到的最后一个 sn 序号
+当链接未断开时，客户端需传入当前收到的最后一个 sn 序号
 例:
 
 ```javascript
@@ -603,13 +602,16 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 ```
 
 ## 速率限制
+
 为了防止接口滥用和超速，我们会通过速率限制来限制 API 接口请求。
 
-### http头格式
+### http 头格式
+
 在每个 API 请求中，我们会在需要速率控制的请求的 http 响应的 header 中，包含如下的速度控制的头：
+
 ```
 // 一段时间内允许的最大请求次数
-X-Rate-Limit-Limit: 5  
+X-Rate-Limit-Limit: 5
 // 一段时间内还剩下的请求数
 X-Rate-Limit-Remaining: 0
 // 回复到最大请求次数需要等待的时间
@@ -621,10 +623,10 @@ X-Rate-Limit-Global
 ```
 
 ### 超速响应
+
 当触犯速度限制时，系统会返回 http 429 响应。返回的消息格式与标准格式也是一致的。同时，上文中提到的 http 头也依旧会传。
 
-
 ### 封禁措施
-如果多次超速，系统会发出警告信息。bot 需要按照 rate limit 的头进行速度控制。  
-如果多次警告后依然不更改，系统可能会禁用 bot。  
 
+如果多次超速，系统会发出警告信息。bot 需要按照 rate limit 的头进行速度控制。  
+如果多次警告后依然不更改，系统可能会禁用 bot。

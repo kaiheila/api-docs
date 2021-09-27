@@ -18,12 +18,9 @@ info:
 
 # 如需合并，请执行：npx @redocly/openapi-cli bundle ./api-docs/oas/kaiheila-openapi.yaml -o ./api-docs/oas/kaiheila-openapi-bundled.yaml 
 tags:
-  - name: KMarkDown
+  - name: KMarkdown与卡片消息
     description: 
-      $ref: "./descriptions/_index.yaml#/kmarkdown"
-  - name: 卡片消息
-    description: 
-      $ref: "./descriptions/_index.yaml#/cardMessage"
+      $ref: "./descriptions/_index.yaml#/kmarkdown-card"
   - name: 服务器
     description: 服务器相关接口
   - name: 频道
@@ -49,7 +46,7 @@ tags:
     description: 亲密度相关接口列表
   - name: 附件
     description: 附件相关接口
-  - name: 事件结构与格式说明
+  - name: 事件相关
     description:
       $ref: "./descriptions/_index.yaml#/event"
   - name: 消息相关事件
@@ -68,7 +65,7 @@ paths:
   /kmarkdown:
     post: 
       tags:
-        - KMarkDown
+        - KMarkdown与卡片消息
       summary: 事件中的kmarkdown消息格式
       requestBody:
         content: 
@@ -78,7 +75,7 @@ paths:
   /cardMessage:
     post: 
       tags:
-        - 卡片消息
+        - KMarkdown与卡片消息
       summary: 事件中的卡片消息格式
       requestBody:
         content: 
