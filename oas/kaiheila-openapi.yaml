@@ -1486,6 +1486,7 @@ paths:
       tags:
         - 服务器表情
       summary: 获取服务器表情列表
+      operationId: getGuildEmojis
       parameters:
         - $ref: '#/components/parameters/PageNumberParam'
         - $ref: '#/components/parameters/PageSizeParam'
@@ -1515,6 +1516,7 @@ paths:
       tags:
         - 服务器表情
       summary: 创建服务器表情
+      operationId: createGuildEmoji
       description: Header 中 Content-Type 必须为 multipart/form-data
       requestBody:
         content:
@@ -1551,6 +1553,7 @@ paths:
       tags:
         - 服务器表情
       summary: 更新服务器表情
+      operationId: updateGuildEmoji
       requestBody:
         content:
           application/json:
@@ -1578,6 +1581,7 @@ paths:
     post:
       tags:
         - 服务器表情
+      operationId: deleteGuildEmoji
       summary: 删除服务器表情
       requestBody:
         content:
@@ -1652,6 +1656,7 @@ paths:
     post:
       tags:
         - 邀请
+      operationId: createInvite
       summary: 创建邀请链接
       description: 服务器id或者频道id必须填一个
       requestBody:
@@ -1664,6 +1669,30 @@ paths:
                   $ref: '#/components/schemas/GuildId'
                 channel_id:
                   $ref: '#/components/schemas/GuildChannelId'
+                duration:
+                  type: integer
+                  description: 邀请链接有效时长（秒）（ 0 => 永不； 1800 => 0.5小时； 3600 => 1个小时； 21600 => 6个小时； 43200 => 12个小时； 86400 => 1天； 604800 => 7天）
+                  example: 604800
+                  enum: 
+                    - 0
+                    - 1800
+                    - 3600
+                    - 32600
+                    - 43200
+                    - 86400
+                    - 604800
+                setting_times:
+                  type: integer
+                  description: 设置的次数 （ -1 => 无限制； 1 => 1次使用； 5 => 5次使用； 10 => 10次使用 ；25 => 25次使用； 50 => 50次使用； 100 => 100次使用）
+                  example: -1
+                  enum: 
+                    - -1
+                    - 1
+                    - 5
+                    - 10
+                    - 25
+                    - 50
+                    - 100
       responses:
         '200':
           description: OK
