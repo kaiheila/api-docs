@@ -1,0 +1,58 @@
+kmarkdownElement:
+  allOf:
+    - $ref: './_fields.yaml#/mention_info'
+    - type: object
+      properties:  
+        raw_content:
+          type: string
+          description: 经过编译的纯文本，如原始文本为"*Hello World*", 则此处为"Hello World"
+
+kmarkdown:
+  type: object
+  properties:
+    type:
+      allOf:
+        - $ref: './_fields.yaml#/type'
+      example: 9
+    guild_id:
+      $ref: '../_index.yaml#/GuildId'
+    channel_name:
+      type: string
+      description: 频道名
+      example: 一个频道
+    mention:
+      $ref: './_fields.yaml#/mention'
+    mention_all:
+      $ref: './_fields.yaml#/mention_all'
+    mention_roles:
+      $ref: './_fields.yaml#/mention_roles'
+    mention_here:
+      $ref: './_fields.yaml#/mention_here'
+    author:
+      $ref: '../_index.yaml#/User'
+    kmarkdown:
+      $ref: '#/kmarkdownElement'
+
+card:
+  type: object
+  properties:
+    type:
+      allOf:
+        - $ref: './_fields.yaml#/type'
+      example: 9
+    guild_id:
+      $ref: '../_index.yaml#/GuildId'
+    channel_name:
+      type: string
+      description: 频道名
+      example: 一个频道
+    mention:
+      $ref: './_fields.yaml#/mention'
+    mention_all:
+      $ref: './_fields.yaml#/mention_all'
+    mention_roles:
+      $ref: './_fields.yaml#/mention_roles'
+    mention_here:
+      $ref: './_fields.yaml#/mention_here'
+    author:
+      $ref: '../_index.yaml#/User'

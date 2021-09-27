@@ -1,0 +1,474 @@
+BasicResponse:
+  type: object
+  required:
+    - message
+    - code
+  properties:
+    code:
+      type: integer
+      description: 错误码，0代表成功，非0代表失败，具体的错误码参见错误码一览
+      example: 0
+    message:
+      type: string
+      description: 错误消息，具体的返回消息会根据Accept-Language来返回。
+      example: 操作成功
+    data:
+      type: object
+      description: 返回数据
+
+BasicEvent:
+  $ref: './events/basic.yaml'
+
+MessageEvent:
+  type: object
+  description: 当事件的type非系统消息(255)时
+  allOf:
+    - $ref: '#/BasicEvent'
+  properties:
+    d:
+      type: object
+      properties:
+        author_id:
+          description: 发送者的用户id
+          example: '2418200000'
+        extra:
+          type: object
+          properties:
+            type:
+              type: integer
+              description: 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息
+            guild_id:
+              type: string
+              description: 服务器id
+            channel_name:
+              type: string
+              description: 频道名
+            mention:
+              type: array
+              description: "`\\@特定用户` 的用户ID数组，与`mention_info`中的数据对应"
+              items:
+                type: string
+            mention_all:
+              type: boolean
+              description: 是否含有`@全体人员`
+            mention_roles:
+              type: array
+              description: '`@特定角色` 的角色ID数组，与`mention_info`中的数据对应'
+              items:
+                type: string
+            mention_here:
+              type: boolean
+            author:
+              description: 消息作者
+              allOf:
+                - $ref: '#/User'
+
+SystemEvent:
+  type: object
+  allOf:
+    - $ref: '#/BasicEvent'
+    - type: object
+      properties:
+        d:
+          type: object
+          properties:
+            channel_type:
+              example: 'GROUP'
+            type:
+              description: 消息类型，系统消息为255
+              example: 255
+            author_id:
+              description: 发送者id, 1 代表系统
+              example: 1
+            content:
+              example: '[系统消息]'
+            extra:
+              type: object
+              properties:
+                type:
+                  type: string
+                body:
+                  type: object
+            msg_id:
+              example: '63d6a934-xxxx-a1f02c255213'
+            msg_timestamp:
+              example: 1612704007683
+            nonce:
+              example: ''
+            verify_token:
+              example: 'xxx'
+
+PersonEvent:
+  type: object
+  allOf:
+    - $ref: '#/SystemEvent'
+  properties:
+    d:
+      type: object
+      properties:
+        channel_type:
+          type: string
+          description: 频道类型，私聊消息为`PERSON`
+          example: 'PERSON'
+        extra:
+          type: object
+          properties:
+            body:
+              type: object
+              properties:
+                msg_id:
+                  allOf:
+                    - $ref: './message/_fields.yaml#/id'
+                  description: 被操作的消息id
+                chat_code:
+                  $ref: '#/ChatCode'
+
+PaginationInfo:
+  type: object
+  properties:
+    items:
+      type: array
+      description: 数据列表
+      items:
+        type: object
+    meta:
+      type: object
+      description: 分页信息
+      properties:
+        page:
+          type: integer
+          description: 页码
+          example: 1
+        page_total:
+          type: integer
+          description: 总页数
+          example: 10
+        page_size:
+          type: integer
+          description: 每一页的数据
+          example: 50
+        total:
+          type: integer
+          description: 总数据量
+          example: 480
+    sort:
+      type: object
+      description: Map。分页的排序, key:+-1, 如果为1代表按key升序，如果为-1代表按key降序
+      example:
+        id: 1
+Guild:
+  type: object
+  properties:
+    id:
+      $ref: '#/GuildId'
+    name:
+      type: string
+      description: 服务器名称
+      example: 'Hello'
+    topic:
+      type: string
+      description: 服务器主题
+    master_id:
+      allOf:
+        - $ref: './user/_fields.yaml#/id'
+      description: 服务器主的id
+    icon:
+      type: string
+      description: 服务器icon的地址
+      example: 'https://xxx/icons/2020-05/YQyfHxxx.png/icon'
+    notify_type:
+      type: integer
+      description: 通知类型, `0`代表默认使用服务器通知设置，`1`代表接收所有通知, `2`代表仅@被提及，`3`代表不接收通知
+      enum:
+        - 0
+        - 1
+        - 2
+        - 3
+      example: 0
+    region:
+      type: string
+      description: 服务器默认使用语音区域
+      example: beijing
+    enable_open:
+      type: boolean
+      description: 是否为公开服务器
+      example: true
+    open_id:
+      type: string
+      description: 公开服务器id
+      example: '012312413'
+    default_channel_id:
+      type: string
+      description: 默认频道id
+      example: '5915900001396830'
+    welcome_channel_id:
+      type: string
+      description: 欢迎频道id
+      example: '5789900001312330'
+    boost_num:
+      type: integer
+      description: 服务器助力数量
+      example: 3
+    level:
+      type: integer
+      description: 服务器等级
+      example: 0
+
+
+User:
+  $ref: './user/_index.yaml#/basic'
+GuildId:
+  type: string
+  description: 服务器id
+  example: '91686000000'
+UserId:
+  $ref: './user/_fields.yaml#/id'
+GuildChannel:
+  type: object
+  description: 服务器频道
+  properties:
+    id:
+      $ref: '#/GuildChannelId'
+      example: "3321010478582000"
+    guild_id:
+      $ref: '#/GuildId'
+    master_id:
+      description: 频道创建者id
+      type: string
+      example: "1700000"
+    parent_id:
+      type: string
+      description: 父分组频道id
+      example: "7480000000000000"
+    name:
+      type: string
+      description: 频道名称
+      example: "示例频道"
+    topic:
+      type: string
+      description: 频道简介
+      example: "这是示例频道的示例简介"
+    type:
+      $ref: '#/GuildChannelType'
+    level:
+      type: integer
+      description: 频道排序
+      example: 30
+    slow_mode:
+      type: integer
+      description: 慢速限制，单位秒。用户发送消息之后再次发送消息的等待时间。
+      example: 0
+    limit_amount:
+      type: integer
+      description: 人数限制（如果为语音频道）
+      example: 0
+    is_category:
+      type: boolean
+      description: 是否为分组类型
+      example: false
+    server_url:
+      type: string
+      description: 语音服务器地址，`HOST:PORT`的格式
+      example: "HOST:PORT"
+
+GuildChannelId:
+  type: string
+  description: 服务器频道ID
+  example: '9219038000000'
+GuildChannelType:
+  type: integer
+  enum:
+    - 1
+    - 2
+  description: 频道类型，`1`为文字频道，`2`为语音频道
+GuildChannelPermission:
+  type: object
+  required:
+    - allow
+    - deny
+  properties:
+    allow:
+      type: integer
+      description: 允许的权限的结果集，详见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+      example: 2048
+    deny:
+      type: integer
+      description: 拒绝的权限的结果集，详见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+      example: 0
+GuildRoleId:
+  type: integer
+  format: unsigned integer
+  description: 服务器角色id
+  example: 113
+
+Message:
+  $ref: './message/_index.yaml#/basic'
+
+SendMessageRequest:
+  type: object
+  required:
+    - content
+  properties:
+    type:
+      type: integer
+      description: 消息类型, 见[type], 不传默认为`1`, 代表文本类型。`2`图片消息，`3`视频消息，`4`文件消息，`9`代表 kmarkdown 消息, `10`代表卡片消息。
+      example: 9
+      default: 1
+    content:
+      type: string
+      description: 消息内容
+    quote:
+      allOf:
+        - $ref: './message/_fields.yaml#/id'
+      description: 回复某条消息的`msg_id`
+    nonce:
+      type: string
+      description: nonce, 服务端不做处理, 原样返回
+
+GuildEmojiId:
+  type: string
+  description: 表情的id, 可以为Guild Emoji Id或Emoji Id
+  example: 1333609240026275/zTpnkS****0c80ck
+UserChat:
+  type: object
+  properties:
+    code:
+      type: string
+      description: 私信会话 Code
+      example: "5c7ec6d021216c136c9198285c15ed47"
+    last_read_time:
+      type: integer
+      description: 上次阅读消息的时间 (毫秒)
+      example: 1612175653000
+    latest_msg_time:
+      type: integer
+      description: 最新消息时间 (毫秒)
+      example: 1612160693000
+    unread_count:
+      type: integer
+      description: 未读消息数
+      example: 0
+    target_info:
+      type: object
+      description: 目标用户信息
+      properties:
+        id:
+          $ref: '#/UserId'
+        username:
+          type: string
+          description: 目标用户名
+          example: 夏天1
+        online:
+          type: boolean
+          description: 是否在线
+          example: false
+        avatar:
+          type: string
+          description: 头像图片链接
+          example: "https://xxx.jpg/icon"
+UserChatDetail:
+  allOf:
+    - $ref: '#/UserChat'
+    - type: object
+      properties:
+        is_friend:
+          type: boolean
+          description: 是否是好友
+          example: true
+        is_blocked:
+          type: boolean
+          description: 是否已屏蔽对方
+          example: false
+        is_target_blocked:
+          type: boolean
+          description: 是否已被对方屏蔽
+          example: false
+
+ChatCode:
+  type: string
+  description: 私聊会话 Code
+  example: '3b4aa448b8xxxxc87a1b3770792e7433'
+
+DirectMessage:
+  type: object
+  properties:
+    id:
+      $ref: './message/_fields.yaml#/id'
+    type:
+      type: integer
+      description: 消息类型
+    author_id:
+      description: 作者的用户ID
+      allOf:
+        - $ref: '#/UserId'
+    content:
+      type: string
+      description: 消息内容
+    embeds:
+      $ref: './message/_fields.yaml#/embeds'
+    attachments:
+      type: object
+    reactions:
+      $ref: './message/_fields.yaml#/reactions'
+    quote:
+      $ref: './message/_fields.yaml#/quote'
+    read_status:
+      type: boolean
+      description: 是否已读
+GuildRole:
+  type: object
+  properties:
+    role_id:
+      type: integer
+      format: unsigned integer
+      description: 角色id
+      example: 702
+    name:
+      type: string
+      description: 角色名称
+      example: 管理员
+    color:
+      type: integer
+      format: unsigned integer
+      minimum: 0
+      maximum: 16777215
+      description: 颜色
+      example: 0
+    position:
+      type: integer
+      format: unsigned integer
+      description: 顺序，值越小载靠前
+      example: 1
+    hoist:
+      type: integer
+      format: unsigned integer
+      description: 只能为0或者1，是否把该角色的用户在用户列表排到前面
+      enum:
+        - 0
+        - 1
+    mentionable:
+      type: integer
+      format: unsigned integer
+      description: 只能为0或者1，该角色是否可以被提及
+      enum:
+        - 0
+        - 1
+    permissions:
+      type: integer
+      format: unsigned integer
+      description: 允许的权限，参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+      example: 2048
+GuildEmoji:
+  type: object
+  properties:
+    name:
+      type: string
+      description: 表情的名称
+      example: 摇滚啊
+    id:
+      $ref: '#/GuildEmojiId'
+    user_info:
+      description: 上传用户
+      allOf:
+        - $ref: '#/User'
+  

@@ -16,24 +16,23 @@
 
 ## 消息详情参数说明
 
-| 参数名        | 类型    | 说明               |
-| ------------- | ------- | ------------------ |
-| id            | string  | 消息 id            |
-| type          | int     | 消息类型           |
-| author | map | 作者的用户信息               |
-| content       | string  | 消息内容           |
-| mention       | array   | `@特定用户` 的用户ID数组，与 `mention_info` 中的数据对应 |
-| mention_all   | boolean | 是否含有 `@全体人员` |
-| mention_roles | array   | `@特定角色` 的角色ID数组，与 `mention_info` 中的数据对应 |
-| mention_here  | boolean | 是否含有 `@在线人员` |
-| embeds        | array   | 超链接解析数据 |
-| attachments | map   | 附加的多媒体数据 参考[对象-Attachments](https://developer.kaiheila.cn/doc/objects#附加的多媒体数据Attachments)|
-| reactions | array   | 回应数据 |
-| quote    | map | 引用消息 参考[对象-Quote](https://developer.kaiheila.cn/doc/objects#引用消息Quote)|
-| mention_info    | map | 引用特定用户或特定角色的信息 |
-| ↳ mention_part | array        | `@特定用户` 详情 |
-| ↳ mention_role_part | array        | `@特定角色` 详情 |
-
+| 参数名              | 类型    | 说明                                                                                                           |
+| ------------------- | ------- | -------------------------------------------------------------------------------------------------------------- |
+| id                  | string  | 消息 id                                                                                                        |
+| type                | int     | 消息类型                                                                                                       |
+| author              | map     | 作者的用户信息                                                                                                 |
+| content             | string  | 消息内容                                                                                                       |
+| mention             | array   | `@特定用户` 的用户 ID 数组，与 `mention_info` 中的数据对应                                                     |
+| mention_all         | boolean | 是否含有 `@全体人员`                                                                                           |
+| mention_roles       | array   | `@特定角色` 的角色 ID 数组，与 `mention_info` 中的数据对应                                                     |
+| mention_here        | boolean | 是否含有 `@在线人员`                                                                                           |
+| embeds              | array   | 超链接解析数据                                                                                                 |
+| attachments         | map     | 附加的多媒体数据 参考[对象-Attachments](https://developer.kaiheila.cn/doc/objects#附加的多媒体数据Attachments) |
+| reactions           | array   | 回应数据                                                                                                       |
+| quote               | map     | 引用消息 参考[对象-Quote](https://developer.kaiheila.cn/doc/objects#引用消息Quote)                             |
+| mention_info        | map     | 引用特定用户或特定角色的信息                                                                                   |
+| » mention_part      | array   | `@特定用户` 详情                                                                                               |
+| » mention_role_part | array   | `@特定角色` 详情                                                                                               |
 
 ## 获取频道聊天消息列表
 
