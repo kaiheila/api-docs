@@ -1672,6 +1672,7 @@ paths:
                 duration:
                   type: integer
                   description: 邀请链接有效时长（秒）（ 0 => 永不； 1800 => 0.5小时； 3600 => 1个小时； 21600 => 6个小时； 43200 => 12个小时； 86400 => 1天； 604800 => 7天）
+                  default: 604800
                   example: 604800
                   enum: 
                     - 0
@@ -1684,6 +1685,7 @@ paths:
                 setting_times:
                   type: integer
                   description: 设置的次数 （ -1 => 无限制； 1 => 1次使用； 5 => 5次使用； 10 => 10次使用 ；25 => 25次使用； 50 => 50次使用； 100 => 100次使用）
+                  default: -1
                   example: -1
                   enum: 
                     - -1
