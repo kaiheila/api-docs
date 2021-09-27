@@ -1154,6 +1154,7 @@ paths:
                 file:
                   type: string
                   format: binary
+                  description: 目前支持 **图片**, **视频(.mp4 .mov)**, **文件**
       responses:
         '200':
           description: OK
