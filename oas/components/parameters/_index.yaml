@@ -56,5 +56,6 @@ UserIdParam:
   name: user_id
   in: query
   required: true
+  description: 用户id
   schema:
     $ref: "../schemas/_index.yaml#/UserId"

@@ -526,9 +526,9 @@ paths:
                   data:
                     properties:
                       msg_id:
-                        type: string
+                        allOf:
+                          - $ref: './components/schemas/message/_fields.yaml#/id'
                         description: 服务端生成的消息 id
-                        example: ''
                       msg_timestamp:
                         type: integer
                         description: 消息发送时间(ms, 服务器时间戳)
@@ -598,6 +598,7 @@ paths:
       tags:
         - 频道消息
       summary: 获取频道消息某个回应的用户列表
+      operationId: getMessageReactionUsers
       parameters:
         - name: msg_id
           in: query
@@ -631,11 +632,13 @@ paths:
                                 reaction_time:
                                   type: integer
                                   description: 用户点击reaction的毫秒时间戳
+                                  example: 1612323994414
   /message/add-reaction:
     post:
       tags:
         - 频道消息
       summary: 为消息添加回应
+      operationId: addMessageReaction
       requestBody:
         content:
           application/json:
@@ -648,7 +651,7 @@ paths:
                 msg_id:
                   $ref: './components/schemas/message/_fields.yaml#/id'
                 emoji:
-                  $ref: '#/components/schemas/GuildEmojiId'
+                  $ref: './components/schemas/_index.yaml#/GuildEmojiId'
       responses:
         '200':
           description: OK
@@ -737,7 +740,7 @@ paths:
                       items:
                         type: array
                         items:
-                          $ref: '#/components/schemas/UserChatDetail'
+                          $ref: './components/schemas/_index.yaml#/UserChatDetail'
   /user-chat/create:
     post:
       tags:
@@ -780,8 +783,8 @@ paths:
               properties:
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/UserId'
-                  description: 目标用户id
+                    - $ref: '#/components/schemas/ChatCode'
+                  description: 私信会话Code
       responses:
         '200':
           description: OK
@@ -829,14 +832,12 @@ paths:
                   - type: object
                     properties:
                       data:
-                        allOf:
-                          - $ref: '#/components/schemas/PaginationInfo'
-                          - type: object
-                            properties:
-                              items:
-                                type: array
-                                items:
-                                  $ref: '#/components/schemas/DirectMessage'
+                        type: object
+                        properties:
+                          items:
+                            type: array
+                            items:
+                              $ref: '#/components/schemas/DirectMessage'
   /direct-message/create:
     post:
       tags:
@@ -1028,6 +1029,15 @@ paths:
       tags:
         - gateway
       summary: 获取网关连接地址
+      operationId: getIndex
+      description: |
+        ## 关于gateway重连
+        如果需要websocket重连，请在连接 gateway 时加入 resume=1，如下方示例：
+
+        ```
+        wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&sessionId=20****ae-1fa4-4d19-805f-6f0f****d534
+        ```
+        sn需自行记录（可保存至文件，以实现代码升级重启后恢复会话）
       parameters:
         - name: compress
           in: query
@@ -1144,6 +1154,7 @@ paths:
                 file:
                   type: string
                   format: binary
+                  description: 目前支持 **图片**, **视频(.mp4 .mov)**, **文件**
       responses:
         '200':
           description: OK
@@ -1189,7 +1200,7 @@ paths:
                                 type: array
                                 items:
                                   type: object
-                                  $ref: '#/components/schemas/GuildRole'
+                                  $ref: './components/schemas/_index.yaml#/GuildRole'
   /guild-role/create:
     post:
       tags:
@@ -1317,6 +1328,7 @@ paths:
       tags:
         - 服务器角色权限
       summary: 赋予用户角色
+      operationId: grantGuildRole
       requestBody:
         content:
           application/json:
@@ -1354,7 +1366,7 @@ paths:
                             type: array
                             description: 角色id的列表
                             items:
-                              $ref: '#/components/schemas/GuildRoleId'
+                              $ref: './components/schemas/_index.yaml#/GuildRoleId'
   /guild-role/revoke:
     post:
       tags:
@@ -1403,9 +1415,10 @@ paths:
       tags:
         - 亲密度
       summary: 获取用户的亲密度
+      operationId: getIntimacy
       description: 机器人可以在后台配置默认的初始亲密度和形象，当用户触发某些事件时，机器人可以根据一些逻辑来更新与该用户的亲密度以及形象展示。
       parameters:
-        - $ref: '#/components/parameters/UserIdParam'
+        - $ref: './components/parameters/_index.yaml#/UserIdParam'
       responses:
         '200':
           description: OK
@@ -1449,6 +1462,7 @@ paths:
       tags:
         - 亲密度
       summary: 更新用户亲密度
+      operationId: updateIntimacy
       requestBody:
         content:
           application/json:
@@ -1458,7 +1472,9 @@ paths:
                 - user_id
               properties:
                 user_id:
-                  $ref: '#/components/schemas/UserId'
+                  allOf:
+                    - $ref: '#/components/schemas/UserId'
+                  description: 用户的id
                 score:
                   type: integer
                   description: 亲密度，0-2200
@@ -1484,6 +1500,7 @@ paths:
       tags:
         - 服务器表情
       summary: 获取服务器表情列表
+      operationId: getGuildEmojis
       parameters:
         - $ref: '#/components/parameters/PageNumberParam'
         - $ref: '#/components/parameters/PageSizeParam'
@@ -1513,6 +1530,7 @@ paths:
       tags:
         - 服务器表情
       summary: 创建服务器表情
+      operationId: createGuildEmoji
       description: Header 中 Content-Type 必须为 multipart/form-data
       requestBody:
         content:
@@ -1549,6 +1567,7 @@ paths:
       tags:
         - 服务器表情
       summary: 更新服务器表情
+      operationId: updateGuildEmoji
       requestBody:
         content:
           application/json:
@@ -1576,6 +1595,7 @@ paths:
     post:
       tags:
         - 服务器表情
+      operationId: deleteGuildEmoji
       summary: 删除服务器表情
       requestBody:
         content:
@@ -1601,6 +1621,7 @@ paths:
       tags:
         - 邀请
       summary: 获取邀请列表
+      operationId: listInvites
       description: 服务器id或者频道id必须填一个
       parameters:
         - name: guild_id
@@ -1650,6 +1671,7 @@ paths:
     post:
       tags:
         - 邀请
+      operationId: createInvite
       summary: 创建邀请链接
       description: 服务器id或者频道id必须填一个
       requestBody:
@@ -1662,6 +1684,32 @@ paths:
                   $ref: '#/components/schemas/GuildId'
                 channel_id:
                   $ref: '#/components/schemas/GuildChannelId'
+                duration:
+                  type: integer
+                  description: 邀请链接有效时长（秒）（ 0 => 永不； 1800 => 0.5小时； 3600 => 1个小时； 21600 => 6个小时； 43200 => 12个小时； 86400 => 1天； 604800 => 7天）
+                  default: 604800
+                  example: 604800
+                  enum: 
+                    - 0
+                    - 1800
+                    - 3600
+                    - 32600
+                    - 43200
+                    - 86400
+                    - 604800
+                setting_times:
+                  type: integer
+                  description: 设置的次数 （ -1 => 无限制； 1 => 1次使用； 5 => 5次使用； 10 => 10次使用 ；25 => 25次使用； 50 => 50次使用； 100 => 100次使用）
+                  default: -1
+                  example: -1
+                  enum: 
+                    - -1
+                    - 1
+                    - 5
+                    - 10
+                    - 25
+                    - 50
+                    - 100
       responses:
         '200':
           description: OK
@@ -1684,6 +1732,7 @@ paths:
       tags:
         - 邀请
       summary: 删除邀请链接
+      operationId: deleteInvite
       description: 服务器id或者频道id必须填一个
       requestBody:
         content:

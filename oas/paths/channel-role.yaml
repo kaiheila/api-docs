@@ -28,6 +28,8 @@ index:
                                 properties:
                                   role_id:
                                     type: string
+                                    description: 角色id
+                                    example: 702
                               - $ref: '../components/schemas/_index.yaml#/GuildChannelPermission'
                         permission_users:
                           type: array

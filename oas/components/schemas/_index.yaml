@@ -358,29 +358,10 @@ GuildChannelPermission:
       description: 拒绝的权限的结果集，详见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
       example: 0
 GuildRoleId:
-  type: number
+  type: integer
+  format: unsigned integer
   description: 服务器角色id
   example: 113
-GuildChannelRoleRequest:
-  type: object
-  required:
-    - channel_id
-  properties:
-    channel_id:
-      description: 频道id, 如果频道是分组的id,会同步给所有sync=1的子频道
-      allOf:
-        - $ref: '#/GuildChannelId'
-    type:
-      type: string
-      description: value的类型，只能为"role_id","user_id",不传则默认为"user_id"
-      enum:
-        - role_id
-        - user_id
-      default: user_id
-    value:
-      type: string
-      description: 根据type，为用户id或频道id
-      default: ''
 
 Message:
   $ref: './message/_index.yaml#/basic'
@@ -408,26 +389,27 @@ SendMessageRequest:
 
 GuildEmojiId:
   type: string
-  description: 表情的 ID
-  example: XXXXXXXXX/4c43XXXXXXX
+  description: 表情的id, 可以为Guild Emoji Id或Emoji Id
+  example: 1333609240026275/zTpnkS****0c80ck
 UserChat:
   type: object
   properties:
     code:
       type: string
       description: 私信会话 Code
-      example: sderwrw**
+      example: "5c7ec6d021216c136c9198285c15ed47"
     last_read_time:
       type: integer
       description: 上次阅读消息的时间 (毫秒)
-      example: 1612696873000
+      example: 1612175653000
     latest_msg_time:
       type: integer
       description: 最新消息时间 (毫秒)
-      example: null
+      example: 1612160693000
     unread_count:
       type: integer
       description: 未读消息数
+      example: 0
     target_info:
       type: object
       description: 目标用户信息
@@ -437,7 +419,7 @@ UserChat:
         username:
           type: string
           description: 目标用户名
-          example: 工具
+          example: 夏天1
         online:
           type: boolean
           description: 是否在线
@@ -445,7 +427,7 @@ UserChat:
         avatar:
           type: string
           description: 头像图片链接
-          example: https://***.jpg
+          example: "https://xxx.jpg/icon"
 UserChatDetail:
   allOf:
     - $ref: '#/UserChat'
@@ -454,12 +436,15 @@ UserChatDetail:
         is_friend:
           type: boolean
           description: 是否是好友
+          example: true
         is_blocked:
           type: boolean
           description: 是否已屏蔽对方
+          example: false
         is_target_blocked:
           type: boolean
           description: 是否已被对方屏蔽
+          example: false
 
 ChatCode:
   type: string
