@@ -319,7 +319,7 @@ SendMessageRequest:
       default: 1
     content:
       type: string
-      description: 消息内容
+      description: 消息内容（为了保障消息正常发出，请不要超过8000字符）
     quote:
       allOf:
         - $ref: './message/_fields.yaml#/id'
