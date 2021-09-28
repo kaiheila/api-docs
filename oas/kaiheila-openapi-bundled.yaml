@@ -1332,7 +1332,7 @@ paths:
   /event:
     post:
       tags:
-        - 事件结构与格式说明
+        - 事件通知介绍
       summary: 事件结构示例
       requestBody:
         content:
@@ -1911,7 +1911,7 @@ paths:
   /guild/list:
     get:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 获取当前用户加入的服务器列表
       description: ''
       operationId: getJoinedGuilds
@@ -1941,12 +1941,12 @@ paths:
                               items:
                                 type: array
                                 items:
-                                  $ref: '#/components/schemas/Guild'
+                                  $ref: '#/components/schemas/_index_basic'
   /guild/index:
     get:
       deprecated: true
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 获取当前用户加入的服务器列表
       description: ''
       parameters: []
@@ -1957,11 +1957,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Guild'
+                $ref: '#/components/schemas/_index_basic'
   /guild/view:
     get:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 获取服务器详情
       operationId: getGuildById
       parameters:
@@ -1979,20 +1979,22 @@ paths:
                       data:
                         type: object
                         allOf:
-                          - $ref: '#/components/schemas/Guild'
+                          - $ref: '#/components/schemas/_index_basic'
                         properties:
                           roles:
                             type: array
+                            description: 服务器的角色列表
                             items:
                               - $ref: '#/components/schemas/GuildRole'
                           channels:
+                            description: 服务器的频道列表
                             type: array
                             items:
-                              - $ref: '#/components/schemas/GuildChannel'
+                              - $ref: '#/components/schemas/_index_basic-2'
   /guild/user-list:
     get:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 获取服务器的用户列表
       operationId: getUsersInGuild
       parameters:
@@ -2061,7 +2063,7 @@ paths:
   /guild/nickname:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 修改服务器中的用户昵称
       operationId: changeUserNickname
       requestBody:
@@ -2073,13 +2075,13 @@ paths:
                 - guild_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 nickname:
                   type: string
                   description: 昵称，2 - 64 长度，不传则清空昵称
                 user_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                     - description: 要修改昵称的目标用户 ID，不传则修改当前登陆用户的昵称
       responses:
         '200':
@@ -2091,7 +2093,7 @@ paths:
   /guild/leave:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 离开服务器
       operationId: leaveGuild
       requestBody:
@@ -2103,7 +2105,7 @@ paths:
                 - guild_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
       responses:
         '200':
           description: OK
@@ -2114,7 +2116,7 @@ paths:
   /guild/kickout:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 踢出服务器
       operationId: kickUserById
       requestBody:
@@ -2127,10 +2129,10 @@ paths:
                 - target_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                     - description: 目标用户ID
       responses:
         '200':
@@ -2142,7 +2144,7 @@ paths:
   /guild-mute/list:
     get:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 服务器静音闭麦列表
       operationId: getGuildMuteUsers
       parameters:
@@ -2177,7 +2179,7 @@ paths:
                               user_ids:
                                 type: array
                                 items:
-                                  $ref: '#/components/schemas/id'
+                                  $ref: '#/components/schemas/_fields_id'
                           headset:
                             description: return_type为detail时返回
                             type: object
@@ -2190,11 +2192,11 @@ paths:
                               user_ids:
                                 type: array
                                 items:
-                                  $ref: '#/components/schemas/id'
+                                  $ref: '#/components/schemas/_fields_id'
   /guild-mute/create:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 添加服务器闭麦或静音
       operationId: muteUserById
       requestBody:
@@ -2208,10 +2210,10 @@ paths:
                 - type
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                     - description: 目标用户ID
                 type:
                   type: integer
@@ -2229,7 +2231,7 @@ paths:
   /guild-mute/delete:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 删除服务器闭麦或静音
       operationId: unmuteUserById
       requestBody:
@@ -2243,10 +2245,10 @@ paths:
                 - type
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                     - description: 目标用户ID
                 type:
                   type: integer
@@ -2264,7 +2266,7 @@ paths:
   /channel/list:
     get:
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 获取频道列表
       operationId: getGuildChannels
       parameters:
@@ -2290,12 +2292,12 @@ paths:
                               items:
                                 type: array
                                 items:
-                                  $ref: '#/components/schemas/GuildChannel'
+                                  $ref: '#/components/schemas/_index_basic-2'
   /channel/view:
     get:
       operationId: getChannelById
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 获取频道详情
       parameters:
         - name: target_id
@@ -2303,7 +2305,7 @@ paths:
           in: query
           description: 目标频道id
           schema:
-            $ref: '#/components/schemas/GuildChannelId'
+            $ref: '#/components/schemas/properties-id'
       responses:
         '200':
           description: OK
@@ -2315,11 +2317,11 @@ paths:
                   - type: object
                     properties:
                       data:
-                        $ref: '#/components/schemas/GuildChannel'
+                        $ref: '#/components/schemas/_index_basic-2'
   /channel/create:
     post:
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 创建频道
       operationId: createChannel
       requestBody:
@@ -2332,17 +2334,17 @@ paths:
                 - name
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 parent_id:
                   allOf:
-                    - $ref: '#/components/schemas/GuildChannelId'
+                    - $ref: '#/components/schemas/properties-id'
                   description: 父分组id
                 name:
                   type: string
                   description: 频道名称
                 type:
                   allOf:
-                    - $ref: '#/components/schemas/GuildChannelType'
+                    - $ref: '#/components/schemas/properties-type'
                   description: '频道类型, `1`为文字，`2`为语音, 默认为`1`'
                 limit_amount:
                   type: integer
@@ -2366,11 +2368,11 @@ paths:
                   - type: object
                     properties:
                       data:
-                        $ref: '#/components/schemas/GuildChannel'
+                        $ref: '#/components/schemas/_index_basic-2'
   /channel/delete:
     post:
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 删除频道
       operationId: deleteChannelById
       requestBody:
@@ -2382,7 +2384,7 @@ paths:
                 - channel_id
               properties:
                 channel_id:
-                  $ref: '#/components/schemas/GuildChannelId'
+                  $ref: '#/components/schemas/properties-id'
       responses:
         '200':
           description: OK
@@ -2393,7 +2395,7 @@ paths:
   /channel/user-list:
     get:
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 查询语音频道内用户
       operationId: getVoiceChannelUsers
       description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
@@ -2403,7 +2405,7 @@ paths:
           in: query
           description: '目标频道id, 需要是语音频道'
           schema:
-            $ref: '#/components/schemas/GuildChannelId'
+            $ref: '#/components/schemas/properties-id'
       responses:
         '200':
           description: OK
@@ -2421,11 +2423,11 @@ paths:
                             type: array
                             description: 用户id的数组
                             items:
-                              $ref: '#/components/schemas/id'
+                              $ref: '#/components/schemas/_fields_id'
   /channel/move-user:
     post:
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 语音频道之间移动用户
       operationId: moveUsersInVoiceChannel
       description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
@@ -2440,13 +2442,13 @@ paths:
               properties:
                 channel_id:
                   allOf:
-                    - $ref: '#/components/schemas/GuildChannelId'
+                    - $ref: '#/components/schemas/properties-id'
                     - description: '目标频道id, 需要是语音频道'
                 user_ids:
                   type: array
                   description: 用户id的数组
                   items:
-                    $ref: '#/components/schemas/id'
+                    $ref: '#/components/schemas/_fields_id'
       responses:
         '200':
           description: OK
@@ -2464,11 +2466,11 @@ paths:
                             type: array
                             description: 用户id的数组
                             items:
-                              $ref: '#/components/schemas/id'
+                              $ref: '#/components/schemas/_fields_id'
   /channel-role/index:
     get:
       tags:
-        - 频道
+        - 频道相关接口
       summary: 频道角色权限详情
       operationId: getChannelRoleById
       parameters:
@@ -2515,7 +2517,7 @@ paths:
   /channel-role/create:
     post:
       tags:
-        - 频道
+        - 频道相关接口
       operationId: createChannelRole
       summary: 创建频道角色权限
       requestBody:
@@ -2536,7 +2538,7 @@ paths:
   /channel-role/update:
     post:
       tags:
-        - 频道
+        - 频道相关接口
       summary: 更新频道角色权限
       operationId: updateChannelRole
       requestBody:
@@ -2561,14 +2563,14 @@ paths:
                           - type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/id'
+                                $ref: '#/components/schemas/_fields_id'
                               role_id:
                                 $ref: '#/components/schemas/GuildRoleId'
                           - $ref: '#/components/schemas/GuildChannelPermission'
   /channel-role/delete:
     post:
       tags:
-        - 频道
+        - 频道相关接口
       summary: 删除频道角色权限
       requestBody:
         $ref: '#/components/requestBodies/delete'
@@ -2588,7 +2590,7 @@ paths:
   /message/list:
     get:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 获取频道聊天消息列表
       operationId: getChannelMessages
       description: 此接口非标准分页，需要根据参考消息来查询相邻分页的消息
@@ -2598,7 +2600,7 @@ paths:
           description: 频道id
           required: true
           schema:
-            $ref: '#/components/schemas/GuildChannelId'
+            $ref: '#/components/schemas/properties-id'
         - name: msg_id
           in: query
           description: 参考消息id，不传则查询最新消息
@@ -2636,11 +2638,11 @@ paths:
                           items:
                             type: array
                             items:
-                              $ref: '#/components/schemas/_index_basic'
+                              $ref: '#/components/schemas/_index_basic-3'
   /message/create:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 发送频道聊天消息
       operationId: sendChannelMessage
       requestBody:
@@ -2655,7 +2657,7 @@ paths:
                   properties:
                     target_id:
                       allOf:
-                        - $ref: '#/components/schemas/GuildChannelId'
+                        - $ref: '#/components/schemas/properties-id'
                       description: 目标频道 id
                     temp_target_id:
                       type: string
@@ -2675,7 +2677,7 @@ paths:
                     properties:
                       msg_id:
                         allOf:
-                          - $ref: '#/components/schemas/_fields_id'
+                          - $ref: '#/components/schemas/_fields_id-2'
                         description: 服务端生成的消息 id
                       msg_timestamp:
                         type: integer
@@ -2688,7 +2690,7 @@ paths:
   /message/update:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 更新频道聊天消息
       requestBody:
         content:
@@ -2700,13 +2702,13 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
                 content:
                   type: string
                   description: 消息内容
                 quote:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id'
+                    - $ref: '#/components/schemas/_fields_id-2'
                   description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
                 temp_target_id:
                   type: string
@@ -2721,7 +2723,7 @@ paths:
   /message/delete:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 删除频道聊天消息
       requestBody:
         content:
@@ -2733,7 +2735,7 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
       responses:
         '200':
           description: OK
@@ -2744,7 +2746,7 @@ paths:
   /message/reaction-list:
     get:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 获取频道消息某个回应的用户列表
       operationId: getMessageReactionUsers
       parameters:
@@ -2753,7 +2755,7 @@ paths:
           description: 频道消息的id
           required: true
           schema:
-            $ref: '#/components/schemas/_fields_id'
+            $ref: '#/components/schemas/_fields_id-2'
         - name: emoji
           in: query
           description: 'emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode'
@@ -2784,7 +2786,7 @@ paths:
   /message/add-reaction:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 为消息添加回应
       operationId: addMessageReaction
       requestBody:
@@ -2797,7 +2799,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
       responses:
@@ -2810,7 +2812,7 @@ paths:
   /message/delete-reaction:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 为消息删除回应
       requestBody:
         content:
@@ -2822,12 +2824,12 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
                 user_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                     - description: '用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限'
       responses:
         '200':
@@ -2902,7 +2904,7 @@ paths:
               properties:
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                   description: 目标用户id
       responses:
         '200':
@@ -2943,7 +2945,7 @@ paths:
   /direct-message/list:
     get:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 获取私信消息列表
       parameters:
         - name: chat_code
@@ -2955,12 +2957,12 @@ paths:
           description: 目标用户 id，后端会自动创建会话。有此参数之后可不传`chat_code`参数
           in: query
           schema:
-            $ref: '#/components/schemas/id'
+            $ref: '#/components/schemas/_fields_id'
         - name: msg_id
           description: 参考消息 id，不传则查询最新消息
           in: query
           schema:
-            $ref: '#/components/schemas/_fields_id'
+            $ref: '#/components/schemas/_fields_id-2'
         - $ref: '#/components/parameters/MessageListFlagParam'
         - $ref: '#/components/parameters/PageNumberParam'
         - name: page_size
@@ -2989,7 +2991,7 @@ paths:
   /direct-message/create:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 发送私信聊天消息
       requestBody:
         content:
@@ -3001,7 +3003,7 @@ paths:
               properties:
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                   description: 目标用户 id，后端会自动创建会话。有此参数之后可不传`chat_code`参数
       responses:
         '200':
@@ -3030,7 +3032,7 @@ paths:
   /direct-message/update:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 更新私信聊天消息
       requestBody:
         content:
@@ -3042,13 +3044,13 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
                 content:
                   type: string
                   description: 消息内容
                 quote:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id'
+                    - $ref: '#/components/schemas/_fields_id-2'
                   description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
       responses:
         '200':
@@ -3060,7 +3062,7 @@ paths:
   /direct-message/delete:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 删除私信聊天消息
       requestBody:
         content:
@@ -3072,7 +3074,7 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
       responses:
         '200':
           description: OK
@@ -3083,7 +3085,7 @@ paths:
   /direct-message/reaction-list:
     get:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 获取消息某个回应的用户列表
       parameters:
         - name: msg_id
@@ -3091,7 +3093,7 @@ paths:
           description: 消息的id
           required: true
           schema:
-            $ref: '#/components/schemas/_fields_id'
+            $ref: '#/components/schemas/_fields_id-2'
         - name: emoji
           in: query
           description: 'emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode'
@@ -3121,7 +3123,7 @@ paths:
   /direct-message/add-reaction:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 为消息添加回应
       requestBody:
         content:
@@ -3133,7 +3135,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
       responses:
@@ -3146,7 +3148,7 @@ paths:
   /direct-message/delete-reaction:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 为消息删除回应
       requestBody:
         content:
@@ -3158,12 +3160,12 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
                 user_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                     - description: '用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限'
       responses:
         '200':
@@ -3175,7 +3177,7 @@ paths:
   /gateway/index:
     get:
       tags:
-        - gateway
+        - Gateway接口
       summary: 获取网关连接地址
       operationId: getIndex
       parameters:
@@ -3203,7 +3205,7 @@ paths:
   /user/me:
     get:
       tags:
-        - 用户
+        - 用户相关接口
       summary: 获取当前用户信息
       responses:
         '200':
@@ -3239,7 +3241,7 @@ paths:
   /user/view:
     get:
       tags:
-        - 用户
+        - 用户相关接口
       summary: 获取目标用户信息
       parameters:
         - $ref: '#/components/parameters/UserIdParam'
@@ -3247,7 +3249,7 @@ paths:
           in: query
           description: 服务器id
           schema:
-            $ref: '#/components/schemas/GuildId'
+            $ref: '#/components/schemas/id'
       responses:
         '200':
           description: OK
@@ -3283,7 +3285,7 @@ paths:
   /asset/create:
     post:
       tags:
-        - 附件
+        - 附件相关接口
       summary: 上传多媒体文件
       requestBody:
         content:
@@ -3316,7 +3318,7 @@ paths:
   /guild-role/list:
     get:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 获取服务器角色列表
       parameters:
         - $ref: '#/components/parameters/GuildIdParam'
@@ -3345,7 +3347,7 @@ paths:
   /guild-role/create:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 创建服务器角色
       requestBody:
         content:
@@ -3356,7 +3358,7 @@ paths:
                 - guild_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 name:
                   type: string
                   description: 如果不写，则为"新角色"
@@ -3375,7 +3377,7 @@ paths:
   /guild-role/update:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 更新服务器角色
       requestBody:
         content:
@@ -3387,7 +3389,7 @@ paths:
                 - role_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 role_id:
                   type: integer
                   format: unsigned integer
@@ -3439,7 +3441,7 @@ paths:
   /guild-role/delete:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 删除服务器角色
       requestBody:
         content:
@@ -3451,7 +3453,7 @@ paths:
                 - role_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 role_id:
                   type: integer
                   format: unsigned integer
@@ -3468,7 +3470,7 @@ paths:
   /guild-role/grant:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 赋予用户角色
       operationId: grantGuildRole
       requestBody:
@@ -3482,9 +3484,9 @@ paths:
                 - role_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
-                user_id:
                   $ref: '#/components/schemas/id'
+                user_id:
+                  $ref: '#/components/schemas/_fields_id'
                 role_id:
                   $ref: '#/components/schemas/GuildRoleId'
       responses:
@@ -3501,9 +3503,9 @@ paths:
                         type: object
                         properties:
                           user_id:
-                            $ref: '#/components/schemas/id'
+                            $ref: '#/components/schemas/_fields_id'
                           guild_id:
-                            $ref: '#/components/schemas/GuildId'
+                            $ref: '#/components/schemas/id'
                           roles:
                             type: array
                             description: 角色id的列表
@@ -3512,7 +3514,7 @@ paths:
   /guild-role/revoke:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 删除用户角色
       requestBody:
         content:
@@ -3525,9 +3527,9 @@ paths:
                 - role_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
-                user_id:
                   $ref: '#/components/schemas/id'
+                user_id:
+                  $ref: '#/components/schemas/_fields_id'
                 role_id:
                   $ref: '#/components/schemas/GuildRoleId'
       responses:
@@ -3544,9 +3546,9 @@ paths:
                         type: object
                         properties:
                           user_id:
-                            $ref: '#/components/schemas/id'
+                            $ref: '#/components/schemas/_fields_id'
                           guild_id:
-                            $ref: '#/components/schemas/GuildId'
+                            $ref: '#/components/schemas/id'
                           roles:
                             type: array
                             description: 角色id的列表
@@ -3555,7 +3557,7 @@ paths:
   /intimacy/index:
     get:
       tags:
-        - 亲密度
+        - 亲密度相关接口
       summary: 获取用户的亲密度
       operationId: getIntimacy
       description: 机器人可以在后台配置默认的初始亲密度和形象，当用户触发某些事件时，机器人可以根据一些逻辑来更新与该用户的亲密度以及形象展示。
@@ -3602,7 +3604,7 @@ paths:
   /intimacy/update:
     post:
       tags:
-        - 亲密度
+        - 亲密度相关接口
       summary: 更新用户亲密度
       operationId: updateIntimacy
       requestBody:
@@ -3615,7 +3617,7 @@ paths:
               properties:
                 user_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                   description: 用户的id
                 score:
                   type: integer
@@ -3640,7 +3642,7 @@ paths:
   /guild-emoji/list:
     get:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       summary: 获取服务器表情列表
       operationId: getGuildEmojis
       parameters:
@@ -3670,7 +3672,7 @@ paths:
   /guild-emoji/create:
     post:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       summary: 创建服务器表情
       operationId: createGuildEmoji
       description: Header 中 Content-Type 必须为 multipart/form-data
@@ -3687,7 +3689,7 @@ paths:
                   type: string
                   description: 表情名。长度限制 2 - 32 字符，如果不写，则为随机字符串
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 emoji:
                   type: string
                   format: binary
@@ -3707,7 +3709,7 @@ paths:
   /guild-emoji/update:
     post:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       summary: 更新服务器表情
       operationId: updateGuildEmoji
       requestBody:
@@ -3736,7 +3738,7 @@ paths:
   /guild-emoji/delete:
     post:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       operationId: deleteGuildEmoji
       summary: 删除服务器表情
       requestBody:
@@ -3761,7 +3763,7 @@ paths:
   /invite/list:
     get:
       tags:
-        - 邀请
+        - 邀请相关接口
       summary: 获取邀请列表
       operationId: listInvites
       description: 服务器id或者频道id必须填一个
@@ -3771,7 +3773,7 @@ paths:
           description: 服务器id
           required: false
           schema:
-            $ref: '#/components/schemas/GuildId'
+            $ref: '#/components/schemas/id'
         - $ref: '#/components/parameters/GuildChannelIdParam'
         - $ref: '#/components/parameters/PageNumberParam'
         - $ref: '#/components/parameters/PageSizeParam'
@@ -3796,9 +3798,9 @@ paths:
                                   type: object
                                   properties:
                                     channel_id:
-                                      $ref: '#/components/schemas/GuildChannelId'
+                                      $ref: '#/components/schemas/properties-id'
                                     guild_id:
-                                      $ref: '#/components/schemas/GuildId'
+                                      $ref: '#/components/schemas/id'
                                     url_code:
                                       type: string
                                       description: 邀请码
@@ -3812,7 +3814,7 @@ paths:
   /invite/create:
     post:
       tags:
-        - 邀请
+        - 邀请相关接口
       operationId: createInvite
       summary: 创建邀请链接
       description: 服务器id或者频道id必须填一个
@@ -3823,9 +3825,9 @@ paths:
               type: object
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 channel_id:
-                  $ref: '#/components/schemas/GuildChannelId'
+                  $ref: '#/components/schemas/properties-id'
                 duration:
                   type: integer
                   description: >-
@@ -3876,7 +3878,7 @@ paths:
   /invite/delete:
     post:
       tags:
-        - 邀请
+        - 邀请相关接口
       summary: 删除邀请链接
       operationId: deleteInvite
       description: 服务器id或者频道id必须填一个
@@ -3892,9 +3894,9 @@ paths:
                   type: string
                   example: XXX
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 channel_id:
-                  $ref: '#/components/schemas/GuildChannelId'
+                  $ref: '#/components/schemas/properties-id'
       responses:
         '200':
           description: OK
@@ -4198,13 +4200,13 @@ components:
       description: 服务器id
       required: true
       schema:
-        $ref: '#/components/schemas/GuildId'
+        $ref: '#/components/schemas/id'
     GuildChannelIdParam:
       name: channel_id
       in: query
       description: 频道id
       schema:
-        $ref: '#/components/schemas/GuildChannelId'
+        $ref: '#/components/schemas/properties-id'
     MobileVerifiedParam:
       name: mobile_verified
       in: query
@@ -4219,7 +4221,7 @@ components:
       in: query
       description: '频道类型, `1`为文字，`2`为语音, 默认为`1`'
       schema:
-        $ref: '#/components/schemas/GuildChannelType'
+        $ref: '#/components/schemas/properties-type'
     MessageListFlagParam:
       name: flag
       in: query
@@ -4240,12 +4242,12 @@ components:
       required: true
       description: 用户id
       schema:
-        $ref: '#/components/schemas/id'
+        $ref: '#/components/schemas/_fields_id'
   schemas:
     type:
       type: integer
       description: '消息类型, 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息'
-    GuildId:
+    id:
       type: string
       description: 服务器id
       example: '91686000000'
@@ -4265,7 +4267,7 @@ components:
     mention_here:
       type: boolean
       description: 是否含有`@在线成员`
-    id:
+    _fields_id:
       type: string
       description: 用户id
       example: '2418200000'
@@ -4274,7 +4276,7 @@ components:
       description: 用户对象
       properties:
         id:
-          $ref: '#/components/schemas/id'
+          $ref: '#/components/schemas/_fields_id'
         username:
           type: string
           description: 用户的名称
@@ -4393,7 +4395,7 @@ components:
             - $ref: '#/components/schemas/type'
           example: 9
         guild_id:
-          $ref: '#/components/schemas/GuildId'
+          $ref: '#/components/schemas/id'
         channel_name:
           type: string
           description: 频道名
@@ -4418,7 +4420,7 @@ components:
             - $ref: '#/components/schemas/type'
           example: 9
         guild_id:
-          $ref: '#/components/schemas/GuildId'
+          $ref: '#/components/schemas/id'
         channel_name:
           type: string
           description: 频道名
@@ -4554,11 +4556,13 @@ components:
           description: 'Map。分页的排序, key:+-1, 如果为1代表按key升序，如果为-1代表按key降序'
           example:
             id: 1
-    Guild:
+    _index_basic:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/GuildId'
+          type: string
+          description: 服务器id
+          example: '91686000000'
         name:
           type: string
           description: 服务器名称
@@ -4568,7 +4572,7 @@ components:
           description: 服务器主题
         master_id:
           allOf:
-            - $ref: '#/components/schemas/id'
+            - $ref: '#/components/schemas/_fields_id'
           description: 服务器主的id
         icon:
           type: string
@@ -4611,25 +4615,16 @@ components:
           type: integer
           description: 服务器等级
           example: 0
-    GuildChannelId:
-      type: string
-      description: 服务器频道ID
-      example: '9219038000000'
-    GuildChannelType:
-      type: integer
-      enum:
-        - 1
-        - 2
-      description: 频道类型，`1`为文字频道，`2`为语音频道
-    GuildChannel:
+    _index_basic-2:
       type: object
       description: 服务器频道
       properties:
         id:
-          $ref: '#/components/schemas/GuildChannelId'
+          type: string
+          description: 服务器频道ID
           example: '3321010478582000'
         guild_id:
-          $ref: '#/components/schemas/GuildId'
+          $ref: '#/components/schemas/id'
         master_id:
           description: 频道创建者id
           type: string
@@ -4647,7 +4642,11 @@ components:
           description: 频道简介
           example: 这是示例频道的示例简介
         type:
-          $ref: '#/components/schemas/GuildChannelType'
+          type: integer
+          enum:
+            - 1
+            - 2
+          description: 频道类型，`1`为文字频道，`2`为语音频道
         level:
           type: integer
           description: 频道排序
@@ -4668,6 +4667,16 @@ components:
           type: string
           description: '语音服务器地址，`HOST:PORT`的格式'
           example: 'HOST:PORT'
+    properties-id:
+      type: string
+      description: 服务器频道ID
+      example: '3321010478582000'
+    properties-type:
+      type: integer
+      enum:
+        - 1
+        - 2
+      description: 频道类型，`1`为文字频道，`2`为语音频道
     GuildChannelPermission:
       type: object
       required:
@@ -4689,7 +4698,7 @@ components:
       format: unsigned integer
       description: 服务器角色id
       example: 113
-    _fields_id:
+    _fields_id-2:
       type: string
       description: 消息id
       example: 1c4532f6-*********-93e9-6347f410f91c
@@ -4818,11 +4827,11 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/reaction'
-    _index_basic:
+    _index_basic-3:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/_fields_id'
+          $ref: '#/components/schemas/_fields_id-2'
         type:
           $ref: '#/components/schemas/type'
         author:
@@ -4864,7 +4873,7 @@ components:
           description: 消息内容（为了保障消息正常发出，请不要超过8000字符）
         quote:
           allOf:
-            - $ref: '#/components/schemas/_fields_id'
+            - $ref: '#/components/schemas/_fields_id-2'
           description: 回复某条消息的`msg_id`
         nonce:
           type: string
@@ -4897,7 +4906,7 @@ components:
           description: 目标用户信息
           properties:
             id:
-              $ref: '#/components/schemas/id'
+              $ref: '#/components/schemas/_fields_id'
             username:
               type: string
               description: 目标用户名
@@ -4958,14 +4967,14 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/_fields_id'
+          $ref: '#/components/schemas/_fields_id-2'
         type:
           type: integer
           description: 消息类型
         author_id:
           description: 作者的用户ID
           allOf:
-            - $ref: '#/components/schemas/id'
+            - $ref: '#/components/schemas/_fields_id'
         content:
           type: string
           description: 消息内容
@@ -5047,7 +5056,7 @@ components:
             - $ref: '#/components/schemas/type'
           example: 2
         guild_id:
-          $ref: '#/components/schemas/GuildId'
+          $ref: '#/components/schemas/id'
         author:
           $ref: '#/components/schemas/basic'
         attachments:
@@ -5073,7 +5082,7 @@ components:
             - $ref: '#/components/schemas/type'
           example: 3
         guild_id:
-          $ref: '#/components/schemas/GuildId'
+          $ref: '#/components/schemas/id'
         author:
           $ref: '#/components/schemas/basic'
         attachments:
@@ -5119,7 +5128,7 @@ components:
             - $ref: '#/components/schemas/type'
           example: 4
         guild_id:
-          $ref: '#/components/schemas/GuildId'
+          $ref: '#/components/schemas/id'
         author:
           $ref: '#/components/schemas/basic'
         attachments:
@@ -5191,7 +5200,7 @@ components:
                   properties:
                     channel_id:
                       allOf:
-                        - $ref: '#/components/schemas/GuildChannelId'
+                        - $ref: '#/components/schemas/properties-id'
                         - description: 消息所在的频道id
                     emoji:
                       type: object
@@ -5204,11 +5213,11 @@ components:
                           $ref: '#/components/schemas/GuildEmojiId'
                     user_id:
                       allOf:
-                        - $ref: '#/components/schemas/id'
+                        - $ref: '#/components/schemas/_fields_id'
                         - description: 点击的用户
                     msg_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id'
+                        - $ref: '#/components/schemas/_fields_id-2'
                         - description: 用户点击的消息id
     message-update:
       type: object
@@ -5224,11 +5233,11 @@ components:
                   properties:
                     msg_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id'
+                        - $ref: '#/components/schemas/_fields_id-2'
                       description: 消息id
                     channel_id:
                       allOf:
-                        - $ref: '#/components/schemas/GuildChannelId'
+                        - $ref: '#/components/schemas/properties-id'
                       description: 消息所在的频道id
                     content:
                       type: string
@@ -5262,15 +5271,15 @@ components:
                   properties:
                     channel_id:
                       allOf:
-                        - $ref: '#/components/schemas/GuildChannelId'
+                        - $ref: '#/components/schemas/properties-id'
                       description: 发生操作的频道id
                     operator_id:
                       allOf:
-                        - $ref: '#/components/schemas/id'
+                        - $ref: '#/components/schemas/_fields_id'
                       description: 操作人的用户id
                     msg_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id'
+                        - $ref: '#/components/schemas/_fields_id-2'
                       description: 被操作的消息id
     PersonEvent:
       type: object
@@ -5292,7 +5301,7 @@ components:
                   properties:
                     msg_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id'
+                        - $ref: '#/components/schemas/_fields_id-2'
                       description: 被操作的消息id
                     chat_code:
                       $ref: '#/components/schemas/ChatCode'
@@ -5310,7 +5319,7 @@ components:
                   properties:
                     user_id:
                       allOf:
-                        - $ref: '#/components/schemas/id'
+                        - $ref: '#/components/schemas/_fields_id'
                       description: 用户id
     guild:
       type: object
@@ -5361,12 +5370,22 @@ components:
                       description: 欢迎频道id
     BasicEvent:
       $ref: '#/components/schemas/basic-2'
+    Guild:
+      $ref: '#/components/schemas/_index_basic'
     User:
       $ref: '#/components/schemas/basic'
-    UserId:
+    GuildId:
       $ref: '#/components/schemas/id'
+    UserId:
+      $ref: '#/components/schemas/_fields_id'
+    GuildChannel:
+      $ref: '#/components/schemas/_index_basic-2'
+    GuildChannelId:
+      $ref: '#/components/schemas/properties-id'
+    GuildChannelType:
+      $ref: '#/components/schemas/properties-type'
     Message:
-      $ref: '#/components/schemas/_index_basic'
+      $ref: '#/components/schemas/_index_basic-3'
   requestBodies:
     create:
       content:
@@ -5379,7 +5398,7 @@ components:
               channel_id:
                 description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
                 allOf:
-                  - $ref: '#/components/schemas/GuildChannelId'
+                  - $ref: '#/components/schemas/properties-id'
               type:
                 type: string
                 description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
@@ -5402,7 +5421,7 @@ components:
               channel_id:
                 description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
                 allOf:
-                  - $ref: '#/components/schemas/GuildChannelId'
+                  - $ref: '#/components/schemas/properties-id'
               type:
                 type: string
                 description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
@@ -5433,7 +5452,7 @@ components:
               channel_id:
                 description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
                 allOf:
-                  - $ref: '#/components/schemas/GuildChannelId'
+                  - $ref: '#/components/schemas/properties-id'
               type:
                 type: string
                 description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
@@ -5466,7 +5485,7 @@ components:
                               - $ref: '#/components/schemas/type'
                             example: 1
                           guild_id:
-                            $ref: '#/components/schemas/GuildId'
+                            $ref: '#/components/schemas/id'
                           channel_name:
                             type: string
                             description: 频道名
@@ -5649,11 +5668,11 @@ components:
                             properties:
                               msg_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id'
+                                  - $ref: '#/components/schemas/_fields_id-2'
                                 description: 被删除的消息id
                               channel_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/GuildChannelId'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 消息所在频道id
     channel_create:
       content:
@@ -5673,7 +5692,7 @@ components:
                             description: 消息类型，此处为`added_channel`
                             example: added_channel
                           body:
-                            $ref: '#/components/schemas/GuildChannel'
+                            $ref: '#/components/schemas/_index_basic-2'
     channel_update:
       content:
         application/json:
@@ -5692,7 +5711,7 @@ components:
                             description: 消息类型，此处为`updated_channel`
                             example: updated_channel
                           body:
-                            $ref: '#/components/schemas/GuildChannel'
+                            $ref: '#/components/schemas/_index_basic-2'
     channel_delete:
       content:
         application/json:
@@ -5715,7 +5734,7 @@ components:
                             properties:
                               id:
                                 allOf:
-                                  - $ref: '#/components/schemas/GuildChannelId'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 被删除的频道id
                               deleted_at:
                                 type: integer
@@ -5783,15 +5802,15 @@ components:
                             properties:
                               msg_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id'
+                                  - $ref: '#/components/schemas/_fields_id-2'
                                 description: 被更新的消息id
                               author_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/id'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 被更新的消息的创建者id
                               target_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/id'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 被更新的消息的目标用户id
                               content:
                                 type: string
@@ -5823,15 +5842,15 @@ components:
                             properties:
                               msg_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id'
+                                  - $ref: '#/components/schemas/_fields_id-2'
                                 description: 被删除的消息id
                               author_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/id'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 被删除的消息的创建者id
                               target_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/id'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 被删除的消息的目标用户id
                               updated_at:
                                 type: integer
@@ -6127,13 +6146,13 @@ components:
                             properties:
                               operator_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/id'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 操作人id
                               user_id:
                                 type: array
                                 description: 被封禁成员id列表
                                 items:
-                                  $ref: '#/components/schemas/id'
+                                  $ref: '#/components/schemas/_fields_id'
                               remark:
                                 type: string
                                 description: 封禁理由
@@ -6160,13 +6179,13 @@ components:
                             properties:
                               operator_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/id'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 操作人id
                               user_id:
                                 type: array
                                 description: 被封禁成员id列表
                                 items:
-                                  $ref: '#/components/schemas/id'
+                                  $ref: '#/components/schemas/_fields_id'
     channel_join:
       content:
         application/json:
@@ -6188,10 +6207,10 @@ components:
                             type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/id'
+                                $ref: '#/components/schemas/_fields_id'
                               channel_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/GuildChannelId'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 加入的频道id
                               joined_at:
                                 type: integer
@@ -6218,10 +6237,10 @@ components:
                             type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/id'
+                                $ref: '#/components/schemas/_fields_id'
                               channel_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/GuildChannelId'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 加入的频道id
                               exited_at:
                                 type: integer
@@ -6250,7 +6269,7 @@ components:
                             type: object
                             properties:
                               guild_id:
-                                $ref: '#/components/schemas/GuildId'
+                                $ref: '#/components/schemas/id'
     guild_exit:
       content:
         application/json:
@@ -6274,7 +6293,7 @@ components:
                             type: object
                             properties:
                               guild_id:
-                                $ref: '#/components/schemas/GuildId'
+                                $ref: '#/components/schemas/id'
     info_update:
       content:
         application/json:
@@ -6296,7 +6315,7 @@ components:
                             type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/id'
+                                $ref: '#/components/schemas/_fields_id'
                               username:
                                 type: string
                                 description: 用户名
@@ -6327,18 +6346,18 @@ components:
                             type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/id'
-                              msg_id:
                                 $ref: '#/components/schemas/_fields_id'
+                              msg_id:
+                                $ref: '#/components/schemas/_fields_id-2'
                               value:
                                 type: string
                                 description: 按钮`return-val`的返回值
                               target_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/GuildChannelId'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 消息所在频道的id
                               guild_id:
-                                $ref: '#/components/schemas/GuildId'
+                                $ref: '#/components/schemas/id'
                               user_info:
                                 $ref: '#/components/schemas/basic'
 security: []
