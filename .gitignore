@@ -1,3 +1,4 @@
 .idea
 .prettier*
 dist/*.yaml
+dist/
