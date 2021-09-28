@@ -13,8 +13,8 @@ click-button:
                     type: object
                     properties:
                       type:
-                        description: 消息类型，此处为`user_updated`
-                        example: 'user_updated'
+                        description: 消息类型，此处为`message_btn_click`
+                        example: 'message_btn_click'
                       body:
                         type: object
                         properties:
