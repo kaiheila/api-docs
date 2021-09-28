@@ -24,32 +24,32 @@ tags:
   - name: KMarkdown与卡片消息
     description: 
       $ref: "./descriptions/_index.yaml#/kmarkdown-card"
-  - name: 服务器
+  - name: 服务器相关接口
     description: 服务器相关接口
-  - name: 频道
+  - name: 服务器频道相关接口
     description: 服务器频道相关接口
-  - name: 频道消息
+  - name: 频道消息相关接口
     description: 频道消息相关接口
   - name: 私聊会话
     description: 私聊会话相关接口
-  - name: 私聊消息
+  - name: 私聊消息相关接口
     description: 私聊消息相关接口
-  - name: 用户
+  - name: 用户相关接口
     description: 用户相关接口
-  - name: 服务器角色权限
+  - name: 服务器角色权限相关接口
     description: 
       $ref: "./descriptions/_index.yaml#/permissions"
-  - name: 服务器表情
+  - name: 服务器表情相关接口
     description: 服务器表情相关接口
-  - name: 邀请
+  - name: 邀请相关接口
     description: 邀请相关接口
-  - name: gateway
+  - name: Gateway接口
     description: Gateway接口
-  - name: 亲密度
-    description: 亲密度相关接口列表
-  - name: 附件
+  - name: 亲密度相关接口
+    description: 亲密度相关接口
+  - name: 附件相关接口
     description: 附件相关接口
-  - name: 事件相关
+  - name: 事件通知介绍
     description:
       $ref: "./descriptions/_index.yaml#/event"
   - name: 消息相关事件

@@ -95,6 +95,10 @@ file:
         url:
           type: string
           example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+        file_type:
+          description: 文件格式
+          type: string
+          example: 'text/plain'
         name:
           type: string
           description: 多媒体名

@@ -3,7 +3,7 @@ properties:
   d:
     type: object
     properties:
-      extra: 
+      extra:
         type: object
         properties:
           body:
@@ -11,18 +11,18 @@ properties:
             properties:
               msg_id:
                 allOf:
-                  - $ref: "../message/_fields.yaml#/id"
+                  - $ref: '../message/_fields.yaml#/id'
                 description: 消息id
               channel_id:
                 allOf:
-                  - $ref: "../_index.yaml#/GuildChannelId"
+                  - $ref: '../_index.yaml#/GuildChannelId'
                 description: 消息所在的频道id
               content:
                 type: string
                 description: 消息内容
               mention:
                 type: array
-                description: "`\\@特定用户` 的用户ID数组，与`mention_info`中的数据对应"
+                description: '`@特定用户` 的用户ID数组，与`mention_info`中的数据对应'
                 items:
                   type: string
               mention_all:
@@ -30,7 +30,7 @@ properties:
                 description: 是否含有`@全体人员`
               mention_roles:
                 type: array
-                description: "`@特定角色` 的角色ID数组，与`mention_info`中的数据对应"
+                description: '`@特定角色` 的角色ID数组，与`mention_info`中的数据对应'
                 items:
                   type: string
               mention_here:

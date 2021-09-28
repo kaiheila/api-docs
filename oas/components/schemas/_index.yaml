@@ -48,7 +48,7 @@ MessageEvent:
               description: 频道名
             mention:
               type: array
-              description: "`\\@特定用户` 的用户ID数组，与`mention_info`中的数据对应"
+              description: "`@特定用户` 的用户ID数组，与`mention_info`中的数据对应"
               items:
                 type: string
             mention_all:
