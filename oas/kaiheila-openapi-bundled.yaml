@@ -4992,6 +4992,9 @@ components:
         d:
           type: object
           properties:
+            type:
+              type: integer
+              description: 与extra字段中的type相同，为1-10
             author_id:
               description: 发送者的用户id
               example: '2418200000'
@@ -5132,7 +5135,7 @@ components:
                       allOf:
                         - $ref: '#/components/schemas/_fields_id'
                         - description: 用户点击的消息id
-    message:
+    message-update:
       type: object
       properties:
         d:
@@ -5378,34 +5381,31 @@ components:
                   d:
                     type: object
                     properties:
+                      type:
+                        example: 1
                       extra:
                         type: object
                         properties:
                           type:
+                            allOf:
+                              - $ref: '#/components/schemas/type'
                             example: 1
-                          body:
-                            type: object
-                            properties:
-                              type:
-                                allOf:
-                                  - $ref: '#/components/schemas/type'
-                                example: 1
-                              guild_id:
-                                $ref: '#/components/schemas/GuildId'
-                              channel_name:
-                                type: string
-                                description: 频道名
-                                example: 一个频道
-                              mention:
-                                $ref: '#/components/schemas/mention'
-                              mention_all:
-                                $ref: '#/components/schemas/mention_all'
-                              mention_roles:
-                                $ref: '#/components/schemas/mention_roles'
-                              mention_here:
-                                $ref: '#/components/schemas/mention_here'
-                              author:
-                                $ref: '#/components/schemas/basic'
+                          guild_id:
+                            $ref: '#/components/schemas/GuildId'
+                          channel_name:
+                            type: string
+                            description: 频道名
+                            example: 一个频道
+                          mention:
+                            $ref: '#/components/schemas/mention'
+                          mention_all:
+                            $ref: '#/components/schemas/mention_all'
+                          mention_roles:
+                            $ref: '#/components/schemas/mention_roles'
+                          mention_here:
+                            $ref: '#/components/schemas/mention_here'
+                          author:
+                            $ref: '#/components/schemas/basic'
     image:
       content:
         application/json:
@@ -5421,13 +5421,10 @@ components:
                         description: 文件链接，与`attachments`的`url`相同
                         example: >-
                           https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg
+                      type:
+                        example: 2
                       extra:
-                        type: object
-                        properties:
-                          type:
-                            example: 2
-                          body:
-                            $ref: '#/components/schemas/multimedia_image'
+                        $ref: '#/components/schemas/multimedia_image'
     video:
       content:
         application/json:
@@ -5442,13 +5439,10 @@ components:
                       content:
                         description: 文件链接，与`attachments`的`url`相同
                         example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
+                      type:
+                        example: 3
                       extra:
-                        type: object
-                        properties:
-                          type:
-                            example: 3
-                          body:
-                            $ref: '#/components/schemas/multimedia_video'
+                        $ref: '#/components/schemas/multimedia_video'
     file:
       content:
         application/json:
@@ -5463,13 +5457,10 @@ components:
                       content:
                         description: 文件链接，与`attachments`的`url`相同
                         example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+                      type:
+                        example: 4
                       extra:
-                        type: object
-                        properties:
-                          type:
-                            example: 4
-                          body:
-                            $ref: '#/components/schemas/multimedia_file'
+                        $ref: '#/components/schemas/multimedia_file'
     kmarkdown:
       content:
         application/json:
@@ -5481,13 +5472,10 @@ components:
                   d:
                     type: object
                     properties:
+                      type:
+                        example: 9
                       extra:
-                        type: object
-                        properties:
-                          type:
-                            example: 9
-                          body:
-                            $ref: '#/components/schemas/kmarkdown'
+                        $ref: '#/components/schemas/kmarkdown'
     card:
       content:
         application/json:
@@ -5499,13 +5487,10 @@ components:
                   d:
                     type: object
                     properties:
+                      type:
+                        example: 10
                       extra:
-                        type: object
-                        properties:
-                          type:
-                            example: 10
-                          body:
-                            $ref: '#/components/schemas/card'
+                        $ref: '#/components/schemas/card'
     add:
       content:
         application/json:
@@ -5548,7 +5533,7 @@ components:
           schema:
             allOf:
               - $ref: '#/components/schemas/SystemEvent'
-              - $ref: '#/components/schemas/message'
+              - $ref: '#/components/schemas/message-update'
               - type: object
                 properties:
                   d:
