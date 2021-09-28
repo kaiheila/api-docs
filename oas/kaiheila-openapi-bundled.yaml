@@ -4263,7 +4263,7 @@ components:
       type: array
       description: '`@特定角色` 的角色ID数组'
       items:
-        type: string
+        type: int
     mention_here:
       type: boolean
       description: 是否含有`@在线成员`
@@ -6340,8 +6340,8 @@ components:
                         type: object
                         properties:
                           type:
-                            description: 消息类型，此处为`user_updated`
-                            example: user_updated
+                            description: 消息类型，此处为`message_btn_click`
+                            example: message_btn_click
                           body:
                             type: object
                             properties:
