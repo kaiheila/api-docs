@@ -28,6 +28,9 @@ MessageEvent:
     d:
       type: object
       properties:
+        type:
+          type: integer
+          description: 与extra字段中的type相同，为1-10
         author_id:
           description: 发送者的用户id
           example: '2418200000'
