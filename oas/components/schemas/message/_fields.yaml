@@ -24,7 +24,7 @@ mention_roles:
   type: array
   description: '`@特定角色` 的角色ID数组'
   items:
-    type: string
+    type: int
 mention_here:
   type: boolean
   description: 是否含有`@在线成员`
