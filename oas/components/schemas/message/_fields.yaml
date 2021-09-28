@@ -52,9 +52,9 @@ embeds:
     $ref: '#/embed'
 attachments:
   oneOf:
-    - $ref: './multimedia.yaml#/attachments/image'
-    - $ref: './multimedia.yaml#/attachments/video'
-    - $ref: './multimedia.yaml#/attachments/file'
+    - $ref: './multimedia.yaml#/image/properties/attachments'
+    - $ref: './multimedia.yaml#/video/properties/attachments'
+    - $ref: './multimedia.yaml#/file/properties/attachments'
 reaction:
   type: object
   properties:
