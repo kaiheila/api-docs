@@ -1944,9 +1944,9 @@ paths:
                                   $ref: '#/components/schemas/Guild'
   /guild/index:
     get:
+      deprecated: true
       tags:
         - 服务器
-      deprecated: true
       summary: 获取当前用户加入的服务器列表
       description: ''
       parameters: []
@@ -4719,7 +4719,7 @@ components:
       description: 超链接解析数据
       items:
         $ref: '#/components/schemas/embed'
-    image:
+    attachments:
       type: object
       properties:
         type:
@@ -4734,7 +4734,7 @@ components:
           type: string
           description: 附件链接
           example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
-    video:
+    properties-attachments:
       type: object
       properties:
         type:
@@ -4742,13 +4742,16 @@ components:
           enum:
             - video
         name:
+          type: string
           description: 多媒体名
           example: 002iQMhagx07Fx0S4xxxx323o0E010.mp4
         url:
+          type: string
           description: 附件链接
           example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
         file_type:
           description: 文件格式
+          type: string
           example: video/mp4
         size:
           type: integer
@@ -4766,7 +4769,7 @@ components:
           type: integer
           description: 视频高度
           example: 480
-    file:
+    file-properties-attachments:
       type: object
       properties:
         type:
@@ -4783,11 +4786,11 @@ components:
           type: integer
           description: 大小 单位（B）
           example: 2575670
-    attachments:
+    _fields_attachments:
       oneOf:
-        - $ref: '#/components/schemas/image'
-        - $ref: '#/components/schemas/video'
-        - $ref: '#/components/schemas/file'
+        - $ref: '#/components/schemas/attachments'
+        - $ref: '#/components/schemas/properties-attachments'
+        - $ref: '#/components/schemas/file-properties-attachments'
     reaction:
       type: object
       properties:
@@ -4830,7 +4833,7 @@ components:
         embeds:
           $ref: '#/components/schemas/embeds'
         attachments:
-          $ref: '#/components/schemas/attachments'
+          $ref: '#/components/schemas/_fields_attachments'
         reactions:
           $ref: '#/components/schemas/reactions'
         quote:
@@ -5029,7 +5032,7 @@ components:
                   description: 消息作者
                   allOf:
                     - $ref: '#/components/schemas/basic'
-    multimedia_image:
+    image:
       type: object
       properties:
         type:
@@ -5041,8 +5044,21 @@ components:
         author:
           $ref: '#/components/schemas/basic'
         attachments:
-          $ref: '#/components/schemas/image'
-    multimedia_video:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - image
+            name:
+              type: string
+              description: 多媒体名
+              example: xxx.jpg
+            url:
+              type: string
+              description: 附件链接
+              example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
+    video:
       type: object
       properties:
         type:
@@ -5054,8 +5070,41 @@ components:
         author:
           $ref: '#/components/schemas/basic'
         attachments:
-          $ref: '#/components/schemas/video'
-    multimedia_file:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - video
+            name:
+              type: string
+              description: 多媒体名
+              example: 002iQMhagx07Fx0S4xxxx323o0E010.mp4
+            url:
+              type: string
+              description: 附件链接
+              example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
+            file_type:
+              description: 文件格式
+              type: string
+              example: video/mp4
+            size:
+              type: integer
+              description: 大小 单位（B）
+              example: 722882
+            duration:
+              type: number
+              description: 视频时长（s）
+              example: 15.673
+            width:
+              type: integer
+              description: 视频宽度
+              example: 640
+            height:
+              type: integer
+              description: 视频高度
+              example: 480
+    file:
       type: object
       properties:
         type:
@@ -5067,7 +5116,22 @@ components:
         author:
           $ref: '#/components/schemas/basic'
         attachments:
-          $ref: '#/components/schemas/file'
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - file
+            url:
+              type: string
+              example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+            name:
+              type: string
+              description: 多媒体名
+            size:
+              type: integer
+              description: 大小 单位（B）
+              example: 2575670
     SystemEvent:
       type: object
       allOf:
@@ -5424,7 +5488,7 @@ components:
                       type:
                         example: 2
                       extra:
-                        $ref: '#/components/schemas/multimedia_image'
+                        $ref: '#/components/schemas/image'
     video:
       content:
         application/json:
@@ -5442,7 +5506,7 @@ components:
                       type:
                         example: 3
                       extra:
-                        $ref: '#/components/schemas/multimedia_video'
+                        $ref: '#/components/schemas/video'
     file:
       content:
         application/json:
@@ -5460,7 +5524,7 @@ components:
                       type:
                         example: 4
                       extra:
-                        $ref: '#/components/schemas/multimedia_file'
+                        $ref: '#/components/schemas/file'
     kmarkdown:
       content:
         application/json:
@@ -6187,11 +6251,11 @@ components:
                   d:
                     type: object
                     properties:
+                      channel_type:
+                        example: PERSON
                       extra:
                         type: object
                         properties:
-                          channel_type:
-                            example: PERSON
                           type:
                             description: 消息类型，此处为`self_exited_guild`
                             example: self_exited_guild
