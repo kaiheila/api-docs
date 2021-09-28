@@ -88,7 +88,7 @@ paths:
   /event:
     post:
       tags:
-        - 事件结构与格式说明
+        - 事件通知介绍
       summary: 事件结构示例
       requestBody:
         content: 
@@ -118,7 +118,7 @@ paths:
   /guild/list:
     get:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 获取当前用户加入的服务器列表
       description: ''
       operationId: getJoinedGuilds
@@ -153,7 +153,7 @@ paths:
     get:
       deprecated: true
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 获取当前用户加入的服务器列表
       description: ''
       parameters: []
@@ -172,7 +172,7 @@ paths:
   /guild/nickname:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 修改服务器中的用户昵称
       operationId: changeUserNickname
       requestBody:
@@ -202,7 +202,7 @@ paths:
   /guild/leave:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 离开服务器
       operationId: leaveGuild
       requestBody:
@@ -225,7 +225,7 @@ paths:
   /guild/kickout:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 踢出服务器
       operationId: kickUserById
       requestBody:
@@ -253,7 +253,7 @@ paths:
   /guild-mute/list:
     get:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 服务器静音闭麦列表
       operationId: getGuildMuteUsers
       parameters:
@@ -305,7 +305,7 @@ paths:
   /guild-mute/create:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 添加服务器闭麦或静音
       operationId: muteUserById
       requestBody:
@@ -340,7 +340,7 @@ paths:
   /guild-mute/delete:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 删除服务器闭麦或静音
       operationId: unmuteUserById
       requestBody:
@@ -395,7 +395,7 @@ paths:
   /message/list:
     get:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 获取频道聊天消息列表
       operationId: getChannelMessages
       description: 此接口非标准分页，需要根据参考消息来查询相邻分页的消息
@@ -447,7 +447,7 @@ paths:
   /message/create:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 发送频道聊天消息
       operationId: sendChannelMessage
       requestBody:
@@ -494,7 +494,7 @@ paths:
   /message/update:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 更新频道聊天消息
       requestBody:
         content:
@@ -527,7 +527,7 @@ paths:
   /message/delete:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 删除频道聊天消息
       requestBody:
         content:
@@ -550,7 +550,7 @@ paths:
   /message/reaction-list:
     get:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 获取频道消息某个回应的用户列表
       operationId: getMessageReactionUsers
       parameters:
@@ -590,7 +590,7 @@ paths:
   /message/add-reaction:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 为消息添加回应
       operationId: addMessageReaction
       requestBody:
@@ -616,7 +616,7 @@ paths:
   /message/delete-reaction:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 为消息删除回应
       requestBody:
         content:
@@ -749,7 +749,7 @@ paths:
   /direct-message/list:
     get:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 获取私信消息列表
       parameters:
         - name: chat_code
@@ -795,7 +795,7 @@ paths:
   /direct-message/create:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 发送私信聊天消息
       requestBody:
         content:
@@ -836,7 +836,7 @@ paths:
   /direct-message/update:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 更新私信聊天消息
       requestBody:
         content:
@@ -866,7 +866,7 @@ paths:
   /direct-message/delete:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 删除私信聊天消息
       requestBody:
         content:
@@ -889,7 +889,7 @@ paths:
   /direct-message/reaction-list:
     get:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 获取消息某个回应的用户列表
       parameters:
         - name: msg_id
@@ -927,7 +927,7 @@ paths:
   /direct-message/add-reaction:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 为消息添加回应
       requestBody:
         content:
@@ -952,7 +952,7 @@ paths:
   /direct-message/delete-reaction:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 为消息删除回应
       requestBody:
         content:
@@ -981,7 +981,7 @@ paths:
   /gateway/index:
     get:
       tags:
-        - gateway
+        - Gateway接口
       summary: 获取网关连接地址
       operationId: getIndex
       parameters:
@@ -1009,7 +1009,7 @@ paths:
   /user/me:
     get:
       tags:
-        - 用户
+        - 用户相关接口
       summary: 获取当前用户信息
       responses:
         '200':
@@ -1045,7 +1045,7 @@ paths:
   /user/view:
     get:
       tags:
-        - 用户
+        - 用户相关接口
       summary: 获取目标用户信息
       parameters:
         - $ref: '#/components/parameters/UserIdParam'
@@ -1089,7 +1089,7 @@ paths:
   /asset/create:
     post:
       tags:
-        - 附件
+        - 附件相关接口
       summary: 上传多媒体文件
       requestBody:
         content:
@@ -1121,7 +1121,7 @@ paths:
   /guild-role/list:
     get:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 获取服务器角色列表
       parameters:
         - $ref: '#/components/parameters/GuildIdParam'
@@ -1150,7 +1150,7 @@ paths:
   /guild-role/create:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 创建服务器角色
       requestBody:
         content:
@@ -1180,7 +1180,7 @@ paths:
   /guild-role/update:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 更新服务器角色
       requestBody:
         content:
@@ -1243,7 +1243,7 @@ paths:
   /guild-role/delete:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 删除服务器角色
       requestBody:
         content:
@@ -1272,7 +1272,7 @@ paths:
   /guild-role/grant:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 赋予用户角色
       operationId: grantGuildRole
       requestBody:
@@ -1316,7 +1316,7 @@ paths:
   /guild-role/revoke:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 删除用户角色
       requestBody:
         content:
@@ -1359,7 +1359,7 @@ paths:
   /intimacy/index:
     get:
       tags:
-        - 亲密度
+        - 亲密度相关接口
       summary: 获取用户的亲密度
       operationId: getIntimacy
       description: 机器人可以在后台配置默认的初始亲密度和形象，当用户触发某些事件时，机器人可以根据一些逻辑来更新与该用户的亲密度以及形象展示。
@@ -1406,7 +1406,7 @@ paths:
   /intimacy/update:
     post:
       tags:
-        - 亲密度
+        - 亲密度相关接口
       summary: 更新用户亲密度
       operationId: updateIntimacy
       requestBody:
@@ -1444,7 +1444,7 @@ paths:
   /guild-emoji/list:
     get:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       summary: 获取服务器表情列表
       operationId: getGuildEmojis
       parameters:
@@ -1474,7 +1474,7 @@ paths:
   /guild-emoji/create:
     post:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       summary: 创建服务器表情
       operationId: createGuildEmoji
       description: Header 中 Content-Type 必须为 multipart/form-data
@@ -1511,7 +1511,7 @@ paths:
   /guild-emoji/update:
     post:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       summary: 更新服务器表情
       operationId: updateGuildEmoji
       requestBody:
@@ -1540,7 +1540,7 @@ paths:
   /guild-emoji/delete:
     post:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       operationId: deleteGuildEmoji
       summary: 删除服务器表情
       requestBody:
@@ -1565,7 +1565,7 @@ paths:
   /invite/list:
     get:
       tags:
-        - 邀请
+        - 邀请相关接口
       summary: 获取邀请列表
       operationId: listInvites
       description: 服务器id或者频道id必须填一个
@@ -1616,7 +1616,7 @@ paths:
   /invite/create:
     post:
       tags:
-        - 邀请
+        - 邀请相关接口
       operationId: createInvite
       summary: 创建邀请链接
       description: 服务器id或者频道id必须填一个
@@ -1676,7 +1676,7 @@ paths:
   /invite/delete:
     post:
       tags:
-        - 邀请
+        - 邀请相关接口
       summary: 删除邀请链接
       operationId: deleteInvite
       description: 服务器id或者频道id必须填一个

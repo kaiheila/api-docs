@@ -1,7 +1,7 @@
 list:
   get:
     tags:
-      - 频道
+      - 服务器频道相关接口
     summary: 获取频道列表
     operationId: getGuildChannels
     parameters:
@@ -32,7 +32,7 @@ view:
   get:
     operationId: getChannelById
     tags:
-      - 频道
+      - 服务器频道相关接口
     summary: 获取频道详情
     parameters:
       - name: target_id
@@ -57,7 +57,7 @@ view:
 create:
   post:
     tags:
-      - 频道
+      - 服务器频道相关接口
     summary: 创建频道
     operationId: createChannel
     requestBody:
@@ -109,7 +109,7 @@ create:
 delete: 
   post:
     tags:
-      - 频道
+      - 服务器频道相关接口
     summary: 删除频道
     operationId: deleteChannelById
     requestBody:
@@ -133,7 +133,7 @@ delete:
 user-list:
   get:
     tags:
-      - 频道
+      - 服务器频道相关接口
     summary: 查询语音频道内用户
     operationId: getVoiceChannelUsers
     description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
@@ -166,7 +166,7 @@ user-list:
 move-user:
   post:
     tags:
-      - 频道
+      - 服务器频道相关接口
     summary: 语音频道之间移动用户
     operationId: moveUsersInVoiceChannel
     description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。

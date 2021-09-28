@@ -1,7 +1,7 @@
 view:
   get:
     tags:
-      - 服务器
+      - 服务器相关接口
     summary: 获取服务器详情
     operationId: getGuildById
     parameters:
@@ -23,17 +23,19 @@ view:
                       properties:
                         roles:
                           type: array
+                          description: 服务器的角色列表
                           items:
                             - $ref: '../components/schemas/_index.yaml#/GuildRole'
                         channels:
+                          description: 服务器的频道列表
                           type: array
                           items: 
-                            - $ref: "../components/schemas/_index.yaml#/GuildChannel"
+                            - $ref: "../components/schemas/channel/_index.yaml#/basic"
 
 user-list:
   get:
     tags:
-      - 服务器
+      - 服务器相关接口
     summary: 获取服务器的用户列表
     operationId: getUsersInGuild
     parameters:

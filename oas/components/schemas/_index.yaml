@@ -48,7 +48,7 @@ MessageEvent:
               description: 频道名
             mention:
               type: array
-              description: "`@特定用户` 的用户ID数组，与`mention_info`中的数据对应"
+              description: '`@特定用户` 的用户ID数组，与`mention_info`中的数据对应'
               items:
                 type: string
             mention_all:
@@ -160,130 +160,21 @@ PaginationInfo:
       example:
         id: 1
 Guild:
-  type: object
-  properties:
-    id:
-      $ref: '#/GuildId'
-    name:
-      type: string
-      description: 服务器名称
-      example: 'Hello'
-    topic:
-      type: string
-      description: 服务器主题
-    master_id:
-      allOf:
-        - $ref: './user/_fields.yaml#/id'
-      description: 服务器主的id
-    icon:
-      type: string
-      description: 服务器icon的地址
-      example: 'https://xxx/icons/2020-05/YQyfHxxx.png/icon'
-    notify_type:
-      type: integer
-      description: 通知类型, `0`代表默认使用服务器通知设置，`1`代表接收所有通知, `2`代表仅@被提及，`3`代表不接收通知
-      enum:
-        - 0
-        - 1
-        - 2
-        - 3
-      example: 0
-    region:
-      type: string
-      description: 服务器默认使用语音区域
-      example: beijing
-    enable_open:
-      type: boolean
-      description: 是否为公开服务器
-      example: true
-    open_id:
-      type: string
-      description: 公开服务器id
-      example: '012312413'
-    default_channel_id:
-      type: string
-      description: 默认频道id
-      example: '5915900001396830'
-    welcome_channel_id:
-      type: string
-      description: 欢迎频道id
-      example: '5789900001312330'
-    boost_num:
-      type: integer
-      description: 服务器助力数量
-      example: 3
-    level:
-      type: integer
-      description: 服务器等级
-      example: 0
-
+  $ref: './guild/_index.yaml#/basic'
 
 User:
   $ref: './user/_index.yaml#/basic'
 GuildId:
-  type: string
-  description: 服务器id
-  example: '91686000000'
+  $ref: './guild/_index.yaml#/basic/properties/id'
 UserId:
   $ref: './user/_fields.yaml#/id'
 GuildChannel:
-  type: object
-  description: 服务器频道
-  properties:
-    id:
-      $ref: '#/GuildChannelId'
-      example: "3321010478582000"
-    guild_id:
-      $ref: '#/GuildId'
-    master_id:
-      description: 频道创建者id
-      type: string
-      example: "1700000"
-    parent_id:
-      type: string
-      description: 父分组频道id
-      example: "7480000000000000"
-    name:
-      type: string
-      description: 频道名称
-      example: "示例频道"
-    topic:
-      type: string
-      description: 频道简介
-      example: "这是示例频道的示例简介"
-    type:
-      $ref: '#/GuildChannelType'
-    level:
-      type: integer
-      description: 频道排序
-      example: 30
-    slow_mode:
-      type: integer
-      description: 慢速限制，单位秒。用户发送消息之后再次发送消息的等待时间。
-      example: 0
-    limit_amount:
-      type: integer
-      description: 人数限制（如果为语音频道）
-      example: 0
-    is_category:
-      type: boolean
-      description: 是否为分组类型
-      example: false
-    server_url:
-      type: string
-      description: 语音服务器地址，`HOST:PORT`的格式
-      example: "HOST:PORT"
+  $ref: './channel/_index.yaml#/basic'
 
 GuildChannelId:
-  type: string
-  description: 服务器频道ID
-  example: '9219038000000'
+  $ref: './channel/_index.yaml#/basic/properties/id'
 GuildChannelType:
-  type: integer
-  enum:
-    - 1
-    - 2
-  description: 频道类型，`1`为文字频道，`2`为语音频道
+  $ref: './channel/_index.yaml#/basic/properties/type'
 GuildChannelPermission:
   type: object
   required:
@@ -338,7 +229,7 @@ UserChat:
     code:
       type: string
       description: 私信会话 Code
-      example: "5c7ec6d021216c136c9198285c15ed47"
+      example: '5c7ec6d021216c136c9198285c15ed47'
     last_read_time:
       type: integer
       description: 上次阅读消息的时间 (毫秒)
@@ -368,7 +259,7 @@ UserChat:
         avatar:
           type: string
           description: 头像图片链接
-          example: "https://xxx.jpg/icon"
+          example: 'https://xxx.jpg/icon'
 UserChatDetail:
   allOf:
     - $ref: '#/UserChat'
@@ -474,4 +365,3 @@ GuildEmoji:
       description: 上传用户
       allOf:
         - $ref: '#/User'
-  

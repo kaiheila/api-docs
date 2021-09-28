@@ -1,7 +1,7 @@
 index:
   get:
     tags:
-      - 频道
+      - 频道相关接口
     summary: 频道角色权限详情
     operationId: getChannelRoleById
     parameters:
@@ -49,7 +49,7 @@ index:
 create:
   post:
     tags:
-      - 频道
+      - 频道相关接口
     operationId: createChannelRole
     summary: 创建频道角色权限
     requestBody:
@@ -71,7 +71,7 @@ create:
 update:
   post:
     tags:
-      - 频道
+      - 频道相关接口
     summary: 更新频道角色权限
     operationId: updateChannelRole
     requestBody:
@@ -104,7 +104,7 @@ update:
 delete:
   post:
     tags:
-      - 频道
+      - 频道相关接口
     summary: 删除频道角色权限
     requestBody:
       $ref: '../components/requestBodies/channel-role.yaml#/delete'

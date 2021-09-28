@@ -1,0 +1,52 @@
+basic:
+  type: object
+  description: 服务器频道
+  properties:
+    id:
+      type: string
+      description: 服务器频道ID
+      example: '3321010478582000'
+    guild_id:
+      $ref: '../_index.yaml#/GuildId'
+    master_id:
+      description: 频道创建者id
+      type: string
+      example: "1700000"
+    parent_id:
+      type: string
+      description: 父分组频道id
+      example: "7480000000000000"
+    name:
+      type: string
+      description: 频道名称
+      example: "示例频道"
+    topic:
+      type: string
+      description: 频道简介
+      example: "这是示例频道的示例简介"
+    type:
+      type: integer
+      enum:
+        - 1
+        - 2
+      description: 频道类型，`1`为文字频道，`2`为语音频道
+    level:
+      type: integer
+      description: 频道排序
+      example: 30
+    slow_mode:
+      type: integer
+      description: 慢速限制，单位秒。用户发送消息之后再次发送消息的等待时间。
+      example: 0
+    limit_amount:
+      type: integer
+      description: 人数限制（如果为语音频道）
+      example: 0
+    is_category:
+      type: boolean
+      description: 是否为分组类型
+      example: false
+    server_url:
+      type: string
+      description: 语音服务器地址，`HOST:PORT`的格式
+      example: "HOST:PORT"
