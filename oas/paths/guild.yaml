@@ -1,0 +1,103 @@
+view:
+  get:
+    tags:
+      - 服务器相关接口
+    summary: 获取服务器详情
+    operationId: getGuildById
+    parameters:
+      - $ref: '../components/parameters/_index.yaml#/GuildIdParam'
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '../components/schemas/_index.yaml#/BasicResponse'
+                - type: object
+                  properties:
+                    data:
+                      type: object
+                      allOf:
+                        - $ref: '../components/schemas/_index.yaml#/Guild'
+                      properties:
+                        roles:
+                          type: array
+                          description: 服务器的角色列表
+                          items:
+                            - $ref: '../components/schemas/_index.yaml#/GuildRole'
+                        channels:
+                          description: 服务器的频道列表
+                          type: array
+                          items: 
+                            - $ref: "../components/schemas/channel/_index.yaml#/basic"
+
+user-list:
+  get:
+    tags:
+      - 服务器相关接口
+    summary: 获取服务器的用户列表
+    operationId: getUsersInGuild
+    parameters:
+      - $ref: '../components/parameters/_index.yaml#/GuildIdParam'
+      - $ref: '../components/parameters/_index.yaml#/GuildChannelIdParam'
+        required: false
+      - name: search
+        in: query
+        description: 搜索关键字，在用户名或昵称中搜索
+        schema:
+          type: string
+      - name: role_id
+        in: query
+        description: 角色 ID，获取特定角色的用户列表
+        schema:
+          type: integer
+      - $ref: '../components/parameters/_index.yaml#/MobileVerifiedParam'
+      - name: active_time
+        in: query
+        description: 根据活跃时间排序，`0`是顺序排列，`1`是倒序排列
+        schema:
+          type: integer
+      - name: joined_at
+        in: query
+        description: 根据加入时间排序，`0`是顺序排列，`1`是倒序排列
+        schema:
+          type: integer
+      - $ref: '../components/parameters/_index.yaml#/PageNumberParam'
+      - $ref: '../components/parameters/_index.yaml#/PageSizeParam'
+      - name: filter_user_id
+        in: query
+        description: 获取指定id所属用户的信息
+        schema:
+          type: string
+    responses:
+      '200':
+        description: OK
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: '../components/schemas/_index.yaml#/BasicResponse'
+                - type: object
+                  properties:
+                    data:
+                      allOf:
+                        - $ref: '../components/schemas/_index.yaml#/PaginationInfo'
+                        - type: object
+                          properties:
+                            items:
+                              type: array
+                              items:
+                                $ref: '../components/schemas/_index.yaml#/User'
+                            user_count:
+                              type: integer
+                              description: 用户数量
+                              example: 10
+                            online_count:
+                              type: integer
+                              description: 用户数量
+                              example: 3
+                            offline_count:
+                              type: integer
+                              description: 离线用户数量
+                              example: 7

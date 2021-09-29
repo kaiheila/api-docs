@@ -1,9 +1,7 @@
 intro: 
   $ref: './intro.md'
-kmarkdown:
-  $ref: "../../docs/zh-cn/kmarkdown.md"
-cardMessage:
-  $ref: "../../docs/zh-cn/cardmessage.md"
+kmarkdown-card:
+  $ref: "./kmarkdown-card.md"
 event:
   $ref: "../../docs/zh-cn/event/event-introduction.md"
 permissions:

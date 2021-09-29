@@ -34,11 +34,11 @@ exit:
               d:
                 type: object
                 properties:
+                  channel_type:
+                    example: 'PERSON'
                   extra:
                     type: object
                     properties:
-                      channel_type:
-                        example: 'PERSON'
                       type:
                         description: 消息类型，此处为`self_exited_guild`
                         example: 'self_exited_guild'

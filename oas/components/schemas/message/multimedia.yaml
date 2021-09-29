@@ -10,7 +10,20 @@ image:
     author:
       $ref: '../_index.yaml#/User'
     attachments:
-      $ref: '#/attachments/image'
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - image
+        name:
+          type: string
+          description: 多媒体名
+          example: 'xxx.jpg'
+        url:
+          type: string
+          description: 附件链接
+          example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
 
 video:
   type: object
@@ -24,7 +37,41 @@ video:
     author:
       $ref: '../_index.yaml#/User'
     attachments:
-      $ref: '#/attachments/video'
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - video
+        name:
+          type: string
+          description: 多媒体名
+          example: 002iQMhagx07Fx0S4xxxx323o0E010.mp4
+        url:
+          type: string
+          description: 附件链接
+          example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
+        file_type:
+          description: 文件格式
+          type: string
+          example: 'video/mp4'
+        size:
+          type: integer
+          description: 大小 单位（B）
+          example: 722882
+        duration:
+          type: number
+          description: 视频时长（s）
+          example: 15.673
+        width:
+          type: integer
+          description: 视频宽度
+          example: 640
+        height:
+          type: integer
+          description: 视频高度
+          example: 480
+  
 
 
 file:
@@ -39,73 +86,26 @@ file:
     author:
       $ref: '../_index.yaml#/User'
     attachments:
-      $ref: '#/attachments/file'
+      type: object
+      properties:
+        type:
+          type: string
+          enum:
+            - file
+        url:
+          type: string
+          example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+        file_type:
+          description: 文件格式
+          type: string
+          example: 'text/plain'
+        name:
+          type: string
+          description: 多媒体名
+        size:
+          type: integer
+          description: 大小 单位（B）
+          example: 2575670
 
-attachments:
-  image:
-    type: object
-    properties:
-      type:
-        type: string
-        enum:
-          - image
-      name:
-        type: string
-        description: 多媒体名
-        example: 'xxx.jpg'
-      url:
-        type: string
-        description: 附件链接
-        example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
-  
-  video:
-    type: object
-    properties:
-      type:
-        type: string
-        enum:
-          - video
-      name:
-        description: 多媒体名
-        example: 002iQMhagx07Fx0S4xxxx323o0E010.mp4
-      url:
-        description: 附件链接
-        example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
-      file_type:
-        description: 文件格式
-        example: 'video/mp4'
-      size:
-        type: integer
-        description: 大小 单位（B）
-        example: 722882
-      duration:
-        type: number
-        description: 视频时长（s）
-        example: 15.673
-      width:
-        type: integer
-        description: 视频宽度
-        example: 640
-      height:
-        type: integer
-        description: 视频高度
-        example: 480
-  
-  file:
-    type: object
-    properties:
-      type:
-        type: string
-        enum:
-          - file
-      url:
-        type: string
-        example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
-      name:
-        type: string
-        description: 多媒体名
-      size:
-        type: integer
-        description: 大小 单位（B）
-        example: 2575670
+
   

@@ -15,25 +15,13 @@
 
 热心的社区开发者们已经为大家准备了多种语言的 SDK，无需重复造轮子，上手即可轻松使用！如果希望你的 SDK 展示在此处，请于开发者服务器内联系`冰飞FlappyIce`。
 
-PHP:
-
-- kaiheila/php-bot [仓库链接](https://github.com/kaiheila/php-bot)
-
-JavaScript/TypeScript:
-
-- fi6/KBotify & shugen002/BotRoot [仓库链接](https://github.com/fi6/kBotify) [服务器邀请](https://kaihei.co/GO6qHj)
-
-Python:
-
-- TWT233/khl.py [仓库链接](https://github.com/TWT233/khl.py) [服务器邀请](https://kaihei.co/JJE0Es)
-
-易语言：
-
-- 大鑫/酷黑 仓库链接 [服务器邀请](https://kaihei.co/GymA7P)
-
-Go:
-
-- lonelyevil/khl [仓库链接](https://github.com/lonelyevil/khl) 服务器邀请
+| 语言                  | 仓库名                          | 仓库地址                                        | 服务器邀请                             |
+| --------------------- | ------------------------------- | ----------------------------------------------- | -------------------------------------- |
+| PHP                   | kaiheila/php-bot                | [仓库链接](https://github.com/kaiheila/php-bot) | 暂无                                   |
+| JavaScript/TypeScript | fi6/KBotify & shugen002/BotRoot | [仓库链接](https://github.com/fi6/kBotify)      | [服务器邀请](https://kaihei.co/GO6qHj) |
+| Python                | TWT233/khl.py                   | [仓库链接](https://github.com/TWT233/khl.py)    | [服务器邀请](https://kaihei.co/JJE0Es) |
+| 易语言                | 大鑫/酷黑                       | 暂无                                            | [服务器邀请](https://kaihei.co/GymA7P) |
+| Go                    | lonelyevil/khl                  | [仓库链接](https://github.com/lonelyevil/khl)   | [服务器邀请](https://kaihei.co/r5s1WO) |
 
 ## OpenAPI 描述文件
 

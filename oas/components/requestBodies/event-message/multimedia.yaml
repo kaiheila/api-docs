@@ -12,13 +12,10 @@ image:
                   content: 
                     description: 文件链接，与`attachments`的`url`相同
                     example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
+                  type:
+                    example: 2
                   extra:
-                    type: object
-                    properties:
-                      type:
-                        example: 2
-                      body:
-                        $ref: '../../schemas/message/multimedia.yaml#/image'
+                    $ref: '../../schemas/message/multimedia.yaml#/image'
 
 video:
   content:
@@ -34,13 +31,10 @@ video:
                   content:
                     description: 文件链接，与`attachments`的`url`相同
                     example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
+                  type:
+                    example: 3
                   extra:
-                    type: object
-                    properties:
-                      type:
-                        example: 3
-                      body:
-                        $ref: '../../schemas/message/multimedia.yaml#/video'
+                    $ref: '../../schemas/message/multimedia.yaml#/video'
 
 file:
   content:
@@ -56,10 +50,7 @@ file:
                   content:
                     description: 文件链接，与`attachments`的`url`相同
                     example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+                  type:
+                    example: 4
                   extra:
-                    type: object
-                    properties:
-                      type:
-                        example: 4
-                      body:
-                        $ref: '../../schemas/message/multimedia.yaml#/file'
+                    $ref: '../../schemas/message/multimedia.yaml#/file'

@@ -11,7 +11,7 @@ info:
   license:
     name: MIT
     url: 'https://github.com/kaiheila/api-docs/blob/main/LICENSE'
-  description: >+
+  description: >
     <br>
 
     <div style="background-color: #F0F0F0;padding: 12px 0px 12px
@@ -70,38 +70,33 @@ info:
     展示在此处，请于开发者服务器内联系`冰飞FlappyIce`。
 
 
-    PHP:
+    | 语言                  | 仓库名                          |
+    仓库地址                                        |
+    服务器邀请                             |
 
+    | --------------------- | ------------------------------- |
+    ----------------------------------------------- |
+    -------------------------------------- |
 
-    - kaiheila/php-bot [仓库链接](https://github.com/kaiheila/php-bot)
+    | PHP                   | kaiheila/php-bot                |
+    [仓库链接](https://github.com/kaiheila/php-bot) |
+    暂无                                   |
 
+    | JavaScript/TypeScript | fi6/KBotify & shugen002/BotRoot |
+    [仓库链接](https://github.com/fi6/kBotify)      |
+    [服务器邀请](https://kaihei.co/GO6qHj) |
 
-    JavaScript/TypeScript:
+    | Python                | TWT233/khl.py                   |
+    [仓库链接](https://github.com/TWT233/khl.py)    |
+    [服务器邀请](https://kaihei.co/JJE0Es) |
 
-    | 版本 | 状态   | 默认 |
+    | 易语言                | 大鑫/酷黑                       |
+    暂无                                            |
+    [服务器邀请](https://kaihei.co/GymA7P) |
 
-    - fi6/KBotify & shugen002/BotRoot [仓库链接](https://github.com/fi6/kBotify)
-    [服务器邀请](https://kaihei.co/GO6qHj)
-
-
-    Python:
-
-    | 3    | 开发中 | 是   |
-
-    - TWT233/khl.py [仓库链接](https://github.com/TWT233/khl.py)
-    [服务器邀请](https://kaihei.co/JJE0Es)
-
-
-    易语言：
-
-
-    - 大鑫/酷黑 仓库链接 [服务器邀请](https://kaihei.co/GymA7P)
-
-
-    Go:
-
-
-    - lonelyevil/khl [仓库链接](https://github.com/lonelyevil/khl) 服务器邀请
+    | Go                    | lonelyevil/khl                  |
+    [仓库链接](https://github.com/lonelyevil/khl)   |
+    [服务器邀请](https://kaihei.co/r5s1WO) |
 
 
     ### OpenAPI 描述文件
@@ -120,13 +115,11 @@ info:
     快去创建一个属于你的[机器人](https://developer.kaiheila.cn/bot)吧！
 
 
-    ## 开黑啦开发者隐私政策
+    ## 隐私政策
 
 
     **更新日期：2020 年 12 月 9 日**
 
-    | 40106  | resume 失败, 缺少参数                                             |    
-    |
 
     **生效日期：2020 年 12 月 9 日**
 
@@ -149,19 +142,12 @@ info:
 
     - 无论在何种情况下，**未经开黑啦用户的明确许可**，**获取用户的密码或网页证书**。
 
-    **说明：** 服务端通知客户端 resume 动作成功，中间所有离线消息已经全部发送成功  
 
     ### 数据信息
 
 
     **开黑啦 API 不得用于以下用途：**
 
-    {
-        "s": 6
-        "d": {
-            "session_id": "xxxx-xxxxxx-xxx-xxx"
-        }
-    }
 
     - **抓取**任何开黑啦数据；
 
@@ -196,7 +182,6 @@ info:
 
     - **诽谤**，**骚扰**，**跟踪**，**威胁他人**或以**其他方式**违反开黑啦**用户社区准则**。
 
-    ```
 
     ### 滥用
 
@@ -271,7 +256,7 @@ info:
     （二）本隐私政策中的标题仅为方便及阅读而设，并不影响本隐私政策中任何规定的含义或解释。
 
 
-    ## 简介
+    ## 参考
 
 
     开黑啦的 API 正常分为两个核心层：
@@ -464,581 +449,23 @@ info:
     - 消息的含义，结构格式等基本保持一致。
 
 
-    ## Webhook
-
-
-    通过 Webhook
-    进行消息订阅可以让你的应用或机器人能够及时响应用户的消息，在用户量较多的情况下，可以提供更好的并发性能控制。你需要的只是告诉我们该向哪里（URL）发送消息。当消息发生时，Kaiheila
-    开放平台会以 HTTP POST 请求的方式将消息内容推送到你设置的回调地址。
-
-
-    **注意：** Webhook 模式与 Websocket 模式是互斥的，如果选择了 Webhook 模式，将不能再使用 Websocket
-    接收用户消息。同理，设置了 Websocket 后，平台将不会再向回调地址推送消息。
-
-
-    ### 如何配置 Webhook
-
-
-    1. 在开发者后台，点击进入机器人详情页面，选择 Webhook。
-
-    2. 按照下面的说明，配置好接口。
-
-    3. 将接口的地址填入回调地址中，系统会 check 地址是否符合协议规范。如果符合，我们就能收到回调事件了。
-
-
-    ### 配置回调地址
-
-
-    为了能够接收推送消息，首先你必须在开发者后台配置回调地址。当收到相应的触发消息时，开放平台会向该回调地址发送相应的 `HTTP POST` 请求。
-
-      - cover 仅在音频的时候有效，是音频的封面图。
-
-    每个应用/机器人只能配置一个请求网址，该应用/机器人在所有服务器的消息都会发送到这个地址。
-
-
-    点击编辑标示，在文本框内填写你要配置的请求网址。完成请求网址编辑后，点击保存按钮时，开放平台会向你配置的网址推送一个
-    `application/json` 格式的 POST 请求, 该请求用于验证你配置的网址的合法性。请求如下：
-
-
-    ```javascript
-
-    {
-        "s": 0, // 信令类型
-        "d": {
-            "type": 255,
-            "channel_type": "WEBHOOK_CHALLENGE", //表示这是一个验证请求
-            "challenge" : "bkes654x09XY" , //客户端需要原样返回
-            "verify_token": "xxxxxx",   //机器人的token
-        }
-    }
-
-
-    // 设置了Encrypt Key时
-
-    {
-        "encrypt": "adfw232sdssdfadfas98XX" // 加密字符串，解密方法请看下方的消息解密模块
-    }
-
-    ```
-
-
-    当你收到开放平台 POST 验证请求时，你需要解析出 challenge 值(如果应用设置了 Encrypt
-    Key，需要做解密，解密方法[参考这里](#消息解密))，并在 1s 内原样返回该 challenge 值作为响应。响应示例如下：
-
-
-    ```javascript
-
-    {
-        "challenge": "bkes654x09XY" // 应用需要原样返回的值
-    }
-
-    ```
-
-
-    ### 接收并响应事件
-
-
-    当有消息发生时，开放平台将会通过 HTTP POST 请求发送 Json compress 格式的事件数据到你预先提供的回调地址。
-
-
-    你可能需要注意如下情况：
-
-
-    1. 为了避免同一个事件处理了多次，你可能需要使用 `sn` 对事件的唯一性进行检查。
-
-    2. 在正常配置好后，系统会给回调地址推送消息，你需要在 1s 内返回 http 200 响应。如果失败或超时，系统会按 2s, 4s, 8s,
-    16s, 32, 64s 的大致间隔，给你回调，直到 5 次都失败。
-
-    3. 默认配置为 Webhook
-    机器人且设置好回调地址后，系统会认为机器人自动上线。如果一段时间内，用户的失败次数达到警告阀值，系统会发送站内消息给相应开发者。如果失败次数过多，平台会认为机器人出现故障，平台会给开发者发送站内消息，并下线该机器人。机器人下线后，平台会停止向该机器人发送任何消息。用户在排除故障后，可以在开发者后台，重新点击上线，恢复该机器人。在恢复时，系统会再次重复之前的验证
-    Url 流程，来确保该 Url 依然属于您。
-
-    4. 在消息中，我们会带上 verify_token, 你可以检查 `verify_token` 是否与开发者后台的 `verify_token` 是否
-    相同以确保这个事件的来源确实是 Kaiheila 开放平台，而不是恶意的第三方伪造的事件。
-
-    5. 如果你需要更安全的事件回调机制，建议填写 `EncryptKey`，在进行业务逻辑处理前请先参考[这里](#消息解密)进行解密。
-
-    6. 默认情况下，我们的数据会进行 zlib 压缩 (**deflate**)，相应的数据你可能需要先进行 zlib
-    解压缩，再进行处理。如果不需要压缩，可以在传入的 callbackUrl 中加上 `compress=0`。
-
-
-    ### 消息解密
-
-
-    如果你对消息有较高的安全需求，可以通过 Encrypt Key 来加密数据, 采用了 aes-256-cbc 来加密数据。主要解密逻辑如下：
-
-
-    1. 将密文用 base64 解码
-
-    2. 截取前 16 位得到 iv, 截取 16 位之后的数据为新的密文
-
-    3. 用 base64 解码新的密文, 得到待解密数据
-
-    4. 在 encrpytKey 后面补\0 至长度等于 32 位，得到 key
-
-    5. 利用上面的 iv, key, 待解密数据，采用 aes-256-cbc 解密数据。
-
-
-    #### python 代码示例
-
-
-    ```python
-
-    from Crypto.Cipher import AES
-
-    import base64
-
-
-    class Encrypt:
-        def __init__(self, key, bs=32):
-            pad = lambda s: s + (bs-len(s))*"\0"
-            key = pad(key)
-            self.key = key.encode('utf-8')
-
-        def aes_decrypt(self, content):
-            str = base64.b64decode(content)
-            iv = str[0:16]
-            cipher = AES.new(self.key, AES.MODE_CBC, iv)
-            return cipher.decrypt(base64.b64decode(str[16:])).decode('utf-8')
-    ```
-
-
-    #### php 代码示例
-
-
-    ```php
-
-    $encryptKey = "testKey";
-
-    $data = "Kaiheila's bot is awesome";
-
-    $encrypt = encryptData($data, $encryptKey);
-
-    echo $encrypt. "\n";
-
-    echo decryptData($encrypt, $encryptKey);
-
-
-    function encryptData($data, $key)
-
-    {
-        $iv = substr(md5(uniqid()), 0, 16);
-        return base64_encode($iv.openssl_encrypt($data, 'aes-256-cbc', $key, 0, $iv));
-    }
-
-
-    function decryptData($eData, $key)
-
-    {
-        $eData = base64_decode($eData);
-        $iv = substr($eData, 0, 16);
-        return openssl_decrypt(substr($eData, 16), 'aes-256-cbc', $key, 0, $iv);
-    }
-
-    ```
-
-
-    ### 消息格式及说明
-
-
-    在配置完上述回调地址之后，我们就可以接收并处理事件了，事件的详情参见[事件格式说明](https://developer.kaiheila.cn/doc/event)
-
-
-    ## Websocket
-
-
-    通过 Websocket，客户端可以与开黑啦进行实时通信，来接收事件和数据。websocket
-    的协议交互非常复杂，而且较差的实现会给服务端和客户端都带来较大困扰，因此建议你在编写自己的实现时，详细阅读本文档。
-
-
-    **重要提示：** 并不是所有的字段都有文档记录，你应该依赖文档，而不是依赖接口中的字段。我们可能随时更改不在文档中的字段。
-
-
-    **注意：** Webhook 模式与 Websocket 模式是互斥的，如果选择了 Webhook 模式，将不能再使用 Websocket
-    接收用户消息。同理，设置了 Websocket 后，平台将不会再向回调地址推送消息。
-
-
-    ### Gateway
-
-
-    Gateway 是 websocket 的网关，客户端通过连接 Gateway 可以获取到相应的推送消息等。
-
-
-    Gateway 的获取需要走 http
-    接口获取，参见[Gateway](https://developer.kaiheila.cn/doc/http/gateway)
-
-
-    ### 消息压缩
-
-
-    - 如果客户端连接中 `compress` 参数为 `1`, 所有方向为 `server->client` 的消息都是经过压缩后的`binary`
-    类型的消息.
-
-    - 与 Webhook 保持一样，默认情况下，我们的数据会进行 zlib 压缩 (deflate)，相应的数据你可能需要先进行 zlib
-    解压缩，再进行处理。如果不需要压缩，可以在获取 gateway 时加上参数`compress=0`。
-
-    - 客户端发给服务端的消息不要压缩。
-
-
-    ### 连接流程
-
-
-    常规连接流程如下：
-
-
-    1. 获取 Gateway
-
-    2. 连接 Gateway。如果连接失败，回退到第 1 步。
-
-    3. 收到 hello 包，如果成功，开始接收事件。如果失败，回退至第 1 步。
-
-    4. 在连接中，每隔 30 秒发一次心跳 ping 包，如果 6 秒内，没有收到心跳 pong 包，则超时。进入到指数回退，重试。
-
-    5. 先发两次心跳 ping(间隔为 2,4),判断连接是否成功。如果成功，则连接恢复。
-
-    6. 如果不成功，再回退到第 2 步，尝试两次 resume(间隔为 8,16)。如果成功，会按正常往下走，但有一个 resume
-    过程（同步中间的离线消息），resume 完了，会收到一个 resumeOK 包。
-
-    7. 如果失败，再回到第 1 步，尝试无数次获取 Gateway(指数倒退，最大间隔为 60),直到成功为止。
-
-    8. 任何时候，收到 reconnect 包，应该将当前消息队列，`sn`等全部清空，然后回到第 1 步，否则可能会有消息错乱等各种问题。
-
-
-    #### 关于重连
-
-
-    当 WebSocket 链接彻底中断, 尝试重新建立链接并恢复, 需要在已断开的链接 url 后继续拼接以下参数:
-
-    resume : 固定值 1
-
-    sn : 当前客户端处理成功的最后一条消息的 sn, 没有收到过任何消息传 0。需自行记录（可保存至文件，以实现代码升级重启后恢复会话）。
-
-    sessionId: 前一个链接中的 sessionId , 参考 [信令 1 握手结果](#信令[1]%20HELLO)
-
-
-    ```
-
-    wss://test.kaiheila.com:8888/gateway?{compress/token
-    parameters}&resume=1&sn=5&sessionId=20****ae-1fa4-4d19-805f-6f0f****d534
-
-    ```
-
-
-    连接流程示意图：
-
-    ![image](/img/state.png)
-
-
-    参考代码:
-    [php-bot](https://github.com/kaiheila/php-bot/blob/main/src/base/StateSession.php)
-
-
-    ### 信令格式
-
-
-    #### 信令基本格式
-
-
-    ```javascript
-
-    {
-        "s" : 1,  // int, 信令，详情参照信令说明
-        "d" : [], // 数据字段mixed
-        "sn" : 0, // int, 该字段并不一定有，只在s=0时有，与webhook一致。
-    }
-
-    ```
-
-
-    具体参见[Event](https://developer.kaiheila.cn/doc/event)
-
-
-    #### 信令说明
-
-
-    | 信令 | 方向           | 说明                                      |
-
-    | ---- | -------------- | ----------------------------------------- |
-
-    | 0    | server->client | 消息(包含聊天和通知消息)                  |
-
-    | 1    | server->client | 客户端连接 ws 时, 服务端返回握手结果      |
-
-    | 2    | client->server | 心跳，ping                                |
-
-    | 3    | server->client | 心跳，pong                                |
-
-    | 4    | client->server | resume, 恢复会话                          |
-
-    | 5    | server->client | reconnect, 要求客户端断开当前连接重新连接 |
-
-    | 6    | server->client | resume ack                                |
-
-
-    ### 信令[1] HELLO
-
-
-    **方向：** server->client  
-
-    **说明：** 当我们成功连接 websocket 后，客户端应该在 6s 内收到该包，否则认为连接超时。  
-
-    **成功示例：**
-
-
-    ```javascript
-
-    {
-        "s": 1,
-        "d": {
-            "code": 0,
-            "session_id": "xxxx"
-        }
-    }
-
-    ```
-
-
-    **失败：**
-
-
-    | 状态码 | 含义           | 备注         |
-
-    | ------ | -------------- | ------------ |
-
-    | 40100  | 缺少参数       |              |
-
-    | 40101  | 无效的 token   |              |
-
-    | 40102  | token 验证失败 |              |
-
-    | 40103  | token 过期     | 需要重新连接 |
-
-
-    **示例：**
-
-
-    ```javascript
-
-    {
-        "s": 1,
-        "d": {
-            "code": 40103
-        }
-    }
-
-    ```
-
-
-    ### 信令[0] EVENT
-
-
-    **方向：** server->client  
-
-    **说明：** 在正常连接状态下，收到的消息事件等。  
-
-    **参数列表：**
-
-
-    具体参见[Event](https://developer.kaiheila.cn/doc/event)
-
-
-    **注意：** 该消息会有 `sn`, 代表消息序号, 针对当前 `session` 的消息的序号, 客户端需记录该数字,并按顺序接收消息，
-    **resume** 时需传入该参数才能完成。
-
-
-    **示例：**
-
-
-    ```javascript
-
-    {
-        "s": 0,
-        "d": {
-            // 参见event
-        },
-        "sn": 1000
-    }
-
-    ```
-
-
-    **注意事项：**
-
-
-    1. 收到消息时需要按照 `sn` 顺序处理, 服务端会尽可能保证 `sn` 的顺序性
-
-    2. 假设收到消息的 `sn` 出现乱序, 需要先存入暂存区 (`buffer`) 等待正确的 `sn` 消息处理后再从暂存区顺序处理
-
-    3. 假设收到了一条已处理过的 `sn` 的消息, 则直接抛弃不处理
-
-    4. 客户端需要存储当前已处理成功的最大的 `sn`, 待心跳 ping 时回传服务端, 如果服务端发现当前客户端最新处理成功的消息 `sn`
-    落后于最新消息 (丢包等异常情况), 服务端将会按照客户端指定的 `sn` 将之后所有最新的消息重传给客户端.
-
-    5. 消息内容与 webhook 保持一致
-
-
-    ### 信令[2] PING
-
-
-    **方向：** client -> server  
-
-    **说明：** 每隔 30s(随机-5，+5),将当前的最大 `sn` 传给服务端,客户端应该在 6s 内收到 PONG, 否则心跳超时。  
-
-    **参数列表：**
-
-
-    | 参数 | 描述                              | 类型 | 必传 |
-
-    | ---- | --------------------------------- | ---- | ---- |
-
-    | sn   | 客户端目前收到的最新的消息 **sn** | int  | Y    |
-
-
-    **示例：**
-
-
-    ```javascript
-
-    {
-        "s": 2,
-        "sn": 6
-    }
-
-    ```
-
-
-    **注意事项：**
-
-
-    1. 心跳间隔： 30 秒 + rand(-5,5)秒
-
-    2. 如果发了 ping, 6 秒内没有收到 pong，我们应该进入到超时状态。
-
-
-    ### 信令[3] PONG
-
-
-    **方向：** server -> client  
-
-    **说明：** 回应客户端发出的 ping  
-
-    **示例：**
-
-
-    ```javascript
-
-    {
-        "s": 3
-    }
-
-    ```
-
-
-    ### 信令[4] RESUME
-
-
-    当链接未断开时
-
-    客户端需传入 当前收到的最后一个 sn 序号
-
-    例:
-
-
-    ```javascript
-
-    {
-        "s": 4,
-        "sn": 100
-    }
-
-    ```
-
-
-    ### 信令[5] RECONNECT
-
-
-    **方向：** server->client
-
-
-    **说明：** 服务端通知客户端, 代表该连接已失效, 请重新连接。客户端收到后应该主动断开当前连接。
-
-
-    **注意：** 客户端收到该信令代表因为某些原因导致当前连接已失效, 需要进行以下操作以避免消息丢失.
-
-
-    1. 重新获取 gateway;
-
-    2. 清空本地的 sn 计数;
-
-    3. 清空本地消息队列.
-
-
-    | 状态码 | 描述                                                             
-    |     |
-
-    | ------ | -----------------------------------------------------------------
-    | --- |
-
-    | 40106  | resume 失败, 缺少参数                                             |    
-    |
-
-    | 40107  | 当前 `session` 已过期 (resume 失败, PING 的 sn 无效)              |     |
-
-    | 40108  | 无效的 `sn` , 或 `sn` 已经不存在 (resume 失败, PING 的 `sn` 无效) |     |
-
-
-    **示例：**
-
-
-    ```javascript
-
-    {
-        "s": 5
-        "d": {
-            "code": 41008,
-            "err": "Missing params"
-        }
-    }
-
-    ```
-
-
-    ### 信令[6] RESUME ACK
-
-
-    **方向：** server->client  
-
-    **说明：** 服务端通知客户端 resume 动作成功，中间所有离线消息已经全部发送成功  
-
-    **示例：**
-
-
-    ```javascript
-
-    {
-        "s": 6
-        "d": {
-            "session_id": "xxxx-xxxxxx-xxx-xxx"
-        }
-    }
-
-    ```
-
-
     ## 速率限制
+
 
     为了防止接口滥用和超速，我们会通过速率限制来限制 API 接口请求。
 
 
-    ### http头格式
+    ### http 头格式
+
 
     在每个 API 请求中，我们会在需要速率控制的请求的 http 响应的 header 中，包含如下的速度控制的头：
+
 
     ```
 
     // 一段时间内允许的最大请求次数
 
-    X-Rate-Limit-Limit: 5  
+    X-Rate-Limit-Limit: 5
 
     // 一段时间内还剩下的请求数
 
@@ -1061,19 +488,21 @@ info:
 
     ### 超速响应
 
-    当触犯速度限制时，系统会返回 http 429 响应。返回的消息格式与标准格式也是一致的。同时，上文中提到的 http 头也依旧会传。
 
+    当触犯速度限制时，系统会返回 http 429 响应。返回的消息格式与标准格式也是一致的。同时，上文中提到的 http 头也依旧会传。
 
 
     ### 封禁措施
 
+
     如果多次超速，系统会发出警告信息。bot 需要按照 rate limit 的头进行速度控制。  
 
-    如果多次警告后依然不更改，系统可能会禁用 bot。  
-
+    如果多次警告后依然不更改，系统可能会禁用 bot。
 tags:
-  - name: KMarkDown
-    description: >+
+  - name: 将Bot连接到开黑啦服务器
+    description: 使用Websocket或Webhook将Bot连接至服务器
+  - name: KMarkdown与卡片消息
+    description: >
       # KMarkdown
 
 
@@ -1084,7 +513,8 @@ tags:
       我们仅支持在文档中的一些语法，如果某个语法在 markdown 中，但是却没在文档中提及，那么它属于我们目前不支持的语法，建议用户不要使用。
 
 
-      我们还提供了kmarkdown消息编辑器，方便可视化编辑：[点击使用](https://kaiheila.cn/tools/message-builder.html#/kmarkdown)
+      我们还提供了 kmarkdown
+      消息编辑器，方便可视化编辑：[点击使用](https://kaiheila.cn/tools/message-builder.html#/kmarkdown)
 
 
       ## 主要格式规范
@@ -1098,45 +528,73 @@ tags:
       3. 大部分标签都支持换行。
 
 
-      |格式|语法来源| 说明|
+      | 格式                                   | 语法来源 |
+      说明                                                                                    
+      |
 
-      |--|--|--|
+      | -------------------------------------- | -------- |
+      ----------------------------------------------------------------------------------------
+      |
 
-      |`**加粗文字**`| markdown| 加粗|
+      | `**加粗文字**`                         | markdown |
+      加粗                                                                                    
+      |
 
-      |`*斜体文字*`|markdown|斜体|
+      | `*斜体文字*`                           | markdown |
+      斜体                                                                                    
+      |
 
-      |`***加粗斜体***`|markdown|加粗斜体|
+      | `***加粗斜体***`                       | markdown |
+      加粗斜体                                                                                
+      |
 
-      |`~~删除线~~`|markdown|删除线|
+      | `~~删除线~~`                           | markdown |
+      删除线                                                                                  
+      |
 
-      |`[链接文字](链接地址)`|markdown|链接，仅允许 http, https 的链接|
+      | `[链接文字](链接地址)`                 | markdown | 链接，仅允许 http, https
+      的链接                                                          |
 
-      |`---`|markdown|分隔线|
+      | `---`                                  | markdown |
+      分隔线                                                                                  
+      |
 
-      |`> hello world`|markdown|引用：换行会一直作用，直到遇见两个换行(\n\n),这两个换行实际不会显示换行|
+      | `> hello world`                        | markdown |
+      引用：换行会一直作用，直到遇见两个换行(\n\n),这两个换行实际不会显示换行                  |
 
-      |`(ins)下划线内容(ins)`|自定义|下划线|
+      | `(ins)下划线内容(ins)`                 | 自定义   |
+      下划线                                                                                  
+      |
 
-      |`(spl)剧透(spl)`|自定义|内容默认是遮住的，只有用户点击才会显示|
+      | `(spl)剧透(spl)`                       | 自定义   |
+      内容默认是遮住的，只有用户点击才会显示                                                   |
 
-      |`:emoji:`|emoji|基本与emoji的
-      [shortcode](https://www.webfx.com/tools/emoji-cheat-sheet/) 写法保持一致|
+      | `:emoji:`                              | emoji    | 基本与 emoji 的
+      [shortcode](https://www.webfx.com/tools/emoji-cheat-sheet/) 写法保持一致 |
 
-      |`(emj)服务器表情名(emj)[服务器表情id]`|自定义| 服务器表情，需要有服务器发送服务器表情的权限|
+      | `(emj)服务器表情名(emj)[服务器表情id]` | 自定义   |
+      服务器表情，需要有服务器发送服务器表情的权限                                             |
 
-      |`(chn)频道ID(chn)`|自定义|频道，提及频道|
+      | `(chn)频道ID(chn)`                     | 自定义   |
+      频道，提及频道                                                                          
+      |
 
-      |`(met)用户id/here/all(met)`|自定义|@用户，all 代表 @所有用户，here 代表 @所有在线用户|
+      | `(met)用户id/here/all(met)`            | 自定义   | @用户，all 代表 @所有用户，here 代表
+      @所有在线用户                                       |
 
-      |`(rol)角色ID(rol)`|自定义|@某角色所有用户|
+      | `(rol)角色ID(rol)`                     | 自定义   |
+      @某角色所有用户                                                                         
+      |
 
-      |``` `行内代码` ```|markdown|行内代码|
+      | `` `行内代码` ``                       | markdown |
+      行内代码                                                                                
+      |
 
-      |` ```语言\n ``` `|markdown|代码块|
+      | ` ```语言\n ``` `                      | markdown |
+      代码块                                                                                  
+      |
 
-  - name: 卡片消息
-    description: >
+
       # 卡片消息
 
 
@@ -1209,18 +667,18 @@ tags:
 
 
       | 字段  | 类型   |
-      说明                                                                            
+      说明                                                                                                          
       |
 
       | ----- | ------ |
-      --------------------------------------------------------------------------------
+      --------------------------------------------------------------------------------------------------------------
       |
 
       | theme | string | 主题，可选的值为：primary,success,danger,warning,info,secondary,
-      none.默认为 primary，为none时不显示侧边框。 |
+      none.默认为 primary，为 none 时不显示侧边框。 |
 
       | size  | string | 大小，可选值为：xs,sm, md, lg, 一般默认为
-      lg                                     |
+      lg                                                                   |
 
 
       ### 卡片消息发送说明
@@ -1669,19 +1127,19 @@ tags:
       - fields 可以的元素为 text, kmarkdown 或 context
 
       - paragraph 最多有 50 个元素
-  - name: 服务器
+  - name: 服务器相关接口
     description: 服务器相关接口
-  - name: 频道
+  - name: 服务器频道相关接口
     description: 服务器频道相关接口
-  - name: 频道消息
+  - name: 频道消息相关接口
     description: 频道消息相关接口
   - name: 私聊会话
     description: 私聊会话相关接口
-  - name: 私聊消息
+  - name: 私聊消息相关接口
     description: 私聊消息相关接口
-  - name: 用户
+  - name: 用户相关接口
     description: 用户相关接口
-  - name: 服务器角色权限
+  - name: 服务器角色权限相关接口
     description: >
       ## 权限说明
 
@@ -1819,18 +1277,18 @@ tags:
       | 27     | 134217728 | 播放伴奏           |
       拥有此权限的成员可在语音频道中播放音乐伴奏                                                                
       |
-  - name: 服务器表情
+  - name: 服务器表情相关接口
     description: 服务器表情相关接口
-  - name: 邀请
+  - name: 邀请相关接口
     description: 邀请相关接口
-  - name: gateway
+  - name: Gateway接口
     description: Gateway接口
-  - name: 亲密度
-    description: 亲密度相关接口列表
-  - name: 附件
+  - name: 亲密度相关接口
+    description: 亲密度相关接口
+  - name: 附件相关接口
     description: 附件相关接口
-  - name: 事件结构与格式说明
-    description: "# 事件结构/格式说明\r\n\r\n当 websocket 或 webhook 收到 `s=0` 的消息时，代表当前收到的消息是事件(包含用户的聊天消息及系统的通知消息等)。本文会具体描述所有的事件类型，并且明确其字段的含义。开发者可以根据本文档做出相应的开发处理。\r\n\r\n## 事件基本结构及含义说明\r\n\r\n目前所有的消息都会有如下的结构：\r\n\r\n```json\r\n{\r\n    \"s\": 0, // 信令类型\r\n    \"d\": [], //数据\r\n}\r\n```\r\n\r\n本文主要讲述的是当 `s=0` 时，data 的数据结构，信令的具体含义参见[websocket](https://developer.kaiheila.cn/doc/websocket).\r\n\r\n## 事件主要格式\r\n\r\n### 格式说明\r\n\r\n| 字段          | 类型   | 说明                                                         |\r\n| ------------- | ------ | ------------------------------------------------------------ |\r\n| channel_type  | string | 消息频道类型, `GROUP` 为频道消息                             |\r\n| type          | int    | 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息，255:系统消息, 其它的暂未开放 |\r\n| target_id     | string | 发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id   |\r\n| author_id     | string | 发送者 id, 1 代表系统                                        |\r\n| content       | string | 消息内容, 文件，图片，视频时，content 为 url                 |\r\n| msg_id        | string | 消息的 id                                                    |\r\n| msg_timestamp | int    | 消息发送时间的毫秒时间戳                                     |\r\n| nonce         | string | 随机串，与用户消息发送 api 中传的 nonce 保持一致             |\r\n| extra         | mixed  | 不同的消息类型，结构不一致                                   |\r\n\r\n### 文字频道消息extra说明\r\n\r\n**当type非系统消息(255)时**\r\n\r\n| 字段          | 类型    | 说明                                                         |\r\n| ------------- | ------- | ------------------------------------------------------------ |\r\n| type          | int     | 同上面 type                                                  |\r\n| guild_id      | string  | 服务器 id                                                    |\r\n| channel_name  | string  | 频道名                                                       |\r\n| mention       | Array   | 提及到的用户 id 的列表                                       |\r\n| mention_all   | boolean | 是否 mention 所有用户                                        |\r\n| mention_roles | Array   | mention 用户角色的数组                                       |\r\n| mention_here  | boolean | 是否 mention 在线用户                                        |\r\n| author        | Map     | 用户信息, 见[对象-用户User](https://developer.kaiheila.cn/doc/objects#用户User) |\r\n\r\n### 系统事件消息extra说明\r\n\r\n**当type为系统消息(255)时**\r\n\r\n| 字段 | 类型   | 说明                                         |\r\n| ---- | ------ | -------------------------------------------- |\r\n| type | string | 标识该事件的类型                             |\r\n| body | Map    | 该事件关联的具体数据, 详见各系统消息事件示例 |\r\n\r\n\r\n## "
+  - name: 事件通知介绍
+    description: "# 事件结构/格式说明\r\n\r\n当 websocket 或 webhook 收到 `s=0` 的消息时，代表当前收到的消息是事件(包含用户的聊天消息及系统的通知消息等)。本文会具体描述所有的事件类型，并且明确其字段的含义。开发者可以根据本文档做出相应的开发处理。\r\n\r\n## 事件基本结构及含义说明\r\n\r\n目前所有的消息都会有如下的结构：\r\n\r\n```json\r\n{\r\n  \"s\": 0, // 信令类型\r\n  \"d\": {} //数据\r\n}\r\n```\r\n\r\n本文主要讲述的是当 `s=0` 时，data 的数据结构，信令的具体含义参见[websocket](https://developer.kaiheila.cn/doc/websocket).\r\n\r\n## 事件主要格式\r\n\r\n### 格式说明\r\n\r\n| 字段          | 类型   | 说明                                                                                                                 |\r\n| ------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |\r\n| channel_type  | string | 消息频道类型, `GROUP` 为频道消息                                                                                     |\r\n| type          | int    | 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card 消息，255:系统消息, 其它的暂未开放 |\r\n| target_id     | string | 发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id                                                           |\r\n| author_id     | string | 发送者 id, 1 代表系统                                                                                                |\r\n| content       | string | 消息内容, 文件，图片，视频时，content 为 url                                                                         |\r\n| msg_id        | string | 消息的 id                                                                                                            |\r\n| msg_timestamp | int    | 消息发送时间的毫秒时间戳                                                                                             |\r\n| nonce         | string | 随机串，与用户消息发送 api 中传的 nonce 保持一致                                                                     |\r\n| extra         | mixed  | 不同的消息类型，结构不一致                                                                                           |\r\n\r\n### 文字频道消息 extra 说明\r\n\r\n**当 type 非系统消息(255)时**\r\n\r\n| 字段          | 类型    | 说明                                                                             |\r\n| ------------- | ------- | -------------------------------------------------------------------------------- |\r\n| type          | int     | 同上面 type                                                                      |\r\n| guild_id      | string  | 服务器 id                                                                        |\r\n| channel_name  | string  | 频道名                                                                           |\r\n| mention       | Array   | 提及到的用户 id 的列表                                                           |\r\n| mention_all   | boolean | 是否 mention 所有用户                                                            |\r\n| mention_roles | Array   | mention 用户角色的数组                                                           |\r\n| mention_here  | boolean | 是否 mention 在线用户                                                            |\r\n| author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User) |\r\n\r\n### 系统事件消息 extra 说明\r\n\r\n**当 type 为系统消息(255)时**\r\n\r\n| 字段 | 类型   | 说明                                         |\r\n| ---- | ------ | -------------------------------------------- |\r\n| type | string | 标识该事件的类型                             |\r\n| body | Map    | 该事件关联的具体数据, 详见各系统消息事件示例 |\r\n"
   - name: 消息相关事件
     description: 消息相关事件
   - name: 频道相关事件
@@ -1847,7 +1305,7 @@ paths:
   /kmarkdown:
     post:
       tags:
-        - KMarkDown
+        - KMarkdown与卡片消息
       summary: 事件中的kmarkdown消息格式
       requestBody:
         content:
@@ -1857,7 +1315,7 @@ paths:
   /cardMessage:
     post:
       tags:
-        - 卡片消息
+        - KMarkdown与卡片消息
       summary: 事件中的卡片消息格式
       requestBody:
         content:
@@ -1867,17 +1325,586 @@ paths:
   /event:
     post:
       tags:
-        - 事件结构与格式说明
+        - 事件通知介绍
       summary: 事件结构示例
       requestBody:
         content:
           application/json:
             schema:
               $ref: '#/components/schemas/basic-2'
+  /connect-websocket:
+    get:
+      tags:
+        - 将Bot连接到开黑啦服务器
+      summary: 使用Websocket进行连接
+      description: >
+        通过 Websocket，客户端可以与开黑啦进行实时通信，来接收事件和数据。websocket
+        的协议交互非常复杂，而且较差的实现会给服务端和客户端都带来较大困扰，因此建议你在编写自己的实现时，详细阅读本文档。
+
+
+        **重要提示：** 并不是所有的字段都有文档记录，你应该依赖文档，而不是依赖接口中的字段。我们可能随时更改不在文档中的字段。
+
+
+        **注意：** Webhook 模式与 Websocket 模式是互斥的，如果选择了 Webhook 模式，将不能再使用 Websocket
+        接收用户消息。同理，设置了 Websocket 后，平台将不会再向回调地址推送消息。
+
+
+        ## Gateway
+
+
+        Gateway 是 websocket 的网关，客户端通过连接 Gateway 可以获取到相应的推送消息等。
+
+
+        Gateway 的获取需要走 http
+        接口获取，参见[Gateway](https://developer.kaiheila.cn/doc/http/gateway)
+
+
+        ## 消息压缩
+
+
+        - 如果客户端连接中 `compress` 参数为 `1`, 所有方向为 `server->client`
+        的消息都是经过压缩后的`binary` 类型的消息.
+
+        - 与 Webhook 保持一样，默认情况下，我们的数据会进行 zlib 压缩 (deflate)，相应的数据你可能需要先进行 zlib
+        解压缩，再进行处理。如果不需要压缩，可以在获取 gateway 时加上参数`compress=0`。
+
+        - 客户端发给服务端的消息不要压缩。
+
+
+        ## 连接流程
+
+
+        常规连接流程如下：
+
+
+        1. 获取 Gateway
+
+        2. 连接 Gateway。如果连接失败，回退到第 1 步。
+
+        3. 收到 hello 包，如果成功，开始接收事件。如果失败，回退至第 1 步。
+
+        4. 在连接中，每隔 30 秒发一次心跳 ping 包，如果 6 秒内，没有收到心跳 pong 包，则超时。进入到指数回退，重试。
+
+        5. 先发两次心跳 ping(间隔为 2,4),判断连接是否成功。如果成功，则连接恢复。
+
+        6. 如果不成功，再回退到第 2 步，尝试两次 resume(间隔为 8,16)。如果成功，会按正常往下走，但有一个 resume
+        过程（同步中间的离线消息），resume 完了，会收到一个 resumeOK 包。
+
+        7. 如果失败，再回到第 1 步，尝试无数次获取 Gateway(指数倒退，最大间隔为 60),直到成功为止。
+
+        8. 任何时候，收到 reconnect 包，应该将当前消息队列，`sn`等全部清空，然后回到第 1 步，否则可能会有消息错乱等各种问题。
+
+
+        ### 关于重连
+
+
+        当 WebSocket 链接彻底中断, 尝试重新建立链接并恢复, 需要在已断开的链接 url 后继续拼接以下参数:  
+
+        resume : 固定值 1  
+
+        sn : 当前客户端处理成功的最后一条消息的 sn, 没有收到过任何消息传 0。需自行记录（可保存至文件，以实现代码升级重启后恢复会话）。  
+
+        session_id: 前一个链接中的 session_id , 参考 [信令 1 握手结果]
+
+
+        ```
+
+        wss://test.kaiheila.com:8888/gateway?{compress/token
+        parameters}&resume=1&sn=5&session_id=20****ae-1fa4-4d19-805f-6f0f****d534
+
+        ```
+
+
+        连接流程示意图：
+
+        ![image](https://developer.kaiheila.cn/img/state.png)
+
+
+        参考代码:
+        [php-bot](https://github.com/kaiheila/php-bot/blob/main/src/base/StateSession.php)
+
+
+        ## 信令格式
+
+
+        ### 信令基本格式
+
+
+        ```javascript
+
+        {
+            "s" : 1,  // int, 信令，详情参照信令说明
+            "d" : {}, // 数据字段mixed
+            "sn" : 0, // int, 该字段并不一定有，只在s=0时有，与webhook一致。
+        }
+
+        ```
+
+
+        具体参见[Event](#tag--事件相关)
+
+
+        ### 信令说明
+
+
+        | 信令 | 方向           | 说明                                      |
+
+        | ---- | -------------- | ----------------------------------------- |
+
+        | 0    | server->client | 消息(包含聊天和通知消息)                  |
+
+        | 1    | server->client | 客户端连接 ws 时, 服务端返回握手结果      |
+
+        | 2    | client->server | 心跳，ping                                |
+
+        | 3    | server->client | 心跳，pong                                |
+
+        | 4    | client->server | resume, 恢复会话                          |
+
+        | 5    | server->client | reconnect, 要求客户端断开当前连接重新连接 |
+
+        | 6    | server->client | resume ack                                |
+
+
+        ## 信令[1] HELLO
+
+
+        **方向：** server->client  
+
+        **说明：** 当我们成功连接 websocket 后，客户端应该在 6s 内收到该包，否则认为连接超时。  
+
+        **成功示例：**
+
+
+        ```javascript
+
+        {
+            "s": 1,
+            "d": {
+                "code": 0,
+                "session_id": "xxxx"
+            }
+        }
+
+        ```
+
+
+        **失败：**
+
+
+        | 状态码 | 含义           | 备注         |
+
+        | ------ | -------------- | ------------ |
+
+        | 40100  | 缺少参数       |              |
+
+        | 40101  | 无效的 token   |              |
+
+        | 40102  | token 验证失败 |              |
+
+        | 40103  | token 过期     | 需要重新连接 |
+
+
+        **示例：**
+
+
+        ```javascript
+
+        {
+            "s": 1,
+            "d": {
+                "code": 40103
+            }
+        }
+
+        ```
+
+
+        ## 信令[0] EVENT
+
+
+        **方向：** server->client  
+
+        **说明：** 在正常连接状态下，收到的消息事件等。  
+
+        **参数列表：**
+
+
+        具体参见[Event](#tag--事件相关)
+
+
+        **注意：** 该消息会有 `sn`, 代表消息序号, 针对当前 `session` 的消息的序号, 客户端需记录该数字,并按顺序接收消息，
+        **resume** 时需传入该参数才能完成。
+
+
+        **示例：**
+
+
+        ```javascript
+
+        {
+            "s": 0,
+            "d": {
+                // 参见event
+            },
+            "sn": 1000
+        }
+
+        ```
+
+
+        **注意事项：**
+
+
+        1. 收到消息时需要按照 `sn` 顺序处理, 服务端会尽可能保证 `sn` 的顺序性
+
+        2. 假设收到消息的 `sn` 出现乱序, 需要先存入暂存区 (`buffer`) 等待正确的 `sn` 消息处理后再从暂存区顺序处理
+
+        3. 假设收到了一条已处理过的 `sn` 的消息, 则直接抛弃不处理
+
+        4. 客户端需要存储当前已处理成功的最大的 `sn`, 待心跳 ping 时回传服务端, 如果服务端发现当前客户端最新处理成功的消息 `sn`
+        落后于最新消息 (丢包等异常情况), 服务端将会按照客户端指定的 `sn` 将之后所有最新的消息重传给客户端.
+
+        5. 消息内容与 webhook 保持一致
+
+
+        ## 信令[2] PING
+
+
+        **方向：** client -> server  
+
+        **说明：** 每隔 30s(随机-5，+5),将当前的最大 `sn` 传给服务端,客户端应该在 6s 内收到 PONG, 否则心跳超时。  
+
+        **参数列表：**
+
+
+        | 参数 | 描述                              | 类型 | 必传 |
+
+        | ---- | --------------------------------- | ---- | ---- |
+
+        | sn   | 客户端目前收到的最新的消息 **sn** | int  | Y    |
+
+
+        **示例：**
+
+
+        ```javascript
+
+        {
+            "s": 2,
+            "sn": 6
+        }
+
+        ```
+
+
+        **注意事项：**
+
+
+        1. 心跳间隔： 30 秒 + rand(-5,5)秒
+
+        2. 如果发了 ping, 6 秒内没有收到 pong，我们应该进入到超时状态。
+
+
+        ## 信令[3] PONG
+
+
+        **方向：** server -> client  
+
+        **说明：** 回应客户端发出的 ping  
+
+        **示例：**
+
+
+        ```javascript
+
+        {
+            "s": 3
+        }
+
+        ```
+
+
+        ## 信令[4] RESUME
+
+
+        当链接未断开时，客户端需传入当前收到的最后一个 sn 序号
+
+        例:
+
+
+        ```javascript
+
+        {
+            "s": 4,
+            "sn": 100
+        }
+
+        ```
+
+
+        ## 信令[5] RECONNECT
+
+
+        **方向：** server->client
+
+
+        **说明：** 服务端通知客户端, 代表该连接已失效, 请重新连接。客户端收到后应该主动断开当前连接。
+
+
+        **注意：** 客户端收到该信令代表因为某些原因导致当前连接已失效, 需要进行以下操作以避免消息丢失.
+
+
+        1. 重新获取 gateway;
+
+        2. 清空本地的 sn 计数;
+
+        3. 清空本地消息队列.
+
+
+        | 状态码 | 描述                                                             
+        |     |
+
+        | ------ |
+        ----------------------------------------------------------------- | ---
+        |
+
+        | 40106  | resume 失败, 缺少参数                                            
+        |     |
+
+        | 40107  | 当前 `session` 已过期 (resume 失败, PING 的 sn 无效)              |    
+        |
+
+        | 40108  | 无效的 `sn` , 或 `sn` 已经不存在 (resume 失败, PING 的 `sn` 无效) |     |
+
+
+        **示例：**
+
+
+        ```javascript
+
+        {
+            "s": 5
+            "d": {
+                "code": 41008,
+                "err": "Missing params"
+            }
+        }
+
+        ```
+
+
+        ## 信令[6] RESUME ACK
+
+
+        **方向：** server->client  
+
+        **说明：** 服务端通知客户端 resume 动作成功，中间所有离线消息已经全部发送成功  
+
+        **示例：**
+
+
+        ```javascript
+
+        {
+            "s": 6
+            "d": {
+                "session_id": "xxxx-xxxxxx-xxx-xxx"
+            }
+        }
+
+        ```
+      responses:
+        '200':
+          description: 连接成功
+  /connect-webhook:
+    get:
+      tags:
+        - 将Bot连接到开黑啦服务器
+      summary: 使用Webhook进行连接
+      description: >
+        通过 Webhook
+        进行消息订阅可以让你的应用或机器人能够及时响应用户的消息，在用户量较多的情况下，可以提供更好的并发性能控制。你需要的只是告诉我们该向哪里（URL）发送消息。当消息发生时，Kaiheila
+        开放平台会以 HTTP POST 请求的方式将消息内容推送到你设置的回调地址。
+
+
+        **注意：** Webhook 模式与 Websocket 模式是互斥的，如果选择了 Webhook 模式，将不能再使用 Websocket
+        接收用户消息。同理，设置了 Websocket 后，平台将不会再向回调地址推送消息。
+
+
+        ## 如何配置 Webhook
+
+
+        1. 在开发者后台，点击进入机器人详情页面，选择 Webhook。
+
+        2. 按照下面的说明，配置好接口。
+
+        3. 将接口的地址填入回调地址中，系统会 check 地址是否符合协议规范。如果符合，我们就能收到回调事件了。
+
+
+        ## 配置回调地址
+
+
+        为了能够接收推送消息，首先你必须在开发者后台配置回调地址。当收到相应的触发消息时，开放平台会向该回调地址发送相应的 `HTTP POST`
+        请求。
+
+
+        每个应用/机器人只能配置一个请求网址，该应用/机器人在所有服务器的消息都会发送到这个地址。
+
+
+        点击编辑标示，在文本框内填写你要配置的请求网址。完成请求网址编辑后，点击保存按钮时，开放平台会向你配置的网址推送一个
+        `application/json` 格式的 POST 请求, 该请求用于验证你配置的网址的合法性。请求如下：
+
+
+        ```javascript
+
+        {
+            "s": 0, // 信令类型
+            "d": {
+                "type": 255,
+                "channel_type": "WEBHOOK_CHALLENGE", //表示这是一个验证请求
+                "challenge" : "bkes654x09XY" , //客户端需要原样返回
+                "verify_token": "xxxxxx",   //机器人的token
+            }
+        }
+
+
+        // 设置了Encrypt Key时
+
+        {
+            "encrypt": "adfw232sdssdfadfas98XX" // 加密字符串，解密方法请看下方的消息解密模块
+        }
+
+        ```
+
+
+        当你收到开放平台 POST 验证请求时，你需要解析出 challenge 值(如果应用设置了 Encrypt
+        Key，需要做解密，解密方法[参考这里](#消息解密))，并在 1s 内原样返回该 challenge 值作为响应。响应示例如下：
+
+
+        ```javascript
+
+        {
+            "challenge": "bkes654x09XY" // 应用需要原样返回的值
+        }
+
+        ```
+
+
+        ## 接收并响应事件
+
+
+        当有消息发生时，开放平台将会通过 HTTP POST 请求发送 Json compress 格式的事件数据到你预先提供的回调地址。
+
+
+        你可能需要注意如下情况：
+
+
+        1. 为了避免同一个事件处理了多次，你可能需要使用 `sn` 对事件的唯一性进行检查。
+
+        2. 在正常配置好后，系统会给回调地址推送消息，你需要在 1s 内返回 http 200 响应。如果失败或超时，系统会按 2s, 4s, 8s,
+        16s, 32, 64s 的大致间隔，给你回调，直到 5 次都失败。
+
+        3. 默认配置为 Webhook
+        机器人且设置好回调地址后，系统会认为机器人自动上线。如果一段时间内，用户的失败次数达到警告阀值，系统会发送站内消息给相应开发者。如果失败次数过多，平台会认为机器人出现故障，平台会给开发者发送站内消息，并下线该机器人。机器人下线后，平台会停止向该机器人发送任何消息。用户在排除故障后，可以在开发者后台，重新点击上线，恢复该机器人。在恢复时，系统会再次重复之前的验证
+        Url 流程，来确保该 Url 依然属于您。
+
+        4. 在消息中，我们会带上 verify_token, 你可以检查 `verify_token` 是否与开发者后台的
+        `verify_token` 是否 相同以确保这个事件的来源确实是 Kaiheila 开放平台，而不是恶意的第三方伪造的事件。
+
+        5. 如果你需要更安全的事件回调机制，建议填写 `EncryptKey`，在进行业务逻辑处理前请先参考[这里](#消息解密)进行解密。
+
+        6. 默认情况下，我们的数据会进行 zlib 压缩 (**deflate**)，相应的数据你可能需要先进行 zlib
+        解压缩，再进行处理。如果不需要压缩，可以在传入的 callbackUrl 中加上 `compress=0`。
+
+
+        ## 消息解密
+
+
+        如果你对消息有较高的安全需求，可以通过 Encrypt Key 来加密数据, 采用了 aes-256-cbc 来加密数据。主要解密逻辑如下：
+
+
+        1. 将密文用 base64 解码
+
+        2. 截取前 16 位得到 iv, 截取 16 位之后的数据为新的密文
+
+        3. 用 base64 解码新的密文, 得到待解密数据
+
+        4. 在 encrpytKey 后面补\0 至长度等于 32 位，得到 key
+
+        5. 利用上面的 iv, key, 待解密数据，采用 aes-256-cbc 解密数据。
+
+
+        ### python 代码示例
+
+
+        ```python
+
+        from Crypto.Cipher import AES
+
+        import base64
+
+
+        class Encrypt:
+            def __init__(self, key, bs=32):
+                pad = lambda s: s + (bs-len(s))*"\0"
+                key = pad(key)
+                self.key = key.encode('utf-8')
+
+            def aes_decrypt(self, content):
+                str = base64.b64decode(content)
+                iv = str[0:16]
+                cipher = AES.new(self.key, AES.MODE_CBC, iv)
+                return cipher.decrypt(base64.b64decode(str[16:])).decode('utf-8')
+        ```
+
+
+        ### php 代码示例
+
+
+        ```php
+
+        $encryptKey = "testKey";
+
+        $data = "Kaiheila's bot is awesome";
+
+        $encrypt = encryptData($data, $encryptKey);
+
+        echo $encrypt. "\n";
+
+        echo decryptData($encrypt, $encryptKey);
+
+
+        function encryptData($data, $key)
+
+        {
+            $iv = substr(md5(uniqid()), 0, 16);
+            return base64_encode($iv.openssl_encrypt($data, 'aes-256-cbc', $key, 0, $iv));
+        }
+
+
+        function decryptData($eData, $key)
+
+        {
+            $eData = base64_decode($eData);
+            $iv = substr($eData, 0, 16);
+            return openssl_decrypt(substr($eData, 16), 'aes-256-cbc', $key, 0, $iv);
+        }
+
+        ```
+
+
+        ## 消息格式及说明
+
+
+        在配置完上述回调地址之后，我们就可以接收并处理事件了，事件的详情参见[事件格式说明](https://developer.kaiheila.cn/doc/event)
+      responses:
+        '200':
+          description: 连接成功
   /guild/list:
     get:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 获取当前用户加入的服务器列表
       description: ''
       operationId: getJoinedGuilds
@@ -1907,12 +1934,12 @@ paths:
                               items:
                                 type: array
                                 items:
-                                  $ref: '#/components/schemas/Guild'
+                                  $ref: '#/components/schemas/_index_basic'
   /guild/index:
     get:
-      tags:
-        - 服务器
       deprecated: true
+      tags:
+        - 服务器相关接口
       summary: 获取当前用户加入的服务器列表
       description: ''
       parameters: []
@@ -1923,11 +1950,11 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Guild'
+                $ref: '#/components/schemas/_index_basic'
   /guild/view:
     get:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 获取服务器详情
       operationId: getGuildById
       parameters:
@@ -1945,20 +1972,22 @@ paths:
                       data:
                         type: object
                         allOf:
-                          - $ref: '#/components/schemas/Guild'
+                          - $ref: '#/components/schemas/_index_basic'
                         properties:
                           roles:
                             type: array
+                            description: 服务器的角色列表
                             items:
                               - $ref: '#/components/schemas/GuildRole'
                           channels:
+                            description: 服务器的频道列表
                             type: array
                             items:
-                              - $ref: '#/components/schemas/GuildChannel'
+                              - $ref: '#/components/schemas/_index_basic-2'
   /guild/user-list:
     get:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 获取服务器的用户列表
       operationId: getUsersInGuild
       parameters:
@@ -2027,7 +2056,7 @@ paths:
   /guild/nickname:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 修改服务器中的用户昵称
       operationId: changeUserNickname
       requestBody:
@@ -2039,13 +2068,13 @@ paths:
                 - guild_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 nickname:
                   type: string
                   description: 昵称，2 - 64 长度，不传则清空昵称
                 user_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                     - description: 要修改昵称的目标用户 ID，不传则修改当前登陆用户的昵称
       responses:
         '200':
@@ -2057,7 +2086,7 @@ paths:
   /guild/leave:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 离开服务器
       operationId: leaveGuild
       requestBody:
@@ -2069,7 +2098,7 @@ paths:
                 - guild_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
       responses:
         '200':
           description: OK
@@ -2080,7 +2109,7 @@ paths:
   /guild/kickout:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 踢出服务器
       operationId: kickUserById
       requestBody:
@@ -2093,10 +2122,10 @@ paths:
                 - target_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                     - description: 目标用户ID
       responses:
         '200':
@@ -2108,7 +2137,7 @@ paths:
   /guild-mute/list:
     get:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 服务器静音闭麦列表
       operationId: getGuildMuteUsers
       parameters:
@@ -2143,7 +2172,7 @@ paths:
                               user_ids:
                                 type: array
                                 items:
-                                  $ref: '#/components/schemas/id'
+                                  $ref: '#/components/schemas/_fields_id'
                           headset:
                             description: return_type为detail时返回
                             type: object
@@ -2156,11 +2185,11 @@ paths:
                               user_ids:
                                 type: array
                                 items:
-                                  $ref: '#/components/schemas/id'
+                                  $ref: '#/components/schemas/_fields_id'
   /guild-mute/create:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 添加服务器闭麦或静音
       operationId: muteUserById
       requestBody:
@@ -2174,10 +2203,10 @@ paths:
                 - type
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                     - description: 目标用户ID
                 type:
                   type: integer
@@ -2195,7 +2224,7 @@ paths:
   /guild-mute/delete:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 删除服务器闭麦或静音
       operationId: unmuteUserById
       requestBody:
@@ -2209,10 +2238,10 @@ paths:
                 - type
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                     - description: 目标用户ID
                 type:
                   type: integer
@@ -2230,7 +2259,7 @@ paths:
   /channel/list:
     get:
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 获取频道列表
       operationId: getGuildChannels
       parameters:
@@ -2256,12 +2285,12 @@ paths:
                               items:
                                 type: array
                                 items:
-                                  $ref: '#/components/schemas/GuildChannel'
+                                  $ref: '#/components/schemas/_index_basic-2'
   /channel/view:
     get:
       operationId: getChannelById
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 获取频道详情
       parameters:
         - name: target_id
@@ -2269,7 +2298,7 @@ paths:
           in: query
           description: 目标频道id
           schema:
-            $ref: '#/components/schemas/GuildChannelId'
+            $ref: '#/components/schemas/properties-id'
       responses:
         '200':
           description: OK
@@ -2281,11 +2310,11 @@ paths:
                   - type: object
                     properties:
                       data:
-                        $ref: '#/components/schemas/GuildChannel'
+                        $ref: '#/components/schemas/_index_basic-2'
   /channel/create:
     post:
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 创建频道
       operationId: createChannel
       requestBody:
@@ -2298,17 +2327,17 @@ paths:
                 - name
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 parent_id:
                   allOf:
-                    - $ref: '#/components/schemas/GuildChannelId'
+                    - $ref: '#/components/schemas/properties-id'
                   description: 父分组id
                 name:
                   type: string
                   description: 频道名称
                 type:
                   allOf:
-                    - $ref: '#/components/schemas/GuildChannelType'
+                    - $ref: '#/components/schemas/properties-type'
                   description: '频道类型, `1`为文字，`2`为语音, 默认为`1`'
                 limit_amount:
                   type: integer
@@ -2332,11 +2361,11 @@ paths:
                   - type: object
                     properties:
                       data:
-                        $ref: '#/components/schemas/GuildChannel'
+                        $ref: '#/components/schemas/_index_basic-2'
   /channel/delete:
     post:
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 删除频道
       operationId: deleteChannelById
       requestBody:
@@ -2348,7 +2377,7 @@ paths:
                 - channel_id
               properties:
                 channel_id:
-                  $ref: '#/components/schemas/GuildChannelId'
+                  $ref: '#/components/schemas/properties-id'
       responses:
         '200':
           description: OK
@@ -2359,7 +2388,7 @@ paths:
   /channel/user-list:
     get:
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 查询语音频道内用户
       operationId: getVoiceChannelUsers
       description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
@@ -2369,7 +2398,7 @@ paths:
           in: query
           description: '目标频道id, 需要是语音频道'
           schema:
-            $ref: '#/components/schemas/GuildChannelId'
+            $ref: '#/components/schemas/properties-id'
       responses:
         '200':
           description: OK
@@ -2387,11 +2416,11 @@ paths:
                             type: array
                             description: 用户id的数组
                             items:
-                              $ref: '#/components/schemas/id'
+                              $ref: '#/components/schemas/_fields_id'
   /channel/move-user:
     post:
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 语音频道之间移动用户
       operationId: moveUsersInVoiceChannel
       description: 只能在语音频道之间移动，用户也必须在其他语音频道在线才能够移动到目标频道。
@@ -2406,13 +2435,13 @@ paths:
               properties:
                 channel_id:
                   allOf:
-                    - $ref: '#/components/schemas/GuildChannelId'
+                    - $ref: '#/components/schemas/properties-id'
                     - description: '目标频道id, 需要是语音频道'
                 user_ids:
                   type: array
                   description: 用户id的数组
                   items:
-                    $ref: '#/components/schemas/id'
+                    $ref: '#/components/schemas/_fields_id'
       responses:
         '200':
           description: OK
@@ -2430,11 +2459,11 @@ paths:
                             type: array
                             description: 用户id的数组
                             items:
-                              $ref: '#/components/schemas/id'
+                              $ref: '#/components/schemas/_fields_id'
   /channel-role/index:
     get:
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 频道角色权限详情
       operationId: getChannelRoleById
       parameters:
@@ -2481,7 +2510,7 @@ paths:
   /channel-role/create:
     post:
       tags:
-        - 频道
+        - 服务器频道相关接口
       operationId: createChannelRole
       summary: 创建频道角色权限
       requestBody:
@@ -2502,7 +2531,7 @@ paths:
   /channel-role/update:
     post:
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 更新频道角色权限
       operationId: updateChannelRole
       requestBody:
@@ -2527,14 +2556,14 @@ paths:
                           - type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/id'
+                                $ref: '#/components/schemas/_fields_id'
                               role_id:
                                 $ref: '#/components/schemas/GuildRoleId'
                           - $ref: '#/components/schemas/GuildChannelPermission'
   /channel-role/delete:
     post:
       tags:
-        - 频道
+        - 服务器频道相关接口
       summary: 删除频道角色权限
       requestBody:
         $ref: '#/components/requestBodies/delete'
@@ -2554,7 +2583,7 @@ paths:
   /message/list:
     get:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 获取频道聊天消息列表
       operationId: getChannelMessages
       description: 此接口非标准分页，需要根据参考消息来查询相邻分页的消息
@@ -2564,7 +2593,7 @@ paths:
           description: 频道id
           required: true
           schema:
-            $ref: '#/components/schemas/GuildChannelId'
+            $ref: '#/components/schemas/properties-id'
         - name: msg_id
           in: query
           description: 参考消息id，不传则查询最新消息
@@ -2602,11 +2631,11 @@ paths:
                           items:
                             type: array
                             items:
-                              $ref: '#/components/schemas/_index_basic'
+                              $ref: '#/components/schemas/_index_basic-3'
   /message/create:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 发送频道聊天消息
       operationId: sendChannelMessage
       requestBody:
@@ -2621,7 +2650,7 @@ paths:
                   properties:
                     target_id:
                       allOf:
-                        - $ref: '#/components/schemas/GuildChannelId'
+                        - $ref: '#/components/schemas/properties-id'
                       description: 目标频道 id
                     temp_target_id:
                       type: string
@@ -2641,7 +2670,7 @@ paths:
                     properties:
                       msg_id:
                         allOf:
-                          - $ref: '#/components/schemas/_fields_id'
+                          - $ref: '#/components/schemas/_fields_id-2'
                         description: 服务端生成的消息 id
                       msg_timestamp:
                         type: integer
@@ -2654,7 +2683,7 @@ paths:
   /message/update:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 更新频道聊天消息
       requestBody:
         content:
@@ -2666,13 +2695,13 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
                 content:
                   type: string
                   description: 消息内容
                 quote:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id'
+                    - $ref: '#/components/schemas/_fields_id-2'
                   description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
                 temp_target_id:
                   type: string
@@ -2687,7 +2716,7 @@ paths:
   /message/delete:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 删除频道聊天消息
       requestBody:
         content:
@@ -2699,7 +2728,7 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
       responses:
         '200':
           description: OK
@@ -2710,7 +2739,7 @@ paths:
   /message/reaction-list:
     get:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 获取频道消息某个回应的用户列表
       operationId: getMessageReactionUsers
       parameters:
@@ -2719,7 +2748,7 @@ paths:
           description: 频道消息的id
           required: true
           schema:
-            $ref: '#/components/schemas/_fields_id'
+            $ref: '#/components/schemas/_fields_id-2'
         - name: emoji
           in: query
           description: 'emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode'
@@ -2750,7 +2779,7 @@ paths:
   /message/add-reaction:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 为消息添加回应
       operationId: addMessageReaction
       requestBody:
@@ -2763,7 +2792,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
       responses:
@@ -2776,7 +2805,7 @@ paths:
   /message/delete-reaction:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 为消息删除回应
       requestBody:
         content:
@@ -2788,12 +2817,12 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
                 user_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                     - description: '用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限'
       responses:
         '200':
@@ -2868,7 +2897,7 @@ paths:
               properties:
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                   description: 目标用户id
       responses:
         '200':
@@ -2909,7 +2938,7 @@ paths:
   /direct-message/list:
     get:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 获取私信消息列表
       parameters:
         - name: chat_code
@@ -2921,12 +2950,12 @@ paths:
           description: 目标用户 id，后端会自动创建会话。有此参数之后可不传`chat_code`参数
           in: query
           schema:
-            $ref: '#/components/schemas/id'
+            $ref: '#/components/schemas/_fields_id'
         - name: msg_id
           description: 参考消息 id，不传则查询最新消息
           in: query
           schema:
-            $ref: '#/components/schemas/_fields_id'
+            $ref: '#/components/schemas/_fields_id-2'
         - $ref: '#/components/parameters/MessageListFlagParam'
         - $ref: '#/components/parameters/PageNumberParam'
         - name: page_size
@@ -2955,7 +2984,7 @@ paths:
   /direct-message/create:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 发送私信聊天消息
       requestBody:
         content:
@@ -2967,7 +2996,7 @@ paths:
               properties:
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                   description: 目标用户 id，后端会自动创建会话。有此参数之后可不传`chat_code`参数
       responses:
         '200':
@@ -2996,7 +3025,7 @@ paths:
   /direct-message/update:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 更新私信聊天消息
       requestBody:
         content:
@@ -3008,13 +3037,13 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
                 content:
                   type: string
                   description: 消息内容
                 quote:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id'
+                    - $ref: '#/components/schemas/_fields_id-2'
                   description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
       responses:
         '200':
@@ -3026,7 +3055,7 @@ paths:
   /direct-message/delete:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 删除私信聊天消息
       requestBody:
         content:
@@ -3038,7 +3067,7 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
       responses:
         '200':
           description: OK
@@ -3049,7 +3078,7 @@ paths:
   /direct-message/reaction-list:
     get:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 获取消息某个回应的用户列表
       parameters:
         - name: msg_id
@@ -3057,7 +3086,7 @@ paths:
           description: 消息的id
           required: true
           schema:
-            $ref: '#/components/schemas/_fields_id'
+            $ref: '#/components/schemas/_fields_id-2'
         - name: emoji
           in: query
           description: 'emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode'
@@ -3087,7 +3116,7 @@ paths:
   /direct-message/add-reaction:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 为消息添加回应
       requestBody:
         content:
@@ -3099,7 +3128,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
       responses:
@@ -3112,7 +3141,7 @@ paths:
   /direct-message/delete-reaction:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 为消息删除回应
       requestBody:
         content:
@@ -3124,12 +3153,12 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/_fields_id-2'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
                 user_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                     - description: '用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限'
       responses:
         '200':
@@ -3141,7 +3170,7 @@ paths:
   /gateway/index:
     get:
       tags:
-        - gateway
+        - Gateway接口
       summary: 获取网关连接地址
       operationId: getIndex
       parameters:
@@ -3169,7 +3198,7 @@ paths:
   /user/me:
     get:
       tags:
-        - 用户
+        - 用户相关接口
       summary: 获取当前用户信息
       responses:
         '200':
@@ -3205,7 +3234,7 @@ paths:
   /user/view:
     get:
       tags:
-        - 用户
+        - 用户相关接口
       summary: 获取目标用户信息
       parameters:
         - $ref: '#/components/parameters/UserIdParam'
@@ -3213,7 +3242,7 @@ paths:
           in: query
           description: 服务器id
           schema:
-            $ref: '#/components/schemas/GuildId'
+            $ref: '#/components/schemas/id'
       responses:
         '200':
           description: OK
@@ -3249,7 +3278,7 @@ paths:
   /asset/create:
     post:
       tags:
-        - 附件
+        - 附件相关接口
       summary: 上传多媒体文件
       requestBody:
         content:
@@ -3282,7 +3311,7 @@ paths:
   /guild-role/list:
     get:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 获取服务器角色列表
       parameters:
         - $ref: '#/components/parameters/GuildIdParam'
@@ -3311,7 +3340,7 @@ paths:
   /guild-role/create:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 创建服务器角色
       requestBody:
         content:
@@ -3322,7 +3351,7 @@ paths:
                 - guild_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 name:
                   type: string
                   description: 如果不写，则为"新角色"
@@ -3341,7 +3370,7 @@ paths:
   /guild-role/update:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 更新服务器角色
       requestBody:
         content:
@@ -3353,7 +3382,7 @@ paths:
                 - role_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 role_id:
                   type: integer
                   format: unsigned integer
@@ -3405,7 +3434,7 @@ paths:
   /guild-role/delete:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 删除服务器角色
       requestBody:
         content:
@@ -3417,7 +3446,7 @@ paths:
                 - role_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 role_id:
                   type: integer
                   format: unsigned integer
@@ -3434,7 +3463,7 @@ paths:
   /guild-role/grant:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 赋予用户角色
       operationId: grantGuildRole
       requestBody:
@@ -3448,9 +3477,9 @@ paths:
                 - role_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
-                user_id:
                   $ref: '#/components/schemas/id'
+                user_id:
+                  $ref: '#/components/schemas/_fields_id'
                 role_id:
                   $ref: '#/components/schemas/GuildRoleId'
       responses:
@@ -3467,9 +3496,9 @@ paths:
                         type: object
                         properties:
                           user_id:
-                            $ref: '#/components/schemas/id'
+                            $ref: '#/components/schemas/_fields_id'
                           guild_id:
-                            $ref: '#/components/schemas/GuildId'
+                            $ref: '#/components/schemas/id'
                           roles:
                             type: array
                             description: 角色id的列表
@@ -3478,7 +3507,7 @@ paths:
   /guild-role/revoke:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 删除用户角色
       requestBody:
         content:
@@ -3491,9 +3520,9 @@ paths:
                 - role_id
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
-                user_id:
                   $ref: '#/components/schemas/id'
+                user_id:
+                  $ref: '#/components/schemas/_fields_id'
                 role_id:
                   $ref: '#/components/schemas/GuildRoleId'
       responses:
@@ -3510,9 +3539,9 @@ paths:
                         type: object
                         properties:
                           user_id:
-                            $ref: '#/components/schemas/id'
+                            $ref: '#/components/schemas/_fields_id'
                           guild_id:
-                            $ref: '#/components/schemas/GuildId'
+                            $ref: '#/components/schemas/id'
                           roles:
                             type: array
                             description: 角色id的列表
@@ -3521,7 +3550,7 @@ paths:
   /intimacy/index:
     get:
       tags:
-        - 亲密度
+        - 亲密度相关接口
       summary: 获取用户的亲密度
       operationId: getIntimacy
       description: 机器人可以在后台配置默认的初始亲密度和形象，当用户触发某些事件时，机器人可以根据一些逻辑来更新与该用户的亲密度以及形象展示。
@@ -3568,7 +3597,7 @@ paths:
   /intimacy/update:
     post:
       tags:
-        - 亲密度
+        - 亲密度相关接口
       summary: 更新用户亲密度
       operationId: updateIntimacy
       requestBody:
@@ -3581,7 +3610,7 @@ paths:
               properties:
                 user_id:
                   allOf:
-                    - $ref: '#/components/schemas/id'
+                    - $ref: '#/components/schemas/_fields_id'
                   description: 用户的id
                 score:
                   type: integer
@@ -3606,7 +3635,7 @@ paths:
   /guild-emoji/list:
     get:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       summary: 获取服务器表情列表
       operationId: getGuildEmojis
       parameters:
@@ -3636,7 +3665,7 @@ paths:
   /guild-emoji/create:
     post:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       summary: 创建服务器表情
       operationId: createGuildEmoji
       description: Header 中 Content-Type 必须为 multipart/form-data
@@ -3653,7 +3682,7 @@ paths:
                   type: string
                   description: 表情名。长度限制 2 - 32 字符，如果不写，则为随机字符串
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 emoji:
                   type: string
                   format: binary
@@ -3673,7 +3702,7 @@ paths:
   /guild-emoji/update:
     post:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       summary: 更新服务器表情
       operationId: updateGuildEmoji
       requestBody:
@@ -3702,7 +3731,7 @@ paths:
   /guild-emoji/delete:
     post:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       operationId: deleteGuildEmoji
       summary: 删除服务器表情
       requestBody:
@@ -3727,7 +3756,7 @@ paths:
   /invite/list:
     get:
       tags:
-        - 邀请
+        - 邀请相关接口
       summary: 获取邀请列表
       operationId: listInvites
       description: 服务器id或者频道id必须填一个
@@ -3737,7 +3766,7 @@ paths:
           description: 服务器id
           required: false
           schema:
-            $ref: '#/components/schemas/GuildId'
+            $ref: '#/components/schemas/id'
         - $ref: '#/components/parameters/GuildChannelIdParam'
         - $ref: '#/components/parameters/PageNumberParam'
         - $ref: '#/components/parameters/PageSizeParam'
@@ -3762,9 +3791,9 @@ paths:
                                   type: object
                                   properties:
                                     channel_id:
-                                      $ref: '#/components/schemas/GuildChannelId'
+                                      $ref: '#/components/schemas/properties-id'
                                     guild_id:
-                                      $ref: '#/components/schemas/GuildId'
+                                      $ref: '#/components/schemas/id'
                                     url_code:
                                       type: string
                                       description: 邀请码
@@ -3778,7 +3807,7 @@ paths:
   /invite/create:
     post:
       tags:
-        - 邀请
+        - 邀请相关接口
       operationId: createInvite
       summary: 创建邀请链接
       description: 服务器id或者频道id必须填一个
@@ -3789,9 +3818,9 @@ paths:
               type: object
               properties:
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 channel_id:
-                  $ref: '#/components/schemas/GuildChannelId'
+                  $ref: '#/components/schemas/properties-id'
                 duration:
                   type: integer
                   description: >-
@@ -3842,7 +3871,7 @@ paths:
   /invite/delete:
     post:
       tags:
-        - 邀请
+        - 邀请相关接口
       summary: 删除邀请链接
       operationId: deleteInvite
       description: 服务器id或者频道id必须填一个
@@ -3858,9 +3887,9 @@ paths:
                   type: string
                   example: XXX
                 guild_id:
-                  $ref: '#/components/schemas/GuildId'
+                  $ref: '#/components/schemas/id'
                 channel_id:
-                  $ref: '#/components/schemas/GuildChannelId'
+                  $ref: '#/components/schemas/properties-id'
       responses:
         '200':
           description: OK
@@ -4164,13 +4193,13 @@ components:
       description: 服务器id
       required: true
       schema:
-        $ref: '#/components/schemas/GuildId'
+        $ref: '#/components/schemas/id'
     GuildChannelIdParam:
       name: channel_id
       in: query
       description: 频道id
       schema:
-        $ref: '#/components/schemas/GuildChannelId'
+        $ref: '#/components/schemas/properties-id'
     MobileVerifiedParam:
       name: mobile_verified
       in: query
@@ -4185,7 +4214,7 @@ components:
       in: query
       description: '频道类型, `1`为文字，`2`为语音, 默认为`1`'
       schema:
-        $ref: '#/components/schemas/GuildChannelType'
+        $ref: '#/components/schemas/properties-type'
     MessageListFlagParam:
       name: flag
       in: query
@@ -4206,12 +4235,12 @@ components:
       required: true
       description: 用户id
       schema:
-        $ref: '#/components/schemas/id'
+        $ref: '#/components/schemas/_fields_id'
   schemas:
     type:
       type: integer
       description: '消息类型, 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息'
-    GuildId:
+    id:
       type: string
       description: 服务器id
       example: '91686000000'
@@ -4227,11 +4256,11 @@ components:
       type: array
       description: '`@特定角色` 的角色ID数组'
       items:
-        type: string
+        type: integer
     mention_here:
       type: boolean
       description: 是否含有`@在线成员`
-    id:
+    _fields_id:
       type: string
       description: 用户id
       example: '2418200000'
@@ -4240,7 +4269,7 @@ components:
       description: 用户对象
       properties:
         id:
-          $ref: '#/components/schemas/id'
+          $ref: '#/components/schemas/_fields_id'
         username:
           type: string
           description: 用户的名称
@@ -4359,7 +4388,7 @@ components:
             - $ref: '#/components/schemas/type'
           example: 9
         guild_id:
-          $ref: '#/components/schemas/GuildId'
+          $ref: '#/components/schemas/id'
         channel_name:
           type: string
           description: 频道名
@@ -4384,7 +4413,7 @@ components:
             - $ref: '#/components/schemas/type'
           example: 9
         guild_id:
-          $ref: '#/components/schemas/GuildId'
+          $ref: '#/components/schemas/id'
         channel_name:
           type: string
           description: 频道名
@@ -4449,19 +4478,22 @@ components:
             msg_id:
               type: string
               description: 消息的 id
+              example: 67637d4c-xxxx-xxxx-xxxx-xxxxx
             msg_timestamp:
               type: integer
               description: 消息发送时间的毫秒时间戳
+              example: 1607674740160
             nonce:
               type: string
               description: 随机串，与用户消息发送 api 中传的 nonce 保持一致
+              example: your nonce
             verify_token:
               type: string
               description: webhook设置中的verify_token
+              example: your verify token
             extra:
               type: object
               description: 不同的消息类型，结构不一致
-              example: xxx
         sn:
           type: integer
           description: >-
@@ -4517,11 +4549,13 @@ components:
           description: 'Map。分页的排序, key:+-1, 如果为1代表按key升序，如果为-1代表按key降序'
           example:
             id: 1
-    Guild:
+    _index_basic:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/GuildId'
+          type: string
+          description: 服务器id
+          example: '91686000000'
         name:
           type: string
           description: 服务器名称
@@ -4531,7 +4565,7 @@ components:
           description: 服务器主题
         master_id:
           allOf:
-            - $ref: '#/components/schemas/id'
+            - $ref: '#/components/schemas/_fields_id'
           description: 服务器主的id
         icon:
           type: string
@@ -4574,25 +4608,16 @@ components:
           type: integer
           description: 服务器等级
           example: 0
-    GuildChannelId:
-      type: string
-      description: 服务器频道ID
-      example: '9219038000000'
-    GuildChannelType:
-      type: integer
-      enum:
-        - 1
-        - 2
-      description: 频道类型，`1`为文字频道，`2`为语音频道
-    GuildChannel:
+    _index_basic-2:
       type: object
       description: 服务器频道
       properties:
         id:
-          $ref: '#/components/schemas/GuildChannelId'
+          type: string
+          description: 服务器频道ID
           example: '3321010478582000'
         guild_id:
-          $ref: '#/components/schemas/GuildId'
+          $ref: '#/components/schemas/id'
         master_id:
           description: 频道创建者id
           type: string
@@ -4610,7 +4635,11 @@ components:
           description: 频道简介
           example: 这是示例频道的示例简介
         type:
-          $ref: '#/components/schemas/GuildChannelType'
+          type: integer
+          enum:
+            - 1
+            - 2
+          description: 频道类型，`1`为文字频道，`2`为语音频道
         level:
           type: integer
           description: 频道排序
@@ -4631,6 +4660,16 @@ components:
           type: string
           description: '语音服务器地址，`HOST:PORT`的格式'
           example: 'HOST:PORT'
+    properties-id:
+      type: string
+      description: 服务器频道ID
+      example: '3321010478582000'
+    properties-type:
+      type: integer
+      enum:
+        - 1
+        - 2
+      description: 频道类型，`1`为文字频道，`2`为语音频道
     GuildChannelPermission:
       type: object
       required:
@@ -4652,7 +4691,7 @@ components:
       format: unsigned integer
       description: 服务器角色id
       example: 113
-    _fields_id:
+    _fields_id-2:
       type: string
       description: 消息id
       example: 1c4532f6-*********-93e9-6347f410f91c
@@ -4685,7 +4724,7 @@ components:
       description: 超链接解析数据
       items:
         $ref: '#/components/schemas/embed'
-    image:
+    attachments:
       type: object
       properties:
         type:
@@ -4700,7 +4739,7 @@ components:
           type: string
           description: 附件链接
           example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
-    video:
+    properties-attachments:
       type: object
       properties:
         type:
@@ -4708,13 +4747,16 @@ components:
           enum:
             - video
         name:
+          type: string
           description: 多媒体名
           example: 002iQMhagx07Fx0S4xxxx323o0E010.mp4
         url:
+          type: string
           description: 附件链接
           example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
         file_type:
           description: 文件格式
+          type: string
           example: video/mp4
         size:
           type: integer
@@ -4732,7 +4774,7 @@ components:
           type: integer
           description: 视频高度
           example: 480
-    file:
+    file-properties-attachments:
       type: object
       properties:
         type:
@@ -4742,6 +4784,10 @@ components:
         url:
           type: string
           example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+        file_type:
+          description: 文件格式
+          type: string
+          example: text/plain
         name:
           type: string
           description: 多媒体名
@@ -4749,11 +4795,11 @@ components:
           type: integer
           description: 大小 单位（B）
           example: 2575670
-    attachments:
+    _fields_attachments:
       oneOf:
-        - $ref: '#/components/schemas/image'
-        - $ref: '#/components/schemas/video'
-        - $ref: '#/components/schemas/file'
+        - $ref: '#/components/schemas/attachments'
+        - $ref: '#/components/schemas/properties-attachments'
+        - $ref: '#/components/schemas/file-properties-attachments'
     reaction:
       type: object
       properties:
@@ -4774,11 +4820,11 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/reaction'
-    _index_basic:
+    _index_basic-3:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/_fields_id'
+          $ref: '#/components/schemas/_fields_id-2'
         type:
           $ref: '#/components/schemas/type'
         author:
@@ -4796,7 +4842,7 @@ components:
         embeds:
           $ref: '#/components/schemas/embeds'
         attachments:
-          $ref: '#/components/schemas/attachments'
+          $ref: '#/components/schemas/_fields_attachments'
         reactions:
           $ref: '#/components/schemas/reactions'
         quote:
@@ -4817,10 +4863,10 @@ components:
           default: 1
         content:
           type: string
-          description: 消息内容
+          description: 消息内容（为了保障消息正常发出，请不要超过8000字符）
         quote:
           allOf:
-            - $ref: '#/components/schemas/_fields_id'
+            - $ref: '#/components/schemas/_fields_id-2'
           description: 回复某条消息的`msg_id`
         nonce:
           type: string
@@ -4853,7 +4899,7 @@ components:
           description: 目标用户信息
           properties:
             id:
-              $ref: '#/components/schemas/id'
+              $ref: '#/components/schemas/_fields_id'
             username:
               type: string
               description: 目标用户名
@@ -4914,14 +4960,14 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/_fields_id'
+          $ref: '#/components/schemas/_fields_id-2'
         type:
           type: integer
           description: 消息类型
         author_id:
           description: 作者的用户ID
           allOf:
-            - $ref: '#/components/schemas/id'
+            - $ref: '#/components/schemas/_fields_id'
         content:
           type: string
           description: 消息内容
@@ -4958,6 +5004,9 @@ components:
         d:
           type: object
           properties:
+            type:
+              type: integer
+              description: 与extra字段中的type相同，为1-10
             author_id:
               description: 发送者的用户id
               example: '2418200000'
@@ -4975,7 +5024,7 @@ components:
                   description: 频道名
                 mention:
                   type: array
-                  description: '`\@特定用户` 的用户ID数组，与`mention_info`中的数据对应'
+                  description: '`@特定用户` 的用户ID数组，与`mention_info`中的数据对应'
                   items:
                     type: string
                 mention_all:
@@ -4992,7 +5041,7 @@ components:
                   description: 消息作者
                   allOf:
                     - $ref: '#/components/schemas/basic'
-    multimedia_image:
+    image:
       type: object
       properties:
         type:
@@ -5000,12 +5049,25 @@ components:
             - $ref: '#/components/schemas/type'
           example: 2
         guild_id:
-          $ref: '#/components/schemas/GuildId'
+          $ref: '#/components/schemas/id'
         author:
           $ref: '#/components/schemas/basic'
         attachments:
-          $ref: '#/components/schemas/image'
-    multimedia_video:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - image
+            name:
+              type: string
+              description: 多媒体名
+              example: xxx.jpg
+            url:
+              type: string
+              description: 附件链接
+              example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
+    video:
       type: object
       properties:
         type:
@@ -5013,12 +5075,45 @@ components:
             - $ref: '#/components/schemas/type'
           example: 3
         guild_id:
-          $ref: '#/components/schemas/GuildId'
+          $ref: '#/components/schemas/id'
         author:
           $ref: '#/components/schemas/basic'
         attachments:
-          $ref: '#/components/schemas/video'
-    multimedia_file:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - video
+            name:
+              type: string
+              description: 多媒体名
+              example: 002iQMhagx07Fx0S4xxxx323o0E010.mp4
+            url:
+              type: string
+              description: 附件链接
+              example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
+            file_type:
+              description: 文件格式
+              type: string
+              example: video/mp4
+            size:
+              type: integer
+              description: 大小 单位（B）
+              example: 722882
+            duration:
+              type: number
+              description: 视频时长（s）
+              example: 15.673
+            width:
+              type: integer
+              description: 视频宽度
+              example: 640
+            height:
+              type: integer
+              description: 视频高度
+              example: 480
+    file:
       type: object
       properties:
         type:
@@ -5026,11 +5121,30 @@ components:
             - $ref: '#/components/schemas/type'
           example: 4
         guild_id:
-          $ref: '#/components/schemas/GuildId'
+          $ref: '#/components/schemas/id'
         author:
           $ref: '#/components/schemas/basic'
         attachments:
-          $ref: '#/components/schemas/file'
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - file
+            url:
+              type: string
+              example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+            file_type:
+              description: 文件格式
+              type: string
+              example: text/plain
+            name:
+              type: string
+              description: 多媒体名
+            size:
+              type: integer
+              description: 大小 单位（B）
+              example: 2575670
     SystemEvent:
       type: object
       allOf:
@@ -5079,7 +5193,7 @@ components:
                   properties:
                     channel_id:
                       allOf:
-                        - $ref: '#/components/schemas/GuildChannelId'
+                        - $ref: '#/components/schemas/properties-id'
                         - description: 消息所在的频道id
                     emoji:
                       type: object
@@ -5092,13 +5206,13 @@ components:
                           $ref: '#/components/schemas/GuildEmojiId'
                     user_id:
                       allOf:
-                        - $ref: '#/components/schemas/id'
+                        - $ref: '#/components/schemas/_fields_id'
                         - description: 点击的用户
                     msg_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id'
+                        - $ref: '#/components/schemas/_fields_id-2'
                         - description: 用户点击的消息id
-    message:
+    message-update:
       type: object
       properties:
         d:
@@ -5112,18 +5226,18 @@ components:
                   properties:
                     msg_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id'
+                        - $ref: '#/components/schemas/_fields_id-2'
                       description: 消息id
                     channel_id:
                       allOf:
-                        - $ref: '#/components/schemas/GuildChannelId'
+                        - $ref: '#/components/schemas/properties-id'
                       description: 消息所在的频道id
                     content:
                       type: string
                       description: 消息内容
                     mention:
                       type: array
-                      description: '`\@特定用户` 的用户ID数组，与`mention_info`中的数据对应'
+                      description: '`@特定用户` 的用户ID数组，与`mention_info`中的数据对应'
                       items:
                         type: string
                     mention_all:
@@ -5150,15 +5264,15 @@ components:
                   properties:
                     channel_id:
                       allOf:
-                        - $ref: '#/components/schemas/GuildChannelId'
+                        - $ref: '#/components/schemas/properties-id'
                       description: 发生操作的频道id
                     operator_id:
                       allOf:
-                        - $ref: '#/components/schemas/id'
+                        - $ref: '#/components/schemas/_fields_id'
                       description: 操作人的用户id
                     msg_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id'
+                        - $ref: '#/components/schemas/_fields_id-2'
                       description: 被操作的消息id
     PersonEvent:
       type: object
@@ -5180,7 +5294,7 @@ components:
                   properties:
                     msg_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id'
+                        - $ref: '#/components/schemas/_fields_id-2'
                       description: 被操作的消息id
                     chat_code:
                       $ref: '#/components/schemas/ChatCode'
@@ -5198,7 +5312,7 @@ components:
                   properties:
                     user_id:
                       allOf:
-                        - $ref: '#/components/schemas/id'
+                        - $ref: '#/components/schemas/_fields_id'
                       description: 用户id
     guild:
       type: object
@@ -5249,32 +5363,22 @@ components:
                       description: 欢迎频道id
     BasicEvent:
       $ref: '#/components/schemas/basic-2'
+    Guild:
+      $ref: '#/components/schemas/_index_basic'
     User:
       $ref: '#/components/schemas/basic'
-    UserId:
+    GuildId:
       $ref: '#/components/schemas/id'
-    GuildChannelRoleRequest:
-      type: object
-      required:
-        - channel_id
-      properties:
-        channel_id:
-          description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
-          allOf:
-            - $ref: '#/components/schemas/GuildChannelId'
-        type:
-          type: string
-          description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
-          enum:
-            - role_id
-            - user_id
-          default: user_id
-        value:
-          type: string
-          description: 根据type，为用户id或频道id
-          default: ''
+    UserId:
+      $ref: '#/components/schemas/_fields_id'
+    GuildChannel:
+      $ref: '#/components/schemas/_index_basic-2'
+    GuildChannelId:
+      $ref: '#/components/schemas/properties-id'
+    GuildChannelType:
+      $ref: '#/components/schemas/properties-type'
     Message:
-      $ref: '#/components/schemas/_index_basic'
+      $ref: '#/components/schemas/_index_basic-3'
   requestBodies:
     create:
       content:
@@ -5287,7 +5391,7 @@ components:
               channel_id:
                 description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
                 allOf:
-                  - $ref: '#/components/schemas/GuildChannelId'
+                  - $ref: '#/components/schemas/properties-id'
               type:
                 type: string
                 description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
@@ -5310,7 +5414,7 @@ components:
               channel_id:
                 description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
                 allOf:
-                  - $ref: '#/components/schemas/GuildChannelId'
+                  - $ref: '#/components/schemas/properties-id'
               type:
                 type: string
                 description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
@@ -5341,7 +5445,7 @@ components:
               channel_id:
                 description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
                 allOf:
-                  - $ref: '#/components/schemas/GuildChannelId'
+                  - $ref: '#/components/schemas/properties-id'
               type:
                 type: string
                 description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
@@ -5364,34 +5468,31 @@ components:
                   d:
                     type: object
                     properties:
+                      type:
+                        example: 1
                       extra:
                         type: object
                         properties:
                           type:
+                            allOf:
+                              - $ref: '#/components/schemas/type'
                             example: 1
-                          body:
-                            type: object
-                            properties:
-                              type:
-                                allOf:
-                                  - $ref: '#/components/schemas/type'
-                                example: 1
-                              guild_id:
-                                $ref: '#/components/schemas/GuildId'
-                              channel_name:
-                                type: string
-                                description: 频道名
-                                example: 一个频道
-                              mention:
-                                $ref: '#/components/schemas/mention'
-                              mention_all:
-                                $ref: '#/components/schemas/mention_all'
-                              mention_roles:
-                                $ref: '#/components/schemas/mention_roles'
-                              mention_here:
-                                $ref: '#/components/schemas/mention_here'
-                              author:
-                                $ref: '#/components/schemas/basic'
+                          guild_id:
+                            $ref: '#/components/schemas/id'
+                          channel_name:
+                            type: string
+                            description: 频道名
+                            example: 一个频道
+                          mention:
+                            $ref: '#/components/schemas/mention'
+                          mention_all:
+                            $ref: '#/components/schemas/mention_all'
+                          mention_roles:
+                            $ref: '#/components/schemas/mention_roles'
+                          mention_here:
+                            $ref: '#/components/schemas/mention_here'
+                          author:
+                            $ref: '#/components/schemas/basic'
     image:
       content:
         application/json:
@@ -5407,13 +5508,10 @@ components:
                         description: 文件链接，与`attachments`的`url`相同
                         example: >-
                           https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg
+                      type:
+                        example: 2
                       extra:
-                        type: object
-                        properties:
-                          type:
-                            example: 2
-                          body:
-                            $ref: '#/components/schemas/multimedia_image'
+                        $ref: '#/components/schemas/image'
     video:
       content:
         application/json:
@@ -5428,13 +5526,10 @@ components:
                       content:
                         description: 文件链接，与`attachments`的`url`相同
                         example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
+                      type:
+                        example: 3
                       extra:
-                        type: object
-                        properties:
-                          type:
-                            example: 3
-                          body:
-                            $ref: '#/components/schemas/multimedia_video'
+                        $ref: '#/components/schemas/video'
     file:
       content:
         application/json:
@@ -5449,13 +5544,10 @@ components:
                       content:
                         description: 文件链接，与`attachments`的`url`相同
                         example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+                      type:
+                        example: 4
                       extra:
-                        type: object
-                        properties:
-                          type:
-                            example: 4
-                          body:
-                            $ref: '#/components/schemas/multimedia_file'
+                        $ref: '#/components/schemas/file'
     kmarkdown:
       content:
         application/json:
@@ -5467,13 +5559,10 @@ components:
                   d:
                     type: object
                     properties:
+                      type:
+                        example: 9
                       extra:
-                        type: object
-                        properties:
-                          type:
-                            example: 9
-                          body:
-                            $ref: '#/components/schemas/kmarkdown'
+                        $ref: '#/components/schemas/kmarkdown'
     card:
       content:
         application/json:
@@ -5485,13 +5574,10 @@ components:
                   d:
                     type: object
                     properties:
+                      type:
+                        example: 10
                       extra:
-                        type: object
-                        properties:
-                          type:
-                            example: 10
-                          body:
-                            $ref: '#/components/schemas/card'
+                        $ref: '#/components/schemas/card'
     add:
       content:
         application/json:
@@ -5534,7 +5620,7 @@ components:
           schema:
             allOf:
               - $ref: '#/components/schemas/SystemEvent'
-              - $ref: '#/components/schemas/message'
+              - $ref: '#/components/schemas/message-update'
               - type: object
                 properties:
                   d:
@@ -5575,11 +5661,11 @@ components:
                             properties:
                               msg_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id'
+                                  - $ref: '#/components/schemas/_fields_id-2'
                                 description: 被删除的消息id
                               channel_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/GuildChannelId'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 消息所在频道id
     channel_create:
       content:
@@ -5599,7 +5685,7 @@ components:
                             description: 消息类型，此处为`added_channel`
                             example: added_channel
                           body:
-                            $ref: '#/components/schemas/GuildChannel'
+                            $ref: '#/components/schemas/_index_basic-2'
     channel_update:
       content:
         application/json:
@@ -5618,7 +5704,7 @@ components:
                             description: 消息类型，此处为`updated_channel`
                             example: updated_channel
                           body:
-                            $ref: '#/components/schemas/GuildChannel'
+                            $ref: '#/components/schemas/_index_basic-2'
     channel_delete:
       content:
         application/json:
@@ -5641,7 +5727,7 @@ components:
                             properties:
                               id:
                                 allOf:
-                                  - $ref: '#/components/schemas/GuildChannelId'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 被删除的频道id
                               deleted_at:
                                 type: integer
@@ -5709,15 +5795,15 @@ components:
                             properties:
                               msg_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id'
+                                  - $ref: '#/components/schemas/_fields_id-2'
                                 description: 被更新的消息id
                               author_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/id'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 被更新的消息的创建者id
                               target_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/id'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 被更新的消息的目标用户id
                               content:
                                 type: string
@@ -5749,15 +5835,15 @@ components:
                             properties:
                               msg_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id'
+                                  - $ref: '#/components/schemas/_fields_id-2'
                                 description: 被删除的消息id
                               author_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/id'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 被删除的消息的创建者id
                               target_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/id'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 被删除的消息的目标用户id
                               updated_at:
                                 type: integer
@@ -6053,13 +6139,13 @@ components:
                             properties:
                               operator_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/id'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 操作人id
                               user_id:
                                 type: array
                                 description: 被封禁成员id列表
                                 items:
-                                  $ref: '#/components/schemas/id'
+                                  $ref: '#/components/schemas/_fields_id'
                               remark:
                                 type: string
                                 description: 封禁理由
@@ -6086,13 +6172,13 @@ components:
                             properties:
                               operator_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/id'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 操作人id
                               user_id:
                                 type: array
                                 description: 被封禁成员id列表
                                 items:
-                                  $ref: '#/components/schemas/id'
+                                  $ref: '#/components/schemas/_fields_id'
     channel_join:
       content:
         application/json:
@@ -6114,10 +6200,10 @@ components:
                             type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/id'
+                                $ref: '#/components/schemas/_fields_id'
                               channel_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/GuildChannelId'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 加入的频道id
                               joined_at:
                                 type: integer
@@ -6144,10 +6230,10 @@ components:
                             type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/id'
+                                $ref: '#/components/schemas/_fields_id'
                               channel_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/GuildChannelId'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 加入的频道id
                               exited_at:
                                 type: integer
@@ -6176,7 +6262,7 @@ components:
                             type: object
                             properties:
                               guild_id:
-                                $ref: '#/components/schemas/GuildId'
+                                $ref: '#/components/schemas/id'
     guild_exit:
       content:
         application/json:
@@ -6188,11 +6274,11 @@ components:
                   d:
                     type: object
                     properties:
+                      channel_type:
+                        example: PERSON
                       extra:
                         type: object
                         properties:
-                          channel_type:
-                            example: PERSON
                           type:
                             description: 消息类型，此处为`self_exited_guild`
                             example: self_exited_guild
@@ -6200,7 +6286,7 @@ components:
                             type: object
                             properties:
                               guild_id:
-                                $ref: '#/components/schemas/GuildId'
+                                $ref: '#/components/schemas/id'
     info_update:
       content:
         application/json:
@@ -6222,7 +6308,7 @@ components:
                             type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/id'
+                                $ref: '#/components/schemas/_fields_id'
                               username:
                                 type: string
                                 description: 用户名
@@ -6247,24 +6333,24 @@ components:
                         type: object
                         properties:
                           type:
-                            description: 消息类型，此处为`user_updated`
-                            example: user_updated
+                            description: 消息类型，此处为`message_btn_click`
+                            example: message_btn_click
                           body:
                             type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/id'
-                              msg_id:
                                 $ref: '#/components/schemas/_fields_id'
+                              msg_id:
+                                $ref: '#/components/schemas/_fields_id-2'
                               value:
                                 type: string
                                 description: 按钮`return-val`的返回值
                               target_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/GuildChannelId'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 消息所在频道的id
                               guild_id:
-                                $ref: '#/components/schemas/GuildId'
+                                $ref: '#/components/schemas/id'
                               user_info:
                                 $ref: '#/components/schemas/basic'
 security: []

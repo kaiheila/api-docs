@@ -44,19 +44,22 @@ properties:
       msg_id:
         type: string
         description: 消息的 id
+        example: "67637d4c-xxxx-xxxx-xxxx-xxxxx"
       msg_timestamp:
         type: integer
         description: 消息发送时间的毫秒时间戳
+        example: 1607674740160
       nonce:
         type: string
         description: 随机串，与用户消息发送 api 中传的 nonce 保持一致
+        example: 'your nonce'
       verify_token:
         type: string
         description: webhook设置中的verify_token
+        example: 'your verify token'
       extra:
         type: object
         description: 不同的消息类型，结构不一致
-        example: 'xxx'
   sn:
     type: integer
     description: 消息序号，针对当前session。该字段并不一定有，只在s=0时有，与webhook一致。详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)

@@ -18,38 +18,38 @@ info:
 
 # 如需合并，请执行：npx @redocly/openapi-cli bundle ./api-docs/oas/kaiheila-openapi.yaml -o ./api-docs/oas/kaiheila-openapi-bundled.yaml 
 tags:
-  - name: KMarkDown
+  - name: 将Bot连接到开黑啦服务器
     description: 
-      $ref: "./descriptions/_index.yaml#/kmarkdown"
-  - name: 卡片消息
+      使用Websocket或Webhook将Bot连接至服务器
+  - name: KMarkdown与卡片消息
     description: 
-      $ref: "./descriptions/_index.yaml#/cardMessage"
-  - name: 服务器
+      $ref: "./descriptions/_index.yaml#/kmarkdown-card"
+  - name: 服务器相关接口
     description: 服务器相关接口
-  - name: 频道
+  - name: 服务器频道相关接口
     description: 服务器频道相关接口
-  - name: 频道消息
+  - name: 频道消息相关接口
     description: 频道消息相关接口
   - name: 私聊会话
     description: 私聊会话相关接口
-  - name: 私聊消息
+  - name: 私聊消息相关接口
     description: 私聊消息相关接口
-  - name: 用户
+  - name: 用户相关接口
     description: 用户相关接口
-  - name: 服务器角色权限
+  - name: 服务器角色权限相关接口
     description: 
       $ref: "./descriptions/_index.yaml#/permissions"
-  - name: 服务器表情
+  - name: 服务器表情相关接口
     description: 服务器表情相关接口
-  - name: 邀请
+  - name: 邀请相关接口
     description: 邀请相关接口
-  - name: gateway
+  - name: Gateway接口
     description: Gateway接口
-  - name: 亲密度
-    description: 亲密度相关接口列表
-  - name: 附件
+  - name: 亲密度相关接口
+    description: 亲密度相关接口
+  - name: 附件相关接口
     description: 附件相关接口
-  - name: 事件结构与格式说明
+  - name: 事件通知介绍
     description:
       $ref: "./descriptions/_index.yaml#/event"
   - name: 消息相关事件
@@ -68,7 +68,7 @@ paths:
   /kmarkdown:
     post: 
       tags:
-        - KMarkDown
+        - KMarkdown与卡片消息
       summary: 事件中的kmarkdown消息格式
       requestBody:
         content: 
@@ -78,7 +78,7 @@ paths:
   /cardMessage:
     post: 
       tags:
-        - 卡片消息
+        - KMarkdown与卡片消息
       summary: 事件中的卡片消息格式
       requestBody:
         content: 
@@ -88,17 +88,37 @@ paths:
   /event:
     post:
       tags:
-        - 事件结构与格式说明
+        - 事件通知介绍
       summary: 事件结构示例
       requestBody:
         content: 
           application/json: 
             schema: 
               $ref: './components/schemas/events/basic.yaml'
+  /connect-websocket:
+    get: 
+      tags:
+        - 将Bot连接到开黑啦服务器
+      summary: 使用Websocket进行连接
+      description: 
+        $ref: './descriptions/websocket.md'
+      responses: 
+        '200':
+          description: 连接成功
+  /connect-webhook:
+    get: 
+      tags:
+        - 将Bot连接到开黑啦服务器
+      summary: 使用Webhook进行连接
+      description: 
+        $ref: './descriptions/webhook.md'
+      responses: 
+        '200':
+          description: 连接成功
   /guild/list:
     get:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 获取当前用户加入的服务器列表
       description: ''
       operationId: getJoinedGuilds
@@ -131,9 +151,9 @@ paths:
                                   $ref: './components/schemas/_index.yaml#/Guild'
   /guild/index:
     get:
-      tags:
-        - 服务器
       deprecated: true
+      tags:
+        - 服务器相关接口
       summary: 获取当前用户加入的服务器列表
       description: ''
       parameters: []
@@ -146,109 +166,13 @@ paths:
               schema:
                 $ref: '#/components/schemas/Guild'
   /guild/view:
-    get:
-      tags:
-        - 服务器
-      summary: 获取服务器详情
-      operationId: getGuildById
-      parameters:
-        - $ref: '#/components/parameters/GuildIdParam'
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/BasicResponse'
-                  - type: object
-                    properties:
-                      data:
-                        type: object
-                        allOf:
-                          - $ref: '#/components/schemas/Guild'
-                        properties:
-                          roles:
-                            type: array
-                            items:
-                              - $ref: './components/schemas/_index.yaml#/GuildRole'
-                          channels:
-                            type: array
-                            items: 
-                              - $ref: "./components/schemas/_index.yaml#/GuildChannel"
+    $ref: './paths/guild.yaml#/view'
   /guild/user-list:
-    get:
-      tags:
-        - 服务器
-      summary: 获取服务器的用户列表
-      operationId: getUsersInGuild
-      parameters:
-        - $ref: '#/components/parameters/GuildIdParam'
-        - $ref: '#/components/parameters/GuildChannelIdParam'
-          required: false
-        - name: search
-          in: query
-          description: 搜索关键字，在用户名或昵称中搜索
-          schema:
-            type: string
-        - name: role_id
-          in: query
-          description: 角色 ID，获取特定角色的用户列表
-          schema:
-            type: integer
-        - $ref: '#/components/parameters/MobileVerifiedParam'
-        - name: active_time
-          in: query
-          description: 根据活跃时间排序，`0`是顺序排列，`1`是倒序排列
-          schema:
-            type: integer
-        - name: joined_at
-          in: query
-          description: 根据加入时间排序，`0`是顺序排列，`1`是倒序排列
-          schema:
-            type: integer
-        - $ref: '#/components/parameters/PageNumberParam'
-        - $ref: '#/components/parameters/PageSizeParam'
-        - name: filter_user_id
-          in: query
-          description: 获取指定id所属用户的信息
-          schema:
-            type: string
-      responses:
-        '200':
-          description: OK
-          content:
-            application/json:
-              schema:
-                allOf:
-                  - $ref: '#/components/schemas/BasicResponse'
-                  - type: object
-                    properties:
-                      data:
-                        allOf:
-                          - $ref: '#/components/schemas/PaginationInfo'
-                          - type: object
-                            properties:
-                              items:
-                                type: array
-                                items:
-                                  $ref: '#/components/schemas/User'
-                              user_count:
-                                type: integer
-                                description: 用户数量
-                                example: 10
-                              online_count:
-                                type: integer
-                                description: 用户数量
-                                example: 3
-                              offline_count:
-                                type: integer
-                                description: 离线用户数量
-                                example: 7
+    $ref: './paths/guild.yaml#/user-list'
   /guild/nickname:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 修改服务器中的用户昵称
       operationId: changeUserNickname
       requestBody:
@@ -278,7 +202,7 @@ paths:
   /guild/leave:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 离开服务器
       operationId: leaveGuild
       requestBody:
@@ -301,7 +225,7 @@ paths:
   /guild/kickout:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 踢出服务器
       operationId: kickUserById
       requestBody:
@@ -329,7 +253,7 @@ paths:
   /guild-mute/list:
     get:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 服务器静音闭麦列表
       operationId: getGuildMuteUsers
       parameters:
@@ -381,7 +305,7 @@ paths:
   /guild-mute/create:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 添加服务器闭麦或静音
       operationId: muteUserById
       requestBody:
@@ -416,7 +340,7 @@ paths:
   /guild-mute/delete:
     post:
       tags:
-        - 服务器
+        - 服务器相关接口
       summary: 删除服务器闭麦或静音
       operationId: unmuteUserById
       requestBody:
@@ -471,7 +395,7 @@ paths:
   /message/list:
     get:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 获取频道聊天消息列表
       operationId: getChannelMessages
       description: 此接口非标准分页，需要根据参考消息来查询相邻分页的消息
@@ -523,7 +447,7 @@ paths:
   /message/create:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 发送频道聊天消息
       operationId: sendChannelMessage
       requestBody:
@@ -570,7 +494,7 @@ paths:
   /message/update:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 更新频道聊天消息
       requestBody:
         content:
@@ -603,7 +527,7 @@ paths:
   /message/delete:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 删除频道聊天消息
       requestBody:
         content:
@@ -626,7 +550,7 @@ paths:
   /message/reaction-list:
     get:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 获取频道消息某个回应的用户列表
       operationId: getMessageReactionUsers
       parameters:
@@ -666,7 +590,7 @@ paths:
   /message/add-reaction:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 为消息添加回应
       operationId: addMessageReaction
       requestBody:
@@ -692,7 +616,7 @@ paths:
   /message/delete-reaction:
     post:
       tags:
-        - 频道消息
+        - 频道消息相关接口
       summary: 为消息删除回应
       requestBody:
         content:
@@ -825,7 +749,7 @@ paths:
   /direct-message/list:
     get:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 获取私信消息列表
       parameters:
         - name: chat_code
@@ -871,7 +795,7 @@ paths:
   /direct-message/create:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 发送私信聊天消息
       requestBody:
         content:
@@ -912,7 +836,7 @@ paths:
   /direct-message/update:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 更新私信聊天消息
       requestBody:
         content:
@@ -942,7 +866,7 @@ paths:
   /direct-message/delete:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 删除私信聊天消息
       requestBody:
         content:
@@ -965,7 +889,7 @@ paths:
   /direct-message/reaction-list:
     get:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 获取消息某个回应的用户列表
       parameters:
         - name: msg_id
@@ -1003,7 +927,7 @@ paths:
   /direct-message/add-reaction:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 为消息添加回应
       requestBody:
         content:
@@ -1028,7 +952,7 @@ paths:
   /direct-message/delete-reaction:
     post:
       tags:
-        - 私聊消息
+        - 私聊消息相关接口
       summary: 为消息删除回应
       requestBody:
         content:
@@ -1057,7 +981,7 @@ paths:
   /gateway/index:
     get:
       tags:
-        - gateway
+        - Gateway接口
       summary: 获取网关连接地址
       operationId: getIndex
       parameters:
@@ -1085,7 +1009,7 @@ paths:
   /user/me:
     get:
       tags:
-        - 用户
+        - 用户相关接口
       summary: 获取当前用户信息
       responses:
         '200':
@@ -1121,7 +1045,7 @@ paths:
   /user/view:
     get:
       tags:
-        - 用户
+        - 用户相关接口
       summary: 获取目标用户信息
       parameters:
         - $ref: '#/components/parameters/UserIdParam'
@@ -1165,7 +1089,7 @@ paths:
   /asset/create:
     post:
       tags:
-        - 附件
+        - 附件相关接口
       summary: 上传多媒体文件
       requestBody:
         content:
@@ -1197,7 +1121,7 @@ paths:
   /guild-role/list:
     get:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 获取服务器角色列表
       parameters:
         - $ref: '#/components/parameters/GuildIdParam'
@@ -1226,7 +1150,7 @@ paths:
   /guild-role/create:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 创建服务器角色
       requestBody:
         content:
@@ -1256,7 +1180,7 @@ paths:
   /guild-role/update:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 更新服务器角色
       requestBody:
         content:
@@ -1319,7 +1243,7 @@ paths:
   /guild-role/delete:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 删除服务器角色
       requestBody:
         content:
@@ -1348,7 +1272,7 @@ paths:
   /guild-role/grant:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 赋予用户角色
       operationId: grantGuildRole
       requestBody:
@@ -1392,7 +1316,7 @@ paths:
   /guild-role/revoke:
     post:
       tags:
-        - 服务器角色权限
+        - 服务器角色权限相关接口
       summary: 删除用户角色
       requestBody:
         content:
@@ -1435,7 +1359,7 @@ paths:
   /intimacy/index:
     get:
       tags:
-        - 亲密度
+        - 亲密度相关接口
       summary: 获取用户的亲密度
       operationId: getIntimacy
       description: 机器人可以在后台配置默认的初始亲密度和形象，当用户触发某些事件时，机器人可以根据一些逻辑来更新与该用户的亲密度以及形象展示。
@@ -1482,7 +1406,7 @@ paths:
   /intimacy/update:
     post:
       tags:
-        - 亲密度
+        - 亲密度相关接口
       summary: 更新用户亲密度
       operationId: updateIntimacy
       requestBody:
@@ -1520,7 +1444,7 @@ paths:
   /guild-emoji/list:
     get:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       summary: 获取服务器表情列表
       operationId: getGuildEmojis
       parameters:
@@ -1550,7 +1474,7 @@ paths:
   /guild-emoji/create:
     post:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       summary: 创建服务器表情
       operationId: createGuildEmoji
       description: Header 中 Content-Type 必须为 multipart/form-data
@@ -1587,7 +1511,7 @@ paths:
   /guild-emoji/update:
     post:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       summary: 更新服务器表情
       operationId: updateGuildEmoji
       requestBody:
@@ -1616,7 +1540,7 @@ paths:
   /guild-emoji/delete:
     post:
       tags:
-        - 服务器表情
+        - 服务器表情相关接口
       operationId: deleteGuildEmoji
       summary: 删除服务器表情
       requestBody:
@@ -1641,7 +1565,7 @@ paths:
   /invite/list:
     get:
       tags:
-        - 邀请
+        - 邀请相关接口
       summary: 获取邀请列表
       operationId: listInvites
       description: 服务器id或者频道id必须填一个
@@ -1692,7 +1616,7 @@ paths:
   /invite/create:
     post:
       tags:
-        - 邀请
+        - 邀请相关接口
       operationId: createInvite
       summary: 创建邀请链接
       description: 服务器id或者频道id必须填一个
@@ -1752,7 +1676,7 @@ paths:
   /invite/delete:
     post:
       tags:
-        - 邀请
+        - 邀请相关接口
       summary: 删除邀请链接
       operationId: deleteInvite
       description: 服务器id或者频道id必须填一个

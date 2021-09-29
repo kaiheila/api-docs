@@ -4,7 +4,7 @@ update:
       schema: 
         allOf:
           - $ref: "../../schemas/_index.yaml#/SystemEvent"
-          - $ref: "../../schemas/events/message.yaml"
+          - $ref: "../../schemas/events/message-update.yaml"
           - type: object
             properties:
               d:

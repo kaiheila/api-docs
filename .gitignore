@@ -2,3 +2,4 @@
 .prettier*
 dist/*.yaml
 dist/
+.github/pull.yml
