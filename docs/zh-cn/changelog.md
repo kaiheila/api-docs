@@ -1,14 +1,25 @@
 # 更改记录
 
+## [0.1.7] - 2021-09-28
+
+- 部分接口文档修复
+- 新增 guild/user-list 的用户 id 过滤
+- 新增/invite 的编辑相关参数
+- 新增 Card Message 的 Container 模块
+- 新增 OpenAPI 描述文件
+
 ## [0.1.6] - 2021-03-30
+
 - 更新消息支持的消息类型变更
 - 支持临时更新消息
 - 修复一些文档问题
 
 ## [0.1.5] - 2021-03-08
+
 - 整理事件
 
 ## [0.1.4] - 2021-03-01
+
 - 制定列表页规范，并统一所有的列表页接口
 - 优化部分接口错误返回
 
@@ -34,7 +45,6 @@
 - 事件：服务器删除
 - 事件：自己新加入服务器
 - 事件：自己退出服务器
-
 
 ## [0.1.1] - 2021-02-23
 
@@ -62,8 +72,8 @@
 - 将私聊消息相关接口从私聊会话接口列表中独立
 - 调整私聊消息路径: 从 `user-chat` 改为 `direct-message`
 - 废弃频道相关消息列表中的发送消息接口
-- 统一格式。消息事件的sessionId更换为session_id, sessionId会保留。
-- /api/v3/guild-mute/list添加return-type参数，支持返回格式可选
+- 统一格式。消息事件的 sessionId 更换为 session_id, sessionId 会保留。
+- /api/v3/guild-mute/list 添加 return-type 参数，支持返回格式可选
 
 ## [0.0.9] - 2021-02-10
 
@@ -97,21 +107,21 @@
 ## [0.0.7] - 2021-02-08
 
 ### Add
+
 - 添加服务器闭麦静音列表，添加，删除接口。
 - 添加获取当前用户服务器列表接口， 离开服务器接口。
 - 添加频道消息列表，更新，删除接口。
-- 添加频道消息reaction列表，添加，删除接口。
+- 添加频道消息 reaction 列表，添加，删除接口。
 - 添加频道角色查看，添加，更新，删除接口。
 - 添加私聊列表，发送，更新，删除接口。
-- 添加私聊消息reaction列表，添加，删除接口。
-
+- 添加私聊消息 reaction 列表，添加，删除接口。
 
 ### Changed
-- 更新服务器角色权限的接口，添加了color, name参数
-- 更新cardMessage说明，plain-text与kmarkdown字数限制
+
+- 更新服务器角色权限的接口，添加了 color, name 参数
+- 更新 cardMessage 说明，plain-text 与 kmarkdown 字数限制
 
 ### Fixed
-
 
 ## [0.0.6] - 2021-01-27
 
@@ -126,60 +136,74 @@
 ## [0.0.5] - 2021-01-25
 
 ### Add
-- 添加cardmessage消息编辑器，kmarkdown消息编辑器
-- 添加button点击事件消息
+
+- 添加 cardmessage 消息编辑器，kmarkdown 消息编辑器
+- 添加 button 点击事件消息
 - 添加临时消息文档
 
 ### Changed
 
 ### Fixed
-- 更改cardmessage中的字符错误
+
+- 更改 cardmessage 中的字符错误
 
 ## [0.0.4] - 2021-01-21
+
 添加多媒体发送，角色权限接口
 
 ### Add
+
 - 添加获取当前用户信息的接口
-- reference添加建议，仅使用文档中示出的字段
-- kmarkdown添加删除线说明,添加引用换行的说明
+- reference 添加建议，仅使用文档中示出的字段
+- kmarkdown 添加删除线说明,添加引用换行的说明
 - 添加角色权限相关接口
 - 添加多媒体资源发送接口，添加发送图片，文件，音视频消息接口
 
 ### Changed
-- message消息发送接口，object_name改为type,object_name依然可用。
+
+- message 消息发送接口，object_name 改为 type,object_name 依然可用。
 
 ### Fixed
-- fix一些文案错误
+
+- fix 一些文案错误
 
 ## [0.0.3] - 2021-01-14
-添加websocket协议文档
 
-### Add 
-- 添加websocket协议文档
-- 添加gateway接口文档
+添加 websocket 协议文档
 
-### Changed 
+### Add
+
+- 添加 websocket 协议文档
+- 添加 gateway 接口文档
+
+### Changed
 
 ### Fixed
 
 ## [0.0.2] - 2021-01-12
+
 添加卡片消息
 
 ### Add
-- CardMessage相关接口及说明
+
+- CardMessage 相关接口及说明
 
 ### Changed
-- guild.md更改为channel.md
+
+- guild.md 更改为 channel.md
 
 ### Fixed
-- fix Ratelimit参数的显示问题
+
+- fix Ratelimit 参数的显示问题
 
 ## [0.0.1] - 2020-12-14
-开发者中心第一版本，主要是webhook及少量的http接口功能。
+
+开发者中心第一版本，主要是 webhook 及少量的 http 接口功能。
 
 ### Add
+
 - HTTP API，包括消息发送与亲密度相关接口
-- WEBHOOK消息。
+- WEBHOOK 消息。
 - 开发者后台文档，及网站显示。
 
 ### Changed
