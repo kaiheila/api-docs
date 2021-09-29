@@ -48,7 +48,7 @@
 if ($this->getSessionId()) {
     $gateWay = $gateWay.'&'.http_build_query([
         'sn' => $this->maxSn,
-        'sessionId' => $this->getSessionId(),
+        'session_id' => $this->getSessionId(),
         'resume' => 1,
     ]);
 }
