@@ -70,37 +70,33 @@ info:
     展示在此处，请于开发者服务器内联系`冰飞FlappyIce`。
 
 
-    PHP:
+    | 语言                  | 仓库名                          |
+    仓库地址                                        |
+    服务器邀请                             |
 
+    | --------------------- | ------------------------------- |
+    ----------------------------------------------- |
+    -------------------------------------- |
 
-    - kaiheila/php-bot [仓库链接](https://github.com/kaiheila/php-bot)
+    | PHP                   | kaiheila/php-bot                |
+    [仓库链接](https://github.com/kaiheila/php-bot) |
+    暂无                                   |
 
+    | JavaScript/TypeScript | fi6/KBotify & shugen002/BotRoot |
+    [仓库链接](https://github.com/fi6/kBotify)      |
+    [服务器邀请](https://kaihei.co/GO6qHj) |
 
-    JavaScript/TypeScript:
+    | Python                | TWT233/khl.py                   |
+    [仓库链接](https://github.com/TWT233/khl.py)    |
+    [服务器邀请](https://kaihei.co/JJE0Es) |
 
+    | 易语言                | 大鑫/酷黑                       |
+    暂无                                            |
+    [服务器邀请](https://kaihei.co/GymA7P) |
 
-    - fi6/KBotify & shugen002/BotRoot [仓库链接](https://github.com/fi6/kBotify)
-    [服务器邀请](https://kaihei.co/GO6qHj)
-
-
-    Python:
-
-
-    - TWT233/khl.py [仓库链接](https://github.com/TWT233/khl.py)
-    [服务器邀请](https://kaihei.co/JJE0Es)
-
-
-    易语言：
-
-
-    - 大鑫/酷黑 仓库链接 [服务器邀请](https://kaihei.co/GymA7P)
-
-
-    Go:
-
-
-    - lonelyevil/khl [仓库链接](https://github.com/lonelyevil/khl)
-    [服务器邀请](https://kaihei.co/r5s1WO)
+    | Go                    | lonelyevil/khl                  |
+    [仓库链接](https://github.com/lonelyevil/khl)   |
+    [服务器邀请](https://kaihei.co/r5s1WO) |
 
 
     ### OpenAPI 描述文件
@@ -451,9 +447,6 @@ info:
     - 消息推送时，可能会有压缩(压缩默认采用 zlib 压缩【deflate】)。
 
     - 消息的含义，结构格式等基本保持一致。
-
-
-
 
 
     ## 速率限制
