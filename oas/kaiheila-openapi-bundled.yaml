@@ -5387,6 +5387,7 @@ components:
             type: object
             required:
               - channel_id
+            example: null
             properties:
               channel_id:
                 description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
@@ -5400,9 +5401,11 @@ components:
                   - user_id
                 default: user_id
               value:
-                type: string
-                description: 根据type，为用户id或频道id
-                default: ''
+                type:
+                  - string
+                  - integer
+                description: 根据type的值，为用户id或频道id
+                example: '2418239356'
     update:
       content:
         application/json:
@@ -5423,9 +5426,11 @@ components:
                   - user_id
                 default: user_id
               value:
-                type: string
-                description: 根据type，为用户id或频道id
-                default: ''
+                type:
+                  - string
+                  - integer
+                description: 根据type的值，为用户id或频道id
+                example: '2418239356'
               allow:
                 type: integer
                 description: '默认为0,想要设置的允许的权限值'
@@ -5454,9 +5459,11 @@ components:
                   - user_id
                 default: user_id
               value:
-                type: string
-                description: 根据type，为用户id或频道id
-                default: ''
+                type:
+                  - string
+                  - integer
+                description: 根据type的值，为用户id或频道id
+                example: '2418239356'
     text:
       content:
         application/json:
@@ -6039,8 +6046,8 @@ components:
                         type: object
                         properties:
                           type:
-                            description: 消息类型，此处为`joined_guild`
-                            example: joined_guild
+                            description: 消息类型，此处为`added_role`
+                            example: added_role
                           body:
                             $ref: '#/components/schemas/GuildRole'
     role_update:
@@ -6165,8 +6172,8 @@ components:
                         type: object
                         properties:
                           type:
-                            description: 消息类型，此处为`added_block_list`
-                            example: added_block_list
+                            description: 消息类型，此处为`deleted_block_list`
+                            example: deleted_block_list
                           body:
                             type: object
                             properties:
