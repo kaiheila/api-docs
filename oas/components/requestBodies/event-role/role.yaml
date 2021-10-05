@@ -13,8 +13,8 @@ add:
                     type: object
                     properties:
                       type:
-                        description: 消息类型，此处为`joined_guild`
-                        example: 'joined_guild'
+                        description: 消息类型，此处为`added_role`
+                        example: 'added_role'
                       body:
                         $ref: '../../schemas/_index.yaml#/GuildRole'
 
