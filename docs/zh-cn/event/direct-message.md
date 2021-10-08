@@ -6,16 +6,16 @@
 
 #### extra 字段说明：
 
-| 字段        | 类型   | 说明                                         |
-| ----------- | ------ | -------------------------------------------- |
-| type        | string | 消息的类型，本处为 `updated_private_message` |
-| body        | Map    |                                              |
-| »msg_id     | string | 被更新的消息的 id                            |
-| »author_id  | string | 被更新的消息的创建者 id                      |
-| »target_id  | string | 被更新的消息的目标用户 id                    |
-| »content    | string | 更新后的文本                                 |
-| »chat_code  | string | 私聊 code                                    |
-| »updated_at | int    | 更新时间戳(毫秒)                             |
+| 字段         | 类型   | 说明                                         |
+| ------------ | ------ | -------------------------------------------- |
+| type         | string | 消息的类型，本处为 `updated_private_message` |
+| body         | Map    |                                              |
+| » msg_id     | string | 被更新的消息的 id                            |
+| » author_id  | string | 被更新的消息的创建者 id                      |
+| » target_id  | string | 被更新的消息的目标用户 id                    |
+| » content    | string | 更新后的文本                                 |
+| » chat_code  | string | 私聊 code                                    |
+| » updated_at | int    | 更新时间戳(毫秒)                             |
 
 #### 示例：
 
@@ -52,15 +52,15 @@
 
 #### extra 字段说明：
 
-| 字段        | 类型   | 说明                                         |
-| ----------- | ------ | -------------------------------------------- |
-| type        | string | 消息的类型，本处为 `deleted_private_message` |
-| body        | Map    |                                              |
-| »msg_id     | string | 被删除的消息的 id                            |
-| »author_id  | string | 被删除的消息的创建者 id                      |
-| »target_id  | string | 被删除的消息的目标用户 id                    |
-| »chat_code  | string | 私聊 code                                    |
-| »deleted_at | int    | 删除的时间戳(毫秒)                           |
+| 字段         | 类型   | 说明                                         |
+| ------------ | ------ | -------------------------------------------- |
+| type         | string | 消息的类型，本处为 `deleted_private_message` |
+| body         | Map    |                                              |
+| » msg_id     | string | 被删除的消息的 id                            |
+| » author_id  | string | 被删除的消息的创建者 id                      |
+| » target_id  | string | 被删除的消息的目标用户 id                    |
+| » chat_code  | string | 私聊 code                                    |
+| » deleted_at | int    | 删除的时间戳(毫秒)                           |
 
 #### 示例：
 
@@ -96,14 +96,14 @@
 
 #### extra 字段说明：
 
-| 字段       | 类型   | 说明                                         |
-| ---------- | ------ | -------------------------------------------- |
-| type       | string | 消息的类型，本处为 `private_added_reaction`  |
-| body       | Map    |                                              |
-| »msg_id    | string | 用户点击的消息 id                            |
-| »user_id   | string | 点击的用户的 id                              |
-| »chat_code | string | 私聊 code                                    |
-| »emoji     | Map    | 消息对象, 包含 `id` 表情 id, `name` 表情名称 |
+| 字段        | 类型   | 说明                                         |
+| ----------- | ------ | -------------------------------------------- |
+| type        | string | 消息的类型，本处为 `private_added_reaction`  |
+| body        | Map    |                                              |
+| » msg_id    | string | 用户点击的消息 id                            |
+| » user_id   | string | 点击的用户的 id                              |
+| » chat_code | string | 私聊 code                                    |
+| » emoji     | Map    | 消息对象, 包含 `id` 表情 id, `name` 表情名称 |
 
 #### 示例：
 
@@ -141,14 +141,14 @@
 
 #### extra 字段说明：
 
-| 字段       | 类型   | 说明                                          |
-| ---------- | ------ | --------------------------------------------- |
-| type       | string | 消息的类型，本处为 `private_deleted_reaction` |
-| body       | Map    |                                               |
-| »msg_id    | string | 用户点击的消息 id                             |
-| »user_id   | string | 点击的用户的 id                               |
-| »chat_code | string | 私聊 code                                     |
-| »emoji     | Map    | 消息对象, 包含 `id` 表情 id, `name` 表情名称  |
+| 字段        | 类型   | 说明                                          |
+| ----------- | ------ | --------------------------------------------- |
+| type        | string | 消息的类型，本处为 `private_deleted_reaction` |
+| body        | Map    |                                               |
+| » msg_id    | string | 用户点击的消息 id                             |
+| » user_id   | string | 点击的用户的 id                               |
+| » chat_code | string | 私聊 code                                     |
+| » emoji     | Map    | 消息对象, 包含 `id` 表情 id, `name` 表情名称  |
 
 #### 示例：
 

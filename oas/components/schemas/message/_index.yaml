@@ -24,6 +24,6 @@ basic:
     reactions:
       $ref: './_fields.yaml#/reactions'
     quote:
-      $ref: './_fields.yaml#/reactions'
+      $ref: './_fields.yaml#/quote'
     mention_info:
       $ref: './_fields.yaml#/mention_info'

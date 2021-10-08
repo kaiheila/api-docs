@@ -456,9 +456,9 @@
 | 参数名     | 位置 | 类型   | 必需  | 说明                                         |
 | ---------- | ---- | ------ | ----- | -------------------------------------------- |
 | body       | body | object | false | none                                         |
-| » guild_id | body | string | true    | 服务器 id                                    |
-| » user_id  | body | string | true    | 用户 id                                      |
-| » type     | body | int    | true    | 静音类型，`1`代表麦克风闭麦，`2`代表耳机静音 |
+| » guild_id | body | string | true  | 服务器 id                                    |
+| » user_id  | body | string | true  | 用户 id                                      |
+| » type     | body | int    | true  | 静音类型，`1`代表麦克风闭麦，`2`代表耳机静音 |
 
 ### 返回参数说明
 

@@ -53,7 +53,8 @@ tags:
     description:
       $ref: "./descriptions/_index.yaml#/event"
   - name: 消息相关事件
-    description: 消息相关事件
+    description: 
+      $ref: "./descriptions/events/message.md"
   - name: 频道相关事件
     description: 频道相关事件
   - name: 服务器相关事件
@@ -95,6 +96,11 @@ paths:
           application/json: 
             schema: 
               $ref: './components/schemas/events/basic.yaml'
+  /message-object:
+    post: 
+      tags:
+        - 标准对象格式
+      summary: 标准对象格式
   /connect-websocket:
     get: 
       tags:

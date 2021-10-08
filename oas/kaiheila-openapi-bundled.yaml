@@ -403,31 +403,31 @@ info:
     正常的列表页的返回参数会保持如下的格式:
 
 
-    | 参数名      | 类型  |
+    | 参数名       | 类型  |
     说明                                                                    |
 
-    | ----------- | ----- |
+    | ------------ | ----- |
     ----------------------------------------------------------------------- |
 
-    | items       | Array |
+    | items        | Array |
     数据列表                                                                |
 
-    | meta        | Map   |
+    | meta         | Map   |
     分页的信息                                                              |
 
-    | »page       | int   |
+    | » page       | int   |
     页码                                                                    |
 
-    | »page_total | int   |
+    | » page_total | int   |
     总页数                                                                  |
 
-    | »page_size  | int   |
+    | » page_size  | int   |
     每一页的数据                                                            |
 
-    | »total      | int   |
+    | » total      | int   |
     总数据量                                                                |
 
-    | sort        | Map   | 分页的排序, key:+-1, 如果为 1 代表按 key 升序，如果为-1 代表按 key 降序 |
+    | sort         | Map   | 分页的排序, key:+-1, 如果为 1 代表按 key 升序，如果为-1 代表按 key 降序 |
 
 
     ### 消息通知
@@ -593,98 +593,6 @@ tags:
       | ` ```语言\n ``` `                      | markdown |
       代码块                                                                                  
       |
-
-
-      # 卡片消息
-
-
-      卡片消息是结构化的消息,可以提供一个易用、统一的富交互形式。
-
-
-      我们还提供了卡片消息编辑器，方便可视化编辑：[点击使用](https://kaiheila.cn/tools/message-builder.html#/card)
-
-
-      ## 整体结构说明
-
-
-      cardmessage 主要由 json 构成，在卡片消息中，有四种类别的卡片结构：
-
-
-      - 卡片，目前只有 card。
-
-      - 模块，主要有 section, header, context 等。
-
-      - 元素：主要有 plain-text, image, button 等。
-
-      - 结构：目前只有 paragraph。
-
-
-      ### 消息的主要结构
-
-
-      - 一个卡片消息最多只允许 5 个卡片
-
-      - 一个卡片可以有多个模块，但是一个卡片消息总共不允许超过 50 个模块
-
-
-      ```javascript
-
-      [
-        {
-          type: 'card',
-          //...
-          modules: [
-            // ...
-          ],
-        },
-        // 其它card
-      ];
-
-      ```
-
-
-      ### 主要结构说明
-
-
-      所有的元素都有相似的结构，大体如下：
-
-
-      ```javascript
-
-      {
-          "type" : "类别"，
-          "foo" : "bar",   //属性参数
-          "modules|elements|fields": [], //子元素，根据type类别有不同的值，卡片的为modules,模块的子元素为elements,结构的为fields。
-      }
-
-      ```
-
-
-      ### 一些全局字段说明
-
-
-      在很多结构中，有一些字段都是一样的，因此在此处说明，后面就不单独说明了：
-
-
-      | 字段  | 类型   |
-      说明                                                                                                          
-      |
-
-      | ----- | ------ |
-      --------------------------------------------------------------------------------------------------------------
-      |
-
-      | theme | string | 主题，可选的值为：primary,success,danger,warning,info,secondary,
-      none.默认为 primary，为 none 时不显示侧边框。 |
-
-      | size  | string | 大小，可选值为：xs,sm, md, lg, 一般默认为
-      lg                                                                   |
-
-
-      ### 卡片消息发送说明
-
-
-      在消息发送时，卡片消息的发送类型为`10`, 在发送时，content 字段为 json 的字符串。详情参见消息发送接口。
 
 
       # 卡片消息
@@ -1397,7 +1305,8 @@ tags:
   - name: 事件通知介绍
     description: "# 事件结构/格式说明\r\n\r\n当 websocket 或 webhook 收到 `s=0` 的消息时，代表当前收到的消息是事件(包含用户的聊天消息及系统的通知消息等)。本文会具体描述所有的事件类型，并且明确其字段的含义。开发者可以根据本文档做出相应的开发处理。\r\n\r\n## 事件基本结构及含义说明\r\n\r\n目前所有的消息都会有如下的结构：\r\n\r\n```json\r\n{\r\n  \"s\": 0, // 信令类型\r\n  \"d\": {} //数据\r\n}\r\n```\r\n\r\n本文主要讲述的是当 `s=0` 时，data 的数据结构，信令的具体含义参见[websocket](https://developer.kaiheila.cn/doc/websocket).\r\n\r\n## 事件主要格式\r\n\r\n### 格式说明\r\n\r\n| 字段          | 类型   | 说明                                                                                                                 |\r\n| ------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |\r\n| channel_type  | string | 消息频道类型, `GROUP` 为频道消息                                                                                     |\r\n| type          | int    | 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card 消息，255:系统消息, 其它的暂未开放 |\r\n| target_id     | string | 发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id                                                           |\r\n| author_id     | string | 发送者 id, 1 代表系统                                                                                                |\r\n| content       | string | 消息内容, 文件，图片，视频时，content 为 url                                                                         |\r\n| msg_id        | string | 消息的 id                                                                                                            |\r\n| msg_timestamp | int    | 消息发送时间的毫秒时间戳                                                                                             |\r\n| nonce         | string | 随机串，与用户消息发送 api 中传的 nonce 保持一致                                                                     |\r\n| extra         | mixed  | 不同的消息类型，结构不一致                                                                                           |\r\n\r\n### 文字频道消息 extra 说明\r\n\r\n**当 type 非系统消息(255)时**\r\n\r\n| 字段          | 类型    | 说明                                                                             |\r\n| ------------- | ------- | -------------------------------------------------------------------------------- |\r\n| type          | int     | 同上面 type                                                                      |\r\n| guild_id      | string  | 服务器 id                                                                        |\r\n| channel_name  | string  | 频道名                                                                           |\r\n| mention       | Array   | 提及到的用户 id 的列表                                                           |\r\n| mention_all   | boolean | 是否 mention 所有用户                                                            |\r\n| mention_roles | Array   | mention 用户角色的数组                                                           |\r\n| mention_here  | boolean | 是否 mention 在线用户                                                            |\r\n| author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User) |\r\n\r\n### 系统事件消息 extra 说明\r\n\r\n**当 type 为系统消息(255)时**\r\n\r\n| 字段 | 类型   | 说明                                         |\r\n| ---- | ------ | -------------------------------------------- |\r\n| type | string | 标识该事件的类型                             |\r\n| body | Map    | 该事件关联的具体数据, 详见各系统消息事件示例 |\r\n"
   - name: 消息相关事件
-    description: 消息相关事件
+    description: |
+      消息相关事件
   - name: 频道相关事件
     description: 频道相关事件
   - name: 服务器相关事件
@@ -1439,6 +1348,11 @@ paths:
           application/json:
             schema:
               $ref: '#/components/schemas/basic-2'
+  /message-object:
+    post:
+      tags:
+        - 标准对象格式
+      summary: 标准对象格式
   /connect-websocket:
     get:
       tags:
@@ -4927,6 +4841,29 @@ components:
       type: array
       items:
         $ref: '#/components/schemas/reaction'
+    quote:
+      type: object
+      properties:
+        id:
+          type: string
+          description: 引用消息id
+          example: 1c4532f6-*********-93e9-6347f410f91c
+        type:
+          type: integer
+          description: 引用消息类型
+          example: 1
+        content:
+          type: string
+          description: 引用消息内容
+          example: hello world
+        create_at:
+          type: integer
+          description: 引用消息创建时间（毫秒）
+          example: 1628069285358
+        author:
+          description: 作者的用户信息
+          allOf:
+            - $ref: '#/components/schemas/basic'
     _index_basic-3:
       type: object
       properties:
@@ -4953,7 +4890,7 @@ components:
         reactions:
           $ref: '#/components/schemas/reactions'
         quote:
-          $ref: '#/components/schemas/reactions'
+          $ref: '#/components/schemas/quote'
         mention_info:
           $ref: '#/components/schemas/mention_info'
     SendMessageRequest:
@@ -5040,29 +4977,6 @@ components:
       type: string
       description: 私聊会话 Code
       example: 3b4aa448b8xxxxc87a1b3770792e7433
-    quote:
-      type: object
-      properties:
-        id:
-          type: string
-          description: 引用消息id
-          example: 1c4532f6-*********-93e9-6347f410f91c
-        type:
-          type: integer
-          description: 引用消息类型
-          example: 1
-        content:
-          type: string
-          description: 引用消息内容
-          example: hello world
-        create_at:
-          type: integer
-          description: 引用消息创建时间（毫秒）
-          example: 1628069285358
-        author:
-          description: 作者的用户信息
-          allOf:
-            - $ref: '#/components/schemas/basic'
     DirectMessage:
       type: object
       properties:

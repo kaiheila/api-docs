@@ -6,14 +6,14 @@
 
 #### extra 字段说明：
 
-| 字段        | 类型   | 说明                                         |
-| ----------- | ------ | -------------------------------------------- |
-| type        | string | 消息的类型，本处为 `added_reaction`          |
-| body        | Map    |                                              |
-| »msg_id     | string | 用户点击的消息 id                            |
-| »user_id    | string | 点击的用户                                   |
-| »channel_id | string | 频道 id                                      |
-| »emoji      | Map    | 消息对象, 包含 `id` 表情 id, `name` 表情名称 |
+| 字段         | 类型   | 说明                                         |
+| ------------ | ------ | -------------------------------------------- |
+| type         | string | 消息的类型，本处为 `added_reaction`          |
+| body         | Map    |                                              |
+| » msg_id     | string | 用户点击的消息 id                            |
+| » user_id    | string | 点击的用户                                   |
+| » channel_id | string | 频道 id                                      |
+| » emoji      | Map    | 消息对象, 包含 `id` 表情 id, `name` 表情名称 |
 
 #### 示例
 
@@ -51,14 +51,14 @@
 
 #### extra 字段说明：
 
-| 字段        | 类型   | 说明                                         |
-| ----------- | ------ | -------------------------------------------- |
-| type        | string | 消息的类型，本处为 `deleted_reaction`        |
-| body        | Map    |                                              |
-| »msg_id     | string | 用户点击的消息 id                            |
-| »user_id    | string | 点击的用户                                   |
-| »channel_id | string | 频道 id                                      |
-| »emoji      | Map    | 消息对象, 包含 `id` 表情 id, `name` 表情名称 |
+| 字段         | 类型   | 说明                                         |
+| ------------ | ------ | -------------------------------------------- |
+| type         | string | 消息的类型，本处为 `deleted_reaction`        |
+| body         | Map    |                                              |
+| » msg_id     | string | 用户点击的消息 id                            |
+| » user_id    | string | 点击的用户                                   |
+| » channel_id | string | 频道 id                                      |
+| » emoji      | Map    | 消息对象, 包含 `id` 表情 id, `name` 表情名称 |
 
 #### 示例：
 
@@ -98,18 +98,18 @@
 
 #### extra 字段说明：
 
-| 字段           | 类型    | 说明                                 |
-| -------------- | ------- | ------------------------------------ |
-| type           | string  | 消息的类型，本处为 `updated_message` |
-| body           | Map     |                                      |
-| »msg_id        | string  | 被更新的消息的 id                    |
-| »content       | string  | 更新后的文本                         |
-| »channel_id    | string  | 频道 id                              |
-| »mention       | array   | 提及的用户 id 组成的列表             |
-| »mention_all   | boolean | 是否提及 `全体成员`                  |
-| »mention_here  | boolean | 是否提及 `在线成员`                  |
-| »mention_roles | array   | 提及的角色 id 组成的列表             |
-| »updated_at    | int     | 更新时间戳(毫秒)                     |
+| 字段            | 类型    | 说明                                 |
+| --------------- | ------- | ------------------------------------ |
+| type            | string  | 消息的类型，本处为 `updated_message` |
+| body            | Map     |                                      |
+| » msg_id        | string  | 被更新的消息的 id                    |
+| » content       | string  | 更新后的文本                         |
+| » channel_id    | string  | 频道 id                              |
+| » mention       | array   | 提及的用户 id 组成的列表             |
+| » mention_all   | boolean | 是否提及 `全体成员`                  |
+| » mention_here  | boolean | 是否提及 `在线成员`                  |
+| » mention_roles | array   | 提及的角色 id 组成的列表             |
+| » updated_at    | int     | 更新时间戳(毫秒)                     |
 
 #### 示例：
 
@@ -148,12 +148,12 @@
 
 #### extra 字段说明：
 
-| 字段        | 类型   | 说明                                 |
-| ----------- | ------ | ------------------------------------ |
-| type        | string | 消息的类型，本处为 `deleted_message` |
-| body        | Map    |                                      |
-| »msg_id     | string | 被更新的消息的 id                    |
-| »channel_id | string | 频道 id                              |
+| 字段         | 类型   | 说明                                 |
+| ------------ | ------ | ------------------------------------ |
+| type         | string | 消息的类型，本处为 `deleted_message` |
+| body         | Map    |                                      |
+| » msg_id     | string | 被更新的消息的 id                    |
+| » channel_id | string | 频道 id                              |
 
 #### 示例：
 
@@ -313,12 +313,12 @@
 
 #### extra 字段说明：
 
-| 字段        | 类型   | 说明                                 |
-| ----------- | ------ | ------------------------------------ |
-| type        | string | 消息的类型，本处为 `deleted_channel` |
-| body        | Map    |                                      |
-| »id         | string | 被删掉的频道 id                      |
-| »deleted_at | int    | 删除时间(毫秒)                       |
+| 字段         | 类型   | 说明                                 |
+| ------------ | ------ | ------------------------------------ |
+| type         | string | 消息的类型，本处为 `deleted_channel` |
+| body         | Map    |                                      |
+| » id         | string | 被删掉的频道 id                      |
+| » deleted_at | int    | 删除时间(毫秒)                       |
 
 #### 示例：
 
@@ -351,13 +351,13 @@
 
 #### extra 字段说明：
 
-| 字段         | 类型   | 说明                                |
-| ------------ | ------ | ----------------------------------- |
-| type         | string | 消息的类型，本处为 `pinned_message` |
-| body         | Map    |                                     |
-| »channel_id  | string | 频道 id                             |
-| »operator_id | string | 操作人 id                           |
-| »msg_id      | string | 被置顶的消息 id                     |
+| 字段          | 类型   | 说明                                |
+| ------------- | ------ | ----------------------------------- |
+| type          | string | 消息的类型，本处为 `pinned_message` |
+| body          | Map    |                                     |
+| » channel_id  | string | 频道 id                             |
+| » operator_id | string | 操作人 id                           |
+| » msg_id      | string | 被置顶的消息 id                     |
 
 #### 示例：
 
@@ -391,13 +391,13 @@
 
 #### extra 字段说明：
 
-| 字段         | 类型   | 说明                                  |
-| ------------ | ------ | ------------------------------------- |
-| type         | string | 消息的类型，本处为 `unpinned_message` |
-| body         | Map    |                                       |
-| »channel_id  | string | 频道 id                               |
-| »operator_id | string | 操作人 id                             |
-| »msg_id      | string | 被取消置顶的消息 id                   |
+| 字段          | 类型   | 说明                                  |
+| ------------- | ------ | ------------------------------------- |
+| type          | string | 消息的类型，本处为 `unpinned_message` |
+| body          | Map    |                                       |
+| » channel_id  | string | 频道 id                               |
+| » operator_id | string | 操作人 id                             |
+| » msg_id      | string | 被取消置顶的消息 id                   |
 
 #### 示例：
 
