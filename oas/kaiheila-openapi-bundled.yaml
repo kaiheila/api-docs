@@ -2085,12 +2085,12 @@ paths:
                             type: array
                             description: 服务器的角色列表
                             items:
-                              - $ref: '#/components/schemas/GuildRole'
+                              $ref: '#/components/schemas/GuildRole'
                           channels:
                             description: 服务器的频道列表
                             type: array
                             items:
-                              - $ref: '#/components/schemas/_index_basic-2'
+                              $ref: '#/components/schemas/_index_basic-2'
   /guild/user-list:
     get:
       tags:

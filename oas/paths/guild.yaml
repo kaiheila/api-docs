@@ -25,12 +25,12 @@ view:
                           type: array
                           description: 服务器的角色列表
                           items:
-                            - $ref: '../components/schemas/_index.yaml#/GuildRole'
+                            $ref: '../components/schemas/_index.yaml#/GuildRole'
                         channels:
                           description: 服务器的频道列表
                           type: array
                           items: 
-                            - $ref: "../components/schemas/channel/_index.yaml#/basic"
+                            $ref: "../components/schemas/channel/_index.yaml#/basic"
 
 user-list:
   get:
