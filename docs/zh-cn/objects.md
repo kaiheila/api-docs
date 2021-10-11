@@ -133,7 +133,7 @@
 | user_id               | string  | 创建者 id                                     |
 | guild_id              | string  | 服务器 id                                     |
 | topic                 | string  | 频道简介                                      |
-| is_category           | boolean | 是否为分组                                    |
+| is_category           | boolean | 是否为分组，事件中为 int 格式                 |
 | parent_id             | string  | 上级分组的 id                                 |
 | level                 | int     | 排序 level                                    |
 | slow_mode             | int     | 慢速模式下限制发言的最短时间间隔, 单位为秒(s) |
