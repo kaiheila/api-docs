@@ -4675,7 +4675,7 @@ components:
           example: 0
         is_category:
           type: boolean
-          description: 是否为分组类型
+          description: 是否为分组类型。注：在事件中，is_category为int类型，值为0或1。
           example: false
         server_url:
           type: string
