@@ -19,7 +19,7 @@ update:
                         type: object
                         properties:
                           user_id:
-                            $ref: '../../schemas/user/_fields.yaml#/id'
+                            $ref: '../../schemas/user/_index.yaml#/basic/properties/id'
                           username:
                             type: string
                             description: 用户名

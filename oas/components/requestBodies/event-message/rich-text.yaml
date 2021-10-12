@@ -16,7 +16,7 @@ text:
                     properties:
                       type:
                         allOf:
-                          - $ref: '../../schemas/message/_fields.yaml#/type'
+                          - $ref: '../../schemas/message/_index.yaml#/basic/properties/type'
                         example: 1
                       guild_id:
                         $ref: '../../schemas/_index.yaml#/GuildId'
@@ -25,15 +25,17 @@ text:
                         description: 频道名
                         example: 一个频道
                       mention:
-                        $ref: '../../schemas/message/_fields.yaml#/mention'
+                        $ref: '../../schemas/message/_index.yaml#/basic/properties/mention'
                       mention_all:
-                        $ref: '../../schemas/message/_fields.yaml#/mention_all'
+                        $ref: '../../schemas/message/_index.yaml#/basic/properties/mention_all'
                       mention_roles:
-                        $ref: '../../schemas/message/_fields.yaml#/mention_roles'
+                        $ref: '../../schemas/message/_index.yaml#/basic/properties/mention_roles'
                       mention_here:
-                        $ref: '../../schemas/message/_fields.yaml#/mention_here'
+                        $ref: '../../schemas/message/_index.yaml#/basic/properties/mention_here'
                       author:
                         $ref: '../../schemas/_index.yaml#/User'
+                      quote:
+                        $ref: '../../schemas/message/_index.yaml#/basic/properties/quote'
 
 
 kmarkdown:

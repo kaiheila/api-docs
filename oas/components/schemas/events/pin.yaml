@@ -19,7 +19,7 @@ properties:
                 description: 操作人的用户id
               msg_id:
                 allOf:
-                  - $ref: "../message/_fields.yaml#/id"
+                  - $ref: "../message/_index.yaml#/basic/properties/id"
                 description: 被操作的消息id
 
 

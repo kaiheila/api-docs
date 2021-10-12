@@ -14,7 +14,7 @@ basic:
       description: 服务器主题
     master_id:
       allOf:
-        - $ref: '../user/_fields.yaml#/id'
+        - $ref: '../user/_index.yaml#/basic/properties/id'
       description: 服务器主的id
     icon:
       type: string

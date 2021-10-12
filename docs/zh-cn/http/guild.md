@@ -277,12 +277,11 @@
 
 ### 参数列表
 
-| 参数名     | 位置 | 类型   | 必需  | 说明                                                  |
-| ---------- | ---- | ------ | ----- | ----------------------------------------------------- |
-| body       | body | object | false | none                                                  |
-| » guild_id | body | string | true  | 服务器的 ID                                           |
-| » nickname | body | string | false | 昵称，2 - 64 长度，不传则清空昵称                     |
-| » user_id  | body | string | false | 要修改昵称的目标用户 ID，不传则修改当前登陆用户的昵称 |
+| 参数名   | 位置 | 类型   | 必需  | 说明                                                  |
+| -------- | ---- | ------ | ----- | ----------------------------------------------------- |
+| guild_id | body | string | true  | 服务器的 ID                                           |
+| nickname | body | string | false | 昵称，2 - 64 长度，不传则清空昵称                     |
+| user_id  | body | string | false | 要修改昵称的目标用户 ID，不传则修改当前登陆用户的昵称 |
 
 ### 返回参数说明
 
@@ -312,10 +311,9 @@
 
 ### 参数列表
 
-| 参数名     | 位置 | 类型   | 必需  | 说明      |
-| ---------- | ---- | ------ | ----- | --------- |
-| body       | body | object | false | none      |
-| » guild_id | body | string | true  | 服务器 id |
+| 参数名   | 位置 | 类型   | 必需 | 说明      |
+| -------- | ---- | ------ | ---- | --------- |
+| guild_id | body | string | true | 服务器 id |
 
 ### 返回参数说明
 
@@ -345,11 +343,10 @@
 
 ### 参数列表
 
-| 参数名     | 位置 | 类型   | 必需  | 说明        |
-| ---------- | ---- | ------ | ----- | ----------- |
-| body       | body | object | false | none        |
-| » guild_id | body | string | true  | 服务器 ID   |
-| » arget_id | body | string | true  | 目标用户 ID |
+| 参数名   | 位置 | 类型   | 必需 | 说明        |
+| -------- | ---- | ------ | ---- | ----------- |
+| guild_id | body | string | true | 服务器 ID   |
+| target_id | body | string | true | 目标用户 ID |
 
 ### 返回参数说明
 
@@ -422,12 +419,11 @@
 
 ### 参数列表
 
-| 参数名     | 位置 | 类型   | 必需  | 说明                                         |
-| ---------- | ---- | ------ | ----- | -------------------------------------------- |
-| body       | body | object | false | none                                         |
-| » guild_id | body | string | true  | 服务器 id                                    |
-| » user_id  | body | string | true  | 目标用户 id                                  |
-| » type     | body | int    | true  | 静音类型，`1`代表麦克风闭麦，`2`代表耳机静音 |
+| 参数名   | 位置 | 类型   | 必需 | 说明                                         |
+| -------- | ---- | ------ | ---- | -------------------------------------------- |
+| guild_id | body | string | true | 服务器 id                                    |
+| user_id  | body | string | true | 目标用户 id                                  |
+| type     | body | int    | true | 静音类型，`1`代表麦克风闭麦，`2`代表耳机静音 |
 
 ### 返回参数说明
 
@@ -453,12 +449,11 @@
 
 ### 参数列表
 
-| 参数名     | 位置 | 类型   | 必需  | 说明                                         |
-| ---------- | ---- | ------ | ----- | -------------------------------------------- |
-| body       | body | object | false | none                                         |
-| » guild_id | body | string | true  | 服务器 id                                    |
-| » user_id  | body | string | true  | 用户 id                                      |
-| » type     | body | int    | true  | 静音类型，`1`代表麦克风闭麦，`2`代表耳机静音 |
+| 参数名   | 位置 | 类型   | 必需 | 说明                                         |
+| -------- | ---- | ------ | ---- | -------------------------------------------- |
+| guild_id | body | string | true | 服务器 id                                    |
+| user_id  | body | string | true | 用户 id                                      |
+| type     | body | int    | true | 静音类型，`1`代表麦克风闭麦，`2`代表耳机静音 |
 
 ### 返回参数说明
 

@@ -86,11 +86,10 @@
 服务器 id 或者频道 id 必须填一个
 | 参数名 | 位置 | 类型 | 必需 | 说明 |
 | ------------ | ---- | ------ | ----- | ------------- |
-| body | body | object | false | none |
-| » guild_id | body | string | false | 服务器 id |
-| » channel_id | body | string | false | 服务器频道 id |
-| » duration | body | integer | false | 邀请链接有效时长（秒），默认 7 天。可选值： 0 => 永不； 1800 => 0.5 小时； 3600 => 1 个小时； 21600 => 6 个小时； 43200 => 12 个小时； 86400 => 1 天； 604800 => 7 天 |
-| » setting_times | body | integer | false | 设置的次数，默认-1。可选值： -1 => 无限制； 1 => 1 次使用； 5 => 5 次使用； 10 => 10 次使用 ；25 => 25 次使用； 50 => 50 次使用； 100 => 100 次使用 |
+| guild_id | body | string | false | 服务器 id |
+| channel_id | body | string | false | 服务器频道 id |
+| duration | body | integer | false | 邀请链接有效时长（秒），默认 7 天。可选值： 0 => 永不； 1800 => 0.5 小时； 3600 => 1 个小时； 21600 => 6 个小时； 43200 => 12 个小时； 86400 => 1 天； 604800 => 7 天 |
+| setting_times | body | integer | false | 设置的次数，默认-1。可选值： -1 => 无限制； 1 => 1 次使用； 5 => 5 次使用； 10 => 10 次使用 ；25 => 25 次使用； 50 => 50 次使用； 100 => 100 次使用 |
 
 ### 返回参数说明
 
@@ -122,10 +121,9 @@
 
 | 参数名       | 位置 | 类型   | 必需  | 说明          |
 | ------------ | ---- | ------ | ----- | ------------- |
-| body         | body | object | false | none          |
-| » url_code   | body | string | true  | 邀请码        |
-| » guild_id   | body | string | false | 服务器 id     |
-| » channel_id | body | string | false | 服务器频道 ID |
+| url_code   | body | string | true  | 邀请码        |
+| guild_id   | body | string | false | 服务器 id     |
+| channel_id | body | string | false | 服务器频道 ID |
 
 ### 返回参数说明
 

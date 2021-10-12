@@ -172,16 +172,15 @@ permissions & (1 << bitValue)  == (1 << bitValue);
 
 ### 参数列表
 
-| 参数名        | 位置 | 类型                      | 必需  | 说明                                                  |
-| ------------- | ---- | ------------------------- | ----- | ----------------------------------------------------- |
-| body          | body | object                    | false | none                                                  |
-| » guild_id    | body | string                    | true  | 服务器 id                                             |
-| » role_id     | body | integer(unsigned integer) | true  | 角色 id                                               |
-| » name        | body | string                    | false | 角色名称                                              |
-| » color       | body | integer(unsigned integer) | false | 颜色                                                  |
-| » hoist       | body | integer(unsigned integer) | false | 只能为 0 或者 1，是否把该角色的用户在用户列表排到前面 |
-| » mentionable | body | integer(unsigned integer) | false | 只能为 0 或者 1，该角色是否可以被提及                 |
-| » permissions | body | integer(unsigned integer) | false | 权限,参见[权限说明](#权限说明)                        |
+| 参数名      | 位置 | 类型                      | 必需  | 说明                                                  |
+| ----------- | ---- | ------------------------- | ----- | ----------------------------------------------------- |
+| guild_id    | body | string                    | true  | 服务器 id                                             |
+| role_id     | body | integer(unsigned integer) | true  | 角色 id                                               |
+| name        | body | string                    | false | 角色名称                                              |
+| color       | body | integer(unsigned integer) | false | 颜色                                                  |
+| hoist       | body | integer(unsigned integer) | false | 只能为 0 或者 1，是否把该角色的用户在用户列表排到前面 |
+| mentionable | body | integer(unsigned integer) | false | 只能为 0 或者 1，该角色是否可以被提及                 |
+| permissions | body | integer(unsigned integer) | false | 权限,参见[权限说明](#权限说明)                        |
 
 ### 返回参数说明
 
@@ -225,11 +224,10 @@ permissions & (1 << bitValue)  == (1 << bitValue);
 
 ### 参数列表
 
-| 参数名     | 位置 | 类型                      | 必需  | 说明      |
-| ---------- | ---- | ------------------------- | ----- | --------- |
-| body       | body | object                    | false | none      |
-| » guild_id | body | string                    | true  | 服务器 id |
-| » role_id  | body | integer(unsigned integer) | true  | 角色 id   |
+| 参数名   | 位置 | 类型                      | 必需 | 说明      |
+| -------- | ---- | ------------------------- | ---- | --------- |
+| guild_id | body | string                    | true | 服务器 id |
+| role_id  | body | integer(unsigned integer) | true | 角色 id   |
 
 ### 返回参数说明
 
@@ -256,12 +254,11 @@ permissions & (1 << bitValue)  == (1 << bitValue);
 
 ### 参数列表
 
-| 参数名     | 位置 | 类型         | 必需  | 说明          |
-| ---------- | ---- | ------------ | ----- | ------------- |
-| body       | body | object       | false | none          |
-| » guild_id | body | string       | true  | 服务器 id     |
-| » user_id  | body | string       | true  | 用户 id       |
-| » role_id  | body | unsigned int | true  | 服务器角色 id |
+| 参数名   | 位置 | 类型         | 必需 | 说明          |
+| -------- | ---- | ------------ | ---- | ------------- |
+| guild_id | body | string       | true | 服务器 id     |
+| user_id  | body | string       | true | 用户 id       |
+| role_id  | body | unsigned int | true | 服务器角色 id |
 
 ### 返回参数说明
 
@@ -295,12 +292,11 @@ permissions & (1 << bitValue)  == (1 << bitValue);
 
 ### 参数列表
 
-| 参数名     | 位置 | 类型         | 必需  | 说明          |
-| ---------- | ---- | ------------ | ----- | ------------- |
-| body       | body | object       | false | none          |
-| » guild_id | body | string       | true  | 服务器 id     |
-| » user_id  | body | string       | true  | 用户 id       |
-| » role_id  | body | unsigned int | true  | 服务器角色 id |
+| 参数名   | 位置 | 类型         | 必需 | 说明          |
+| -------- | ---- | ------------ | ---- | ------------- |
+| guild_id | body | string       | true | 服务器 id     |
+| user_id  | body | string       | true | 用户 id       |
+| role_id  | body | unsigned int | true | 服务器角色 id |
 
 ### 返回参数说明
 

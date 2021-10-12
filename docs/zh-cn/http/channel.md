@@ -152,15 +152,14 @@
 
 ### 参数列表
 
-| 参数名          | 位置 | 类型   | 必需  | 说明                                             |
-| --------------- | ---- | ------ | ----- | ------------------------------------------------ |
-| body            | body | object | false | none                                             |
-| » guild_id      | body | string | true  | 服务器 id                                        |
-| » parent_id     | body | string | false | 父分组 id                                        |
-| » name          | body | string | true  | 频道名称                                         |
-| » type          | body | int    | false | 频道类型，`1` 文字，`2` 语音，默认为`1`          |
-| » limit_amount  | body | int    | false | 语音频道人数限制，最大`99`                       |
-| » voice_quality | body | int    | false | 语音音质，默认为`2`。`1`流畅，`2`正常，`3`高质量 |
+| 参数名        | 位置 | 类型   | 必需  | 说明                                             |
+| ------------- | ---- | ------ | ----- | ------------------------------------------------ |
+| guild_id      | body | string | true  | 服务器 id                                        |
+| parent_id     | body | string | false | 父分组 id                                        |
+| name          | body | string | true  | 频道名称                                         |
+| type          | body | int    | false | 频道类型，`1` 文字，`2` 语音，默认为`1`          |
+| limit_amount  | body | int    | false | 语音频道人数限制，最大`99`                       |
+| voice_quality | body | int    | false | 语音音质，默认为`2`。`1`流畅，`2`正常，`3`高质量 |
 
 ### 返回参数说明
 
@@ -201,10 +200,9 @@
 
 ### 参数列表
 
-| 参数名       | 位置 | 类型   | 必需  | 说明    |
-| ------------ | ---- | ------ | ----- | ------- |
-| body         | body | object | false | none    |
-| » channel_id | body | string | true  | 频道 id |
+| 参数名     | 位置 | 类型   | 必需 | 说明    |
+| ---------- | ---- | ------ | ---- | ------- |
+| channel_id | body | string | true | 频道 id |
 
 ### 返回参数说明
 
@@ -230,11 +228,10 @@
 
 ### 参数列表
 
-| 参数名      | 位置 | 类型   | 必需  | 说明                        |
-| ----------- | ---- | ------ | ----- | --------------------------- |
-| body        | body | object | false | none                        |
-| » target_id | body | string | true  | 目标频道 id, 需要是语音频道 |
-| » user_ids  | body | array  | true  | 用户 id 的数组              |
+| 参数名    | 位置 | 类型   | 必需 | 说明                        |
+| --------- | ---- | ------ | ---- | --------------------------- |
+| target_id | body | string | true | 目标频道 id, 需要是语音频道 |
+| user_ids  | body | array  | true | 用户 id 的数组              |
 
 ### 返回参数说明
 
@@ -334,12 +331,11 @@
 
 ### 参数列表
 
-| 参数名       | 位置 | 类型   | 必需  | 说明                                                          |
-| ------------ | ---- | ------ | ----- | ------------------------------------------------------------- |
-| body         | body | object | false | none                                                          |
-| » channel_id | body | string | true  | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
-| » type       | body | string | false | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
-| » value      | body | string | false | 根据 type 的值，为 用户 id 或 频道 id                         |
+| 参数名     | 位置 | 类型   | 必需  | 说明                                                          |
+| ---------- | ---- | ------ | ----- | ------------------------------------------------------------- |
+| channel_id | body | string | true  | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
+| type       | body | string | false | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
+| value      | body | string | false | 根据 type 的值，为 用户 id 或 频道 id                         |
 
 ### 返回参数说明
 
@@ -366,14 +362,13 @@
 
 ### 参数列表
 
-| 参数名       | 位置 | 类型    | 必需  | 说明                                                          |
-| ------------ | ---- | ------- | ----- | ------------------------------------------------------------- |
-| body         | body | object  | false | none                                                          |
-| » channel_id | body | string  | true  | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
-| » type       | body | string  | false | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
-| » value      | body | string  | false | 根据 type 的值，为用户 id 或频道 id                           |
-| » allow      | body | integer | false | 默认为 0,想要设置的允许的权限值                               |
-| » deny       | body | integer | false | 默认为 0,想要设置的拒绝的权限值                               |
+| 参数名     | 位置 | 类型    | 必需  | 说明                                                          |
+| ---------- | ---- | ------- | ----- | ------------------------------------------------------------- |
+| channel_id | body | string  | true  | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
+| type       | body | string  | false | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
+| value      | body | string  | false | 根据 type 的值，为用户 id 或频道 id                           |
+| allow      | body | integer | false | 默认为 0,想要设置的允许的权限值                               |
+| deny       | body | integer | false | 默认为 0,想要设置的拒绝的权限值                               |
 
 ### 返回参数说明
 
@@ -407,12 +402,11 @@
 
 ### 参数列表
 
-| 参数名       | 位置 | 类型   | 必需  | 说明                                                          |
-| ------------ | ---- | ------ | ----- | ------------------------------------------------------------- |
-| body         | body | object | false | none                                                          |
-| » channel_id | body | string | true  | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
-| » type       | body | string | false | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
-| » value      | body | string | false | 根据 type，为用户 id 或频道 id                                |
+| 参数名     | 位置 | 类型   | 必需  | 说明                                                          |
+| ---------- | ---- | ------ | ----- | ------------------------------------------------------------- |
+| channel_id | body | string | true  | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
+| type       | body | string | false | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
+| value      | body | string | false | 根据 type，为用户 id 或频道 id                                |
 
 ### 返回参数说明
 

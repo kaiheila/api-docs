@@ -3,7 +3,9 @@ basic:
   description: 用户对象
   properties:
     id:
-      $ref: './_fields.yaml#/id'
+      type: string
+      description: 用户id
+      example: '2418200000'
     username:
       type: string
       description: 用户的名称

@@ -141,12 +141,11 @@ after: 查询参考消息之后的消息，不包括参考消息
 
 ### 参数列表
 
-| 参数名    | 位置 | 类型   | 必需  | 说明                                                            |
-| --------- | ---- | ------ | ----- | --------------------------------------------------------------- |
-| body      | body | object | false | none                                                            |
-| » msg_id  | body | string | false | 消息 id                                                         |
-| » content | body | string | true  | 消息内容                                                        |
-| » quote   | body | string | false | 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。 |
+| 参数名  | 位置 | 类型   | 必需  | 说明                                                            |
+| ------- | ---- | ------ | ----- | --------------------------------------------------------------- |
+| msg_id  | body | string | false | 消息 id                                                         |
+| content | body | string | true  | 消息内容                                                        |
+| quote   | body | string | false | 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。 |
 
 ### 返回参数说明
 
@@ -174,10 +173,9 @@ after: 查询参考消息之后的消息，不包括参考消息
 
 ### 参数列表
 
-| 参数名   | 位置 | 类型   | 必需  | 说明    |
-| -------- | ---- | ------ | ----- | ------- |
-| body     | body | object | false | none    |
-| » msg_id | body | string | false | 消息 id |
+| 参数名 | 位置 | 类型   | 必需  | 说明    |
+| ------ | ---- | ------ | ----- | ------- |
+| msg_id | body | string | false | 消息 id |
 
 ### 返回参数说明
 
@@ -257,11 +255,10 @@ after: 查询参考消息之后的消息，不包括参考消息
 
 ### 参数列表
 
-| 参数名   | 位置 | 类型   | 必需  | 说明                                     |
-| -------- | ---- | ------ | ----- | ---------------------------------------- |
-| body     | body | object | false | none                                     |
-| » msg_id | body | string | true  | 消息 id                                  |
-| » emoji  | body | string | true  | emoji 的 id, 可以为 GuilEmoji 或者 Emoji |
+| 参数名 | 位置 | 类型   | 必需 | 说明                                     |
+| ------ | ---- | ------ | ---- | ---------------------------------------- |
+| msg_id | body | string | true | 消息 id                                  |
+| emoji  | body | string | true | emoji 的 id, 可以为 GuilEmoji 或者 Emoji |
 
 ### 返回参数说明
 
@@ -287,12 +284,11 @@ after: 查询参考消息之后的消息，不包括参考消息
 
 ### 参数列表
 
-| 参数名    | 位置 | 类型   | 必需  | 说明                                                                           |
-| --------- | ---- | ------ | ----- | ------------------------------------------------------------------------------ |
-| body      | body | object | false | none                                                                           |
-| » msg_id  | body | string | true  | 消息 id                                                                        |
-| » emoji   | body | string | true  | 表情的 ID                                                                      |
-| » user_id | body | string | false | 用户的 id, 如果不填则为自己的 id。删除别人的 reaction 需要有管理频道消息的权限 |
+| 参数名  | 位置 | 类型   | 必需  | 说明                                                                           |
+| ------- | ---- | ------ | ----- | ------------------------------------------------------------------------------ |
+| msg_id  | body | string | true  | 消息 id                                                                        |
+| emoji   | body | string | true  | 表情的 ID                                                                      |
+| user_id | body | string | false | 用户的 id, 如果不填则为自己的 id。删除别人的 reaction 需要有管理频道消息的权限 |
 
 ### 返回参数说明
 

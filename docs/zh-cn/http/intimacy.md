@@ -80,11 +80,10 @@ curl -H "Authorization: Bot your_token" "https://www.kaiheila.cn/api/v3/intimacy
 
 | 参数名        | 位置 | 类型    | 必需  | 说明                               |
 | ------------- | ---- | ------- | ----- | ---------------------------------- |
-| body          | body | object  | false | none                               |
-| » user_id     | body | string  | true  | 用户 id                            |
-| » score       | body | integer | false | 亲密度，0-2200                     |
-| » social_info | body | string  | false | 机器人与用户的社交信息，500 字以内 |
-| » img_id      | body | string  | false | 表情 ID                            |
+| user_id     | body | string  | true  | 用户 id                            |
+| score       | body | integer | false | 亲密度，0-2200                     |
+| social_info | body | string  | false | 机器人与用户的社交信息，500 字以内 |
+| img_id      | body | string  | false | 表情 ID                            |
 
 ### 返回参数说明
 

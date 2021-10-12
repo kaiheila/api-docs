@@ -9,6 +9,7 @@ kmarkdownElement:
 
 kmarkdown:
   type: object
+  description: kmarkdown消息
   properties:
     type:
       allOf:
@@ -35,6 +36,7 @@ kmarkdown:
 
 card:
   type: object
+  description: 卡片消息
   properties:
     type:
       allOf:

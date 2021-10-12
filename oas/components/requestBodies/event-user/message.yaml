@@ -19,9 +19,9 @@ click-button:
                         type: object
                         properties:
                           user_id:
-                            $ref: '../../schemas/user/_fields.yaml#/id'
+                            $ref: '../../schemas/user/_index.yaml#/basic/properties/id'
                           msg_id:
-                            $ref: '../../schemas/message/_fields.yaml#/id'
+                            $ref: '../../schemas/message/_index.yaml#/basic/properties/id'
                           value:
                             type: string
                             description: 按钮`return-val`的返回值
