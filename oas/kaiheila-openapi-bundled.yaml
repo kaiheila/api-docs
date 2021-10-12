@@ -1352,7 +1352,17 @@ paths:
     post:
       tags:
         - 标准对象格式
-      summary: 标准对象格式
+      summary: 消息对象
+      requestBody:
+        content:
+          application/json:
+            schema:
+              oneOf:
+                - $ref: '#/components/schemas/kmarkdown'
+                - $ref: '#/components/schemas/card'
+                - $ref: '#/components/schemas/image'
+                - $ref: '#/components/schemas/video'
+                - $ref: '#/components/schemas/file'
   /connect-websocket:
     get:
       tags:
@@ -2095,7 +2105,7 @@ paths:
                   description: 昵称，2 - 64 长度，不传则清空昵称
                 user_id:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id'
+                    - $ref: '#/components/schemas/properties-id'
                     - description: 要修改昵称的目标用户 ID，不传则修改当前登陆用户的昵称
       responses:
         '200':
@@ -2146,7 +2156,7 @@ paths:
                   $ref: '#/components/schemas/id'
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id'
+                    - $ref: '#/components/schemas/properties-id'
                     - description: 目标用户ID
       responses:
         '200':
@@ -2193,7 +2203,7 @@ paths:
                               user_ids:
                                 type: array
                                 items:
-                                  $ref: '#/components/schemas/_fields_id'
+                                  $ref: '#/components/schemas/properties-id'
                           headset:
                             description: return_type为detail时返回
                             type: object
@@ -2206,7 +2216,7 @@ paths:
                               user_ids:
                                 type: array
                                 items:
-                                  $ref: '#/components/schemas/_fields_id'
+                                  $ref: '#/components/schemas/properties-id'
   /guild-mute/create:
     post:
       tags:
@@ -2227,7 +2237,7 @@ paths:
                   $ref: '#/components/schemas/id'
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id'
+                    - $ref: '#/components/schemas/properties-id'
                     - description: 目标用户ID
                 type:
                   type: integer
@@ -2262,7 +2272,7 @@ paths:
                   $ref: '#/components/schemas/id'
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id'
+                    - $ref: '#/components/schemas/properties-id'
                     - description: 目标用户ID
                 type:
                   type: integer
@@ -2319,7 +2329,7 @@ paths:
           in: query
           description: 目标频道id
           schema:
-            $ref: '#/components/schemas/properties-id'
+            $ref: '#/components/schemas/basic-properties-id'
       responses:
         '200':
           description: OK
@@ -2351,7 +2361,7 @@ paths:
                   $ref: '#/components/schemas/id'
                 parent_id:
                   allOf:
-                    - $ref: '#/components/schemas/properties-id'
+                    - $ref: '#/components/schemas/basic-properties-id'
                   description: 父分组id
                 name:
                   type: string
@@ -2398,7 +2408,7 @@ paths:
                 - channel_id
               properties:
                 channel_id:
-                  $ref: '#/components/schemas/properties-id'
+                  $ref: '#/components/schemas/basic-properties-id'
       responses:
         '200':
           description: OK
@@ -2419,7 +2429,7 @@ paths:
           in: query
           description: '目标频道id, 需要是语音频道'
           schema:
-            $ref: '#/components/schemas/properties-id'
+            $ref: '#/components/schemas/basic-properties-id'
       responses:
         '200':
           description: OK
@@ -2437,7 +2447,7 @@ paths:
                             type: array
                             description: 用户id的数组
                             items:
-                              $ref: '#/components/schemas/_fields_id'
+                              $ref: '#/components/schemas/properties-id'
   /channel/move-user:
     post:
       tags:
@@ -2456,13 +2466,13 @@ paths:
               properties:
                 channel_id:
                   allOf:
-                    - $ref: '#/components/schemas/properties-id'
+                    - $ref: '#/components/schemas/basic-properties-id'
                     - description: '目标频道id, 需要是语音频道'
                 user_ids:
                   type: array
                   description: 用户id的数组
                   items:
-                    $ref: '#/components/schemas/_fields_id'
+                    $ref: '#/components/schemas/properties-id'
       responses:
         '200':
           description: OK
@@ -2480,7 +2490,7 @@ paths:
                             type: array
                             description: 用户id的数组
                             items:
-                              $ref: '#/components/schemas/_fields_id'
+                              $ref: '#/components/schemas/properties-id'
   /channel-role/index:
     get:
       tags:
@@ -2577,7 +2587,7 @@ paths:
                           - type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/_fields_id'
+                                $ref: '#/components/schemas/properties-id'
                               role_id:
                                 $ref: '#/components/schemas/GuildRoleId'
                           - $ref: '#/components/schemas/GuildChannelPermission'
@@ -2614,7 +2624,7 @@ paths:
           description: 频道id
           required: true
           schema:
-            $ref: '#/components/schemas/properties-id'
+            $ref: '#/components/schemas/basic-properties-id'
         - name: msg_id
           in: query
           description: 参考消息id，不传则查询最新消息
@@ -2671,7 +2681,7 @@ paths:
                   properties:
                     target_id:
                       allOf:
-                        - $ref: '#/components/schemas/properties-id'
+                        - $ref: '#/components/schemas/basic-properties-id'
                       description: 目标频道 id
                     temp_target_id:
                       type: string
@@ -2691,7 +2701,7 @@ paths:
                     properties:
                       msg_id:
                         allOf:
-                          - $ref: '#/components/schemas/_fields_id-2'
+                          - $ref: '#/components/schemas/_fields_id'
                         description: 服务端生成的消息 id
                       msg_timestamp:
                         type: integer
@@ -2716,13 +2726,13 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id-2'
+                  $ref: '#/components/schemas/_fields_id'
                 content:
                   type: string
                   description: 消息内容
                 quote:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id-2'
+                    - $ref: '#/components/schemas/_fields_id'
                   description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
                 temp_target_id:
                   type: string
@@ -2749,7 +2759,7 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id-2'
+                  $ref: '#/components/schemas/_fields_id'
       responses:
         '200':
           description: OK
@@ -2769,7 +2779,7 @@ paths:
           description: 频道消息的id
           required: true
           schema:
-            $ref: '#/components/schemas/_fields_id-2'
+            $ref: '#/components/schemas/_fields_id'
         - name: emoji
           in: query
           description: 'emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode'
@@ -2813,7 +2823,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id-2'
+                  $ref: '#/components/schemas/_fields_id'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
       responses:
@@ -2838,12 +2848,12 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id-2'
+                  $ref: '#/components/schemas/_fields_id'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
                 user_id:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id'
+                    - $ref: '#/components/schemas/properties-id'
                     - description: '用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限'
       responses:
         '200':
@@ -2918,7 +2928,7 @@ paths:
               properties:
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id'
+                    - $ref: '#/components/schemas/properties-id'
                   description: 目标用户id
       responses:
         '200':
@@ -2971,12 +2981,12 @@ paths:
           description: 目标用户 id，后端会自动创建会话。有此参数之后可不传`chat_code`参数
           in: query
           schema:
-            $ref: '#/components/schemas/_fields_id'
+            $ref: '#/components/schemas/properties-id'
         - name: msg_id
           description: 参考消息 id，不传则查询最新消息
           in: query
           schema:
-            $ref: '#/components/schemas/_fields_id-2'
+            $ref: '#/components/schemas/_fields_id'
         - $ref: '#/components/parameters/MessageListFlagParam'
         - $ref: '#/components/parameters/PageNumberParam'
         - name: page_size
@@ -3017,7 +3027,7 @@ paths:
               properties:
                 target_id:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id'
+                    - $ref: '#/components/schemas/properties-id'
                   description: 目标用户 id，后端会自动创建会话。有此参数之后可不传`chat_code`参数
       responses:
         '200':
@@ -3058,13 +3068,13 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id-2'
+                  $ref: '#/components/schemas/_fields_id'
                 content:
                   type: string
                   description: 消息内容
                 quote:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id-2'
+                    - $ref: '#/components/schemas/_fields_id'
                   description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
       responses:
         '200':
@@ -3088,7 +3098,7 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id-2'
+                  $ref: '#/components/schemas/_fields_id'
       responses:
         '200':
           description: OK
@@ -3107,7 +3117,7 @@ paths:
           description: 消息的id
           required: true
           schema:
-            $ref: '#/components/schemas/_fields_id-2'
+            $ref: '#/components/schemas/_fields_id'
         - name: emoji
           in: query
           description: 'emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode'
@@ -3149,7 +3159,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id-2'
+                  $ref: '#/components/schemas/_fields_id'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
       responses:
@@ -3174,12 +3184,12 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: '#/components/schemas/_fields_id-2'
+                  $ref: '#/components/schemas/_fields_id'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
                 user_id:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id'
+                    - $ref: '#/components/schemas/properties-id'
                     - description: '用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限'
       responses:
         '200':
@@ -3500,7 +3510,7 @@ paths:
                 guild_id:
                   $ref: '#/components/schemas/id'
                 user_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/properties-id'
                 role_id:
                   $ref: '#/components/schemas/GuildRoleId'
       responses:
@@ -3517,7 +3527,7 @@ paths:
                         type: object
                         properties:
                           user_id:
-                            $ref: '#/components/schemas/_fields_id'
+                            $ref: '#/components/schemas/properties-id'
                           guild_id:
                             $ref: '#/components/schemas/id'
                           roles:
@@ -3543,7 +3553,7 @@ paths:
                 guild_id:
                   $ref: '#/components/schemas/id'
                 user_id:
-                  $ref: '#/components/schemas/_fields_id'
+                  $ref: '#/components/schemas/properties-id'
                 role_id:
                   $ref: '#/components/schemas/GuildRoleId'
       responses:
@@ -3560,7 +3570,7 @@ paths:
                         type: object
                         properties:
                           user_id:
-                            $ref: '#/components/schemas/_fields_id'
+                            $ref: '#/components/schemas/properties-id'
                           guild_id:
                             $ref: '#/components/schemas/id'
                           roles:
@@ -3631,7 +3641,7 @@ paths:
               properties:
                 user_id:
                   allOf:
-                    - $ref: '#/components/schemas/_fields_id'
+                    - $ref: '#/components/schemas/properties-id'
                   description: 用户的id
                 score:
                   type: integer
@@ -3812,7 +3822,7 @@ paths:
                                   type: object
                                   properties:
                                     channel_id:
-                                      $ref: '#/components/schemas/properties-id'
+                                      $ref: '#/components/schemas/basic-properties-id'
                                     guild_id:
                                       $ref: '#/components/schemas/id'
                                     url_code:
@@ -3841,7 +3851,7 @@ paths:
                 guild_id:
                   $ref: '#/components/schemas/id'
                 channel_id:
-                  $ref: '#/components/schemas/properties-id'
+                  $ref: '#/components/schemas/basic-properties-id'
                 duration:
                   type: integer
                   description: >-
@@ -3910,7 +3920,7 @@ paths:
                 guild_id:
                   $ref: '#/components/schemas/id'
                 channel_id:
-                  $ref: '#/components/schemas/properties-id'
+                  $ref: '#/components/schemas/basic-properties-id'
       responses:
         '200':
           description: OK
@@ -4220,7 +4230,7 @@ components:
       in: query
       description: 频道id
       schema:
-        $ref: '#/components/schemas/properties-id'
+        $ref: '#/components/schemas/basic-properties-id'
     MobileVerifiedParam:
       name: mobile_verified
       in: query
@@ -4256,7 +4266,7 @@ components:
       required: true
       description: 用户id
       schema:
-        $ref: '#/components/schemas/_fields_id'
+        $ref: '#/components/schemas/properties-id'
   schemas:
     type:
       type: integer
@@ -4281,16 +4291,14 @@ components:
     mention_here:
       type: boolean
       description: 是否含有`@在线成员`
-    _fields_id:
-      type: string
-      description: 用户id
-      example: '2418200000'
     basic:
       type: object
       description: 用户对象
       properties:
         id:
-          $ref: '#/components/schemas/_fields_id'
+          type: string
+          description: 用户id
+          example: '2418200000'
         username:
           type: string
           description: 用户的名称
@@ -4403,6 +4411,7 @@ components:
               description: '经过编译的纯文本，如原始文本为"*Hello World*", 则此处为"Hello World"'
     kmarkdown:
       type: object
+      description: kmarkdown消息
       properties:
         type:
           allOf:
@@ -4428,6 +4437,7 @@ components:
           $ref: '#/components/schemas/kmarkdownElement'
     card:
       type: object
+      description: 卡片消息
       properties:
         type:
           allOf:
@@ -4520,6 +4530,113 @@ components:
           description: >-
             消息序号，针对当前session。该字段并不一定有，只在s=0时有，与webhook一致。详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
           example: 1
+    image:
+      type: object
+      description: 图片消息
+      properties:
+        type:
+          allOf:
+            - $ref: '#/components/schemas/type'
+          example: 2
+        guild_id:
+          $ref: '#/components/schemas/id'
+        author:
+          $ref: '#/components/schemas/basic'
+        attachments:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - image
+            name:
+              type: string
+              description: 多媒体名
+              example: xxx.jpg
+            url:
+              type: string
+              description: 附件链接
+              example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
+    video:
+      type: object
+      description: 视频消息
+      properties:
+        type:
+          allOf:
+            - $ref: '#/components/schemas/type'
+          example: 3
+        guild_id:
+          $ref: '#/components/schemas/id'
+        author:
+          $ref: '#/components/schemas/basic'
+        attachments:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - video
+            name:
+              type: string
+              description: 多媒体名
+              example: 002iQMhagx07Fx0S4xxxx323o0E010.mp4
+            url:
+              type: string
+              description: 附件链接
+              example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
+            file_type:
+              description: 文件格式
+              type: string
+              example: video/mp4
+            size:
+              type: integer
+              description: 大小 单位（B）
+              example: 722882
+            duration:
+              type: number
+              description: 视频时长（s）
+              example: 15.673
+            width:
+              type: integer
+              description: 视频宽度
+              example: 640
+            height:
+              type: integer
+              description: 视频高度
+              example: 480
+    file:
+      type: object
+      description: 文件消息
+      properties:
+        type:
+          allOf:
+            - $ref: '#/components/schemas/type'
+          example: 4
+        guild_id:
+          $ref: '#/components/schemas/id'
+        author:
+          $ref: '#/components/schemas/basic'
+        attachments:
+          type: object
+          properties:
+            type:
+              type: string
+              enum:
+                - file
+            url:
+              type: string
+              example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+            file_type:
+              description: 文件格式
+              type: string
+              example: text/plain
+            name:
+              type: string
+              description: 多媒体名
+            size:
+              type: integer
+              description: 大小 单位（B）
+              example: 2575670
     BasicResponse:
       type: object
       required:
@@ -4570,6 +4687,10 @@ components:
           description: 'Map。分页的排序, key:+-1, 如果为1代表按key升序，如果为-1代表按key降序'
           example:
             id: 1
+    properties-id:
+      type: string
+      description: 用户id
+      example: '2418200000'
     _index_basic:
       type: object
       properties:
@@ -4586,7 +4707,7 @@ components:
           description: 服务器主题
         master_id:
           allOf:
-            - $ref: '#/components/schemas/_fields_id'
+            - $ref: '#/components/schemas/properties-id'
           description: 服务器主的id
         icon:
           type: string
@@ -4681,7 +4802,7 @@ components:
           type: string
           description: '语音服务器地址，`HOST:PORT`的格式'
           example: 'HOST:PORT'
-    properties-id:
+    basic-properties-id:
       type: string
       description: 服务器频道ID
       example: '3321010478582000'
@@ -4712,7 +4833,7 @@ components:
       format: unsigned integer
       description: 服务器角色id
       example: 113
-    _fields_id-2:
+    _fields_id:
       type: string
       description: 消息id
       example: 1c4532f6-*********-93e9-6347f410f91c
@@ -4868,7 +4989,7 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/_fields_id-2'
+          $ref: '#/components/schemas/_fields_id'
         type:
           $ref: '#/components/schemas/type'
         author:
@@ -4910,7 +5031,7 @@ components:
           description: 消息内容（为了保障消息正常发出，请不要超过8000字符）
         quote:
           allOf:
-            - $ref: '#/components/schemas/_fields_id-2'
+            - $ref: '#/components/schemas/_fields_id'
           description: 回复某条消息的`msg_id`
         nonce:
           type: string
@@ -4943,7 +5064,7 @@ components:
           description: 目标用户信息
           properties:
             id:
-              $ref: '#/components/schemas/_fields_id'
+              $ref: '#/components/schemas/properties-id'
             username:
               type: string
               description: 目标用户名
@@ -4981,14 +5102,14 @@ components:
       type: object
       properties:
         id:
-          $ref: '#/components/schemas/_fields_id-2'
+          $ref: '#/components/schemas/_fields_id'
         type:
           type: integer
           description: 消息类型
         author_id:
           description: 作者的用户ID
           allOf:
-            - $ref: '#/components/schemas/_fields_id'
+            - $ref: '#/components/schemas/properties-id'
         content:
           type: string
           description: 消息内容
@@ -5062,110 +5183,6 @@ components:
                   description: 消息作者
                   allOf:
                     - $ref: '#/components/schemas/basic'
-    image:
-      type: object
-      properties:
-        type:
-          allOf:
-            - $ref: '#/components/schemas/type'
-          example: 2
-        guild_id:
-          $ref: '#/components/schemas/id'
-        author:
-          $ref: '#/components/schemas/basic'
-        attachments:
-          type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - image
-            name:
-              type: string
-              description: 多媒体名
-              example: xxx.jpg
-            url:
-              type: string
-              description: 附件链接
-              example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
-    video:
-      type: object
-      properties:
-        type:
-          allOf:
-            - $ref: '#/components/schemas/type'
-          example: 3
-        guild_id:
-          $ref: '#/components/schemas/id'
-        author:
-          $ref: '#/components/schemas/basic'
-        attachments:
-          type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - video
-            name:
-              type: string
-              description: 多媒体名
-              example: 002iQMhagx07Fx0S4xxxx323o0E010.mp4
-            url:
-              type: string
-              description: 附件链接
-              example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
-            file_type:
-              description: 文件格式
-              type: string
-              example: video/mp4
-            size:
-              type: integer
-              description: 大小 单位（B）
-              example: 722882
-            duration:
-              type: number
-              description: 视频时长（s）
-              example: 15.673
-            width:
-              type: integer
-              description: 视频宽度
-              example: 640
-            height:
-              type: integer
-              description: 视频高度
-              example: 480
-    file:
-      type: object
-      properties:
-        type:
-          allOf:
-            - $ref: '#/components/schemas/type'
-          example: 4
-        guild_id:
-          $ref: '#/components/schemas/id'
-        author:
-          $ref: '#/components/schemas/basic'
-        attachments:
-          type: object
-          properties:
-            type:
-              type: string
-              enum:
-                - file
-            url:
-              type: string
-              example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
-            file_type:
-              description: 文件格式
-              type: string
-              example: text/plain
-            name:
-              type: string
-              description: 多媒体名
-            size:
-              type: integer
-              description: 大小 单位（B）
-              example: 2575670
     SystemEvent:
       type: object
       allOf:
@@ -5214,7 +5231,7 @@ components:
                   properties:
                     channel_id:
                       allOf:
-                        - $ref: '#/components/schemas/properties-id'
+                        - $ref: '#/components/schemas/basic-properties-id'
                         - description: 消息所在的频道id
                     emoji:
                       type: object
@@ -5227,11 +5244,11 @@ components:
                           $ref: '#/components/schemas/GuildEmojiId'
                     user_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id'
+                        - $ref: '#/components/schemas/properties-id'
                         - description: 点击的用户
                     msg_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id-2'
+                        - $ref: '#/components/schemas/_fields_id'
                         - description: 用户点击的消息id
     message-update:
       type: object
@@ -5247,11 +5264,11 @@ components:
                   properties:
                     msg_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id-2'
+                        - $ref: '#/components/schemas/_fields_id'
                       description: 消息id
                     channel_id:
                       allOf:
-                        - $ref: '#/components/schemas/properties-id'
+                        - $ref: '#/components/schemas/basic-properties-id'
                       description: 消息所在的频道id
                     content:
                       type: string
@@ -5285,15 +5302,15 @@ components:
                   properties:
                     channel_id:
                       allOf:
-                        - $ref: '#/components/schemas/properties-id'
+                        - $ref: '#/components/schemas/basic-properties-id'
                       description: 发生操作的频道id
                     operator_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id'
+                        - $ref: '#/components/schemas/properties-id'
                       description: 操作人的用户id
                     msg_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id-2'
+                        - $ref: '#/components/schemas/_fields_id'
                       description: 被操作的消息id
     PersonEvent:
       type: object
@@ -5315,7 +5332,7 @@ components:
                   properties:
                     msg_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id-2'
+                        - $ref: '#/components/schemas/_fields_id'
                       description: 被操作的消息id
                     chat_code:
                       $ref: '#/components/schemas/ChatCode'
@@ -5333,7 +5350,7 @@ components:
                   properties:
                     user_id:
                       allOf:
-                        - $ref: '#/components/schemas/_fields_id'
+                        - $ref: '#/components/schemas/properties-id'
                       description: 用户id
     guild:
       type: object
@@ -5391,11 +5408,11 @@ components:
     GuildId:
       $ref: '#/components/schemas/id'
     UserId:
-      $ref: '#/components/schemas/_fields_id'
+      $ref: '#/components/schemas/properties-id'
     GuildChannel:
       $ref: '#/components/schemas/_index_basic-2'
     GuildChannelId:
-      $ref: '#/components/schemas/properties-id'
+      $ref: '#/components/schemas/basic-properties-id'
     GuildChannelType:
       $ref: '#/components/schemas/properties-type'
     Message:
@@ -5413,7 +5430,7 @@ components:
               channel_id:
                 description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
                 allOf:
-                  - $ref: '#/components/schemas/properties-id'
+                  - $ref: '#/components/schemas/basic-properties-id'
               type:
                 type: string
                 description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
@@ -5438,7 +5455,7 @@ components:
               channel_id:
                 description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
                 allOf:
-                  - $ref: '#/components/schemas/properties-id'
+                  - $ref: '#/components/schemas/basic-properties-id'
               type:
                 type: string
                 description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
@@ -5471,7 +5488,7 @@ components:
               channel_id:
                 description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
                 allOf:
-                  - $ref: '#/components/schemas/properties-id'
+                  - $ref: '#/components/schemas/basic-properties-id'
               type:
                 type: string
                 description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
@@ -5521,6 +5538,8 @@ components:
                             $ref: '#/components/schemas/mention_here'
                           author:
                             $ref: '#/components/schemas/basic'
+                          quote:
+                            $ref: '#/components/schemas/quote'
     image:
       content:
         application/json:
@@ -5689,11 +5708,11 @@ components:
                             properties:
                               msg_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id-2'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 被删除的消息id
                               channel_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/properties-id'
+                                  - $ref: '#/components/schemas/basic-properties-id'
                                 description: 消息所在频道id
     channel_create:
       content:
@@ -5755,7 +5774,7 @@ components:
                             properties:
                               id:
                                 allOf:
-                                  - $ref: '#/components/schemas/properties-id'
+                                  - $ref: '#/components/schemas/basic-properties-id'
                                 description: 被删除的频道id
                               deleted_at:
                                 type: integer
@@ -5823,15 +5842,15 @@ components:
                             properties:
                               msg_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id-2'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 被更新的消息id
                               author_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 被更新的消息的创建者id
                               target_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 被更新的消息的目标用户id
                               content:
                                 type: string
@@ -5863,15 +5882,15 @@ components:
                             properties:
                               msg_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id-2'
+                                  - $ref: '#/components/schemas/_fields_id'
                                 description: 被删除的消息id
                               author_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 被删除的消息的创建者id
                               target_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 被删除的消息的目标用户id
                               updated_at:
                                 type: integer
@@ -6167,13 +6186,13 @@ components:
                             properties:
                               operator_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 操作人id
                               user_id:
                                 type: array
                                 description: 被封禁成员id列表
                                 items:
-                                  $ref: '#/components/schemas/_fields_id'
+                                  $ref: '#/components/schemas/properties-id'
                               remark:
                                 type: string
                                 description: 封禁理由
@@ -6200,13 +6219,13 @@ components:
                             properties:
                               operator_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/_fields_id'
+                                  - $ref: '#/components/schemas/properties-id'
                                 description: 操作人id
                               user_id:
                                 type: array
                                 description: 被封禁成员id列表
                                 items:
-                                  $ref: '#/components/schemas/_fields_id'
+                                  $ref: '#/components/schemas/properties-id'
     channel_join:
       content:
         application/json:
@@ -6228,10 +6247,10 @@ components:
                             type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/_fields_id'
+                                $ref: '#/components/schemas/properties-id'
                               channel_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/properties-id'
+                                  - $ref: '#/components/schemas/basic-properties-id'
                                 description: 加入的频道id
                               joined_at:
                                 type: integer
@@ -6258,10 +6277,10 @@ components:
                             type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/_fields_id'
+                                $ref: '#/components/schemas/properties-id'
                               channel_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/properties-id'
+                                  - $ref: '#/components/schemas/basic-properties-id'
                                 description: 加入的频道id
                               exited_at:
                                 type: integer
@@ -6336,7 +6355,7 @@ components:
                             type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/_fields_id'
+                                $ref: '#/components/schemas/properties-id'
                               username:
                                 type: string
                                 description: 用户名
@@ -6367,15 +6386,15 @@ components:
                             type: object
                             properties:
                               user_id:
-                                $ref: '#/components/schemas/_fields_id'
+                                $ref: '#/components/schemas/properties-id'
                               msg_id:
-                                $ref: '#/components/schemas/_fields_id-2'
+                                $ref: '#/components/schemas/_fields_id'
                               value:
                                 type: string
                                 description: 按钮`return-val`的返回值
                               target_id:
                                 allOf:
-                                  - $ref: '#/components/schemas/properties-id'
+                                  - $ref: '#/components/schemas/basic-properties-id'
                                 description: 消息所在频道的id
                               guild_id:
                                 $ref: '#/components/schemas/id'
