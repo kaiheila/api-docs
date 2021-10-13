@@ -1,16 +1,16 @@
 openapi: 3.1.0
 servers:
-  - url: 'https://www.kaiheila.cn/api/v3'
+  - url: https://www.kaiheila.cn/api/v3
     description: 机器人接口
 info:
   title: 开黑啦机器人API v3 开发者版
   version: 3.0.0
-  termsOfService: 'https://developer.kaiheila.cn/doc/privacy'
+  termsOfService: https://developer.kaiheila.cn/doc/privacy
   contact:
     email: service@kaiheila.cn
   license:
     name: MIT
-    url: 'https://github.com/kaiheila/api-docs/blob/main/LICENSE'
+    url: https://github.com/kaiheila/api-docs/blob/main/LICENSE
   description: >
     <br>
 
@@ -1944,7 +1944,7 @@ paths:
         - $ref: '#/components/parameters/PageSizeParam'
         - name: sort
           in: query
-          description: '代表排序的字段, 比如-id代表id按DESC排序，id代表id按ASC排序。不一定有, 如果有，接口中会声明支持的排序字段。'
+          description: 代表排序的字段, 比如-id代表id按DESC排序，id代表id按ASC排序。不一定有, 如果有，接口中会声明支持的排序字段。
           schema:
             type: string
       responses:
@@ -2175,7 +2175,7 @@ paths:
         - $ref: '#/components/parameters/GuildIdParam'
         - name: return_type
           in: query
-          description: '返回格式，建议为"detail", 其他情况仅作为兼容'
+          description: 返回格式，建议为"detail", 其他情况仅作为兼容
           schema:
             type: string
       responses:
@@ -2369,7 +2369,7 @@ paths:
                 type:
                   allOf:
                     - $ref: '#/components/schemas/properties-type'
-                  description: '频道类型, `1`为文字，`2`为语音, 默认为`1`'
+                  description: 频道类型, `1`为文字，`2`为语音, 默认为`1`
                 limit_amount:
                   type: integer
                   maximum: 99
@@ -2427,7 +2427,7 @@ paths:
         - name: target_id
           required: true
           in: query
-          description: '目标频道id, 需要是语音频道'
+          description: 目标频道id, 需要是语音频道
           schema:
             $ref: '#/components/schemas/basic-properties-id'
       responses:
@@ -2467,7 +2467,7 @@ paths:
                 channel_id:
                   allOf:
                     - $ref: '#/components/schemas/basic-properties-id'
-                    - description: '目标频道id, 需要是语音频道'
+                    - description: 目标频道id, 需要是语音频道
                 user_ids:
                   type: array
                   description: 用户id的数组
@@ -2514,7 +2514,7 @@ paths:
                         properties:
                           permission_overwrites:
                             type: array
-                            description: '频道权限覆写的角色列表, role_id为角色id, 其它字段见下表'
+                            description: 频道权限覆写的角色列表, role_id为角色id, 其它字段见下表
                             items:
                               allOf:
                                 - type: object
@@ -2642,7 +2642,7 @@ paths:
         - $ref: '#/components/parameters/MessageListFlagParam'
         - name: page_size
           in: query
-          description: '当前分页消息数量, 默认50'
+          description: 当前分页消息数量, 默认50
           schema:
             type: integer
             default: 50
@@ -2705,7 +2705,7 @@ paths:
                         description: 服务端生成的消息 id
                       msg_timestamp:
                         type: integer
-                        description: '消息发送时间(ms, 服务器时间戳)'
+                        description: 消息发送时间(ms, 服务器时间戳)
                         example: 1607072537177
                       nonce:
                         type: string
@@ -2782,7 +2782,7 @@ paths:
             $ref: '#/components/schemas/_fields_id'
         - name: emoji
           in: query
-          description: 'emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode'
+          description: emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode
           schema:
             $ref: '#/components/schemas/GuildEmojiId'
       responses:
@@ -2854,7 +2854,7 @@ paths:
                 user_id:
                   allOf:
                     - $ref: '#/components/schemas/properties-id'
-                    - description: '用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限'
+                    - description: 用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限
       responses:
         '200':
           description: OK
@@ -2991,7 +2991,7 @@ paths:
         - $ref: '#/components/parameters/PageNumberParam'
         - name: page_size
           in: query
-          description: '当前分页消息数量, 默认50'
+          description: 当前分页消息数量, 默认50
           schema:
             type: integer
             default: 50
@@ -3047,7 +3047,7 @@ paths:
                         example: 50974c-364c983fa6cb
                       msg_timestamp:
                         type: integer
-                        description: '消息发送时间(ms, 服务器时间戳)'
+                        description: 消息发送时间(ms, 服务器时间戳)
                         example: 1607072537177
                       nonce:
                         type: string
@@ -3120,7 +3120,7 @@ paths:
             $ref: '#/components/schemas/_fields_id'
         - name: emoji
           in: query
-          description: 'emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode'
+          description: emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode
           schema:
             $ref: '#/components/schemas/GuildEmojiId'
       responses:
@@ -3190,7 +3190,7 @@ paths:
                 user_id:
                   allOf:
                     - $ref: '#/components/schemas/properties-id'
-                    - description: '用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限'
+                    - description: 用户的id, 如果不填则为自己的id。删除别人的reaction需要有管理频道消息的权限
       responses:
         '200':
           description: OK
@@ -3207,7 +3207,7 @@ paths:
       parameters:
         - name: compress
           in: query
-          description: '下发数据是否压缩，默认为`1`,代表压缩'
+          description: 下发数据是否压缩，默认为`1`,代表压缩
           schema:
             type: integer
       responses:
@@ -3225,7 +3225,7 @@ paths:
                       url:
                         type: string
                         description: 网关的连接地址
-                        example: 'wss://xxxx'
+                        example: wss://xxxx
   /user/me:
     get:
       tags:
@@ -3252,7 +3252,7 @@ paths:
                                 example: true
                               mobile_prefix:
                                 type: string
-                                description: '手机区号,如中国为86'
+                                description: 手机区号,如中国为86
                                 example: '86'
                               mobile:
                                 type: string
@@ -3306,6 +3306,19 @@ paths:
                                 type: integer
                                 description: 活跃时间
                                 example: 1628688607719
+  /user/offline:
+    post:
+      tags:
+        - 用户相关接口
+      summary: 机器人下线
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
   /asset/create:
     post:
       tags:
@@ -3320,7 +3333,7 @@ paths:
                 file:
                   type: string
                   format: binary
-                  description: '目前支持 **图片**, **视频(.mp4 .mov)**, **文件**'
+                  description: 目前支持 **图片**, **视频(.mp4 .mov)**, **文件**
       responses:
         '200':
           description: OK
@@ -3832,7 +3845,7 @@ paths:
                                     url:
                                       type: string
                                       description: 邀请链接
-                                      example: 'https://kaihei.co/XXX'
+                                      example: https://kaihei.co/XXX
                                     user:
                                       $ref: '#/components/schemas/basic'
   /invite/create:
@@ -3898,7 +3911,7 @@ paths:
                           url:
                             type: string
                             description: 邀请链接
-                            example: 'https://kaihei.co/xxxx'
+                            example: https://kaihei.co/xxxx
   /invite/delete:
     post:
       tags:
@@ -4243,7 +4256,7 @@ components:
     GuildChannelTypeParam:
       name: type
       in: query
-      description: '频道类型, `1`为文字，`2`为语音, 默认为`1`'
+      description: 频道类型, `1`为文字，`2`为语音, 默认为`1`
       schema:
         $ref: '#/components/schemas/properties-type'
     MessageListFlagParam:
@@ -4270,7 +4283,7 @@ components:
   schemas:
     type:
       type: integer
-      description: '消息类型, 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息'
+      description: 消息类型, 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息
     id:
       type: string
       description: 服务器id
@@ -4313,7 +4326,7 @@ components:
           example: false
         status:
           type: integer
-          description: '用户的状态, 0代表正常，10代表被封禁'
+          description: 用户的状态, 0代表正常，10代表被封禁
           enum:
             - 0
             - 10
@@ -4324,11 +4337,11 @@ components:
         avatar:
           type: string
           description: 用户的头像的url地址
-          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
+          example: https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon
         vip_avatar:
           type: string
           description: vip用户的头像的url地址，可能为gif动图
-          example: 'https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon'
+          example: https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon
     mention_part:
       type: object
       properties:
@@ -4408,7 +4421,7 @@ components:
           properties:
             raw_content:
               type: string
-              description: '经过编译的纯文本，如原始文本为"*Hello World*", 则此处为"Hello World"'
+              description: 经过编译的纯文本，如原始文本为"*Hello World*", 则此处为"Hello World"
     kmarkdown:
       type: object
       description: kmarkdown消息
@@ -4501,11 +4514,11 @@ components:
               example: '60163899100000'
             author_id:
               type: string
-              description: '发送者 id, 1 代表系统'
+              description: 发送者 id, 1 代表系统
               example: 1
             content:
               type: string
-              description: '消息内容, 文件，图片，视频时，content 为 url'
+              description: 消息内容, 文件，图片，视频时，content 为 url
             msg_id:
               type: string
               description: 消息的 id
@@ -4556,7 +4569,7 @@ components:
             url:
               type: string
               description: 附件链接
-              example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
+              example: https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg
     video:
       type: object
       description: 视频消息
@@ -4583,7 +4596,7 @@ components:
             url:
               type: string
               description: 附件链接
-              example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
+              example: https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4
             file_type:
               description: 文件格式
               type: string
@@ -4625,7 +4638,7 @@ components:
                 - file
             url:
               type: string
-              example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+              example: https://img.kaiheila.cn/attachments/2020-12/11/asd.txt
             file_type:
               description: 文件格式
               type: string
@@ -4684,7 +4697,7 @@ components:
               example: 480
         sort:
           type: object
-          description: 'Map。分页的排序, key:+-1, 如果为1代表按key升序，如果为-1代表按key降序'
+          description: Map。分页的排序, key:+-1, 如果为1代表按key升序，如果为-1代表按key降序
           example:
             id: 1
     properties-id:
@@ -4712,10 +4725,10 @@ components:
         icon:
           type: string
           description: 服务器icon的地址
-          example: 'https://xxx/icons/2020-05/YQyfHxxx.png/icon'
+          example: https://xxx/icons/2020-05/YQyfHxxx.png/icon
         notify_type:
           type: integer
-          description: '通知类型, `0`代表默认使用服务器通知设置，`1`代表接收所有通知, `2`代表仅@被提及，`3`代表不接收通知'
+          description: 通知类型, `0`代表默认使用服务器通知设置，`1`代表接收所有通知, `2`代表仅@被提及，`3`代表不接收通知
           enum:
             - 0
             - 1
@@ -4800,8 +4813,8 @@ components:
           example: false
         server_url:
           type: string
-          description: '语音服务器地址，`HOST:PORT`的格式'
-          example: 'HOST:PORT'
+          description: 语音服务器地址，`HOST:PORT`的格式
+          example: HOST:PORT
     basic-properties-id:
       type: string
       description: 服务器频道ID
@@ -4855,12 +4868,12 @@ components:
       example:
         type: bili-video
         url: ''
-        origin_url: 'https://www.bilibili.com/video/XXXXX'
+        origin_url: https://www.bilibili.com/video/XXXXX
         av_no: 11J411E
-        iframe_path: 'https://player.bilibili.com/player.html?xxx=xxx'
+        iframe_path: https://player.bilibili.com/player.html?xxx=xxx
         duration: 97
         title: Title
-        pic: 'https://**/lc01gi.jpg'
+        pic: https://**/lc01gi.jpg
     embeds:
       type: array
       description: 超链接解析数据
@@ -4880,7 +4893,7 @@ components:
         url:
           type: string
           description: 附件链接
-          example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
+          example: https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg
     properties-attachments:
       type: object
       properties:
@@ -4895,7 +4908,7 @@ components:
         url:
           type: string
           description: 附件链接
-          example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
+          example: https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4
         file_type:
           description: 文件格式
           type: string
@@ -4925,7 +4938,7 @@ components:
             - file
         url:
           type: string
-          example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+          example: https://img.kaiheila.cn/attachments/2020-12/11/asd.txt
         file_type:
           description: 文件格式
           type: string
@@ -5035,10 +5048,10 @@ components:
           description: 回复某条消息的`msg_id`
         nonce:
           type: string
-          description: 'nonce, 服务端不做处理, 原样返回'
+          description: nonce, 服务端不做处理, 原样返回
     GuildEmojiId:
       type: string
-      description: '表情的id, 可以为Guild Emoji Id或Emoji Id'
+      description: 表情的id, 可以为Guild Emoji Id或Emoji Id
       example: 1333609240026275/zTpnkS****0c80ck
     UserChat:
       type: object
@@ -5076,7 +5089,7 @@ components:
             avatar:
               type: string
               description: 头像图片链接
-              example: 'https://xxx.jpg/icon'
+              example: https://xxx.jpg/icon
     UserChatDetail:
       allOf:
         - $ref: '#/components/schemas/UserChat'
@@ -5157,7 +5170,7 @@ components:
               properties:
                 type:
                   type: integer
-                  description: '1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息'
+                  description: 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card消息
                 guild_id:
                   type: string
                   description: 服务器id
@@ -5198,7 +5211,7 @@ components:
                   description: 消息类型，系统消息为255
                   example: 255
                 author_id:
-                  description: '发送者id, 1 代表系统'
+                  description: 发送者id, 1 代表系统
                   example: 1
                 content:
                   example: '[系统消息]'
@@ -5373,7 +5386,7 @@ components:
                     icon:
                       type: string
                       description: 服务器icon的地址
-                      example: 'https://xxx/icons/2020-05/YQyfHxxx.png/icon'
+                      example: https://xxx/icons/2020-05/YQyfHxxx.png/icon
                     notify_type:
                       type: integer
                       description: >-
@@ -5428,12 +5441,12 @@ components:
             example: null
             properties:
               channel_id:
-                description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
+                description: 频道id, 如果频道是分组的id,会同步给所有sync=1的子频道
                 allOf:
                   - $ref: '#/components/schemas/basic-properties-id'
               type:
                 type: string
-                description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
+                description: value的类型，只能为"role_id","user_id",不传则默认为"user_id"
                 enum:
                   - role_id
                   - user_id
@@ -5453,12 +5466,12 @@ components:
               - channel_id
             properties:
               channel_id:
-                description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
+                description: 频道id, 如果频道是分组的id,会同步给所有sync=1的子频道
                 allOf:
                   - $ref: '#/components/schemas/basic-properties-id'
               type:
                 type: string
-                description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
+                description: value的类型，只能为"role_id","user_id",不传则默认为"user_id"
                 enum:
                   - role_id
                   - user_id
@@ -5471,11 +5484,11 @@ components:
                 example: '2418239356'
               allow:
                 type: integer
-                description: '默认为0,想要设置的允许的权限值'
+                description: 默认为0,想要设置的允许的权限值
                 default: 0
               deny:
                 type: integer
-                description: '默认为0,想要设置的拒绝的权限值'
+                description: 默认为0,想要设置的拒绝的权限值
                 default: 0
     delete:
       content:
@@ -5486,12 +5499,12 @@ components:
               - channel_id
             properties:
               channel_id:
-                description: '频道id, 如果频道是分组的id,会同步给所有sync=1的子频道'
+                description: 频道id, 如果频道是分组的id,会同步给所有sync=1的子频道
                 allOf:
                   - $ref: '#/components/schemas/basic-properties-id'
               type:
                 type: string
-                description: 'value的类型，只能为"role_id","user_id",不传则默认为"user_id"'
+                description: value的类型，只能为"role_id","user_id",不传则默认为"user_id"
                 enum:
                   - role_id
                   - user_id
@@ -5572,7 +5585,7 @@ components:
                     properties:
                       content:
                         description: 文件链接，与`attachments`的`url`相同
-                        example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
+                        example: https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4
                       type:
                         example: 3
                       extra:
@@ -5590,7 +5603,7 @@ components:
                     properties:
                       content:
                         description: 文件链接，与`attachments`的`url`相同
-                        example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+                        example: https://img.kaiheila.cn/attachments/2020-12/11/asd.txt
                       type:
                         example: 4
                       extra:
@@ -6034,7 +6047,7 @@ components:
                                 example: 1612774315000
                               guilds:
                                 type: array
-                                description: '服务器id组成的数组, 代表与该用户所在的共同的服务器'
+                                description: 服务器id组成的数组, 代表与该用户所在的共同的服务器
                                 items:
                                   type: string
                                 example:
@@ -6066,7 +6079,7 @@ components:
                                 example: 1612774315000
                               guilds:
                                 type: array
-                                description: '服务器id组成的数组, 代表与该用户所在的共同的服务器'
+                                description: 服务器id组成的数组, 代表与该用户所在的共同的服务器
                                 items:
                                   type: string
                                 example:

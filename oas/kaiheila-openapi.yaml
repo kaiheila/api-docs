@@ -1102,6 +1102,19 @@ paths:
                                 type: integer
                                 description: 活跃时间
                                 example: 1628688607719
+  /user/offline:
+    post:
+      tags:
+        - 用户相关接口
+      summary: 机器人下线
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
   /asset/create:
     post:
       tags:
