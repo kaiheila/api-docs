@@ -33,7 +33,7 @@ text:
                       mention_here:
                         $ref: '../../schemas/message/_index.yaml#/basic/properties/mention_here'
                       author:
-                        $ref: '../../schemas/_index.yaml#/User'
+                        $ref: '../../schemas/user/_index.yaml#/guild'
                       quote:
                         $ref: '../../schemas/message/_index.yaml#/basic/properties/quote'
 

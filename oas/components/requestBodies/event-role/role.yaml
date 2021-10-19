@@ -16,7 +16,7 @@ add:
                         description: 消息类型，此处为`added_role`
                         example: 'added_role'
                       body:
-                        $ref: '../../schemas/_index.yaml#/GuildRole'
+                        $ref: '../../schemas/guild/role.yaml#/basic'
 
 update:
   content:

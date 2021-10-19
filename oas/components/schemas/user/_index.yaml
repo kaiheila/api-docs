@@ -36,3 +36,18 @@ basic:
       type: string
       description: vip用户的头像的url地址，可能为gif动图
       example: https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon
+
+guild:
+  allOf:
+    - $ref: "#/basic"
+    - type: object
+      properties:
+        nickname:
+          type: string
+          description: 用户在服务器中的昵称
+          example: 'tz-unn'
+        roles:
+          type: array
+          description: 用户在当前服务器中的角色 id 组成的列表
+          items:
+            $ref: "../guild/role.yaml#/basic/properties/role_id"

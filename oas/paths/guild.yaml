@@ -25,7 +25,7 @@ view:
                           type: array
                           description: 服务器的角色列表
                           items:
-                            $ref: '../components/schemas/_index.yaml#/GuildRole'
+                            $ref: '../components/schemas/guild/role.yaml#/basic'
                         channels:
                           description: 服务器的频道列表
                           type: array
@@ -88,7 +88,14 @@ user-list:
                             items:
                               type: array
                               items:
-                                $ref: '../components/schemas/_index.yaml#/User'
+                                allOf:
+                                  - $ref: '../components/schemas/user/_index.yaml#/guild'
+                                  # - type: object
+                                  #   properties:
+                                  #     is_master:
+                                  #       type: boolean
+                                  #       description: 是否为该服务器主
+                                  #       example: false
                             user_count:
                               type: integer
                               description: 用户数量

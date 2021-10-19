@@ -684,7 +684,15 @@ tags:
       ### 卡片消息发送说明
 
 
-      在消息发送时，卡片消息的发送类型为`10`, 在发送时，content 字段为 json 的字符串。详情参见消息发送接口。
+      在消息发送时，卡片消息的发送类型为`10`, 在发送时，content 字段为 json 的字符串。详情参见消息发送接口。发送前请调用各语言自带的
+      json 序列化方法进行序列化再进行发送，直接发送 json 字符串通常会产生错误。
+
+
+      ### 关于卡片中包含的媒体
+
+
+      如果卡片中包含第三方媒体链接，我们将会自行转存媒体后再完成发送。我们推荐大家优先调用 asset
+      接口上传媒体文件后再进行发送，以防由于转存失败导致卡片发送不成功。
 
 
       ## 卡片
@@ -2009,7 +2017,7 @@ paths:
                             type: array
                             description: 服务器的角色列表
                             items:
-                              $ref: '#/components/schemas/GuildRole'
+                              $ref: '#/components/schemas/role_basic'
                           channels:
                             description: 服务器的频道列表
                             type: array
@@ -2071,7 +2079,8 @@ paths:
                               items:
                                 type: array
                                 items:
-                                  $ref: '#/components/schemas/basic'
+                                  allOf:
+                                    - $ref: '#/components/schemas/guild'
                               user_count:
                                 type: integer
                                 description: 用户数量
@@ -4357,50 +4366,11 @@ components:
         avatar:
           type: string
           example: '***.jpg'
-    GuildRole:
-      type: object
-      properties:
-        role_id:
-          type: integer
-          format: unsigned integer
-          description: 角色id
-          example: 702
-        name:
-          type: string
-          description: 角色名称
-          example: 管理员
-        color:
-          type: integer
-          format: unsigned integer
-          minimum: 0
-          maximum: 16777215
-          description: 颜色
-          example: 0
-        position:
-          type: integer
-          format: unsigned integer
-          description: 顺序，值越小载靠前
-          example: 1
-        hoist:
-          type: integer
-          format: unsigned integer
-          description: 只能为0或者1，是否把该角色的用户在用户列表排到前面
-          enum:
-            - 0
-            - 1
-        mentionable:
-          type: integer
-          format: unsigned integer
-          description: 只能为0或者1，该角色是否可以被提及
-          enum:
-            - 0
-            - 1
-        permissions:
-          type: integer
-          format: unsigned integer
-          description: >-
-            允许的权限，参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
-          example: 2048
+    role_id:
+      type: integer
+      format: unsigned integer
+      description: 角色id
+      example: 702
     mention_info:
       type: object
       properties:
@@ -4413,7 +4383,7 @@ components:
           type: array
           description: '`@特定角色` 的角色ID信息，与`mention_roles`中数据对应'
           items:
-            $ref: '#/components/schemas/GuildRole'
+            $ref: '#/components/schemas/role_id'
     kmarkdownElement:
       allOf:
         - $ref: '#/components/schemas/mention_info'
@@ -4763,6 +4733,50 @@ components:
           type: integer
           description: 服务器等级
           example: 0
+    role_basic:
+      type: object
+      properties:
+        role_id:
+          type: integer
+          format: unsigned integer
+          description: 角色id
+          example: 702
+        name:
+          type: string
+          description: 角色名称
+          example: 管理员
+        color:
+          type: integer
+          format: unsigned integer
+          minimum: 0
+          maximum: 16777215
+          description: 颜色
+          example: 0
+        position:
+          type: integer
+          format: unsigned integer
+          description: 顺序，值越小载靠前
+          example: 1
+        hoist:
+          type: integer
+          format: unsigned integer
+          description: 只能为0或者1，是否把该角色的用户在用户列表排到前面
+          enum:
+            - 0
+            - 1
+        mentionable:
+          type: integer
+          format: unsigned integer
+          description: 只能为0或者1，该角色是否可以被提及
+          enum:
+            - 0
+            - 1
+        permissions:
+          type: integer
+          format: unsigned integer
+          description: >-
+            允许的权限，参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+          example: 2048
     _index_basic-2:
       type: object
       description: 服务器频道
@@ -4819,6 +4833,20 @@ components:
       type: string
       description: 服务器频道ID
       example: '3321010478582000'
+    guild:
+      allOf:
+        - $ref: '#/components/schemas/basic'
+        - type: object
+          properties:
+            nickname:
+              type: string
+              description: 用户在服务器中的昵称
+              example: tz-unn
+            roles:
+              type: array
+              description: 用户在当前服务器中的角色 id 组成的列表
+              items:
+                $ref: '#/components/schemas/role_id'
     properties-type:
       type: integer
       enum:
@@ -5137,6 +5165,50 @@ components:
         read_status:
           type: boolean
           description: 是否已读
+    GuildRole:
+      type: object
+      properties:
+        role_id:
+          type: integer
+          format: unsigned integer
+          description: 角色id
+          example: 702
+        name:
+          type: string
+          description: 角色名称
+          example: 管理员
+        color:
+          type: integer
+          format: unsigned integer
+          minimum: 0
+          maximum: 16777215
+          description: 颜色
+          example: 0
+        position:
+          type: integer
+          format: unsigned integer
+          description: 顺序，值越小载靠前
+          example: 1
+        hoist:
+          type: integer
+          format: unsigned integer
+          description: 只能为0或者1，是否把该角色的用户在用户列表排到前面
+          enum:
+            - 0
+            - 1
+        mentionable:
+          type: integer
+          format: unsigned integer
+          description: 只能为0或者1，该角色是否可以被提及
+          enum:
+            - 0
+            - 1
+        permissions:
+          type: integer
+          format: unsigned integer
+          description: >-
+            允许的权限，参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+          example: 2048
     GuildEmoji:
       type: object
       properties:
@@ -5365,7 +5437,7 @@ components:
                       allOf:
                         - $ref: '#/components/schemas/properties-id'
                       description: 用户id
-    guild:
+    guild-2:
       type: object
       properties:
         d:
@@ -5550,7 +5622,7 @@ components:
                           mention_here:
                             $ref: '#/components/schemas/mention_here'
                           author:
-                            $ref: '#/components/schemas/basic'
+                            $ref: '#/components/schemas/guild'
                           quote:
                             $ref: '#/components/schemas/quote'
     image:
@@ -6102,7 +6174,7 @@ components:
                             description: 消息类型，此处为`added_role`
                             example: added_role
                           body:
-                            $ref: '#/components/schemas/GuildRole'
+                            $ref: '#/components/schemas/role_basic'
     role_update:
       content:
         application/json:
@@ -6147,7 +6219,7 @@ components:
           schema:
             allOf:
               - $ref: '#/components/schemas/SystemEvent'
-              - $ref: '#/components/schemas/guild'
+              - $ref: '#/components/schemas/guild-2'
               - type: object
                 properties:
                   d:
@@ -6165,7 +6237,7 @@ components:
           schema:
             allOf:
               - $ref: '#/components/schemas/SystemEvent'
-              - $ref: '#/components/schemas/guild'
+              - $ref: '#/components/schemas/guild-2'
               - type: object
                 properties:
                   d:
