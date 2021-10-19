@@ -246,9 +246,11 @@
         "identify_num": "5618",
         "online": false,
         "status": 0,
-        "bot": true,
+        "bot": false,
         "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
-        "vip_avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon"
+        "vip_avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
+        "nickname": "tz-unn",
+        "roles": [702]
       }
     ],
     "meta": {
@@ -343,9 +345,9 @@
 
 ### 参数列表
 
-| 参数名   | 位置 | 类型   | 必需 | 说明        |
-| -------- | ---- | ------ | ---- | ----------- |
-| guild_id | body | string | true | 服务器 ID   |
+| 参数名    | 位置 | 类型   | 必需 | 说明        |
+| --------- | ---- | ------ | ---- | ----------- |
+| guild_id  | body | string | true | 服务器 ID   |
 | target_id | body | string | true | 目标用户 ID |
 
 ### 返回参数说明
