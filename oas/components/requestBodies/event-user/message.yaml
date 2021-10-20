@@ -32,4 +32,4 @@ click-button:
                           guild_id:
                             $ref: '../../schemas/_index.yaml#/GuildId'
                           user_info:
-                            $ref: '../../schemas/user/_index.yaml#/basic'
+                            $ref: '../../schemas/user/_index.yaml#/guild'

@@ -219,6 +219,7 @@
 | » user_id   | string | 点击的用户                           |
 | » value     | string | return-val 的值                      |
 | » target_id | string | 消息发送的目标 id,频道消息为频道     |
+| » user_info | Map    | 用户信息，同 User Object             |
 
 #### 示例：
 

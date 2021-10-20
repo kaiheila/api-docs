@@ -36,6 +36,10 @@ basic:
       type: string
       description: vip用户的头像的url地址，可能为gif动图
       example: https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon
+    mobile_verified:
+      type: boolean
+      description: 手机号是否已验证
+      example: true
 
 guild:
   allOf:
@@ -51,3 +55,15 @@ guild:
           description: 用户在当前服务器中的角色 id 组成的列表
           items:
             $ref: "../guild/role.yaml#/basic/properties/role_id"
+        joined_at:
+          type: integer
+          description: 加入服务器的时间(ms)
+          example: 1621338425026
+        active_time:
+          type: integer
+          description: 最后活跃时间(ms)
+          example: 1628688607719
+        is_master:
+          type: boolean
+          description: 是否为该服务器主
+          example: false

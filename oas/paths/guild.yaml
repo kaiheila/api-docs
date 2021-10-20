@@ -90,12 +90,6 @@ user-list:
                               items:
                                 allOf:
                                   - $ref: '../components/schemas/user/_index.yaml#/guild'
-                                  # - type: object
-                                  #   properties:
-                                  #     is_master:
-                                  #       type: boolean
-                                  #       description: 是否为该服务器主
-                                  #       example: false
                             user_count:
                               type: integer
                               description: 用户数量
