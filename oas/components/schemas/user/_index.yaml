@@ -20,9 +20,10 @@ basic:
       example: false
     status:
       type: integer
-      description: 用户的状态, 0代表正常，10代表被封禁
+      description: 用户的状态, 0和1代表正常，10代表被封禁
       enum:
         - 0
+        - 1
         - 10
       example: 0
     bot:

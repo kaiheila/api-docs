@@ -322,7 +322,7 @@
 | nickname      | string  | 用户在服务器内的呢称                                   |
 | identify_num  | string  | 用户名的认证数字，用户名正常为：user_name#identify_num |
 | online        | boolean | 当前是否在线                                           |
-| status        | int     | 用户的状态, 0 代表正常，10 代表被封禁                  |
+| status        | int     | 用户的状态, 0 和 1 代表正常，10 代表被封禁             |
 | avatar        | string  | 用户的头像的 url 地址                                  |
 | bot           | boolean | 用户是否为机器人                                       |
 | reaction_time | intval  | 用户点击 reaction 的毫秒时间戳                         |
