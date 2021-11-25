@@ -5079,9 +5079,11 @@ components:
       properties:
         type:
           type: integer
-          description: >-
-            消息类型, 见[type], 不传默认为`1`, 代表文本类型。`9`代表
-            kmarkdown 消息, `10`代表卡片消息。
+          description: '消息类型, 见[type], 不传默认为`1`, 代表文本类型。`9`代表 kmarkdown 消息, `10`代表卡片消息。'
+          enum:
+            - 1
+            - 9
+            - 10
           example: 9
           default: 1
         content:
