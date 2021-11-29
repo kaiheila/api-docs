@@ -5,6 +5,7 @@ create:
         type: object
         required:
           - channel_id
+        example: 
         properties:
           channel_id:
             description: 频道id, 如果频道是分组的id,会同步给所有sync=1的子频道
@@ -18,9 +19,11 @@ create:
               - user_id
             default: user_id
           value:
-            type: string
-            description: 根据type，为用户id或频道id
-            default: ''
+            type: 
+              - string
+              - integer
+            description: 根据type的值，为用户id或频道id
+            example: "2418239356"
 
 update:
   content:
@@ -42,9 +45,11 @@ update:
               - user_id
             default: user_id
           value:
-            type: string
-            description: 根据type，为用户id或频道id
-            default: ''
+            type: 
+              - string
+              - integer
+            description: 根据type的值，为用户id或频道id
+            example: "2418239356"
           allow:
             type: integer
             description: 默认为0,想要设置的允许的权限值
@@ -74,6 +79,8 @@ delete:
               - user_id
             default: user_id
           value:
-            type: string
-            description: 根据type，为用户id或频道id
-            default: ''
+            type: 
+              - string
+              - integer
+            description: 根据type的值，为用户id或频道id
+            example: "2418239356"

@@ -95,10 +95,9 @@
 
 | 参数名     | 位置 | 类型           | 必需  | 说明                                                   |
 | ---------- | ---- | -------------- | ----- | ------------------------------------------------------ |
-| body       | body | object         | false | none                                                   |
-| » name     | body | string         | false | 表情名。长度限制 2 - 32 字符，如果不写，则为随机字符串 |
-| » guild_id | body | string         | true  | 服务器 id                                              |
-| » emoji    | body | string(binary) | true  | 表情文件。必须为 PNG 类型，大小不能超过 256 KB         |
+| name     | body | string         | false | 表情名。长度限制 2 - 32 字符，如果不写，则为随机字符串 |
+| guild_id | body | string         | true  | 服务器 id                                              |
+| emoji    | body | string(binary) | true  | 表情文件。必须为 PNG 类型，大小不能超过 256 KB         |
 
 ### 返回参数说明
 
@@ -142,9 +141,8 @@
 
 | 参数名 | 位置 | 类型   | 必需  | 说明                                                   |
 | ------ | ---- | ------ | ----- | ------------------------------------------------------ |
-| body   | body | object | false | none                                                   |
-| » name | body | string | true  | 表情名。长度限制 2 - 32 字符，如果不写，则为随机字符串 |
-| » id   | body | string | true  | 表情 ID                                                |
+| name | body | string | true  | 表情名。长度限制 2 - 32 字符，如果不写，则为随机字符串 |
+| id   | body | string | true  | 表情 ID                                                |
 
 ### 返回参数说明
 
@@ -172,8 +170,7 @@
 
 | 参数名 | 位置 | 类型   | 必需  | 说明    |
 | ------ | ---- | ------ | ----- | ------- |
-| body   | body | object | false | none    |
-| » id   | body | string | true  | 表情 ID |
+| id   | body | string | true  | 表情 ID |
 
 ### 返回参数说明
 

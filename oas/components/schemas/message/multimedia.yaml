@@ -1,5 +1,6 @@
 image:
   type: object
+  description: 图片消息
   properties:
     type:
       allOf:
@@ -27,6 +28,7 @@ image:
 
 video:
   type: object
+  description: 视频消息
   properties:
     type:
       allOf:
@@ -76,6 +78,7 @@ video:
 
 file:
   type: object
+  description: 文件消息
   properties:
     type:
       allOf:

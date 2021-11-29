@@ -46,8 +46,8 @@ unban:
                     type: object
                     properties:
                       type:
-                        description: 消息类型，此处为`added_block_list`
-                        example: 'added_block_list'
+                        description: 消息类型，此处为`deleted_block_list`
+                        example: 'deleted_block_list'
                       body:
                         type: object
                         properties:

@@ -3,7 +3,9 @@ basic:
   description: 用户对象
   properties:
     id:
-      $ref: './_fields.yaml#/id'
+      type: string
+      description: 用户id
+      example: '2418200000'
     username:
       type: string
       description: 用户的名称
@@ -18,9 +20,10 @@ basic:
       example: false
     status:
       type: integer
-      description: 用户的状态, 0代表正常，10代表被封禁
+      description: 用户的状态, 0和1代表正常，10代表被封禁
       enum:
         - 0
+        - 1
         - 10
       example: 0
     bot:
@@ -34,3 +37,34 @@ basic:
       type: string
       description: vip用户的头像的url地址，可能为gif动图
       example: https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon
+    mobile_verified:
+      type: boolean
+      description: 手机号是否已验证
+      example: true
+
+guild:
+  allOf:
+    - $ref: "#/basic"
+    - type: object
+      properties:
+        nickname:
+          type: string
+          description: 用户在服务器中的昵称
+          example: 'tz-unn'
+        roles:
+          type: array
+          description: 用户在当前服务器中的角色 id 组成的列表
+          items:
+            $ref: "../guild/role.yaml#/basic/properties/role_id"
+        joined_at:
+          type: integer
+          description: 加入服务器的时间(ms)
+          example: 1621338425026
+        active_time:
+          type: integer
+          description: 最后活跃时间(ms)
+          example: 1628688607719
+        is_master:
+          type: boolean
+          description: 是否为该服务器主
+          example: false

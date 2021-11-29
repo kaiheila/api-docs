@@ -28,5 +28,5 @@ properties:
                   - description: 点击的用户
               msg_id:
                 allOf:
-                  - $ref: '../message/_fields.yaml#/id'
+                  - $ref: '../message/_index.yaml#/basic/properties/id'
                   - description: 用户点击的消息id

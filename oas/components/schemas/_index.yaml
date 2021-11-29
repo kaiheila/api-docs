@@ -121,7 +121,7 @@ PersonEvent:
               properties:
                 msg_id:
                   allOf:
-                    - $ref: './message/_fields.yaml#/id'
+                    - $ref: './message/_index.yaml#/basic/properties/id'
                   description: 被操作的消息id
                 chat_code:
                   $ref: '#/ChatCode'
@@ -167,7 +167,7 @@ User:
 GuildId:
   $ref: './guild/_index.yaml#/basic/properties/id'
 UserId:
-  $ref: './user/_fields.yaml#/id'
+  $ref: './user/_index.yaml#/basic/properties/id'
 GuildChannel:
   $ref: './channel/_index.yaml#/basic'
 
@@ -205,7 +205,11 @@ SendMessageRequest:
   properties:
     type:
       type: integer
-      description: 消息类型, 见[type], 不传默认为`1`, 代表文本类型。`2`图片消息，`3`视频消息，`4`文件消息，`9`代表 kmarkdown 消息, `10`代表卡片消息。
+      description: 消息类型, 见[type], 不传默认为`1`, 代表文本类型。`9`代表 kmarkdown 消息, `10`代表卡片消息。
+      enum:
+        - 1
+        - 9
+        - 10
       example: 9
       default: 1
     content:
@@ -213,7 +217,7 @@ SendMessageRequest:
       description: 消息内容（为了保障消息正常发出，请不要超过8000字符）
     quote:
       allOf:
-        - $ref: './message/_fields.yaml#/id'
+        - $ref: './message/_index.yaml#/basic/properties/id'
       description: 回复某条消息的`msg_id`
     nonce:
       type: string
@@ -287,7 +291,7 @@ DirectMessage:
   type: object
   properties:
     id:
-      $ref: './message/_fields.yaml#/id'
+      $ref: './message/_index.yaml#/basic/properties/id'
     type:
       type: integer
       description: 消息类型
@@ -299,13 +303,13 @@ DirectMessage:
       type: string
       description: 消息内容
     embeds:
-      $ref: './message/_fields.yaml#/embeds'
+      $ref: './message/_index.yaml#/basic/properties/embeds'
     attachments:
       type: object
     reactions:
-      $ref: './message/_fields.yaml#/reactions'
+      $ref: './message/_index.yaml#/basic/properties/reactions'
     quote:
-      $ref: './message/_fields.yaml#/quote'
+      $ref: './message/_index.yaml#/basic/properties/quote'
     read_status:
       type: boolean
       description: 是否已读

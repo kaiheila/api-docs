@@ -6,12 +6,12 @@
 
 #### extra 字段说明：
 
-| 字段       | 类型   | 说明                              |
-| ---------- | ------ | --------------------------------- |
-| type       | string | 消息的类型，本处为 `joined_guild` |
-| body       | Map    |                                   |
-| »user_id   | string | 用户 id                           |
-| »joined_at | int    | 加入服务器的时间                  |
+| 字段        | 类型   | 说明                              |
+| ----------- | ------ | --------------------------------- |
+| type        | string | 消息的类型，本处为 `joined_guild` |
+| body        | Map    |                                   |
+| » user_id   | string | 用户 id                           |
+| » joined_at | int    | 加入服务器的时间                  |
 
 #### 示例：
 
@@ -44,12 +44,12 @@
 
 #### extra 字段说明：
 
-| 字段       | 类型   | 说明                              |
-| ---------- | ------ | --------------------------------- |
-| type       | string | 消息的类型，本处为 `exited_guild` |
-| body       | Map    |                                   |
-| »user_id   | string | 用户 id                           |
-| »exited_at | int    | 退出服务器的事件                  |
+| 字段        | 类型   | 说明                              |
+| ----------- | ------ | --------------------------------- |
+| type        | string | 消息的类型，本处为 `exited_guild` |
+| body        | Map    |                                   |
+| » user_id   | string | 用户 id                           |
+| » exited_at | int    | 退出服务器的事件                  |
 
 #### 示例：
 
@@ -82,12 +82,12 @@
 
 #### extra 字段说明：
 
-| 字段      | 类型   | 说明                                      |
-| --------- | ------ | ----------------------------------------- |
-| type      | string | 消息的类型，本处为 `updated_guild_member` |
-| body      | Map    |                                           |
-| »user_id  | string | 用户 id                                   |
-| »nickname | string | 昵称                                      |
+| 字段       | 类型   | 说明                                      |
+| ---------- | ------ | ----------------------------------------- |
+| type       | string | 消息的类型，本处为 `updated_guild_member` |
+| body       | Map    |                                           |
+| » user_id  | string | 用户 id                                   |
+| » nickname | string | 昵称                                      |
 
 #### 示例：
 
@@ -120,13 +120,13 @@
 
 #### extra 字段说明：
 
-| 字段        | 类型   | 说明                                                 |
-| ----------- | ------ | ---------------------------------------------------- |
-| type        | string | 消息的类型，本处为 `guild_member_online`             |
-| body        | Map    |                                                      |
-| »user_id    | string | 用户 id                                              |
-| »event_time | int    | 事件发生的时间                                       |
-| »guilds     | array  | 服务器 id 组成的数组, 代表与该用户所在的共同的服务器 |
+| 字段         | 类型   | 说明                                                 |
+| ------------ | ------ | ---------------------------------------------------- |
+| type         | string | 消息的类型，本处为 `guild_member_online`             |
+| body         | Map    |                                                      |
+| » user_id    | string | 用户 id                                              |
+| » event_time | int    | 事件发生的时间                                       |
+| » guilds     | array  | 服务器 id 组成的数组, 代表与该用户所在的共同的服务器 |
 
 #### 示例：
 
@@ -160,13 +160,13 @@
 
 #### extra 字段说明：
 
-| 字段        | 类型   | 说明                                                 |
-| ----------- | ------ | ---------------------------------------------------- |
-| type        | string | 消息的类型，本处为 `guild_member_offline`            |
-| body        | Map    |                                                      |
-| »user_id    | string | 用户 id                                              |
-| »event_time | int    | 事件发生的时间                                       |
-| »guilds     | array  | 服务器 id 组成的数组, 代表与该用户所在的共同的服务器 |
+| 字段         | 类型   | 说明                                                 |
+| ------------ | ------ | ---------------------------------------------------- |
+| type         | string | 消息的类型，本处为 `guild_member_offline`            |
+| body         | Map    |                                                      |
+| » user_id    | string | 用户 id                                              |
+| » event_time | int    | 事件发生的时间                                       |
+| » guilds     | array  | 服务器 id 组成的数组, 代表与该用户所在的共同的服务器 |
 
 #### 示例：
 

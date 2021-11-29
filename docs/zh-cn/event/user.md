@@ -6,13 +6,13 @@
 
 #### extra 字段说明:
 
-| 字段        | 类型   | 说明                                |
-| ----------- | ------ | ----------------------------------- |
-| type        | string | 消息的类型，本处为 `joined_channel` |
-| body        | Map    |                                     |
-| »user_id    | string | 用户 id                             |
-| »channel_id | string | 加入的频道 id                       |
-| »joined_at  | int    | 加入时间                            |
+| 字段         | 类型   | 说明                                |
+| ------------ | ------ | ----------------------------------- |
+| type         | string | 消息的类型，本处为 `joined_channel` |
+| body         | Map    |                                     |
+| » user_id    | string | 用户 id                             |
+| » channel_id | string | 加入的频道 id                       |
+| » joined_at  | int    | 加入时间                            |
 
 #### 示例：
 
@@ -46,13 +46,13 @@
 
 #### extra 字段说明:
 
-| 字段        | 类型   | 说明                                |
-| ----------- | ------ | ----------------------------------- |
-| type        | string | 消息的类型，本处为 `exited_channel` |
-| body        | Map    |                                     |
-| »user_id    | string | 用户 id                             |
-| »channel_id | string | 加入的频道 id                       |
-| »exited_at  | int    | 退出时间                            |
+| 字段         | 类型   | 说明                                |
+| ------------ | ------ | ----------------------------------- |
+| type         | string | 消息的类型，本处为 `exited_channel` |
+| body         | Map    |                                     |
+| » user_id    | string | 用户 id                             |
+| » channel_id | string | 加入的频道 id                       |
+| » exited_at  | int    | 退出时间                            |
 
 #### 示例：
 
@@ -93,13 +93,13 @@
 
 #### extra 字段说明:
 
-| 字段      | 类型   | 说明                              |
-| --------- | ------ | --------------------------------- |
-| type      | string | 消息的类型，本处为 `user_updated` |
-| body      | Map    |                                   |
-| »user_id  | string | 用户 id                           |
-| »username | string | 用户名                            |
-| »avatar   | string | 头像图片地址                      |
+| 字段       | 类型   | 说明                              |
+| ---------- | ------ | --------------------------------- |
+| type       | string | 消息的类型，本处为 `user_updated` |
+| body       | Map    |                                   |
+| » user_id  | string | 用户 id                           |
+| » username | string | 用户名                            |
+| » avatar   | string | 头像图片地址                      |
 
 #### 示例：
 
@@ -137,11 +137,11 @@
 
 #### extra 字段说明:
 
-| 字段      | 类型   | 说明                                   |
-| --------- | ------ | -------------------------------------- |
-| type      | string | 消息的类型，本处为 `self_joined_guild` |
-| body      | Map    |                                        |
-| »guild_id | string | 服务器 id                              |
+| 字段       | 类型   | 说明                                   |
+| ---------- | ------ | -------------------------------------- |
+| type       | string | 消息的类型，本处为 `self_joined_guild` |
+| body       | Map    |                                        |
+| » guild_id | string | 服务器 id                              |
 
 #### 示例：
 
@@ -175,11 +175,11 @@
 
 #### extra 字段说明:
 
-| 字段      | 类型   | 说明                                   |
-| --------- | ------ | -------------------------------------- |
-| type      | string | 消息的类型，本处为 `self_exited_guild` |
-| body      | Map    |                                        |
-| »guild_id | string | 服务器 id                              |
+| 字段       | 类型   | 说明                                   |
+| ---------- | ------ | -------------------------------------- |
+| type       | string | 消息的类型，本处为 `self_exited_guild` |
+| body       | Map    |                                        |
+| » guild_id | string | 服务器 id                              |
 
 #### 示例：
 
@@ -211,14 +211,15 @@
 
 #### extra 字段说明:
 
-| 字段       | 类型   | 说明                                 |
-| ---------- | ------ | ------------------------------------ |
-| type       | string | 消息的类型，本处为 message_btn_click |
-| body       | Map    |                                      |
-| »msg_id    | string | 用户点击的消息 id                    |
-| »user_id   | string | 点击的用户                           |
-| »value     | string | return-val 的值                      |
-| »target_id | string | 消息发送的目标 id,频道消息为频道     |
+| 字段        | 类型   | 说明                                 |
+| ----------- | ------ | ------------------------------------ |
+| type        | string | 消息的类型，本处为 message_btn_click |
+| body        | Map    |                                      |
+| » msg_id    | string | 用户点击的消息 id                    |
+| » user_id   | string | 点击的用户                           |
+| » value     | string | return-val 的值                      |
+| » target_id | string | 消息发送的目标 id,频道消息为频道     |
+| » user_info | Map    | 用户信息，同 User Object             |
 
 #### 示例：
 

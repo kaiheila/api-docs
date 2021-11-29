@@ -53,7 +53,8 @@ tags:
     description:
       $ref: "./descriptions/_index.yaml#/event"
   - name: 消息相关事件
-    description: 消息相关事件
+    description: 
+      $ref: "./descriptions/events/message.md"
   - name: 频道相关事件
     description: 频道相关事件
   - name: 服务器相关事件
@@ -95,6 +96,21 @@ paths:
           application/json: 
             schema: 
               $ref: './components/schemas/events/basic.yaml'
+  /message-object:
+    post: 
+      tags:
+        - 标准对象格式
+      summary: 消息对象
+      requestBody:
+        content: 
+          application/json: 
+            schema: 
+              oneOf:
+                - $ref: './components/schemas/message/rich-text.yaml#/kmarkdown'
+                - $ref: './components/schemas/message/rich-text.yaml#/card'
+                - $ref: './components/schemas/message/multimedia.yaml#/image'
+                - $ref: './components/schemas/message/multimedia.yaml#/video'
+                - $ref: './components/schemas/message/multimedia.yaml#/file'
   /connect-websocket:
     get: 
       tags:
@@ -481,7 +497,7 @@ paths:
                     properties:
                       msg_id:
                         allOf:
-                          - $ref: './components/schemas/message/_fields.yaml#/id'
+                          - $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
                         description: 服务端生成的消息 id
                       msg_timestamp:
                         type: integer
@@ -506,13 +522,13 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: './components/schemas/message/_fields.yaml#/id'
+                  $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
                 content:
                   type: string
                   description: 消息内容
                 quote:
                   allOf:
-                    - $ref: './components/schemas/message/_fields.yaml#/id'
+                    - $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
                   description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
                 temp_target_id:
                   type: string
@@ -539,7 +555,7 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: './components/schemas/message/_fields.yaml#/id'
+                  $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
       responses:
         '200':
           description: OK
@@ -559,7 +575,7 @@ paths:
           description: 频道消息的id
           required: true
           schema:
-            $ref: './components/schemas/message/_fields.yaml#/id'
+            $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
         - name: emoji
           in: query
           description: emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode
@@ -603,7 +619,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: './components/schemas/message/_fields.yaml#/id'
+                  $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
                 emoji:
                   $ref: './components/schemas/_index.yaml#/GuildEmojiId'
       responses:
@@ -628,7 +644,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: './components/schemas/message/_fields.yaml#/id'
+                  $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
                 user_id:
@@ -766,7 +782,7 @@ paths:
           description: 参考消息 id，不传则查询最新消息
           in: query
           schema:
-            $ref: './components/schemas/message/_fields.yaml#/id'
+            $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
         - $ref: '#/components/parameters/MessageListFlagParam'
         - $ref: '#/components/parameters/PageNumberParam'
         - name: page_size
@@ -848,13 +864,13 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: './components/schemas/message/_fields.yaml#/id'
+                  $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
                 content:
                   type: string
                   description: 消息内容
                 quote:
                   allOf:
-                    - $ref: './components/schemas/message/_fields.yaml#/id'
+                    - $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
                   description: 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。
       responses:
         '200':
@@ -878,7 +894,7 @@ paths:
                 - content
               properties:
                 msg_id:
-                  $ref: './components/schemas/message/_fields.yaml#/id'
+                  $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
       responses:
         '200':
           description: OK
@@ -897,7 +913,7 @@ paths:
           description: 消息的id
           required: true
           schema:
-            $ref: './components/schemas/message/_fields.yaml#/id'
+            $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
         - name: emoji
           in: query
           description: emoji的id, 可以为GuildEmoji或者Emoji, 注意：在get中，应该进行urlencode
@@ -939,7 +955,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: './components/schemas/message/_fields.yaml#/id'
+                  $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
       responses:
@@ -964,7 +980,7 @@ paths:
                 - emoji
               properties:
                 msg_id:
-                  $ref: './components/schemas/message/_fields.yaml#/id'
+                  $ref: './components/schemas/message/_index.yaml#/basic/properties/id'
                 emoji:
                   $ref: '#/components/schemas/GuildEmojiId'
                 user_id:
@@ -1086,6 +1102,19 @@ paths:
                                 type: integer
                                 description: 活跃时间
                                 example: 1628688607719
+  /user/offline:
+    post:
+      tags:
+        - 用户相关接口
+      summary: 机器人下线
+      responses:
+        '200':
+          description: OK
+          content:
+            application/json:
+              schema:
+                allOf:
+                  - $ref: '#/components/schemas/BasicResponse'
   /asset/create:
     post:
       tags:

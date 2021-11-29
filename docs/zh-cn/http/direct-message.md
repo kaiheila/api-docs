@@ -100,7 +100,7 @@ after: 查询参考消息之后的消息，不包括参考消息
 
 | 参数名    | 类型   | 必传 | 参数区域 | 说明                                                                                                                                                                                                                                     |
 | --------- | ------ | ---- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type      | int    | 否   | POST     | 消息类型, 见[type], 不传默认为 `1`, 代表文本类型。`2` 图片消息，`3` 视频消息，`4` 文件消息，`9` 代表 [kmarkdown](https://developer.kaiheila.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmessage)。 |
+| type      | int    | 否   | POST     | 消息类型, 见[type], 不传默认为 `1`, 代表文本类型。`9` 代表 [kmarkdown](https://developer.kaiheila.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmessage)。 |
 | target_id | string | 否   | POST     | 目标用户 id，后端会自动创建会话。有此参数之后可不传 `chat_code `参数                                                                                                                                                                     |
 | chat_code | string | 否   | POST     | 目标会话 Code，`chat_code` 与 `target_id` 必须传一个                                                                                                                                                                                     |
 | content   | string | 是   | POST     | 消息内容                                                                                                                                                                                                                                 |
@@ -141,12 +141,11 @@ after: 查询参考消息之后的消息，不包括参考消息
 
 ### 参数列表
 
-| 参数名    | 位置 | 类型   | 必需  | 说明                                                            |
-| --------- | ---- | ------ | ----- | --------------------------------------------------------------- |
-| body      | body | object | false | none                                                            |
-| » msg_id  | body | string | false | 消息 id                                                         |
-| » content | body | string | true  | 消息内容                                                        |
-| » quote   | body | string | false | 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。 |
+| 参数名  | 位置 | 类型   | 必需  | 说明                                                            |
+| ------- | ---- | ------ | ----- | --------------------------------------------------------------- |
+| msg_id  | body | string | false | 消息 id                                                         |
+| content | body | string | true  | 消息内容                                                        |
+| quote   | body | string | false | 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。 |
 
 ### 返回参数说明
 
@@ -174,10 +173,9 @@ after: 查询参考消息之后的消息，不包括参考消息
 
 ### 参数列表
 
-| 参数名   | 位置 | 类型   | 必需  | 说明    |
-| -------- | ---- | ------ | ----- | ------- |
-| body     | body | object | false | none    |
-| » msg_id | body | string | false | 消息 id |
+| 参数名 | 位置 | 类型   | 必需  | 说明    |
+| ------ | ---- | ------ | ----- | ------- |
+| msg_id | body | string | false | 消息 id |
 
 ### 返回参数说明
 
@@ -219,7 +217,7 @@ after: 查询参考消息之后的消息，不包括参考消息
 | nickname      | string  | 用户在服务器内的呢称                                   |
 | identify_num  | string  | 用户名的认证数字，用户名正常为：user_name#identify_num |
 | online        | boolean | 当前是否在线                                           |
-| status        | int     | 用户的状态, 0 代表正常，10 代表被封禁                  |
+| status        | int     | 用户的状态,0 和 1 代表正常，10 代表被封禁              |
 | avatar        | string  | 用户的头像的 url 地址                                  |
 | bot           | boolean | 用户是否为机器人                                       |
 | reaction_time | intval  | 用户点击 reaction 的毫秒时间戳                         |
@@ -257,11 +255,10 @@ after: 查询参考消息之后的消息，不包括参考消息
 
 ### 参数列表
 
-| 参数名   | 位置 | 类型   | 必需  | 说明                                     |
-| -------- | ---- | ------ | ----- | ---------------------------------------- |
-| body     | body | object | false | none                                     |
-| » msg_id | body | string | true  | 消息 id                                  |
-| » emoji  | body | string | true  | emoji 的 id, 可以为 GuilEmoji 或者 Emoji |
+| 参数名 | 位置 | 类型   | 必需 | 说明                                     |
+| ------ | ---- | ------ | ---- | ---------------------------------------- |
+| msg_id | body | string | true | 消息 id                                  |
+| emoji  | body | string | true | emoji 的 id, 可以为 GuilEmoji 或者 Emoji |
 
 ### 返回参数说明
 
@@ -287,12 +284,11 @@ after: 查询参考消息之后的消息，不包括参考消息
 
 ### 参数列表
 
-| 参数名    | 位置 | 类型   | 必需  | 说明                                                                           |
-| --------- | ---- | ------ | ----- | ------------------------------------------------------------------------------ |
-| body      | body | object | false | none                                                                           |
-| » msg_id  | body | string | true  | 消息 id                                                                        |
-| » emoji   | body | string | true  | 表情的 ID                                                                      |
-| » user_id | body | string | false | 用户的 id, 如果不填则为自己的 id。删除别人的 reaction 需要有管理频道消息的权限 |
+| 参数名  | 位置 | 类型   | 必需  | 说明                                                                           |
+| ------- | ---- | ------ | ----- | ------------------------------------------------------------------------------ |
+| msg_id  | body | string | true  | 消息 id                                                                        |
+| emoji   | body | string | true  | 表情的 ID                                                                      |
+| user_id | body | string | false | 用户的 id, 如果不填则为自己的 id。删除别人的 reaction 需要有管理频道消息的权限 |
 
 ### 返回参数说明
 

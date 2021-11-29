@@ -25,12 +25,12 @@ view:
                           type: array
                           description: 服务器的角色列表
                           items:
-                            - $ref: '../components/schemas/_index.yaml#/GuildRole'
+                            $ref: '../components/schemas/guild/role.yaml#/basic'
                         channels:
                           description: 服务器的频道列表
                           type: array
                           items: 
-                            - $ref: "../components/schemas/channel/_index.yaml#/basic"
+                            $ref: "../components/schemas/channel/_index.yaml#/basic"
 
 user-list:
   get:
@@ -88,7 +88,8 @@ user-list:
                             items:
                               type: array
                               items:
-                                $ref: '../components/schemas/_index.yaml#/User'
+                                allOf:
+                                  - $ref: '../components/schemas/user/_index.yaml#/guild'
                             user_count:
                               type: integer
                               description: 用户数量

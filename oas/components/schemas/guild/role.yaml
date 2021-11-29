@@ -1,0 +1,43 @@
+basic:
+  type: object
+  properties:
+    role_id:
+      type: integer
+      format: unsigned integer
+      description: 角色id
+      example: 702
+    name:
+      type: string
+      description: 角色名称
+      example: 管理员
+    color:
+      type: integer
+      format: unsigned integer
+      minimum: 0
+      maximum: 16777215
+      description: 颜色
+      example: 0
+    position:
+      type: integer
+      format: unsigned integer
+      description: 顺序，值越小载靠前
+      example: 1
+    hoist:
+      type: integer
+      format: unsigned integer
+      description: 只能为0或者1，是否把该角色的用户在用户列表排到前面
+      enum:
+        - 0
+        - 1
+    mentionable:
+      type: integer
+      format: unsigned integer
+      description: 只能为0或者1，该角色是否可以被提及
+      enum:
+        - 0
+        - 1
+    permissions:
+      type: integer
+      format: unsigned integer
+      description: 允许的权限，参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+      example: 2048

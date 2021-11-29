@@ -125,4 +125,4 @@ mention_info:
       type: array
       description: '`@特定角色` 的角色ID信息，与`mention_roles`中数据对应'
       items:
-        $ref: '../_index.yaml#/GuildRole'
+        $ref: '../guild/role.yaml#/basic/properties/role_id'

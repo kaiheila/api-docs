@@ -6,20 +6,20 @@
 
 #### extra 字段说明：
 
-| 字段                | 类型   | 说明                                                       |
-| ------------------- | ------ | ---------------------------------------------------------- |
-| type                | string | 消息的类型，本处为 `updated_guild`                         |
-| body                | Map    |                                                            |
-| »id                 | string | 服务器 id                                                  |
-| »name               | string | 服务器名称                                                 |
-| »user_id            | string | 服务器主 id                                                |
-| »icon               | string | 服务器 logo 图片地址                                       |
-| »notify_type        | int    | 通知类型 `1`接受所有通知 `2`仅接收被提及消息 `3`不接收通知 |
-| »region             | string | 服务器所在区域                                             |
-| »enable_open        | int    | 是否为公开服务器, 1 or 0                                   |
-| »open_id            | int    | 公开服务器 id                                              |
-| »default_channel_id | string | 默认文字频道 id                                            |
-| »welcome_channel_id | string | 欢迎频道 id                                                |
+| 字段                 | 类型   | 说明                                                       |
+| -------------------- | ------ | ---------------------------------------------------------- |
+| type                 | string | 消息的类型，本处为 `updated_guild`                         |
+| body                 | Map    |                                                            |
+| » id                 | string | 服务器 id                                                  |
+| » name               | string | 服务器名称                                                 |
+| » user_id            | string | 服务器主 id                                                |
+| » icon               | string | 服务器 logo 图片地址                                       |
+| » notify_type        | int    | 通知类型 `1`接受所有通知 `2`仅接收被提及消息 `3`不接收通知 |
+| » region             | string | 服务器所在区域                                             |
+| » enable_open        | int    | 是否为公开服务器, 1 or 0                                   |
+| » open_id            | int    | 公开服务器 id                                              |
+| » default_channel_id | string | 默认文字频道 id                                            |
+| » welcome_channel_id | string | 欢迎频道 id                                                |
 
 #### 示例：
 
@@ -60,20 +60,20 @@
 
 #### extra 字段说明：
 
-| 字段                | 类型   | 说明                                                       |
-| ------------------- | ------ | ---------------------------------------------------------- |
-| type                | string | 消息的类型，本处为 `deleted_guild`                         |
-| body                | Map    |                                                            |
-| »id                 | string | 服务器 id                                                  |
-| »name               | string | 服务器名称                                                 |
-| »user_id            | string | 服务器主 id                                                |
-| »icon               | string | 服务器 logo 图片地址                                       |
-| »notify_type        | int    | 通知类型 `1`接受所有通知 `2`仅接收被提及消息 `3`不接收通知 |
-| »region             | string | 服务器所在区域                                             |
-| »enable_open        | int    | 是否为公开服务器, 1 or 0                                   |
-| »open_id            | int    | 公开服务器 id                                              |
-| »default_channel_id | string | 默认文字频道 id                                            |
-| »welcome_channel_id | string | 欢迎频道 id                                                |
+| 字段                 | 类型   | 说明                                                       |
+| -------------------- | ------ | ---------------------------------------------------------- |
+| type                 | string | 消息的类型，本处为 `deleted_guild`                         |
+| body                 | Map    |                                                            |
+| » id                 | string | 服务器 id                                                  |
+| » name               | string | 服务器名称                                                 |
+| » user_id            | string | 服务器主 id                                                |
+| » icon               | string | 服务器 logo 图片地址                                       |
+| » notify_type        | int    | 通知类型 `1`接受所有通知 `2`仅接收被提及消息 `3`不接收通知 |
+| » region             | string | 服务器所在区域                                             |
+| » enable_open        | int    | 是否为公开服务器, 1 or 0                                   |
+| » open_id            | int    | 公开服务器 id                                              |
+| » default_channel_id | string | 默认文字频道 id                                            |
+| » welcome_channel_id | string | 欢迎频道 id                                                |
 
 #### 示例：
 
@@ -114,13 +114,13 @@
 
 #### extra 字段说明：
 
-| 字段         | 类型   | 说明                                  |
-| ------------ | ------ | ------------------------------------- |
-| type         | string | 消息的类型，本处为 `added_block_list` |
-| body         | Map    |                                       |
-| »operator_id | string | 操作人 id                             |
-| »remark      | string | 封禁理由                              |
-| »user_id     | Array  | 被封禁成员 id 列表                    |
+| 字段          | 类型   | 说明                                  |
+| ------------- | ------ | ------------------------------------- |
+| type          | string | 消息的类型，本处为 `added_block_list` |
+| body          | Map    |                                       |
+| » operator_id | string | 操作人 id                             |
+| » remark      | string | 封禁理由                              |
+| » user_id     | Array  | 被封禁成员 id 列表                    |
 
 #### 示例：
 
@@ -156,12 +156,12 @@
 
 #### extra 字段说明：
 
-| 字段         | 类型   | 说明                                    |
-| ------------ | ------ | --------------------------------------- |
-| type         | string | 消息的类型，本处为 `deleted_block_list` |
-| body         | Map    |                                         |
-| »operator_id | string | 操作人 id                               |
-| »user_id     | Array  | 被封禁成员 id 列表                      |
+| 字段          | 类型   | 说明                                    |
+| ------------- | ------ | --------------------------------------- |
+| type          | string | 消息的类型，本处为 `deleted_block_list` |
+| body          | Map    |                                         |
+| » operator_id | string | 操作人 id                               |
+| » user_id     | Array  | 被封禁成员 id 列表                      |
 
 #### 示例：
 

@@ -246,9 +246,11 @@
         "identify_num": "5618",
         "online": false,
         "status": 0,
-        "bot": true,
+        "bot": false,
         "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
-        "vip_avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon"
+        "vip_avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
+        "nickname": "tz-unn",
+        "roles": [702]
       }
     ],
     "meta": {
@@ -277,11 +279,11 @@
 
 ### 参数列表
 
-| 参数名   | 类型   | 必传 | 参数区域 | 说明                                                  |
-| -------- | ------ | ---- | -------- | ----------------------------------------------------- |
-| guild_id | string | 是   | POST     | 服务器的 ID                                           |
-| nickname | string | 否   | POST     | 昵称，2 - 64 长度，不传则清空昵称                     |
-| user_id  | string | 否   | POST     | 要修改昵称的目标用户 ID，不传则修改当前登陆用户的昵称 |
+| 参数名   | 位置 | 类型   | 必需  | 说明                                                  |
+| -------- | ---- | ------ | ----- | ----------------------------------------------------- |
+| guild_id | body | string | true  | 服务器的 ID                                           |
+| nickname | body | string | false | 昵称，2 - 64 长度，不传则清空昵称                     |
+| user_id  | body | string | false | 要修改昵称的目标用户 ID，不传则修改当前登陆用户的昵称 |
 
 ### 返回参数说明
 
@@ -343,10 +345,10 @@
 
 ### 参数列表
 
-| 参数名    | 类型   | 必传 | 参数区域 | 说明        |
-| --------- | ------ | ---- | -------- | ----------- |
-| guild_id  | string | 是   | POST     | 服务器 ID   |
-| target_id | string | 是   | POST     | 目标用户 ID |
+| 参数名    | 位置 | 类型   | 必需 | 说明        |
+| --------- | ---- | ------ | ---- | ----------- |
+| guild_id  | body | string | true | 服务器 ID   |
+| target_id | body | string | true | 目标用户 ID |
 
 ### 返回参数说明
 
@@ -419,11 +421,11 @@
 
 ### 参数列表
 
-| 参数名   | 类型   | 必传 | 参数区域 | 说明                                         |
-| -------- | ------ | ---- | -------- | -------------------------------------------- |
-| guild_id | string | 是   | POST     | 服务器 id                                    |
-| user_id  | string | 是   | POST     | 目标用户 id                                  |
-| type     | int    | 是   | POST     | 静音类型，`1`代表麦克风闭麦，`2`代表耳机静音 |
+| 参数名   | 位置 | 类型   | 必需 | 说明                                         |
+| -------- | ---- | ------ | ---- | -------------------------------------------- |
+| guild_id | body | string | true | 服务器 id                                    |
+| user_id  | body | string | true | 目标用户 id                                  |
+| type     | body | int    | true | 静音类型，`1`代表麦克风闭麦，`2`代表耳机静音 |
 
 ### 返回参数说明
 
@@ -449,11 +451,11 @@
 
 ### 参数列表
 
-| 参数名   | 类型   | 必传 | 参数区域 | 说明                                         |
-| -------- | ------ | ---- | -------- | -------------------------------------------- |
-| guild_id | string | 是   | POST     | 服务器 id                                    |
-| user_id  | string | 是   | POST     | 用户 id                                      |
-| type     | int    | 是   | POST     | 静音类型，`1`代表麦克风闭麦，`2`代表耳机静音 |
+| 参数名   | 位置 | 类型   | 必需 | 说明                                         |
+| -------- | ---- | ------ | ---- | -------------------------------------------- |
+| guild_id | body | string | true | 服务器 id                                    |
+| user_id  | body | string | true | 用户 id                                      |
+| type     | body | int    | true | 静音类型，`1`代表麦克风闭麦，`2`代表耳机静音 |
 
 ### 返回参数说明
 
