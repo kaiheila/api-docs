@@ -351,7 +351,11 @@
 {
   "code": 0,
   "message": "操作成功",
-  "data": {}
+  "data": {
+    "user_id": "2418200000",
+    "allow": 2048,
+    "deny": 0
+  }
 }
 ```
 
@@ -388,8 +392,8 @@
   "code": 0,
   "message": "操作成功",
   "data": {
-    "role": 0,
-    "allow": 0,
+    "user_id": "2418200000",
+    "allow": 2048,
     "deny": 0
   }
 }
