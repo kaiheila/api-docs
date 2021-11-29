@@ -66,7 +66,18 @@ create:
                   properties:
                     data:
                       type: object
-                      example: {}
+                      example:
+                        user_id: '2418200000'
+                        allow: 2048
+                        deny: 0
+                      allOf:
+                        - type: object
+                          properties:
+                            user_id:
+                              $ref: '../components/schemas/_index.yaml#/UserId'
+                            role_id:
+                              $ref: '../components/schemas/_index.yaml#/GuildRoleId'
+                        - $ref: '../components/schemas/_index.yaml#/GuildChannelPermission'
 
 update:
   post:
