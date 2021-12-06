@@ -63,8 +63,6 @@ cardmessage 主要由 json 构成，在卡片消息中，有四种类别的卡�
 
 ### card
 
-**作用说明：** 标题模块只能支持展示标准文本（text），突出标题样式。
-
 **主要结构**：
 
 ```javascript
@@ -91,7 +89,7 @@ cardmessage 主要由 json 构成，在卡片消息中，有四种类别的卡�
 
 ### 标题模块
 
-**作用说明：** 标题用于卡片中，突出标题样式。  
+**作用说明：** 标题模块只能支持展示标准文本（text），突出标题样式。   
 **主要结构：**
 
 ```javascript
@@ -348,7 +346,7 @@ cardmessage 主要由 json 构成，在卡片消息中，有四种类别的卡�
 - text 可以为 plain-text, kmarkdown
 - click 代表用户点击的事件,默认为""，代表无任何事件。
   - 当为 link 时，会跳转到 value 代表的链接;
-  - 当为 return-val 时，系统会通过系统消息将消息 id,点击用户 id 和 value 发回给发送者，发送者可以根据自己的需求进行处理,消息事件参见[button 点击事件](https://developer.kaiheila.cn/doc/event/user#Card%E6%B6%88%E6%81%AF%E4%B8%AD%E7%9A%84Button%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6)。
+  - 当为 return-val 时，系统会通过系统消息将消息 id,点击用户 id 和 value 发回给发送者，发送者可以根据自己的需求进行处理,消息事件参见[button 点击事件](https://developer.kaiheila.cn/doc/event/user#Card%E6%B6%88%E6%81%AF%E4%B8%AD%E7%9A%84Button%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6)。当前仅在频道中有效，私聊无法使用点击事件。
 
 ## 结构体
 
