@@ -691,16 +691,14 @@ tags:
       ### 关于卡片中包含的媒体
 
 
-      **如果卡片中包含第三方媒体链接，我们将会自行转存媒体后再完成发送。**推荐大家优先调用asset接口上传媒体文件后再进行发送，以防由于转存失败导致卡片发送不成功。
+      **如果卡片中包含第三方媒体链接，我们将会自行转存媒体后再完成发送。**推荐大家优先调用 asset
+      接口上传媒体文件后再进行发送，以防由于转存失败导致卡片发送不成功。
 
 
       ## 卡片
 
 
       ### card
-
-
-      **作用说明：** 标题模块只能支持展示标准文本（text），突出标题样式。
 
 
       **主要结构**：
@@ -739,7 +737,7 @@ tags:
       ### 标题模块
 
 
-      **作用说明：** 标题用于卡片中，突出标题样式。  
+      **作用说明：** 标题模块只能支持展示标准文本（text），突出标题样式。
 
       **主要结构：**
 
@@ -1116,7 +1114,7 @@ tags:
 
       - click 代表用户点击的事件,默认为""，代表无任何事件。
         - 当为 link 时，会跳转到 value 代表的链接;
-        - 当为 return-val 时，系统会通过系统消息将消息 id,点击用户 id 和 value 发回给发送者，发送者可以根据自己的需求进行处理,消息事件参见[button 点击事件](https://developer.kaiheila.cn/doc/event/user#Card%E6%B6%88%E6%81%AF%E4%B8%AD%E7%9A%84Button%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6)。
+        - 当为 return-val 时，系统会通过系统消息将消息 id,点击用户 id 和 value 发回给发送者，发送者可以根据自己的需求进行处理,消息事件参见[button 点击事件](https://developer.kaiheila.cn/doc/event/user#Card%E6%B6%88%E6%81%AF%E4%B8%AD%E7%9A%84Button%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6)。当前仅在频道中有效，私聊无法使用点击事件。
 
       ## 结构体
 
@@ -5290,7 +5288,7 @@ components:
                   type: array
                   description: '`@特定角色` 的角色ID数组，与`mention_info`中的数据对应'
                   items:
-                    type: string
+                    type: integer
                 mention_here:
                   type: boolean
                 author:

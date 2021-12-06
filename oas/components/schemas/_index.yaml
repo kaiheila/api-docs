@@ -58,7 +58,7 @@ MessageEvent:
               type: array
               description: '`@特定角色` 的角色ID数组，与`mention_info`中的数据对应'
               items:
-                type: string
+                type: integer
             mention_here:
               type: boolean
             author:
