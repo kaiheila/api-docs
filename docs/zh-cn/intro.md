@@ -23,6 +23,7 @@
 | 易语言                | 大鑫/酷黑                       | 暂无                                            | [服务器邀请](https://kaihei.co/GymA7P) |
 | Go                    | lonelyevil/khl                  | [仓库链接](https://github.com/lonelyevil/khl)   | [服务器邀请](https://kaihei.co/r5s1WO) |
 | Java                  | FightingGuys/rabbit             | [仓库链接](https://github.com/FightingGuys/rabbit)| [服务器邀请](https://kaihei.co/O9A5AY) |
+| C#                   | PoH98/KHLSharp                   | [仓库链接](https://github.com/PoH98/KHLBotSharp)| 暂无                                   |
 
 ## OpenAPI 描述文件
 
