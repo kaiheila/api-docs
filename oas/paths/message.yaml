@@ -1,0 +1,77 @@
+list:
+  get:
+    tags:
+      - 频道消息相关接口
+    summary: 获取频道聊天消息列表
+    operationId: getChannelMessages
+    description: 此接口非标准分页，需要根据参考消息来查询相邻分页的消息
+    parameters:
+      - name: target_id
+        in: query
+        description: 频道id
+        required: true
+        schema:
+          $ref: "../components/schemas/_index.yaml#/GuildChannelId"
+      - name: msg_id
+        in: query
+        description: 参考消息id，不传则查询最新消息
+        schema:
+          type: string
+      - name: pin
+        in: query
+        description: 只能为0或者1，是否查询置顶消息。 置顶消息只支持查询最新的消息
+        schema:
+          type: integer
+          format: unsigned integer
+          enum:
+            - 0
+            - 1
+      - $ref: "../components/parameters/_index.yaml#/MessageListFlagParam"
+      - name: page_size
+        in: query
+        description: 当前分页消息数量, 默认50
+        schema:
+          type: integer
+          default: 50
+    responses:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "../components/schemas/_index.yaml#/BasicResponse"
+                - type: object
+                  properties:
+                    data:
+                      type: object
+                      properties:
+                        items:
+                          type: array
+                          items:
+                            $ref: "../components/schemas/_index.yaml#/Message"
+view:
+  get:
+    tags:
+      - 频道消息相关接口
+    summary: 获取频道聊天消息详情
+    operationId: getChannelMessage
+    description: 获取消息详情
+    parameters:
+      - name: msg_id
+        in: query
+        description: 消息id
+        schema:
+          type: string
+    responses:
+      "200":
+        description: OK
+        content:
+          application/json:
+            schema:
+              allOf:
+                - $ref: "../components/schemas/_index.yaml#/BasicResponse"
+                - type: object
+                  properties:
+                    data:
+                      $ref: "../components/schemas/_index.yaml#/Message"
