@@ -7,6 +7,7 @@
 | 接口                                                           | 接口说明                       | 维护状态 |
 | -------------------------------------------------------------- | ------------------------------ | -------- |
 | [/api/v3/message/list](#获取频道聊天消息列表)                  | 获取频道聊天消息列表           | 正常     |
+| [/api/v3/message/view](#获取频道聊天消息详情)                  | 获取频道聊天消息详情           | 正常     |
 | [/api/v3/message/create](#发送频道聊天消息)                    | 发送频道聊天消息               | 正常     |
 | [/api/v3/message/update](#更新频道聊天消息)                    | 更新频道聊天消息               | 正常     |
 | [/api/v3/message/delete](#删除频道聊天消息)                    | 删除频道聊天消息               | 正常     |
@@ -70,121 +71,184 @@
 
 ```json
 {
-  "code": 0,
-  "message": "操作成功",
-  "data": {
-    "items": [
-      {
-        "id": "bac34958-2c73-45c8",
-        "type": 1,
-        "content": "11111111111111111111111",
-        "mention": ["12314**"],
-        "mention_all": false,
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "items": [
+            {
+                "id": "bac34958-2c73-45c8",
+                "type": 1,
+                "content": "11111111111111111111111",
+                "mention": ["12314**"],
+                "mention_all": false,
+                "mention_roles": [],
+                "mention_here": false,
+                "embeds": [
+                    {
+                        "type": "bili-video",
+                        "url": "https://www.bilibili.com/video/XXXXX",
+                        "origin_url": "https://www.bilibili.com/video/XXXXX",
+                        "av_no": "11J411E",
+                        "iframe_path": "https://player.bilibili.com/player.html?xxx=xxx",
+                        "duration": 97,
+                        "title": "Title",
+                        "pic": "https://**/lc01gi.jpg"
+                    }
+                ],
+                "attachments": null,
+                //文件
+                //                "attachments": {
+                //                    "type": "file",
+                //                    "url": "https://xxx.txt",
+                //                    "name": "***.txt",
+                //                    "file_type": "text/plain",
+                //                    "size": 540579
+                //                },
+                //视频
+                // "attachments": {
+                //     "type": "video",
+                //     "url": "https://xxxxx.mp4",
+                //     "name": "***.mp4",
+                //     "duration": 15.472,
+                //     "size": 2575670,
+                //     "width": 480,
+                //     "height": 960
+                // },
+                "create_at": 1612685332518,
+                "updated_at": 0,
+                "reactions": [
+                    {
+                        "emoji": {
+                            "id": "[#129315;]",
+                            "name": "[#129315;]"
+                        },
+                        "count": 1,
+                        "me": true
+                    }
+                ],
+                "author": {
+                    "id": "1780328444",
+                    "username": "小博",
+                    "online": false,
+                    "avatar": "https://***.jpg"
+                },
+                "image_name": "",
+                "read_status": false,
+                "quote": null,
+                //引用消息
+                //                "quote": {
+                //                    "id": "1c4532f6-********-1234-6347f410f91c",
+                //                    "type": 1,
+                //                    "content": "hello World",
+                //                    "create_at": 1628069285358,
+                //                    "author": {
+                //                        "id": "308****000",
+                //                        "username": "盖 伦",
+                //                        "identify_num": "**10",
+                //                        "online": true,
+                //                        "os": "Websocket",
+                //                        "status": 1,
+                //                        "avatar": "https://***.jpg/icon",
+                //                        "vip_avatar": "",
+                //                        "nickname": "***11377",
+                //                        "roles": [
+                //                            102,
+                //                            816
+                //                        ],
+                //                        "is_vip": false,
+                //                        "bot": false,
+                //                        "mobile_verified": true,
+                //                        "joined_at": 1573816459000,
+                //                        "active_time": 1628229821490
+                //                    }
+                //                },
+                "mention_info": {
+                    "mention_part": [
+                        {
+                            "id": "28444",
+                            "username": "**",
+                            "full_name": "**#49",
+                            "avatar": "***.jpg"
+                        }
+                    ],
+                    "mention_role_part": [
+                        {
+                            "role_id": 702,
+                            "name": "管理员",
+                            "color": 0,
+                            "position": 1,
+                            "hoist": 0,
+                            "mentionable": 0,
+                            "permissions": 1
+                        }
+                    ]
+                }
+            }
+        ]
+    }
+}
+```
+
+## 获取频道聊天消息详情
+
+### 接口说明
+
+| 地址                   | 请求方式 | 说明 |
+| ---------------------- | -------- | ---- |
+| `/api/v3/message/view` | GET      |      |
+
+### 参数列表
+
+| 参数名 | 类型   | 必传 | 参数区域 | 说明    |
+| ------ | ------ | ---- | -------- | ------- |
+| msg_id | string | 是   | GET      | 消息 id |
+
+### 返回参数说明
+
+参考 [消息详情参数说明](#消息详情参数说明)
+
+### 返回示例
+
+```json
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "id": "058a5f2d-329f-******-f2e156148716",
+        "type": 9,
+        "content": "(met)1780***(met) (met)hell(met) (met)all(met) (rol)702(rol) (rol)711(rol)",
+        "mention": ["1780***"],
+        "mention_all": true,
         "mention_roles": [],
         "mention_here": false,
-        "embeds": [
-          {
-            "type": "bili-video",
-            "url": "https://www.bilibili.com/video/XXXXX",
-            "origin_url": "https://www.bilibili.com/video/XXXXX",
-            "av_no": "11J411E",
-            "iframe_path": "https://player.bilibili.com/player.html?xxx=xxx",
-            "duration": 97,
-            "title": "Title",
-            "pic": "https://**/lc01gi.jpg"
-          }
-        ],
+        "embeds": [],
         "attachments": null,
-        //文件
-        //                "attachments": {
-        //                    "type": "file",
-        //                    "url": "https://xxx.txt",
-        //                    "name": "***.txt",
-        //                    "file_type": "text/plain",
-        //                    "size": 540579
-        //                },
-        //视频
-        // "attachments": {
-        //     "type": "video",
-        //     "url": "https://xxxxx.mp4",
-        //     "name": "***.mp4",
-        //     "duration": 15.472,
-        //     "size": 2575670,
-        //     "width": 480,
-        //     "height": 960
-        // },
-        "create_at": 1612685332518,
+        "create_at": 1614922734322,
         "updated_at": 0,
-        "reactions": [
-          {
-            "emoji": {
-              "id": "[#129315;]",
-              "name": "[#129315;]"
-            },
-            "count": 1,
-            "me": true
-          }
-        ],
+        "reactions": [],
         "author": {
-          "id": "1780328444",
-          "username": "小博",
-          "online": false,
-          "avatar": "https://***.jpg"
+            "id": "1780***",
+            "username": "**",
+            "identify_num": "5788",
+            "online": false,
+            "os": "Websocket",
+            "status": 1,
+            "avatar": "**",
+            "vip_avatar": "**",
+            "banner": "",
+            "nickname": "**",
+            "roles": [],
+            "is_vip": true,
+            "bot": false
         },
         "image_name": "",
         "read_status": false,
         "quote": null,
-        //引用消息
-        //                "quote": {
-        //                    "id": "1c4532f6-********-1234-6347f410f91c",
-        //                    "type": 1,
-        //                    "content": "hello World",
-        //                    "create_at": 1628069285358,
-        //                    "author": {
-        //                        "id": "308****000",
-        //                        "username": "盖 伦",
-        //                        "identify_num": "**10",
-        //                        "online": true,
-        //                        "os": "Websocket",
-        //                        "status": 1,
-        //                        "avatar": "https://***.jpg/icon",
-        //                        "vip_avatar": "",
-        //                        "nickname": "***11377",
-        //                        "roles": [
-        //                            102,
-        //                            816
-        //                        ],
-        //                        "is_vip": false,
-        //                        "bot": false,
-        //                        "mobile_verified": true,
-        //                        "joined_at": 1573816459000,
-        //                        "active_time": 1628229821490
-        //                    }
-        //                },
         "mention_info": {
-          "mention_part": [
-            {
-              "id": "28444",
-              "username": "**",
-              "full_name": "**#49",
-              "avatar": "***.jpg"
-            }
-          ],
-          "mention_role_part": [
-            {
-              "role_id": 702,
-              "name": "管理员",
-              "color": 0,
-              "position": 1,
-              "hoist": 0,
-              "mentionable": 0,
-              "permissions": 1
-            }
-          ]
+            "mention_part": [],
+            "mention_role_part": []
         }
-      }
-    ]
-  }
+    }
 }
 ```
 
@@ -202,14 +266,14 @@
 
 ### 参数列表
 
-| 参数名         | 类型   | 必传 | 参数区域 | 说明                                                                                                                                                                                                                                     |
-| -------------- | ------ | ---- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 参数名         | 类型   | 必传 | 参数区域 | 说明                                                                                                                                                                                            |
+| -------------- | ------ | ---- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | type           | int    | 否   | POST     | 消息类型, 见[type], 不传默认为 `1`, 代表文本类型。 `9` 代表 [kmarkdown](https://developer.kaiheila.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmessage)。 |
-| target_id      | string | 是   | POST     | 目标频道 id                                                                                                                                                                                                                              |
-| content        | string | 是   | POST     | 消息内容                                                                                                                                                                                                                                 |
-| quote          | string | 否   | POST     | 回复某条消息的 `msgId`                                                                                                                                                                                                                   |
-| nonce          | string | 否   | POST     | nonce, 服务端不做处理, 原样返回                                                                                                                                                                                                          |
-| temp_target_id | string | 否   | POST     | 用户 id,如果传了，代表该消息是临时消息，该消息不会存数据库，但是会在频道内只给该用户推送临时消息。用于在频道内针对用户的操作进行单独的回应通知等。                                                                                       |
+| target_id      | string | 是   | POST     | 目标频道 id                                                                                                                                                                                     |
+| content        | string | 是   | POST     | 消息内容                                                                                                                                                                                        |
+| quote          | string | 否   | POST     | 回复某条消息的 `msgId`                                                                                                                                                                          |
+| nonce          | string | 否   | POST     | nonce, 服务端不做处理, 原样返回                                                                                                                                                                 |
+| temp_target_id | string | 否   | POST     | 用户 id,如果传了，代表该消息是临时消息，该消息不会存数据库，但是会在频道内只给该用户推送临时消息。用于在频道内针对用户的操作进行单独的回应通知等。                                              |
 
 ### 返回参数说明
 
