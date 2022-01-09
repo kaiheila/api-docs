@@ -8,7 +8,7 @@
 
 如果你在使用开黑啦的 API 过程中遇见了 Bug，并且希望上报给我们来纠正这个错误的话，我们提供了两种反馈方式。
 
-- 你可以直接在开黑啦官方的[吐槽中心](https://kaihei.co/MqWk5H)中进行实时反馈；
+- 你可以直接在开黑啦官方的[吐槽中心](https://kaihei.co/B6A7bw)中进行实时反馈；
 - 同时我们我们也提供了在 [GitHub](https://github.com/kaiheila/api-docs) 中的 [issue tracker](https://github.com/kaiheila/api-docs) 中进行反馈。
 
 ## SDK
