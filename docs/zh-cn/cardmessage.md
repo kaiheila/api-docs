@@ -367,5 +367,5 @@ cardmessage 主要由 json 构成，在卡片消息中，有四种类别的卡�
 **规则：**
 
 - cols 是 int,可以的取值为 1-3
-- fields 可以的元素为 text, kmarkdown 或 context
+- fields 可以的元素为 text 或 kmarkdown
 - paragraph 最多有 50 个元素
