@@ -210,7 +210,7 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 
 ```javascript
 {
-    "s": 5
+    "s": 5,
     "d": {
         "code": 41008,
         "err": "Missing params"
@@ -226,7 +226,7 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 
 ```javascript
 {
-    "s": 6
+    "s": 6,
     "d": {
         "session_id": "xxxx-xxxxxx-xxx-xxx"
     }

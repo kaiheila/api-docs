@@ -13,9 +13,9 @@
 
 ### 接口说明
 
-| 地址                   | 请求方式 | 说明 |
-| ---------------------- | -------- | ---- |
-| /api/v3/intimacy/index | GET      |      |
+| 地址                     | 请求方式 | 说明 |
+| ------------------------ | -------- | ---- |
+| `/api/v3/intimacy/index` | GET      |      |
 
 ### 参数列表
 
@@ -72,9 +72,9 @@ curl -H "Authorization: Bot your_token" "https://www.kaiheila.cn/api/v3/intimacy
 
 ### 接口说明
 
-| 地址                    | 请求方式 | 说明      |
-| ----------------------- | -------- | --------- |
-| /api/v3/intimacy/update | POST     | post json |
+| 地址                      | 请求方式 | 说明      |
+| ------------------------- | -------- | --------- |
+| `/api/v3/intimacy/update` | POST     | post json |
 
 ### 参数列表
 

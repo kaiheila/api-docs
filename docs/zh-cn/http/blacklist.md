@@ -1,6 +1,10 @@
 # 黑名单相关接口
 
+<<<<<<< HEAD
 本文档主要列出服务器黑名单相关的接口, 目前所有接口需要有黑名单权限才能正常访问。  
+=======
+本文档主要列出服务器黑名单相关的接口, 目前所有接口需要有[封禁用户](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)权限才能正常访问。  
+>>>>>>> upstream/main
 本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kaiheila.cn/doc/reference)。
 
 | 接口                                    | 接口说明       | 维护状态 |
@@ -13,6 +17,7 @@
 
 ### 接口说明
 
+<<<<<<< HEAD
 | 地址                   | 请求方式 | 说明 |
 | ---------------------- | -------- | ---- |
 | /api/v3/blacklist/list | GET      |      |
@@ -24,6 +29,17 @@
 | guild_id  | query | string  | true  | 服务器 id    |
 | page      | query | integer | false | 目标页数     |
 | page_size | query | integer | false | 每页数据数量 |
+=======
+| 地址                     | 请求方式 | 说明                                                             |
+| ------------------------ | -------- | ---------------------------------------------------------------- |
+| `/api/v3/blacklist/list` | GET      | [分页参数](https://developer.kaiheila.cn/doc/reference#请求参数) |
+
+### 参数列表
+
+| 参数名   | 位置  | 类型   | 必需 | 说明      |
+| -------- | ----- | ------ | ---- | --------- |
+| guild_id | query | string | true | 服务器 id |
+>>>>>>> upstream/main
 
 ### 返回参数说明
 
@@ -31,7 +47,11 @@
 | ------------ | ------ | ---------------------------------------------------------- |
 | user_id      | string | 用户 id                                                    |
 | created_time | int    | 加入黑名单的时间戳(毫秒)                                   |
+<<<<<<< HEAD
 | remake       | string | 加入黑名单的原因                                           |
+=======
+| remark       | string | 加入黑名单的原因                                           |
+>>>>>>> upstream/main
 | user         | object | 用户,参见[user](https://developer.kaiheila.cn/doc/objects) |
 
 ### 返回示例
@@ -45,18 +65,32 @@
       {
         "user_id": "26954***",
         "created_time": 1640340668000,
+<<<<<<< HEAD
         "remark": "发色图",
         "user": {
           "id": "26954***",
           "username": "波波0001",
+=======
+        "remark": "***",
+        "user": {
+          "id": "26954***",
+          "username": "***",
+>>>>>>> upstream/main
           "identify_num": "2826",
           "online": true,
           "os": "Websocket",
           "status": 1,
+<<<<<<< HEAD
           "avatar": "https://img.chuanyuapp.com/assets/avatar_8.jpg/icon",
           "vip_avatar": "https://img.chuanyuapp.com/assets/avatar_8.jpg/icon",
           "banner": "",
           "nickname": "波波0001",
+=======
+          "avatar": "**",
+          "vip_avatar": "**",
+          "banner": "",
+          "nickname": "***",
+>>>>>>> upstream/main
           "roles": [],
           "is_vip": false,
           "bot": false
@@ -78,9 +112,15 @@
 
 ### 接口说明
 
+<<<<<<< HEAD
 | 地址                     | 请求方式 | 说明 |
 | ------------------------ | -------- | ---- |
 | /api/v3/blacklist/create | POST     |      |
+=======
+| 地址                        | 请求方式 | 说明 |
+| -------------------------- | -------- | ---- |
+| `/api/v3/blacklist/create` | POST     |      |
+>>>>>>> upstream/main
 
 ### 参数列表
 
@@ -109,9 +149,15 @@
 
 ### 接口说明
 
+<<<<<<< HEAD
 | 地址                     | 请求方式 | 说明 |
 | ------------------------ | -------- | ---- |
 | /api/v3/blacklist/delete | POST     |      |
+=======
+| 地址                       | 请求方式 | 说明 |
+| -------------------------- | -------- | ---- |
+| `/api/v3/blacklist/delete` | POST     |      |
+>>>>>>> upstream/main
 
 ### 参数列表
 
