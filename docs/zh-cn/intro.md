@@ -13,18 +13,18 @@
 
 ## SDK
 
-热心的社区开发者们已经为大家准备了多种语言的 SDK，无需重复造轮子，上手即可轻松使用！如果希望你的 SDK 展示在此处，请于开发者服务器内联系`冰飞FlappyIce`。
+热心的社区开发者们已经为大家准备了多种语言的 SDK，无需重复造轮子，上手即可轻松使用！如果希望你的 SDK 展示在此处，请于开发者服务器内联系`小波波#9366`。
 
-| 语言                  | 仓库名                          | 仓库地址                                        | 服务器邀请                             |
-| --------------------- | ------------------------------- | ----------------------------------------------- | -------------------------------------- |
-| PHP                   | kaiheila/php-bot                | [仓库链接](https://github.com/kaiheila/php-bot) | 暂无                                   |
-| JavaScript/TypeScript | fi6/KBotify & shugen002/BotRoot | [仓库链接](https://github.com/fi6/kBotify)      | [服务器邀请](https://kaihei.co/GO6qHj) |
-| Python                | TWT233/khl.py                   | [仓库链接](https://github.com/TWT233/khl.py)    | [服务器邀请](https://kaihei.co/JJE0Es) |
-| Python                | Tian-que/nonebot-adapter-kaiheila| [仓库链接](https://github.com/Tian-que/nonebot-adapter-kaiheila)| 暂无                 |
-| 易语言                | 大鑫/酷黑                       | 暂无                                            | [服务器邀请](https://kaihei.co/GymA7P) |
-| Go                    | lonelyevil/khl                  | [仓库链接](https://github.com/lonelyevil/khl)   | [服务器邀请](https://kaihei.co/r5s1WO) |
-| Java                  | FightingGuys/rabbit             | [仓库链接](https://github.com/FightingGuys/rabbit)| [服务器邀请](https://kaihei.co/O9A5AY) |
-| C#                   | PoH98/KHLSharp                   | [仓库链接](https://github.com/PoH98/KHLBotSharp)| 暂无                                   |
+| 语言                  | 仓库名                            | 仓库地址                                                         | 服务器邀请                             |
+| --------------------- | --------------------------------- | ---------------------------------------------------------------- | -------------------------------------- |
+| PHP                   | kaiheila/php-bot                  | [仓库链接](https://github.com/kaiheila/php-bot)                  | 暂无                                   |
+| JavaScript/TypeScript | fi6/KBotify & shugen002/BotRoot   | [仓库链接](https://github.com/fi6/kBotify)                       | [服务器邀请](https://kaihei.co/GO6qHj) |
+| Python                | TWT233/khl.py                     | [仓库链接](https://github.com/TWT233/khl.py)                     | [服务器邀请](https://kaihei.co/JJE0Es) |
+| Python                | Tian-que/nonebot-adapter-kaiheila | [仓库链接](https://github.com/Tian-que/nonebot-adapter-kaiheila) | 暂无                                   |
+| 易语言                | 大鑫/酷黑                         | 暂无                                                             | [服务器邀请](https://kaihei.co/GymA7P) |
+| Go                    | lonelyevil/khl                    | [仓库链接](https://github.com/lonelyevil/khl)                    | [服务器邀请](https://kaihei.co/r5s1WO) |
+| Java                  | FightingGuys/rabbit               | [仓库链接](https://github.com/FightingGuys/rabbit)               | [服务器邀请](https://kaihei.co/O9A5AY) |
+| C#                    | PoH98/KHLSharp                    | [仓库链接](https://github.com/PoH98/KHLBotSharp)                 | 暂无                                   |
 
 ## OpenAPI 描述文件
 
