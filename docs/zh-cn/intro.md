@@ -21,6 +21,7 @@
 | JavaScript/TypeScript | fi6/KBotify & shugen002/BotRoot   | [仓库链接](https://github.com/fi6/kBotify)                       | [服务器邀请](https://kaihei.co/GO6qHj) |
 | Python                | TWT233/khl.py                     | [仓库链接](https://github.com/TWT233/khl.py)                     | [服务器邀请](https://kaihei.co/JJE0Es) |
 | Python                | Tian-que/nonebot-adapter-kaiheila | [仓库链接](https://github.com/Tian-que/nonebot-adapter-kaiheila) | 暂无                                   |
+| Python                | OlivOS-Team/OlivOS                | [仓库链接](https://github.com/OlivOS-Team/OlivOS)                | [服务器邀请](https://kaihei.co/8orLDo) |
 | 易语言                | 大鑫/酷黑                         | 暂无                                                             | [服务器邀请](https://kaihei.co/GymA7P) |
 | Go                    | lonelyevil/khl                    | [仓库链接](https://github.com/lonelyevil/khl)                    | [服务器邀请](https://kaihei.co/r5s1WO) |
 | Java                  | FightingGuys/rabbit               | [仓库链接](https://github.com/FightingGuys/rabbit)               | [服务器邀请](https://kaihei.co/O9A5AY) |
