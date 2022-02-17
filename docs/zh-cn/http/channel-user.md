@@ -1,0 +1,88 @@
+# 频道用户相关接口列表
+
+本文档主要列出频道用户相关接口。
+
+本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kaiheila.cn/doc/reference)。
+
+| 接口                                                                                       | 接口说明             | 维护状态 |
+| ------------------------------------------------------------------------------------------ | -------------------- | -------- |
+| [/api/v3/channel-user/get-joined-channel](#根据用户id和服务器id获取用户所在语音频道)                                 | 根据用户id和服务器id获取用户所在语音频道  | 正常   |
+## 根据用户id和服务器id获取用户所在语音频道
+
+### 接口说明
+
+| 地址                   | 请求方式 | 说明 |
+| ---------------------- | -------- | ---- |
+| `/api/v3/channel-user/get-joined-channel` | GET      |      |
+
+### 参数列表
+
+| 参数名    | 位置  | 类型    | 必需  | 说明                                      |
+| --------- | ----- | ------- | ----- | ----------------------------------------- |
+| page      | query | integer | false | 目标页数                                  |
+| page_size | query | integer | false | 每页数据数量                              |
+| guild_id  | query | string  | true  | 服务器 id                                 |
+| user_id   | query | string | false | 用户id |
+
+### 返回参数说明
+
+| 参数名       | 类型    | 说明           |
+| ------------ | ------- | -------------- |
+| id           | string  | 频道 id        |
+| guild_id     | string  | 父分组频道 id  |
+| master_id    | string  | 频道创建者 id  |
+| parent_id    | string  | 父分组频道 id  |
+| user_id      | string  | 用户id        |
+| name         | string  | 频道名称       |
+| topic        | string  | 频道简介       |
+| type         | int     | 频道类型       |
+| level        | int     | 频道排序       |
+| slow_mode    | int     | 慢速限制，单位秒。用户发送消息之后再次发送消息的等待时间。 |
+| limit_amount | int     | 人数限制       |
+| is_category  | boolean | 是否为分组类型 |
+| permission_overwrites | Array | 频道权限覆写的角色列表, role_id 为角色 id, 其它字段见下表                                                                                                                           |
+| permission_users      | Array | 频道权限覆写的用户列表, user 字段参见[用户接口](https://developer.kaiheila.cn/doc/http/user#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF), 其它的见下表 |
+| permission_sync       | int   | 是否同步分组的权限                                                                                                                                                                  |
+
+### 返回示例
+
+```json
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "items": [
+            {
+                "id": "2760716265467494",
+                "guild_id": "3973268463760079",
+                "master_id": "3264360465",
+                "parent_id": "",
+                "user_id": "3264360465",
+                "name": "测试",
+                "topic": "",
+                "type": 2,
+                "level": 200,
+                "slow_mode": 0,
+                "limit_amount": 50,
+                "is_category": false,
+                "permission_sync": 0,
+                "permission_overwrites": [
+                    {
+                        "role_id": 0,
+                        "allow": 0,
+                        "deny": 0
+                    }
+                ],
+                "permission_users": []
+            }
+        ],
+        "meta": {
+            "page": 1,
+            "page_total": 1,
+            "page_size": 50,
+            "total": 1
+        },
+        "sort": {}
+    }
+}
+```
