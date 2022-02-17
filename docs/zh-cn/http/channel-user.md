@@ -40,8 +40,8 @@
 | slow_mode    | int     | 慢速限制，单位秒。用户发送消息之后再次发送消息的等待时间。 |
 | limit_amount | int     | 人数限制       |
 | is_category  | boolean | 是否为分组类型 |
-| permission_overwrites | Array | 频道权限覆写的角色列表, role_id 为角色 id, 其它字段见下表                                                                                                                           |
-| permission_users      | Array | 频道权限覆写的用户列表, user 字段参见[用户接口](https://developer.kaiheila.cn/doc/http/user#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF), 其它的见下表 |
+| permission_overwrites | Array | 频道权限覆写的角色列表, 详情见[频道角色权限详情](https://developer.kaiheila.cn/doc/http/channel#%E9%A2%91%E9%81%93%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E8%AF%A6%E6%83%85) |
+| permission_users      | Array | 频道权限覆写的用户列表, 详情见[频道角色权限详情](https://developer.kaiheila.cn/doc/http/channel#%E9%A2%91%E9%81%93%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E8%AF%A6%E6%83%85) |
 | permission_sync       | int   | 是否同步分组的权限                                                                                                                                                                  |
 
 ### 返回示例
