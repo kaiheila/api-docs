@@ -22,7 +22,7 @@
 | page      | query | integer | false | 目标页数                                  |
 | page_size | query | integer | false | 每页数据数量                              |
 | guild_id  | query | string  | true  | 服务器 id                                 |
-| user_id   | query | string | false | 用户id |
+| user_id   | query | string | true | 用户id |
 
 ### 返回参数说明
 
