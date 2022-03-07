@@ -8,8 +8,8 @@
 |---|---|---|
 |[/api/v3/game](#游戏列表)|游戏列表|正常|
 |[/api/v3/game/create](#添加游戏)|添加游戏|正常|
-|[/api/v3/game/update](#更新游戏)|更新游戏|正常（公开）|
-|[/api/v3/game/delete](#删除游戏)|删除游戏|正常（公开）|
+|[/api/v3/game/update](#更新游戏)|更新游戏|正常|
+|[/api/v3/game/delete](#删除游戏)|删除游戏|正常|
 |[/api/v3/game/activity](#添加游戏记录-开始玩)|添加游戏记录(开始玩)|正常|
 |[/api/v3/game/delete-activity](#删除游戏记录-结束玩)|删除游戏记录(结束玩)|正常|
 
