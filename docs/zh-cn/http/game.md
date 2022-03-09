@@ -45,7 +45,7 @@
     "data": {
         "items": [
             {
-                "id": 111,
+                "id": 111111,
                 "name": "CS",
                 "type": 0,
                 "options": "",
@@ -60,8 +60,8 @@
         "meta": {
             "page": 2,
             "page_total": 2,
-            "page_size": 100,
-            "total": 103
+            "page_size": 50,
+            "total": 100
         },
         "sort": {}
     }
@@ -82,6 +82,7 @@
 | ----- | ---- | ---- | ---- | 
 |name | string | 是 | 名称 |
 |process_name| string | 否 | 进程名 |
+|icon| string | 否 | 图标 |
 
 ### 返回参数说明 
 <[object-game](#object-game)>
@@ -93,7 +94,7 @@
     "code": 0,
     "message": "操作成功",
     "data": {
-        "id": 111,
+        "id": 111111,
         "name": "开黑啦",
         "type": 0,
         "options": "",
@@ -131,7 +132,7 @@
     "code": 0,
     "message": "操作成功",
     "data": {
-        "id": 111,
+        "id": 111111,
         "name": "开黑啦",
         "type": 0,
         "options": "",
@@ -191,7 +192,7 @@
 
 ### 返回示例
 ```
-{"id":466,"data_type":1}
+{"id":111111,"data_type":1}
 ```
 
 ```javascript
