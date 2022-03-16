@@ -335,7 +335,7 @@
 | ---------- | ---- | ------ | ----- | ------------------------------------------------------------- |
 | channel_id | body | string | true  | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
 | type       | body | string | false | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
-| value      | body | string | false | 根据 type 的值，为 用户 id 或 频道 id                         |
+| value      | body | string | false | 根据 type 的值，为 用户 id 或 角色 id                         |
 
 ### 返回参数说明
 
@@ -373,7 +373,7 @@
 | ---------- | ---- | ------- | ----- | ------------------------------------------------------------- |
 | channel_id | body | string  | true  | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
 | type       | body | string  | false | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
-| value      | body | string  | false | 根据 type 的值，为用户 id 或频道 id                           |
+| value      | body | string  | false | 根据 type 的值，为用户 id 或角色 id                           |
 | allow      | body | integer | false | 默认为 0,想要设置的允许的权限值                               |
 | deny       | body | integer | false | 默认为 0,想要设置的拒绝的权限值                               |
 
@@ -413,7 +413,7 @@
 | ---------- | ---- | ------ | ----- | ------------------------------------------------------------- |
 | channel_id | body | string | true  | 频道 id, 如果频道是分组的 id,会同步给所有 sync=1 的子频道     |
 | type       | body | string | false | value 的类型，只能为"role_id","user_id",不传则默认为"user_id" |
-| value      | body | string | false | 根据 type，为用户 id 或频道 id                                |
+| value      | body | string | false | 根据 type，为用户 id 或角色 id                                |
 
 ### 返回参数说明
 
