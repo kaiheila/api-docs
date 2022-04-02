@@ -45,7 +45,7 @@ Authorization: Bot BHsTZ4232tLatgV5AFyjoqZGAHHmpl9mTxYQ/u4/80=
 如果希望本地化，可以在 http 头中加入 `Accept-Language` 头，如下为一个示例：
 
 ```
-Accept-Language: en-us
+Accept-Language: en-US
 ```
 
 系统如果支持该语言，系统会以该语言返回错误消息等。如果系统不支持，系统会以默认的 zh-cn 来返回接口的消息，提示等。
