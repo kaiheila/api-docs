@@ -141,6 +141,7 @@
 | permission_overwrites | Array   | 针对角色在该频道的权限覆写规则组成的列表      |
 | permission_users      | array   | 针对用户在该频道的权限覆写规则组成的列表      |
 | permission_sync       | int     | 权限设置是否与分组同步, `1` or `0`            |
+| has_password          | bool    | 是否有密码    |
 
 **示例**
 

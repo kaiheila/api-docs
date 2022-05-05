@@ -10,6 +10,7 @@
 | [/api/v3/channel/list](#获取频道列表)                                                      | 获取频道列表         | 正常     |
 | [/api/v3/channel/view](#获取频道详情)                                                      | 获取频道详情         | 正常     |
 | [/api/v3/channel/create](#创建频道)                                                        | 创建频道             | 正常     |
+| [/api/v3/channel/update](#编辑频道)                                                        | 编辑频道             | 正常     |
 | [/api/v3/channel/delete](#删除频道)                                                        | 删除频道             | 正常     |
 | [/api/v3/channel/move-user](#语音频道之间移动用户)                                         | 语音频道之间移动用户 | 正常     |
 | [/api/v3/channel-role/index](#频道角色权限详情)                                            | 获取频道角色权限详情 | 正常     |
@@ -186,6 +187,105 @@
         "is_category": false,
         "server_type": 0,
         "server_url": "hostname:prot"
+    }
+}
+```
+
+## 编辑频道
+
+### 接口说明
+
+| 地址                            | 请求方式 | 说明 |
+| ------------------------------- | -------- | ---- |
+| /api/v3/channel/update | POST      |      |
+
+### 参数列表
+
+| 参数名     | 类型   | 必传 | 参数区域 | 说明                                     |
+| ---------- | ------ | ---- | -------- | ---------------------------------------- |
+| channel_id | string | 是   | POST| 服务器中频道的 ID                        |
+| guild_id   | string | 是   | POST| 服务器id |
+| name   | string | 否   | POST| 频道名称 |
+| topic   | string | 否   | POST| 频道简介 |
+| slow_mode   | string | 否   | POST| 慢速模式，单位ms。 slow_mode 和 parent_id不可同时不传|
+
+### 返回参数说明
+参考[对象-频道 Channel](https://developer.kaiheila.cn/doc/objects#频道Channel)
+
+### 传参示例
+```json
+{
+    "guild_id": "1111111111111111",
+    "channel_id":"1111111111111111",
+    "name":"q'q-!!",
+    "topic":"mmm"
+}
+```
+
+### 返回示例
+```javascript
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "id": "1111111111111111",
+        "name": "q'q-!!",
+        "user_id": "1111111111",
+        "guild_id": "1111111111111111",
+        "voice_quality": "2",
+        "limit_amount": 0,
+        "is_category": 0,
+        "is_readonly": false,
+        "parent_id": "1111111111111111",
+        "is_private": false,
+        "server_type": 1,
+        "server_url": "rtc-new.dev.chuanyuapp.com:39999/gateway/v1",
+        "level": 3,
+        "slow_mode": 0,
+        "topic": "mmm",
+        "is_master": false,
+        "type": 1,
+        "permission_overwrites": [
+            {
+                "role_id": 0,
+                "allow": 5152,
+                "deny": 8
+            }
+        ],
+        "permission_users": [
+            {
+                "user": {
+                    "id": "1111111111",
+                    "username": "Ivy",
+                    "identify_num": "9314",
+                    "online": true,
+                    "os": "Websocket",
+                    "status": 1,
+                    "avatar": "https://img.chuanyuapp.com/assets/avatar_4.jpg/icon",
+                    "vip_avatar": "https://img.chuanyuapp.com/assets/avatar_4.jpg/icon",
+                    "banner": "",
+                    "nickname": "Ivy",
+                    "roles": [
+                        2127
+                    ],
+                    "is_vip": false,
+                    "is_ai_reduce_noise": true,
+                    "bot": false,
+                    "tag_info": {
+                        "color": "#6666CC",
+                        "text": "开黑啦"
+                    },
+                    "mobile_verified": true,
+                    "joined_at": 1644204471000,
+                    "active_time": 1648460218956
+                },
+                "allow": 1056,
+                "deny": 0
+            }
+        ],
+        "permission_sync": 1,
+        "mode": 0,
+        "has_password": false
     }
 }
 ```
