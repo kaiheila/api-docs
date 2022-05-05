@@ -204,7 +204,7 @@
 | 参数名     | 类型   | 必传 | 参数区域 | 说明                                     |
 | ---------- | ------ | ---- | -------- | ---------------------------------------- |
 | channel_id | string | 是   | POST| 服务器中频道的 ID                        |
-| guild_id   | string | 是   | POST| 服务器id（code） |
+| guild_id   | string | 是   | POST| 服务器id |
 | name   | string | 否   | POST| 频道名称 |
 | topic   | string | 否   | POST| 频道简介 |
 | slow_mode   | string | 否   | POST| 慢速模式，单位ms。 slow_mode 和 parent_id不可同时不传|
@@ -216,12 +216,12 @@
 | id | string | code |
 | name | string | 名称 |
 | user_id | string | 创建者 |
-| guild_id | string | 服务器id（code） |
+| guild_id | string | 服务器id |
 | voice_quality | string | 语音质量 |
 | limit_amount |int| 最大人数 |
 | is_category | int | 是否是分组 |
 | is_readonly | int | 废弃 |
-| parent_id | string | 所属分组id（code） |
+| parent_id | string | 所属分组id |
 | is_private | bool | 是否私密 |
 | server_type | int |  |
 | server_url | string |  |
