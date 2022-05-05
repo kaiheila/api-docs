@@ -19,17 +19,17 @@
 
 ### 格式说明
 
-| 字段          | 类型   | 说明                                                                                                                 |
-| ------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
-| channel_type  | string | 消息频道类型, `GROUP` 为频道消息                                                                                     |
-| type          | int    | 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card 消息，255:系统消息, 其它的暂未开放 |
-| target_id     | string | 发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id                                                           |
-| author_id     | string | 发送者 id, 1 代表系统                                                                                                |
-| content       | string | 消息内容, 文件，图片，视频时，content 为 url                                                                         |
-| msg_id        | string | 消息的 id                                                                                                            |
-| msg_timestamp | int    | 消息发送时间的毫秒时间戳                                                                                             |
-| nonce         | string | 随机串，与用户消息发送 api 中传的 nonce 保持一致                                                                     |
-| extra         | mixed  | 不同的消息类型，结构不一致                                                                                           |
+| 字段          | 类型   | 说明                                                                                               |
+| ------------- | ------ |--------------------------------------------------------------------------------------------------|
+| channel_type  | string | 消息通道类型, `GROUP` 为组播消息, `PERSON` 为单播消息, `BROADCAST` 为广播消息                                         |
+| type          | int    | 1:文字消息, 2:图片消息，3:视频消息，4:文件消息， 8:音频消息，9:KMarkdown，10:card 消息，255:系统消息, 其它的暂未开放                    |
+| target_id     | string | 发送目的, 频道消息类时, 代表的是频道 channel_id，如果 channel_type 为 `GROUP` 组播且 type 为 `255` 系统消息时，则代表服务器 guild_id |
+| author_id     | string | 发送者 id, 1 代表系统                                                                                   |
+| content       | string | 消息内容, 文件，图片，视频时，content 为 url                                                                    |
+| msg_id        | string | 消息的 id                                                                                           |
+| msg_timestamp | int    | 消息发送时间的毫秒时间戳                                                                                     |
+| nonce         | string | 随机串，与用户消息发送 api 中传的 nonce 保持一致                                                                   |
+| extra         | mixed  | 不同的消息类型，结构不一致                                                                                    |
 
 ### 文字频道消息 extra 说明
 
