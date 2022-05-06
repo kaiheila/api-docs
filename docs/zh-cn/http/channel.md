@@ -204,10 +204,9 @@
 | 参数名     | 类型   | 必传 | 参数区域 | 说明                                     |
 | ---------- | ------ | ---- | -------- | ---------------------------------------- |
 | channel_id | string | 是   | POST| 服务器中频道的 ID                        |
-| guild_id   | string | 是   | POST| 服务器id |
 | name   | string | 否   | POST| 频道名称 |
 | topic   | string | 否   | POST| 频道简介 |
-| slow_mode   | string | 否   | POST| 慢速模式，单位ms。 slow_mode 和 parent_id不可同时不传|
+| slow_mode   | string | 否   | POST| 慢速模式，单位ms|
 
 ### 返回参数说明
 参考[对象-频道 Channel](https://developer.kaiheila.cn/doc/objects#频道Channel)
@@ -215,7 +214,6 @@
 ### 传参示例
 ```json
 {
-    "guild_id": "1111111111111111",
     "channel_id":"1111111111111111",
     "name":"q'q-!!",
     "topic":"mmm"
