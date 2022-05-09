@@ -141,7 +141,7 @@
 
 | 参数名    | 位置 | 类型   | 必需  | 说明        |
 | --------- | ---- | ------ | ----- | ----------- |
-| target_id | body | string | false | 目标用户 id |
+| target_id | body | string | true | 目标用户 id |
 
 ### 返回参数说明
 
@@ -185,7 +185,7 @@
 
 | 参数名    | 位置 | 类型   | 必需  | 说明        |
 | --------- | ---- | ------ | ----- | ----------- |
-| target_id | body | string | false | 目标用户 id |
+| chat_code | body | string | true | 目标私信会话 Code |
 
 ### 返回参数说明
 
