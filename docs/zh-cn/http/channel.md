@@ -206,7 +206,7 @@
 | channel_id | string | 是   | POST| 服务器中频道的 ID                        |
 | name   | string | 否   | POST| 频道名称 |
 | topic   | string | 否   | POST| 频道简介 |
-| slow_mode | int | 否   | POST| 慢速模式，单位ms|
+| slow_mode | int | 否   | POST| 慢速模式，单位ms。目前只支持这些值：0, 5000, 10000, 15000, 30000, 60000, 120000, 300000, 600000, 900000, 1800000, 3600000, 7200000, 21600000|
 
 ### 返回参数说明
 参考[对象-频道 Channel](https://developer.kaiheila.cn/doc/objects#频道Channel)
