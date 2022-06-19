@@ -10,7 +10,7 @@
 
 Gateway 是 websocket 的网关，客户端通过连接 Gateway 可以获取到相应的推送消息等。
 
-Gateway 的获取需要走 http 接口获取，参见[Gateway](https://developer.kaiheila.cn/doc/http/gateway)
+Gateway 的地址需要走 http 接口获取，参见[Gateway](https://developer.kaiheila.cn/doc/http/gateway)
 
 ## 消息压缩
 
