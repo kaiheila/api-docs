@@ -24,6 +24,7 @@
 | Python                | OlivOS-Team/OlivOS                | [仓库链接](https://github.com/OlivOS-Team/OlivOS)                | [服务器邀请](https://kaihei.co/8orLDo) |
 | Ruby                  | DessertShop/KHL                   | [仓库链接](https://github.com/DessertShop/KHL)                   | [服务器邀请](https://kaihei.co/ie2ymJ) |
 | 易语言                | 大鑫/酷黑                         | 暂无                                                             | [服务器邀请](https://kaihei.co/GymA7P) |
+| 易语言                | Cyerol/Mengko梦果框架              | 暂无                                                             | [服务器邀请](https://kaihei.co/OMWqzw)|
 | Go                    | lonelyevil/khl                    | [仓库链接](https://github.com/lonelyevil/khl)                    | [服务器邀请](https://kaihei.co/r5s1WO) |
 | Java                  | FightingGuys/rabbit               | [仓库链接](https://github.com/FightingGuys/rabbit)               | [服务器邀请](https://kaihei.co/O9A5AY) |
 | C#                    | PoH98/KHLSharp                    | [仓库链接](https://github.com/PoH98/KHLBotSharp)                 | 暂无                                   |
