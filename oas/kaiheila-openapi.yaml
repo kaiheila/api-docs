@@ -5,7 +5,7 @@ servers:
     description: 机器人接口
 
 info:
-  title: 开黑啦机器人API v3 开发者版
+  title: KOOK 机器人API v3 开发者版
   version: 3.0.0
   termsOfService: https://developer.kookapp.cn/doc/privacy
   contact:
@@ -18,7 +18,7 @@ info:
 
 # 如需合并，请执行：npx @redocly/openapi-cli bundle ./api-docs/oas/kaiheila-openapi.yaml -o ./api-docs/oas/kaiheila-openapi-bundled.yaml
 tags:
-  - name: 将Bot连接到开黑啦服务器
+  - name: 将Bot连接到 KOOK 服务器
     description: 使用Websocket或Webhook将Bot连接至服务器
   - name: KMarkdown与卡片消息
     description:
@@ -113,7 +113,7 @@ paths:
   /connect-websocket:
     get:
       tags:
-        - 将Bot连接到开黑啦服务器
+        - 将Bot连接到 KOOK 服务器
       summary: 使用Websocket进行连接
       description:
         $ref: "./descriptions/websocket.md"
@@ -123,7 +123,7 @@ paths:
   /connect-webhook:
     get:
       tags:
-        - 将Bot连接到开黑啦服务器
+        - 将Bot连接到 KOOK 服务器
       summary: 使用Webhook进行连接
       description:
         $ref: "./descriptions/webhook.md"
