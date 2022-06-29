@@ -1,6 +1,6 @@
 # Badge 相关文档
 
-本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kaiheila.cn/doc/reference)。
+本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kookapp.cn/doc/reference)。
 
 | 接口                                        | 接口说明         | 维护状态 |
 | ------------------------------------------- | ---------------- | -------- |
@@ -25,9 +25,9 @@
 
 | 样式类型 | 描述          | 示例                                                                                                                                    |
 | -------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------- |
-| 0        | 服务器名称    | [![「猎杀：对决」官方中文社区](https://www.kaiheila.cn/api/v3/badge/guild?style=0&guild_id=5417470909511807)](https://kaihei.co/ESH4Ar) |
-| 1        | 在线数        | [![War Selection官方中文社区](https://www.kaiheila.cn/api/v3/badge/guild?style=1&guild_id=8838958323965995)](https://kaihei.co/hG4OJH)  |
-| 2        | 在线数/总人数 | [![原神 ｜ 异世相遇](https://www.kaiheila.cn/api/v3/badge/guild?style=2&guild_id=8258926332013541)](https://kaihei.co/C1rg7G)           |
+| 0        | 服务器名称    | [![「猎杀：对决」官方中文社区](https://www.kookapp.cn/api/v3/badge/guild?style=0&guild_id=5417470909511807)](https://kaihei.co/ESH4Ar) |
+| 1        | 在线数        | [![War Selection官方中文社区](https://www.kookapp.cn/api/v3/badge/guild?style=1&guild_id=8838958323965995)](https://kaihei.co/hG4OJH)  |
+| 2        | 在线数/总人数 | [![原神 ｜ 异世相遇](https://www.kookapp.cn/api/v3/badge/guild?style=2&guild_id=8258926332013541)](https://kaihei.co/C1rg7G)           |
 
 ### 返回参数说明
 

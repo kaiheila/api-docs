@@ -1,4 +1,4 @@
-通过 Webhook 进行消息订阅可以让你的应用或机器人能够及时响应用户的消息，在用户量较多的情况下，可以提供更好的并发性能控制。你需要的只是告诉我们该向哪里（URL）发送消息。当消息发生时，Kaiheila 开放平台会以 HTTP POST 请求的方式将消息内容推送到你设置的回调地址。
+通过 Webhook 进行消息订阅可以让你的应用或机器人能够及时响应用户的消息，在用户量较多的情况下，可以提供更好的并发性能控制。你需要的只是告诉我们该向哪里（URL）发送消息。当消息发生时，KOOK 开放平台会以 HTTP POST 请求的方式将消息内容推送到你设置的回调地址。
 
 **注意：** Webhook 模式与 Websocket 模式是互斥的，如果选择了 Webhook 模式，将不能再使用 Websocket 接收用户消息。同理，设置了 Websocket 后，平台将不会再向回调地址推送消息。
 
@@ -50,7 +50,7 @@
 1. 为了避免同一个事件处理了多次，你可能需要使用 `sn` 对事件的唯一性进行检查。
 2. 在正常配置好后，系统会给回调地址推送消息，你需要在 1s 内返回 http 200 响应。如果失败或超时，系统会按 2s, 4s, 8s, 16s, 32, 64s 的大致间隔，给你回调，直到 5 次都失败。
 3. 默认配置为 Webhook 机器人且设置好回调地址后，系统会认为机器人自动上线。如果一段时间内，用户的失败次数达到警告阀值，系统会发送站内消息给相应开发者。如果失败次数过多，平台会认为机器人出现故障，平台会给开发者发送站内消息，并下线该机器人。机器人下线后，平台会停止向该机器人发送任何消息。用户在排除故障后，可以在开发者后台，重新点击上线，恢复该机器人。在恢复时，系统会再次重复之前的验证 Url 流程，来确保该 Url 依然属于您。
-4. 在消息中，我们会带上 verify_token, 你可以检查 `verify_token` 是否与开发者后台的 `verify_token` 是否 相同以确保这个事件的来源确实是 Kaiheila 开放平台，而不是恶意的第三方伪造的事件。
+4. 在消息中，我们会带上 verify_token, 你可以检查 `verify_token` 是否与开发者后台的 `verify_token` 是否 相同以确保这个事件的来源确实是 KOOK 开放平台，而不是恶意的第三方伪造的事件。
 5. 如果你需要更安全的事件回调机制，建议填写 `EncryptKey`，在进行业务逻辑处理前请先参考[这里](#消息解密)进行解密。
 6. 默认情况下，我们的数据会进行 zlib 压缩 (**deflate**)，相应的数据你可能需要先进行 zlib 解压缩，再进行处理。如果不需要压缩，可以在传入的 callbackUrl 中加上 `compress=0`。
 
@@ -87,7 +87,7 @@ class Encrypt:
 
 ```php
 $encryptKey = "testKey";
-$data = "Kaiheila's bot is awesome";
+$data = "kookapp's bot is awesome";
 $encrypt = encryptData($data, $encryptKey);
 echo $encrypt. "\n";
 echo decryptData($encrypt, $encryptKey);
@@ -108,4 +108,4 @@ function decryptData($eData, $key)
 
 ## 消息格式及说明
 
-在配置完上述回调地址之后，我们就可以接收并处理事件了，事件的详情参见[事件格式说明](https://developer.kaiheila.cn/doc/event)
+在配置完上述回调地址之后，我们就可以接收并处理事件了，事件的详情参见[事件格式说明](https://developer.kookapp.cn/doc/event)

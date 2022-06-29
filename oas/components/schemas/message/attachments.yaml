@@ -12,7 +12,7 @@
 #     url:
 #       type: string
 #       description: 附件链接
-#       example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
+#       example: 'https://img.kookapp.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
 
 # video:
 #   type: object
@@ -26,7 +26,7 @@
 #       example: 002iQMhagx07Fx0S4xxxx323o0E010.mp4
 #     url:
 #       description: 附件链接
-#       example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
+#       example: 'https://img.kookapp.cn/attachments/2020-12/11/asd.mp4'
 #     file_type:
 #       description: 文件格式
 #       example: 'video/mp4'
@@ -56,7 +56,7 @@
 #         - file
 #     url:
 #       type: string
-#       example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+#       example: 'https://img.kookapp.cn/attachments/2020-12/11/asd.txt'
 #     name:
 #       type: string
 #       description: 多媒体名

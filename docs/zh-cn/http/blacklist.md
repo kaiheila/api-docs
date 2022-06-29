@@ -1,7 +1,7 @@
 # 黑名单相关接口
 
-本文档主要列出服务器黑名单相关的接口, 目前所有接口需要有[封禁用户](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)权限才能正常访问。  
-本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kaiheila.cn/doc/reference)。
+本文档主要列出服务器黑名单相关的接口, 目前所有接口需要有[封禁用户](https://developer.kookapp.cn/doc/http/guild-role#权限说明)权限才能正常访问。  
+本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kookapp.cn/doc/reference)。
 
 | 接口                                    | 接口说明       | 维护状态 |
 | --------------------------------------- | -------------- | -------- |
@@ -15,7 +15,7 @@
 
 | 地址                     | 请求方式 | 说明                                                             |
 | ------------------------ | -------- | ---------------------------------------------------------------- |
-| `/api/v3/blacklist/list` | GET      | [分页参数](https://developer.kaiheila.cn/doc/reference#请求参数) |
+| `/api/v3/blacklist/list` | GET      | [分页参数](https://developer.kookapp.cn/doc/reference#请求参数) |
 
 ### 参数列表
 

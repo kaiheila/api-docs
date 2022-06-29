@@ -2,11 +2,11 @@
 
 本文档主要列出频道相关接口。
 
-本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kaiheila.cn/doc/reference)。
+本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kookapp.cn/doc/reference)。
 
 | 接口                                                                                       | 接口说明             | 维护状态 |
 | ------------------------------------------------------------------------------------------ | -------------------- | -------- |
-| [/api/v3/channel/message](https://developer.kaiheila.cn/doc/http/message#发送频道聊天消息) | 发送频道聊天消息     | 已弃用   |
+| [/api/v3/channel/message](https://developer.kookapp.cn/doc/http/message#发送频道聊天消息) | 发送频道聊天消息     | 已弃用   |
 | [/api/v3/channel/list](#获取频道列表)                                                      | 获取频道列表         | 正常     |
 | [/api/v3/channel/view](#获取频道详情)                                                      | 获取频道详情         | 正常     |
 | [/api/v3/channel/create](#创建频道)                                                        | 创建频道             | 正常     |
@@ -209,7 +209,7 @@
 | slow_mode | int | 否   | POST| 慢速模式，单位ms。目前只支持这些值：0, 5000, 10000, 15000, 30000, 60000, 120000, 300000, 600000, 900000, 1800000, 3600000, 7200000, 21600000|
 
 ### 返回参数说明
-参考[对象-频道 Channel](https://developer.kaiheila.cn/doc/objects#频道Channel)
+参考[对象-频道 Channel](https://developer.kookapp.cn/doc/objects#频道Channel)
 
 ### 传参示例
 ```json

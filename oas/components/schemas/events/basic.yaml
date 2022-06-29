@@ -6,7 +6,7 @@ required:
 properties:
   s:
     type: integer
-    description: websocket信令，详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
+    description: websocket信令，详见[开黑啦websocket说明](https://developer.kookapp.cn/doc/websocket)
     example: 0
   d:
     type: object
@@ -62,5 +62,5 @@ properties:
         description: 不同的消息类型，结构不一致
   sn:
     type: integer
-    description: 消息序号，针对当前session。该字段并不一定有，只在s=0时有，与webhook一致。详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
+    description: 消息序号，针对当前session。该字段并不一定有，只在s=0时有，与webhook一致。详见[开黑啦websocket说明](https://developer.kookapp.cn/doc/websocket)
     example: 1

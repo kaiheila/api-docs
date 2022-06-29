@@ -24,7 +24,7 @@ image:
         url:
           type: string
           description: 附件链接
-          example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
+          example: 'https://img.kookapp.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
 
 video:
   type: object
@@ -52,7 +52,7 @@ video:
         url:
           type: string
           description: 附件链接
-          example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
+          example: 'https://img.kookapp.cn/attachments/2020-12/11/asd.mp4'
         file_type:
           description: 文件格式
           type: string
@@ -73,7 +73,7 @@ video:
           type: integer
           description: 视频高度
           example: 480
-  
+
 
 
 file:
@@ -97,7 +97,7 @@ file:
             - file
         url:
           type: string
-          example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+          example: 'https://img.kookapp.cn/attachments/2020-12/11/asd.txt'
         file_type:
           description: 文件格式
           type: string
@@ -111,4 +111,3 @@ file:
           example: 2575670
 
 
-  

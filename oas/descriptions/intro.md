@@ -6,7 +6,7 @@
 
 ## 引言
 
-此文档仅用于方便开发者查看、确认开黑啦机器人 API 接口，官方文档地址：[开黑啦开发者平台](https://developer.kaiheila.cn/doc/)
+此文档仅用于方便开发者查看、确认开黑啦机器人 API 接口，官方文档地址：[开黑啦开发者平台](https://developer.kookapp.cn/doc/)
 
 两份文档内容基本相同，你可以选择自己习惯的查看方式。
 
@@ -45,9 +45,9 @@
 
 ### 机器人
 
-机器人是增加聊天乐趣和提升管理服务器效率的新方式。你可以通过调整机器人的[亲密度](https://developer.kaiheila.cn/bot)设置，来赋予它们独特的生命力，让它们与用户产生更为亲密的交互。当然你也可以创造一个严肃的管理机器人，或将他变成任何你想象中的样子，充分发挥你的想象力，让你的机器人变得与众不同！
+机器人是增加聊天乐趣和提升管理服务器效率的新方式。你可以通过调整机器人的[亲密度](https://developer.kookapp.cn/bot)设置，来赋予它们独特的生命力，让它们与用户产生更为亲密的交互。当然你也可以创造一个严肃的管理机器人，或将他变成任何你想象中的样子，充分发挥你的想象力，让你的机器人变得与众不同！
 
-快去创建一个属于你的[机器人](https://developer.kaiheila.cn/bot)吧！
+快去创建一个属于你的[机器人](https://developer.kookapp.cn/bot)吧！
 
 ## 隐私政策
 
@@ -126,7 +126,7 @@
 ### 联系方式
 
 与本政策相关的任何疑问、意见或请求，请发送至
-[service@kaiheila.cn](mailto:service@kaiheila.cn)。
+[service@kookapp.cn](mailto:service@kookapp.cn)。
 一般情况下，我们会在收到您相关联系信息并核实您身份后的【15】日内回复。
 
 ### 其他
@@ -149,12 +149,12 @@
 #### BaseUrl
 
 ```
-https://www.kaiheila.cn/api
+https://www.kookapp.cn/api
 ```
 
 #### API 版本管理
 
-开黑啦后续可能会有不同版本的 API。您可以通过像 `https://www.kaiheila.cn/api/v{version_number}` 这样在请求路径中明确指定所要使用的 API 版本。如果省略掉 version_number, 它会指向默认的版本。目前支持的版本列表如下所示：
+开黑啦后续可能会有不同版本的 API。您可以通过像 `https://www.kookapp.cn/api/v{version_number}` 这样在请求路径中明确指定所要使用的 API 版本。如果省略掉 version_number, 它会指向默认的版本。目前支持的版本列表如下所示：
 
 | 版本 | 状态   | 默认 |
 | ---- | ------ | ---- |
@@ -175,7 +175,7 @@ Authorization: Bot BHsTZ4232tLatgV5AFyjoqZGAHHmpl9mTxYQ/u4/80=
 
 #### 速度限制
 
-为了保护我们的系统，我们在 [RFC 6585](https://tools.ietf.org/html/rfc6585#section-4) 的基础上做了一些扩展，来限制用户的接口调用速度。经常达到限速阀值或者忽略速度限制的 API 用户将会被撤销 API 密钥，并且被限制登录。有关速度限制的问题，请参阅[速率限制](https://developer.kaiheila.cn/doc/rate-limit)一节
+为了保护我们的系统，我们在 [RFC 6585](https://tools.ietf.org/html/rfc6585#section-4) 的基础上做了一些扩展，来限制用户的接口调用速度。经常达到限速阀值或者忽略速度限制的 API 用户将会被撤销 API 密钥，并且被限制登录。有关速度限制的问题，请参阅[速率限制](https://developer.kookapp.cn/doc/rate-limit)一节
 
 #### i18N
 
@@ -233,7 +233,7 @@ Accept-Language: en-us
 
 消息通知在整个开黑啦体系中比较复杂，我们目前支持两种消息通知机制：
 
-- [Webhook](https://developer.kaiheila.cn/doc/webhook)
+- [Webhook](https://developer.kookapp.cn/doc/webhook)
 - [Websocket](https://developer.kaiheila.cn/doc/websocket)
 
 不论是以何种方式来接受消息，它们都遵循着相同的规范：

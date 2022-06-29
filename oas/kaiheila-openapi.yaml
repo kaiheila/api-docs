@@ -1,15 +1,15 @@
 openapi: 3.1.0
 
 servers:
-  - url: https://www.kaiheila.cn/api/v3
+  - url: https://www.kookapp.cn/api/v3
     description: 机器人接口
 
 info:
   title: 开黑啦机器人API v3 开发者版
   version: 3.0.0
-  termsOfService: https://developer.kaiheila.cn/doc/privacy
+  termsOfService: https://developer.kookapp.cn/doc/privacy
   contact:
-    email: service@kaiheila.cn
+    email: service@kookapp.cn
   license:
     name: MIT
     url: https://github.com/kaiheila/api-docs/blob/main/LICENSE
@@ -1097,7 +1097,7 @@ paths:
                           url:
                             type: string
                             description: 资源url
-                            example: https://img.kaiheila.cn/attachments/2021-01/18/xxxxxxxxx.txt
+                            example: https://img.kookapp.cn/attachments/2021-01/18/xxxxxxxxx.txt
   /guild-role/list:
     get:
       tags:
@@ -1206,7 +1206,7 @@ paths:
                 permissions:
                   type: integer
                   format: unsigned integer
-                  description: 权限,参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+                  description: 权限,参见[权限说明](https://developer.kookapp.cn/doc/http/guild-role#权限说明)
                   example: 2048
       responses:
         "200":

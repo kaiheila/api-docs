@@ -1,5 +1,5 @@
 update:
-  content: 
+  content:
     application/json:
       schema:
         allOf:
@@ -27,4 +27,4 @@ update:
                           avatar:
                             type: string
                             description: 头像地址
-                            example: "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon"
+                            example: "https://img.kookapp.cn/avatars/2020-02/xxxx.jpg/icon"

@@ -10,7 +10,7 @@
 
 Gateway 是 websocket 的网关，客户端通过连接 Gateway 可以获取到相应的推送消息等。
 
-Gateway 的地址需要走 http 接口获取，参见[Gateway](https://developer.kaiheila.cn/doc/http/gateway)
+Gateway 的地址需要走 http 接口获取，参见[Gateway](https://developer.kookapp.cn/doc/http/gateway)
 
 ## 消息压缩
 
@@ -39,7 +39,7 @@ sn : 当前客户端处理成功的最后一条消息的 sn, 没有收到过任�
 session_id: 前一个链接中的 session_id , 参考 [信令 1 握手结果](#信令[1]%20HELLO)  
 
 ```
-wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&session_id=20****ae-1fa4-4d19-805f-6f0f****d534
+wss://test.kookapp.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&session_id=20****ae-1fa4-4d19-805f-6f0f****d534
 ```
 
 连接流程示意图：
@@ -59,7 +59,7 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 }
 ```
 
-具体参见[Event](https://developer.kaiheila.cn/doc/event)
+具体参见[Event](https://developer.kookapp.cn/doc/event)
 
 ### 信令说明
 
@@ -115,7 +115,7 @@ wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&s
 **说明：** 在正常连接状态下，收到的消息事件等。  
 **参数列表：**
 
-具体参见[Event](https://developer.kaiheila.cn/doc/event)
+具体参见[Event](https://developer.kookapp.cn/doc/event)
 
 **注意：** 该消息会有 `sn`, 代表消息序号, 针对当前 `session` 的消息的序号, 客户端需记录该数字,并按顺序接收消息， **resume** 时需传入该参数才能完成。
 

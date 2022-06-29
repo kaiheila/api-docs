@@ -75,7 +75,7 @@
 ## 联系方式
 
 与本政策相关的任何疑问、意见或请求，请发送至
-[service@kaiheila.cn](mailto:service@kaiheila.cn)。
+[service@kookapp.cn](mailto:service@kaiheila.cn)。
 一般情况下，我们会在收到您相关联系信息并核实您身份后的【15】日内回复。
 
 ## 其他

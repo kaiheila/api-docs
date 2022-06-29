@@ -26,8 +26,8 @@
     "username": "tz-un",
     "identify_num": "5618",
     "online": false,
-    "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
-    "vip_avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
+    "avatar": "https://img.kookapp.cn/avatars/2020-02/xxxx.jpg/icon",
+    "vip_avatar": "https://img.kookapp.cn/avatars/2020-02/xxxx.jpg/icon",
     "bot": false,
     "status" : 0,
     "mobile_verified": true,
@@ -166,7 +166,7 @@
     ],
     "permission_users": [
         {
-            //user字段参见 https://developer.kaiheila.cn/doc/objects#%E7%94%A8%E6%88%B7User
+            //user字段参见 https://developer.kookapp.cn/doc/objects#%E7%94%A8%E6%88%B7User
             "user": {
                 "id": "0",
                 "username": "花荣",
@@ -250,4 +250,4 @@
 }
 ```
 
-含有附件的消息示例详见[消息相关事件](https://developer.kaiheila.cn/doc/event/message)
+含有附件的消息示例详见[消息相关事件](https://developer.kookapp.cn/doc/event/message)

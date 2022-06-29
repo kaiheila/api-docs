@@ -9,9 +9,9 @@ image:
               d:
                 type: object
                 properties:
-                  content: 
+                  content:
                     description: 文件链接，与`attachments`的`url`相同
-                    example: 'https://img.kaiheila.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
+                    example: 'https://img.kookapp.cn/assets/2020-12/IHT5xxxxxA07o03m.jpg'
                   type:
                     example: 2
                   extra:
@@ -30,7 +30,7 @@ video:
                 properties:
                   content:
                     description: 文件链接，与`attachments`的`url`相同
-                    example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.mp4'
+                    example: 'https://img.kookapp.cn/attachments/2020-12/11/asd.mp4'
                   type:
                     example: 3
                   extra:
@@ -49,7 +49,7 @@ file:
                 properties:
                   content:
                     description: 文件链接，与`attachments`的`url`相同
-                    example: 'https://img.kaiheila.cn/attachments/2020-12/11/asd.txt'
+                    example: 'https://img.kookapp.cn/attachments/2020-12/11/asd.txt'
                   type:
                     example: 4
                   extra:

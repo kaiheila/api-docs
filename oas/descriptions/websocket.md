@@ -8,7 +8,7 @@
 
 Gateway 是 websocket 的网关，客户端通过连接 Gateway 可以获取到相应的推送消息等。
 
-Gateway 的获取需要走 http 接口获取，参见[Gateway](https://developer.kaiheila.cn/doc/http/gateway)
+Gateway 的获取需要走 http 接口获取，参见[Gateway](https://developer.kookapp.cn/doc/http/gateway)
 
 ## 消息压缩
 
@@ -37,11 +37,11 @@ sn : 当前客户端处理成功的最后一条消息的 sn, 没有收到过任�
 session_id: 前一个链接中的 session_id , 参考 [信令 1 握手结果]
 
 ```
-wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&session_id=20****ae-1fa4-4d19-805f-6f0f****d534
+wss://test.kookapp.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&session_id=20****ae-1fa4-4d19-805f-6f0f****d534
 ```
 
 连接流程示意图：
-![image](https://developer.kaiheila.cn/img/state.png)
+![image](https://developer.kookapp.cn/img/state.png)
 
 参考代码: [php-bot](https://github.com/kaiheila/php-bot/blob/main/src/base/StateSession.php)
 
