@@ -39,5 +39,5 @@ basic:
     permissions:
       type: integer
       format: unsigned integer
-      description: 允许的权限，参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+      description: 允许的权限，参见[权限说明](https://developer.kookapp.cn/doc/http/guild-role#权限说明)
       example: 2048

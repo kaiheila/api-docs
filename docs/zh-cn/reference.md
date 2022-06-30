@@ -1,23 +1,23 @@
 # 简介
 
-开黑啦的 API 正常分为两个核心层：
+KOOK 的 API 正常分为两个核心层：
 
 - 常规的 http 接口，你可以用它来做一些常规操作。
 - 消息实时通知，你可以通过（webhook/websocket）来订阅系统的实时消息及事件，然后做出相应的操作等。
 
-通过上述两层的接口，我们可以在开黑啦中做出机器人，或者提供服务等。
+通过上述两层的接口，我们可以在 KOOK 中做出机器人，或者提供服务等。
 
 ## 常规 http 接口规范
 
 ### BaseUrl
 
 ```
-https://www.kaiheila.cn/api
+https://www.kookapp.cn/api
 ```
 
 ### API 版本管理
 
-开黑啦后续可能会有不同版本的 API。您可以通过像 `https://www.kaiheila.cn/api/v{version_number}` 这样在请求路径中明确指定所要使用的 API 版本。如果省略掉 version_number, 它会指向默认的版本。目前支持的版本列表如下所示：
+KOOK 后续可能会有不同版本的 API。您可以通过像 `https://www.kookapp.cn/api/v{version_number}` 这样在请求路径中明确指定所要使用的 API 版本。如果省略掉 version_number, 它会指向默认的版本。目前支持的版本列表如下所示：
 
 | 版本 | 状态   | 默认 |
 | ---- | ------ | ---- |
@@ -25,7 +25,7 @@ https://www.kaiheila.cn/api
 
 ### 鉴权
 
-在开发者中心，在创建机器人后，我们可以得到一个 token，在请求所有的开黑啦接口时，我们需要在 http header 的 `Authorization` 中加入该 token 以进行鉴权,格式为 `Authorization: TOKEN_TYPE TOKEN`。目前支持两种格式的鉴权：
+在开发者中心，在创建机器人后，我们可以得到一个 token，在请求所有的 KOOK 接口时，我们需要在 http header 的 `Authorization` 中加入该 token 以进行鉴权,格式为 `Authorization: TOKEN_TYPE TOKEN`。目前支持两种格式的鉴权：
 
 - 机器人。TOKEN_TYPE = Bot。
 - Oauth2。TOKEN_TYPE = Bearer。
@@ -38,7 +38,7 @@ Authorization: Bot BHsTZ4232tLatgV5AFyjoqZGAHHmpl9mTxYQ/u4/80=
 
 ### 速度限制
 
-为了保护我们的系统，我们在 [RFC 6585](https://tools.ietf.org/html/rfc6585#section-4) 的基础上做了一些扩展，来限制用户的接口调用速度。经常达到限速阀值或者忽略速度限制的 API 用户将会被撤销 API 密钥，并且被限制登录。有关速度限制的问题，请参阅[速率限制](https://developer.kaiheila.cn/doc/rate-limit)一节
+为了保护我们的系统，我们在 [RFC 6585](https://tools.ietf.org/html/rfc6585#section-4) 的基础上做了一些扩展，来限制用户的接口调用速度。经常达到限速阀值或者忽略速度限制的 API 用户将会被撤销 API 密钥，并且被限制登录。有关速度限制的问题，请参阅[速率限制](https://developer.kookapp.cn/doc/rate-limit)一节
 
 ### i18N
 
@@ -70,7 +70,7 @@ Accept-Language: en-US
 
 ### 请求参数
 
-在开黑啦整个 API 体系中，有一些参数是一致的，会在此处统一列出，后续不会再单独详细说明。
+在 KOOK 整个 API 体系中，有一些参数是一致的，会在此处统一列出，后续不会再单独详细说明。
 
 正常的列表页，一般会有类似如下的参数：
 
@@ -94,10 +94,10 @@ Accept-Language: en-US
 
 ## 消息通知
 
-消息通知在整个开黑啦体系中比较复杂，我们目前支持两种消息通知机制：
+消息通知在整个 KOOK 体系中比较复杂，我们目前支持两种消息通知机制：
 
-- [Webhook](https://developer.kaiheila.cn/doc/webhook)
-- [Websocket](https://developer.kaiheila.cn/doc/websocket)
+- [Webhook](https://developer.kookapp.cn/doc/webhook)
+- [Websocket](https://developer.kookapp.cn/doc/websocket)
 
 不论是以何种方式来接受消息，它们都遵循着相同的规范：
 

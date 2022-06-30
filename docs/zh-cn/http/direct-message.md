@@ -2,7 +2,7 @@
 
 本文档主要列出私聊消息相关接口。
 
-本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kaiheila.cn/doc/reference)。
+本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kookapp.cn/doc/reference)。
 
 | 接口                                                                  | 接口说明                       | 维护状态 |
 | --------------------------------------------------------------------- | ------------------------------ | -------- |
@@ -100,7 +100,7 @@ after: 查询参考消息之后的消息，不包括参考消息
 
 | 参数名    | 类型   | 必传 | 参数区域 | 说明                                                                                                                                                                                                                                     |
 | --------- | ------ | ---- | -------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type      | int    | 否   | POST     | 消息类型, 见[type], 不传默认为 `1`, 代表文本类型。`9` 代表 [kmarkdown](https://developer.kaiheila.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmessage)。 |
+| type      | int    | 否   | POST     | 消息类型, 见[type], 不传默认为 `1`, 代表文本类型。`9` 代表 [kmarkdown](https://developer.kookapp.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmessage)。 |
 | target_id | string | 否   | POST     | 目标用户 id，后端会自动创建会话。有此参数之后可不传 `chat_code `参数                                                                                                                                                                     |
 | chat_code | string | 否   | POST     | 目标会话 Code，`chat_code` 与 `target_id` 必须传一个                                                                                                                                                                                     |
 | content   | string | 是   | POST     | 消息内容                                                                                                                                                                                                                                 |

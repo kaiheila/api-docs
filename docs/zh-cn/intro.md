@@ -6,9 +6,9 @@
 
 ## Bugs
 
-如果你在使用开黑啦的 API 过程中遇见了 Bug，并且希望上报给我们来纠正这个错误的话，我们提供了两种反馈方式。
+如果你在使用 KOOK 的 API 过程中遇见了 Bug，并且希望上报给我们来纠正这个错误的话，我们提供了两种反馈方式。
 
-- 你可以直接在开黑啦官方的[吐槽中心](https://kaihei.co/B6A7bw)中进行实时反馈；
+- 你可以直接在 KOOK 官方的[吐槽中心](https://kook.top/B6A7bw)中进行实时反馈；
 - 同时我们我们也提供了在 [GitHub](https://github.com/kaiheila/api-docs) 中的 [issue tracker](https://github.com/kaiheila/api-docs) 中进行反馈。
 
 ## SDK
@@ -18,18 +18,18 @@
 | 语言                  | 仓库名                            | 仓库地址                                                         | 服务器邀请                             |
 | --------------------- | --------------------------------- | ---------------------------------------------------------------- | -------------------------------------- |
 | PHP                   | kaiheila/php-bot                  | [仓库链接](https://github.com/kaiheila/php-bot)                  | 暂无                                   |
-| JavaScript/TypeScript | fi6/KBotify & shugen002/BotRoot   | [仓库链接](https://github.com/fi6/kBotify)                       | [服务器邀请](https://kaihei.co/GO6qHj) |
-| Python                | TWT233/khl.py                     | [仓库链接](https://github.com/TWT233/khl.py)                     | [服务器邀请](https://kaihei.co/JJE0Es) |
+| JavaScript/TypeScript | fi6/KBotify & shugen002/BotRoot   | [仓库链接](https://github.com/fi6/kBotify)                       | [服务器邀请](https://kook.top/GO6qHj) |
+| Python                | TWT233/khl.py                     | [仓库链接](https://github.com/TWT233/khl.py)                     | [服务器邀请](https://kook.top/JJE0Es) |
 | Python                | Tian-que/nonebot-adapter-kaiheila | [仓库链接](https://github.com/Tian-que/nonebot-adapter-kaiheila) | 暂无                                   |
-| Python                | OlivOS-Team/OlivOS                | [仓库链接](https://github.com/OlivOS-Team/OlivOS)                | [服务器邀请](https://kaihei.co/8orLDo) |
-| Ruby                  | DessertShop/KHL                   | [仓库链接](https://github.com/DessertShop/KHL)                   | [服务器邀请](https://kaihei.co/ie2ymJ) |
-| 易语言                | 大鑫/酷黑                         | 暂无                                                             | [服务器邀请](https://kaihei.co/GymA7P) |
-| 易语言                | Cyerol/Mengko梦果框架              | 暂无                                                             | [服务器邀请](https://kaihei.co/OMWqzw)|
-| Go                    | lonelyevil/khl                    | [仓库链接](https://github.com/lonelyevil/khl)                    | [服务器邀请](https://kaihei.co/r5s1WO) |
-| Java                  | FightingGuys/rabbit               | [仓库链接](https://github.com/FightingGuys/rabbit)               | [服务器邀请](https://kaihei.co/O9A5AY) |
-| Java                  | DeeChael/Kaiheila.java            | [仓库链接](https://github.com/DeeChael/Kaiheila.java)            | [服务器邀请](https://kaihei.co/9RB96R) |
+| Python                | OlivOS-Team/OlivOS                | [仓库链接](https://github.com/OlivOS-Team/OlivOS)                | [服务器邀请](https://kook.top/8orLDo) |
+| Ruby                  | DessertShop/KHL                   | [仓库链接](https://github.com/DessertShop/KHL)                   | [服务器邀请](https://kook.top/ie2ymJ) |
+| 易语言                | 大鑫/酷黑                         | 暂无                                                             | [服务器邀请](https://kook.top/GymA7P) |
+| 易语言                | Cyerol/Mengko梦果框架              | 暂无                                                             | [服务器邀请](https://kook.top/OMWqzw)|
+| Go                    | lonelyevil/khl                    | [仓库链接](https://github.com/lonelyevil/khl)                    | [服务器邀请](https://kook.top/r5s1WO) |
+| Java                  | FightingGuys/rabbit               | [仓库链接](https://github.com/FightingGuys/rabbit)               | [服务器邀请](https://kook.top/O9A5AY) |
+| Java                  | DeeChael/Kaiheila.java            | [仓库链接](https://github.com/DeeChael/Kaiheila.java)            | [服务器邀请](https://kook.top/9RB96R) |
 | C#                    | PoH98/KHLSharp                    | [仓库链接](https://github.com/PoH98/KHLBotSharp)                 | 暂无                                   |
-| C#                    | gehongyan/KaiHeiLa.Net            | [仓库链接](https://github.com/gehongyan/KaiHeiLa.Net)            | [服务器邀请](https://kaihei.co/EvxnOb) |
+| C#                    | gehongyan/KaiHeiLa.Net            | [仓库链接](https://github.com/gehongyan/KaiHeiLa.Net)            | [服务器邀请](https://kook.top/EvxnOb) |
 
 ## OpenAPI 描述文件
 

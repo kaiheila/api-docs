@@ -2,7 +2,7 @@
 
 本文档主要列出服务器相关接口。
 
-本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kaiheila.cn/doc/reference)。
+本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kookapp.cn/doc/reference)。
 
 | 接口                                                | 接口说明                     | 维护状态 |
 | --------------------------------------------------- | ---------------------------- | -------- |
@@ -247,8 +247,8 @@
         "online": false,
         "status": 0,
         "bot": false,
-        "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
-        "vip_avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
+        "avatar": "https://img.kookapp.cn/avatars/2020-02/xxxx.jpg/icon",
+        "vip_avatar": "https://img.kookapp.cn/avatars/2020-02/xxxx.jpg/icon",
         "nickname": "tz-unn",
         "roles": [702]
       }

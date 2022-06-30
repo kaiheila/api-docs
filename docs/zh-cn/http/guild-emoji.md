@@ -2,7 +2,7 @@
 
 本文档主要列出服务器表情相关接口。
 
-本文档中的接口均符合接口规范。如有疑问，建议先查阅[接口引言](https://developer.kaiheila.cn/doc/reference)。
+本文档中的接口均符合接口规范。如有疑问，建议先查阅[接口引言](https://developer.kookapp.cn/doc/reference)。
 
 | 接口                                            | 接口说明           | 维护状态 |
 | ----------------------------------------------- | ------------------ | -------- |
@@ -33,7 +33,7 @@
 | --------- | ------ | ------------------------------------------------------------------------------ |
 | name      | string | 表情的名称                                                                     |
 | id        | string | 表情的 ID                                                                      |
-| user_info | map    | 上传用户，具体参考 [用户相关接口](https://developer.kaiheila.cn/doc/http/user) |
+| user_info | map    | 上传用户，具体参考 [用户相关接口](https://developer.kookapp.cn/doc/http/user) |
 
 ### 返回示例
 
@@ -105,7 +105,7 @@
 | --------- | ------ | ------------------------------------------------------------------------------ |
 | name      | string | 表情的名称                                                                     |
 | id        | string | 表情的 ID                                                                      |
-| user_info | map    | 上传用户，具体参考 [用户相关接口](https://developer.kaiheila.cn/doc/http/user) |
+| user_info | map    | 上传用户，具体参考 [用户相关接口](https://developer.kookapp.cn/doc/http/user) |
 
 ### 返回示例
 
@@ -123,7 +123,7 @@
       "online": true,
       "status": 0,
       "avatar": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/assets/bot.png/icon",
-      "vip_avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon"
+      "vip_avatar": "https://img.kookapp.cn/avatars/2020-02/xxxx.jpg/icon"
     }
   }
 }

@@ -257,7 +257,7 @@
         "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
         "tag_info": {
           "color": "#6666CC",
-          "text": "开黑啦"
+          "text": "KOOK"
         },
         "nickname": "12316993",
         "roles": [111, 112]
@@ -326,7 +326,7 @@
         "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
         "tag_info": {
           "color": "#6666CC",
-          "text": "开黑啦"
+          "text": "KOOK"
         },
         "nickname": "12316993",
         "roles": [111, 112]

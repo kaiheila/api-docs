@@ -183,11 +183,11 @@ GuildChannelPermission:
   properties:
     allow:
       type: integer
-      description: 允许的权限的结果集，详见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+      description: 允许的权限的结果集，详见[权限说明](https://developer.kookapp.cn/doc/http/guild-role#权限说明)
       example: 2048
     deny:
       type: integer
-      description: 拒绝的权限的结果集，详见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+      description: 拒绝的权限的结果集，详见[权限说明](https://developer.kookapp.cn/doc/http/guild-role#权限说明)
       example: 0
 GuildRoleId:
   type: integer
@@ -354,7 +354,7 @@ GuildRole:
     permissions:
       type: integer
       format: unsigned integer
-      description: 允许的权限，参见[权限说明](https://developer.kaiheila.cn/doc/http/guild-role#权限说明)
+      description: 允许的权限，参见[权限说明](https://developer.kookapp.cn/doc/http/guild-role#权限说明)
       example: 2048
 GuildEmoji:
   type: object

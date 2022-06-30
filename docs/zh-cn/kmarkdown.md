@@ -4,7 +4,7 @@
 
 我们仅支持在文档中的一些语法，如果某个语法在 markdown 中，但是却没在文档中提及，那么它属于我们目前不支持的语法，建议用户不要使用。
 
-我们还提供了kmarkdown消息编辑器，方便可视化编辑：[点击使用](https://kaiheila.cn/tools/message-builder.html#/kmarkdown)
+我们还提供了kmarkdown消息编辑器，方便可视化编辑：[点击使用](https://kookapp.cn/tools/message-builder.html#/kmarkdown)
 
 ## 主要格式规范
 

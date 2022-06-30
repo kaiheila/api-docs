@@ -1,4 +1,4 @@
-通过 Websocket，客户端可以与开黑啦进行实时通信，来接收事件和数据。websocket 的协议交互非常复杂，而且较差的实现会给服务端和客户端都带来较大困扰，因此建议你在编写自己的实现时，详细阅读本文档。
+通过 Websocket，客户端可以与 KOOK 进行实时通信，来接收事件和数据。websocket 的协议交互非常复杂，而且较差的实现会给服务端和客户端都带来较大困扰，因此建议你在编写自己的实现时，详细阅读本文档。
 
 **重要提示：** 并不是所有的字段都有文档记录，你应该依赖文档，而不是依赖接口中的字段。我们可能随时更改不在文档中的字段。
 
@@ -8,7 +8,7 @@
 
 Gateway 是 websocket 的网关，客户端通过连接 Gateway 可以获取到相应的推送消息等。
 
-Gateway 的获取需要走 http 接口获取，参见[Gateway](https://developer.kaiheila.cn/doc/http/gateway)
+Gateway 的获取需要走 http 接口获取，参见[Gateway](https://developer.kookapp.cn/doc/http/gateway)
 
 ## 消息压缩
 
@@ -37,11 +37,11 @@ sn : 当前客户端处理成功的最后一条消息的 sn, 没有收到过任�
 session_id: 前一个链接中的 session_id , 参考 [信令 1 握手结果]
 
 ```
-wss://test.kaiheila.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&session_id=20****ae-1fa4-4d19-805f-6f0f****d534
+wss://test.kookapp.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&session_id=20****ae-1fa4-4d19-805f-6f0f****d534
 ```
 
 连接流程示意图：
-![image](https://developer.kaiheila.cn/img/state.png)
+![image](https://developer.kookapp.cn/img/state.png)
 
 参考代码: [php-bot](https://github.com/kaiheila/php-bot/blob/main/src/base/StateSession.php)
 

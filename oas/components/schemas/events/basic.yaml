@@ -6,7 +6,7 @@ required:
 properties:
   s:
     type: integer
-    description: websocket信令，详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
+    description: websocket信令，详见[KOOK websocket说明](https://developer.kookapp.cn/doc/websocket)
     example: 0
   d:
     type: object
@@ -33,7 +33,7 @@ properties:
       target_id:
         type: string
         description: 发送目的 id，如果为是 GROUP 消息，则 target_id 代表频道 id
-        example: '60163899100000'
+        example: "60163899100000"
       author_id:
         type: string
         description: 发送者 id, 1 代表系统
@@ -52,15 +52,16 @@ properties:
       nonce:
         type: string
         description: 随机串，与用户消息发送 api 中传的 nonce 保持一致
-        example: 'your nonce'
+        example: "your nonce"
       verify_token:
         type: string
         description: webhook设置中的verify_token
-        example: 'your verify token'
+        example: "your verify token"
       extra:
         type: object
         description: 不同的消息类型，结构不一致
   sn:
     type: integer
-    description: 消息序号，针对当前session。该字段并不一定有，只在s=0时有，与webhook一致。详见[开黑啦websocket说明](https://developer.kaiheila.cn/doc/websocket)
+    description: 消息序号，针对当前session。该字段并不一定有，只在s=0时有，与webhook一致。详见[KOOK websocket说明](https://developer.kookapp.cn/doc/websocket)
     example: 1
+
