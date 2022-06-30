@@ -50,7 +50,7 @@
         "channel_id": "9219038000000",
         "guild_id": "91686000000",
         "url_code": "XXX",
-        "url": "https://kaihei.co/XXX",
+        "url": "https://kook.top/XXX",
         "user": {
           "id": "2418200000",
           "username": "tz-un",
@@ -106,7 +106,7 @@
     "code": 0,
     "message": "操作成功",
     "data": {
-        "url": "https://kaihei.co/xxxx",
+        "url": "https://kook.top/xxxx",
     }
 }
 ```

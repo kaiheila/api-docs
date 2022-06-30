@@ -1590,7 +1590,7 @@ paths:
                                     url:
                                       type: string
                                       description: 邀请链接
-                                      example: https://kaihei.co/XXX
+                                      example: https://kook.top/XXX
                                     user:
                                       $ref: "#/components/schemas/User"
   /invite/create:
@@ -1652,7 +1652,7 @@ paths:
                           url:
                             type: string
                             description: 邀请链接
-                            example: https://kaihei.co/xxxx
+                            example: https://kook.top/xxxx
   /invite/delete:
     post:
       tags:
