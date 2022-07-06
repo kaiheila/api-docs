@@ -184,7 +184,7 @@
 | 参数名    | 类型 | 必传 | 参数区域 | 说明                        |
 | --------- | ---- | ---- | -------- | --------------------------- |
 | id        | int  | 是   | POST     | 游戏 id                     |
-| data_type | int  | 是   | POST     | 请求数据类型 固定传 1(游戏) |
+| data_type | int  | 是   | POST     | 请求数据类型 1游戏 2音乐 |
 | software | string | 否  | POST    |软件名，枚举值：['cloudmusic'、'qqmusic'、'kugou']，默认为'cloudmusic' |
 | singer   | string | 否  | POST    |歌手名，data_type=2 时必传 |
 | music_name  | string | 否  | POST    |歌曲名，data_type=2 时必传 |
