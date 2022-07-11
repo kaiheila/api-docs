@@ -23,7 +23,7 @@
 |`> hello world`|markdown|引用：换行会一直作用，直到遇见两个换行(\n\n),这两个换行实际不会显示换行|
 |`(ins)下划线内容(ins)`|自定义|下划线|
 |`(spl)剧透(spl)`|自定义|内容默认是遮住的，只有用户点击才会显示|
-|`:emoji:`|emoji|基本与emoji的 [shortcode](https://www.webfx.com/tools/emoji-cheat-sheet/) 写法保持一致|
+|`:emoji:`|emoji|基本与emoji的 [shortcode](https://www.webfx.com/tools/emoji-cheat-sheet/) 写法保持一致, [KOOK表情json文件](https://img.kookapp.cn/assets/emoji.json)|
 |`(emj)服务器表情名(emj)[服务器表情id]`|自定义| 服务器表情，需要有服务器发送服务器表情的权限|
 |`(chn)频道ID(chn)`|自定义|频道，提及频道|
 |`(met)用户id/here/all(met)`|自定义|@用户，all 代表 @所有用户，here 代表 @所有在线用户|
