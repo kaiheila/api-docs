@@ -161,7 +161,7 @@
 | type          | body | int    | false | 频道类型，`1` 文字，`2` 语音，默认为`1`          |
 | limit_amount  | body | int    | false | 语音频道人数限制，最大`99`                       |
 | voice_quality | body | int    | false | 语音音质，默认为`2`。`1`流畅，`2`正常，`3`高质量 |
-| is_category | body | int    | false | 是否是分组，默认为0。1是，0否 |
+| is_category | body | int    | false | 是否是分组，默认为0。1是，0否。当该值传1时，只接收guild_id、name、is_category三个字段！|
 
 ### 返回参数说明
 
