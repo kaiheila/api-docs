@@ -30,7 +30,7 @@
 | Java                  | DeeChael/Kaiheila.java            | [仓库链接](https://github.com/DeeChael/Kaiheila.java)            | [服务器邀请](https://kook.top/9RB96R) |
 | C#                    | PoH98/KHLSharp                    | [仓库链接](https://github.com/PoH98/KHLBotSharp)                 | 暂无                                   |
 | C#                    | gehongyan/KaiHeiLa.Net            | [仓库链接](https://github.com/gehongyan/KaiHeiLa.Net)            | [服务器邀请](https://kook.top/EvxnOb) |
-| Kotlin & Java         | zly2006/KookyBot                  | [仓库链接](https://github.com/zly2006/KookyBot)                  | [服务器邀请](https://kaihei.co/kGIIUS) |
+| Kotlin & Java         | KookyBot/KookyBot                 | [仓库链接](https://github.com/KookyBot/KookyBot)                 | [服务器邀请](https://kook.top/wnWOP9) |
 
 ## OpenAPI 描述文件
 
