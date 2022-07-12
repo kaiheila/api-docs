@@ -1,8 +1,8 @@
 {
     "name": "kaiheila/apidoc",
-    "description": "Kaiheila API DOC",
-    "keywords": ["kaiheila", "api", "doc"],
-    "homepage": "https://developer.kaiheila.cn/",
+    "description": "KOOK API DOC",
+    "keywords": ["KOOK", "kaiheila", "api", "doc"],
+    "homepage": "https://developer.kookapp.cn/",
     "type": "library",
     "license": "MIT",
     "authors": [
