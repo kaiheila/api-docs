@@ -95,7 +95,7 @@ curl -H "Authorization: Bot your_token" "https://www.kaiheila.cn/api/v3/intimacy
 请求示例：
 
 ```bash
-curl "https://www.kaiheila.cn/api/v3/intimacy/update" -L \
+curl "https://www.kookapp.cn/api/v3/intimacy/update" -L \
 -H "Authorization: Bot xxx" -H "Content-type: application/json;" \
 -d '{"user_id":"user_id", "social_info":"test", "score": 123, "img_id" : 1}'
 ```
