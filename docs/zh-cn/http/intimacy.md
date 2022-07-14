@@ -30,6 +30,7 @@
 | img_url     | string | 机器人给用户显示的形象图片地址 |
 | social_info | string | 机器人显示给用户的社交信息     |
 | last_read   | int    | 用户上次查看的时间戳           |
+| score       | int    | 亲密度，0-2200                 |
 | img_list    | Array  | 形象图片的总列表               |
 | » id        | string | 形象图片的 id                  |
 | » url       | string | 形象图片的地址                 |
