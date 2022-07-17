@@ -26,7 +26,7 @@
 | 易语言                | 大鑫/酷黑                         | 暂无                                                             | [服务器邀请](https://kook.top/GymA7P) |
 | 易语言                | Cyerol/Mengko梦果框架              | 暂无                                                             | [服务器邀请](https://kook.top/OMWqzw)|
 | Go                    | lonelyevil/khl                    | [仓库链接](https://github.com/lonelyevil/khl)                    | [服务器邀请](https://kook.top/r5s1WO) |
-| Java                  | FightingGuys/rabbit               | [仓库链接](https://github.com/FightingGuys/rabbit)               | [服务器邀请](https://kook.top/O9A5AY) |
+| Java                  | FightingGuys/rabbit（停止维护）               | [仓库链接](https://github.com/FightingGuys/rabbit)               | [服务器邀请](https://kook.top/O9A5AY) |
 | Java                  | DeeChael/Kaiheila.java            | [仓库链接](https://github.com/DeeChael/Kaiheila.java)            | [服务器邀请](https://kook.top/9RB96R) |
 | C#                    | PoH98/KHLSharp                    | [仓库链接](https://github.com/PoH98/KHLBotSharp)                 | 暂无                                   |
 | C#                    | gehongyan/KaiHeiLa.Net            | [仓库链接](https://github.com/gehongyan/KaiHeiLa.Net)            | [服务器邀请](https://kook.top/EvxnOb) |
