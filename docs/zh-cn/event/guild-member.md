@@ -49,7 +49,7 @@
 | type        | string | 消息的类型，本处为 `exited_guild` |
 | body        | Map    |                                   |
 | » user_id   | string | 用户 id                           |
-| » exited_at | int    | 退出服务器的事件                  |
+| » exited_at | int    | 退出服务器的时间                  |
 
 #### 示例：
 
