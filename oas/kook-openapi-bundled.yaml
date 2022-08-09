@@ -27,7 +27,7 @@ info:
     ## 引言
 
 
-    此文档仅用于方便开发者查看、确认 KOOK 机器人 API 接口，官方文档地址：[KOOK 
+    此文档仅用于方便开发者查看、确认 KOOK 机器人 API 接口，官方文档地址：[KOOK
     开发者平台](https://developer.kookapp.cn/doc/)
 
 
@@ -70,77 +70,77 @@ info:
     展示在此处，请于开发者服务器内联系`小波波#9366`。
 
 
-    | 语言                  | 仓库名                            |
-    仓库地址                                                         |
-    服务器邀请                             |
+    | 语言                  | 仓库名                             |
+    仓库地址                                                          |
+    服务器邀请                            |
 
-    | --------------------- | --------------------------------- |
-    ---------------------------------------------------------------- |
-    -------------------------------------- |
+    | --------------------- | ---------------------------------- |
+    ----------------------------------------------------------------- |
+    ------------------------------------- |
 
-    | PHP                   | kaiheila/php-bot                  |
-    [仓库链接](https://github.com/kaiheila/php-bot)                  |
-    暂无                                   |
+    | PHP                   | kaiheila/php-bot                   |
+    [仓库链接](https://github.com/kaiheila/php-bot)                   |
+    暂无                                  |
 
-    | JavaScript/TypeScript | fi6/KBotify & shugen002/BotRoot   |
-    [仓库链接](https://github.com/fi6/kBotify)                       |
+    | JavaScript/TypeScript | fi6/KBotify & shugen002/BotRoot    |
+    [仓库链接](https://github.com/fi6/kBotify)                        |
     [服务器邀请](https://kook.top/GO6qHj) |
 
-    | Python                | TWT233/khl.py                     |
-    [仓库链接](https://github.com/TWT233/khl.py)                     |
+    | Python                | TWT233/khl.py                      |
+    [仓库链接](https://github.com/TWT233/khl.py)                      |
     [服务器邀请](https://kook.top/JJE0Es) |
 
-    | Python                | Tian-que/nonebot-adapter-kaiheila |
-    [仓库链接](https://github.com/Tian-que/nonebot-adapter-kaiheila) |
-    暂无                                   |
+    | Python                | Tian-que/nonebot-adapter-kaiheila  |
+    [仓库链接](https://github.com/Tian-que/nonebot-adapter-kaiheila)  |
+    暂无                                  |
 
-    | Python                | OlivOS-Team/OlivOS                |
-    [仓库链接](https://github.com/OlivOS-Team/OlivOS)                |
+    | Python                | OlivOS-Team/OlivOS                 |
+    [仓库链接](https://github.com/OlivOS-Team/OlivOS)                 |
     [服务器邀请](https://kook.top/8orLDo) |
 
-    | Ruby                  | DessertShop/KHL                   |
-    [仓库链接](https://github.com/DessertShop/KHL)                   |
+    | Ruby                  | DessertShop/KHL                    |
+    [仓库链接](https://github.com/DessertShop/KHL)                    |
     [服务器邀请](https://kook.top/ie2ymJ) |
 
-    | 易语言                | 大鑫/酷黑                         |
-    暂无                                                             |
+    | 易语言                | 大鑫/酷黑                          |
+    暂无                                                              |
     [服务器邀请](https://kook.top/GymA7P) |
 
-    | 易语言                | Cyerol/Mengko梦果框架              |
-    暂无                                                             |
-    [服务器邀请](https://kook.top/OMWqzw)|
+    | 易语言                | Cyerol/Mengko 梦果框架             |
+    暂无                                                              |
+    [服务器邀请](https://kook.top/OMWqzw) |
 
-    | Go                    | lonelyevil/khl                    |
-    [仓库链接](https://github.com/lonelyevil/khl)                    |
+    | Go                    | lonelyevil/khl                     |
+    [仓库链接](https://github.com/lonelyevil/khl)                     |
     [服务器邀请](https://kook.top/r5s1WO) |
 
-    | Java                  | FightingGuys/rabbit（停止维护）               |
-    [仓库链接](https://github.com/FightingGuys/rabbit)               |
+    | Java                  | FightingGuys/rabbit（停止维护）    |
+    [仓库链接](https://github.com/FightingGuys/rabbit)                |
     [服务器邀请](https://kook.top/O9A5AY) |
 
-    | Java                  | DeeChael/Kaiheila.java            |
-    [仓库链接](https://github.com/DeeChael/Kaiheila.java)            |
+    | Java                  | DeeChael/Kaiheila.java             |
+    [仓库链接](https://github.com/DeeChael/Kaiheila.java)             |
     [服务器邀请](https://kook.top/9RB96R) |
 
-    | Java                  | Enaium/kook-spring-boot-starter            |
-    [仓库链接](https://github.com/Enaium/kook-spring-boot-starter)            |
+    | Java                  | Enaium/kook-spring-boot-starter    |
+    [仓库链接](https://github.com/Enaium/kook-spring-boot-starter)    |
     [服务器邀请](https://kook.top/YaP12f) |
 
-    | C#                    | PoH98/KHLSharp                    |
-    [仓库链接](https://github.com/PoH98/KHLBotSharp)                 |
-    暂无                                   |
+    | C#                    | PoH98/KHLSharp                     |
+    [仓库链接](https://github.com/PoH98/KHLBotSharp)                  |
+    暂无                                  |
 
-    | C#                    | gehongyan/KaiHeiLa.Net            |
-    [仓库链接](https://github.com/gehongyan/KaiHeiLa.Net)            |
+    | C#                    | gehongyan/KaiHeiLa.Net             |
+    [仓库链接](https://github.com/gehongyan/KaiHeiLa.Net)             |
     [服务器邀请](https://kook.top/EvxnOb) |
 
-    | Kotlin & Java         | KookyBot/KookyBot                 |
-    [仓库链接](https://github.com/KookyBot/KookyBot)                 |
+    | Kotlin & Java         | KookyBot/KookyBot                  |
+    [仓库链接](https://github.com/KookyBot/KookyBot)                  |
     [服务器邀请](https://kook.top/wnWOP9) |
 
-    | Kotlin & Java         | simple-robot/simbot-component-kook  |
-    [仓库链接](https://github.com/simple-robot/simbot-component-kook)  | 暂无 |
-
+    | Kotlin & Java         | simple-robot/simbot-component-kook |
+    [仓库链接](https://github.com/simple-robot/simbot-component-kook) |
+    暂无                                  |
 
 
     ### 机器人
@@ -152,7 +152,7 @@ info:
     快去创建一个属于你的[机器人](https://developer.kookapp.cn/bot)吧！
 
 
-    ## 隐私政策
+    ### 隐私政策
 
 
     **更新日期：2020 年 12 月 9 日**
@@ -171,7 +171,7 @@ info:
     ### 用户信息
 
 
-    ** KOOK  API 不得用于以下用途：**
+    ** KOOK API 不得用于以下用途：**
 
 
     - **未经 KOOK 用户的明确许可**，修改 KOOK 用户的账号信息。例如，未经用户允许，机器人主动将用户加入到一个新的服务器当中；
@@ -184,7 +184,7 @@ info:
     ### 数据信息
 
 
-    ** KOOK  API 不得用于以下用途：**
+    ** KOOK API 不得用于以下用途：**
 
 
     - **抓取**任何 KOOK 数据；
@@ -209,7 +209,7 @@ info:
     ### 法律规定
 
 
-    ** KOOK  API 不得用于以下用途：**
+    ** KOOK API 不得用于以下用途：**
 
 
     - 推送包含**违反法律规定的信息**（色情、赌博、毒品、政治、人身攻击、欺诈信息等）；
@@ -254,13 +254,17 @@ info:
 
     ### 限制
 
-     KOOK 规定了对 API 的**使用限制**（例如：单位时间内发送 API 请求的数量，机器人所在服务器的数量，机器人可以服务的用户数量）。
+
+    KOOK 规定了对 API 的**使用限制**（例如：单位时间内发送 API 请求的数量，机器人所在服务器的数量，机器人可以服务的用户数量）。
+
     如果您想使用超出此类限制的任何 API，必须获得 KOOK 的书面授权。
 
 
     ### 投诉与处罚规范
 
-     KOOK 的机器人已启用用户投诉处理机制，我们会根据用户的投诉，视违规程度予以不同程度的处罚措施。
+
+    KOOK 的机器人已启用用户投诉处理机制，我们会根据用户的投诉，视违规程度予以不同程度的处罚措施。
+
 
     我们理解你的违规行为可能基于失误、疏忽等过失，因此，若你的机器人存在不符合法律法规和平台规则等情形而被处理， KOOK
     提供了邮件申诉渠道，你可以对你的机器人进行整改后，通过申诉渠道重新向 KOOK 提交发布审核。
@@ -293,7 +297,9 @@ info:
 
     ## 参考
 
-     KOOK 的 API 正常分为两个核心层：
+
+    KOOK 的 API 正常分为两个核心层：
+
 
     - 常规的 http 接口，你可以用它来做一些常规操作。
 
@@ -318,7 +324,10 @@ info:
 
     #### API 版本管理
 
-     KOOK 后续可能会有不同版本的 API。您可以通过像 `https://www.kookapp.cn/api/v{version_number}` 这样在请求路径中明确指定所要使用的 API 版本。如果省略掉 version_number, 它会指向默认的版本。目前支持的版本列表如下所示：
+
+    KOOK 后续可能会有不同版本的 API。您可以通过像 `https://www.kookapp.cn/api/v{version_number}`
+    这样在请求路径中明确指定所要使用的 API 版本。如果省略掉 version_number, 它会指向默认的版本。目前支持的版本列表如下所示：
+
 
     | 版本 | 状态   | 默认 |
 
@@ -468,7 +477,7 @@ info:
 
     - [Webhook](https://developer.kookapp.cn/doc/webhook)
 
-    - [Websocket](https://developer.kookapp.cn/doc/websocket)
+    - [Websocket](https://developer.kaiheila.cn/doc/websocket)
 
 
     不论是以何种方式来接受消息，它们都遵循着相同的规范：
@@ -1422,9 +1431,6 @@ paths:
         - 将Bot连接到 KOOK 服务器
       summary: 使用Websocket进行连接
       description: >
-        # Websocket
-
-
         通过 Websocket，客户端可以与 KOOK 进行实时通信，来接收事件和数据。websocket
         的协议交互非常复杂，而且较差的实现会给服务端和客户端都带来较大困扰，因此建议你在编写自己的实现时，详细阅读本文档。
 
@@ -1812,8 +1818,6 @@ paths:
         - 将Bot连接到 KOOK 服务器
       summary: 使用Webhook进行连接
       description: >
-        # Webhook
-
         通过 Webhook
         进行消息订阅可以让你的应用或机器人能够及时响应用户的消息，在用户量较多的情况下，可以提供更好的并发性能控制。你需要的只是告诉我们该向哪里（URL）发送消息。当消息发生时，KOOK
         开放平台会以 HTTP POST 请求的方式将消息内容推送到你设置的回调地址。
