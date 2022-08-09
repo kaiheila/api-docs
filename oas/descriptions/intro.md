@@ -6,7 +6,7 @@
 
 ## 引言
 
-此文档仅用于方便开发者查看、确认 KOOK 机器人 API 接口，官方文档地址：[KOOK  开发者平台](https://developer.kookapp.cn/doc/)
+此文档仅用于方便开发者查看、确认 KOOK 机器人 API 接口，官方文档地址：[KOOK 开发者平台](https://developer.kookapp.cn/doc/)
 
 两份文档内容基本相同，你可以选择自己习惯的查看方式。
 
@@ -24,24 +24,31 @@
 
 如果你在使用 KOOK 的 API 过程中遇见了 Bug，并且希望上报给我们来纠正这个错误的话，我们提供了两种反馈方式。
 
-- 你可以直接在 KOOK 官方的[吐槽中心](https://kook.top/MqWk5H)中进行实时反馈；
+- 你可以直接在 KOOK 官方的[开发者内测](https://kook.top/rc6aEk)中进行实时反馈，我们的技术会跟实时跟进你们的问题；
 - 同时我们我们也提供了在 [GitHub](https://github.com/kaiheila/api-docs) 中的 [issue tracker](https://github.com/kaiheila/api-docs) 中进行反馈。
 
 ### SDK
 
 热心的社区开发者们已经为大家准备了多种语言的 SDK，无需重复造轮子，上手即可轻松使用！如果希望你的 SDK 展示在此处，请于开发者服务器内联系`小波波#9366`。
 
-| 语言                  | 仓库名                          | 仓库地址                                        | 服务器邀请                             |
-| --------------------- | ------------------------------- | ----------------------------------------------- | -------------------------------------- |
-| PHP                   | kaiheila/php-bot                | [仓库链接](https://github.com/kaiheila/php-bot) | 暂无                                   |
-| JavaScript/TypeScript | fi6/KBotify & shugen002/BotRoot | [仓库链接](https://github.com/fi6/kBotify)      | [服务器邀请](https://kook.top/GO6qHj) |
-| Python                | TWT233/khl.py                   | [仓库链接](https://github.com/TWT233/khl.py)    | [服务器邀请](https://kook.top/JJE0Es) |
-| 易语言                | 大鑫/酷黑                       | 暂无                                            | [服务器邀请](https://kook.top/GymA7P) |
-| Go                    | lonelyevil/khl                  | [仓库链接](https://github.com/lonelyevil/khl)   | [服务器邀请](https://kook.top/r5s1WO) |
-
-### OpenAPI 描述文件
-
-我们也提供了 OpenAPI 描述文件，你可以用来部署测试用的 Mock Server，或使用生成器生成可互动文档。示例链接：[点击跳转](https://fi6.github.io/kaiheila-api-docs/oas/rapidoc-view.html)
+| 语言                  | 仓库名                             | 仓库地址                                                          | 服务器邀请                            |
+| --------------------- | ---------------------------------- | ----------------------------------------------------------------- | ------------------------------------- |
+| PHP                   | kaiheila/php-bot                   | [仓库链接](https://github.com/kaiheila/php-bot)                   | 暂无                                  |
+| JavaScript/TypeScript | fi6/KBotify & shugen002/BotRoot    | [仓库链接](https://github.com/fi6/kBotify)                        | [服务器邀请](https://kook.top/GO6qHj) |
+| Python                | TWT233/khl.py                      | [仓库链接](https://github.com/TWT233/khl.py)                      | [服务器邀请](https://kook.top/JJE0Es) |
+| Python                | Tian-que/nonebot-adapter-kaiheila  | [仓库链接](https://github.com/Tian-que/nonebot-adapter-kaiheila)  | 暂无                                  |
+| Python                | OlivOS-Team/OlivOS                 | [仓库链接](https://github.com/OlivOS-Team/OlivOS)                 | [服务器邀请](https://kook.top/8orLDo) |
+| Ruby                  | DessertShop/KHL                    | [仓库链接](https://github.com/DessertShop/KHL)                    | [服务器邀请](https://kook.top/ie2ymJ) |
+| 易语言                | 大鑫/酷黑                          | 暂无                                                              | [服务器邀请](https://kook.top/GymA7P) |
+| 易语言                | Cyerol/Mengko 梦果框架             | 暂无                                                              | [服务器邀请](https://kook.top/OMWqzw) |
+| Go                    | lonelyevil/khl                     | [仓库链接](https://github.com/lonelyevil/khl)                     | [服务器邀请](https://kook.top/r5s1WO) |
+| Java                  | FightingGuys/rabbit（停止维护）    | [仓库链接](https://github.com/FightingGuys/rabbit)                | [服务器邀请](https://kook.top/O9A5AY) |
+| Java                  | DeeChael/Kaiheila.java             | [仓库链接](https://github.com/DeeChael/Kaiheila.java)             | [服务器邀请](https://kook.top/9RB96R) |
+| Java                  | Enaium/kook-spring-boot-starter    | [仓库链接](https://github.com/Enaium/kook-spring-boot-starter)    | [服务器邀请](https://kook.top/YaP12f) |
+| C#                    | PoH98/KHLSharp                     | [仓库链接](https://github.com/PoH98/KHLBotSharp)                  | 暂无                                  |
+| C#                    | gehongyan/KaiHeiLa.Net             | [仓库链接](https://github.com/gehongyan/KaiHeiLa.Net)             | [服务器邀请](https://kook.top/EvxnOb) |
+| Kotlin & Java         | KookyBot/KookyBot                  | [仓库链接](https://github.com/KookyBot/KookyBot)                  | [服务器邀请](https://kook.top/wnWOP9) |
+| Kotlin & Java         | simple-robot/simbot-component-kook | [仓库链接](https://github.com/simple-robot/simbot-component-kook) | 暂无                                  |
 
 ### 机器人
 
@@ -49,7 +56,7 @@
 
 快去创建一个属于你的[机器人](https://developer.kookapp.cn/bot)吧！
 
-## 隐私政策
+### 隐私政策
 
 **更新日期：2020 年 12 月 9 日**
 
@@ -61,7 +68,7 @@
 
 ### 用户信息
 
-** KOOK  API 不得用于以下用途：**
+** KOOK API 不得用于以下用途：**
 
 - **未经 KOOK 用户的明确许可**，修改 KOOK 用户的账号信息。例如，未经用户允许，机器人主动将用户加入到一个新的服务器当中；
 - 替代 KOOK 用户**发送消息、上传文件或播放音频**；
@@ -69,7 +76,7 @@
 
 ### 数据信息
 
-** KOOK  API 不得用于以下用途：**
+** KOOK API 不得用于以下用途：**
 
 - **抓取**任何 KOOK 数据；
 - 将 KOOK 的数据用于运营机器人以外的其他用途；
@@ -83,7 +90,7 @@
 
 ### 法律规定
 
-** KOOK  API 不得用于以下用途：**
+** KOOK API 不得用于以下用途：**
 
 - 推送包含**违反法律规定的信息**（色情、赌博、毒品、政治、人身攻击、欺诈信息等）；
 - **导致死亡**，**人身伤害**或**破坏环境**等任何活动；
@@ -110,12 +117,12 @@
 
 ### 限制
 
- KOOK 规定了对 API 的**使用限制**（例如：单位时间内发送 API 请求的数量，机器人所在服务器的数量，机器人可以服务的用户数量）。
+KOOK 规定了对 API 的**使用限制**（例如：单位时间内发送 API 请求的数量，机器人所在服务器的数量，机器人可以服务的用户数量）。
 如果您想使用超出此类限制的任何 API，必须获得 KOOK 的书面授权。
 
 ### 投诉与处罚规范
 
- KOOK 的机器人已启用用户投诉处理机制，我们会根据用户的投诉，视违规程度予以不同程度的处罚措施。
+KOOK 的机器人已启用用户投诉处理机制，我们会根据用户的投诉，视违规程度予以不同程度的处罚措施。
 
 我们理解你的违规行为可能基于失误、疏忽等过失，因此，若你的机器人存在不符合法律法规和平台规则等情形而被处理， KOOK 提供了邮件申诉渠道，你可以对你的机器人进行整改后，通过申诉渠道重新向 KOOK 提交发布审核。
 
@@ -137,7 +144,7 @@
 
 ## 参考
 
- KOOK 的 API 正常分为两个核心层：
+KOOK 的 API 正常分为两个核心层：
 
 - 常规的 http 接口，你可以用它来做一些常规操作。
 - 消息实时通知，你可以通过（webhook/websocket）来订阅系统的实时消息及事件，然后做出相应的操作等。
@@ -154,7 +161,7 @@ https://www.kookapp.cn/api
 
 #### API 版本管理
 
- KOOK 后续可能会有不同版本的 API。您可以通过像 `https://www.kookapp.cn/api/v{version_number}` 这样在请求路径中明确指定所要使用的 API 版本。如果省略掉 version_number, 它会指向默认的版本。目前支持的版本列表如下所示：
+KOOK 后续可能会有不同版本的 API。您可以通过像 `https://www.kookapp.cn/api/v{version_number}` 这样在请求路径中明确指定所要使用的 API 版本。如果省略掉 version_number, 它会指向默认的版本。目前支持的版本列表如下所示：
 
 | 版本 | 状态   | 默认 |
 | ---- | ------ | ---- |

@@ -8,7 +8,7 @@
 
 Gateway 是 websocket 的网关，客户端通过连接 Gateway 可以获取到相应的推送消息等。
 
-Gateway 的获取需要走 http 接口获取，参见[Gateway](https://developer.kookapp.cn/doc/http/gateway)
+Gateway 的地址需要走 http 接口获取，参见[Gateway](https://developer.kookapp.cn/doc/http/gateway)
 
 ## 消息压缩
 
@@ -34,14 +34,14 @@ Gateway 的获取需要走 http 接口获取，参见[Gateway](https://developer
 当 WebSocket 链接彻底中断, 尝试重新建立链接并恢复, 需要在已断开的链接 url 后继续拼接以下参数:  
 resume : 固定值 1  
 sn : 当前客户端处理成功的最后一条消息的 sn, 没有收到过任何消息传 0。需自行记录（可保存至文件，以实现代码升级重启后恢复会话）。  
-session_id: 前一个链接中的 session_id , 参考 [信令 1 握手结果]
+session_id: 前一个链接中的 session_id , 参考 [信令 1 握手结果](#信令[1]%20HELLO)
 
 ```
 wss://test.kookapp.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&session_id=20****ae-1fa4-4d19-805f-6f0f****d534
 ```
 
 连接流程示意图：
-![image](https://developer.kookapp.cn/img/state.png)
+![image](/img/state.png)
 
 参考代码: [php-bot](https://github.com/kaiheila/php-bot/blob/main/src/base/StateSession.php)
 
@@ -52,12 +52,12 @@ wss://test.kookapp.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&se
 ```javascript
 {
     "s" : 1,  // int, 信令，详情参照信令说明
-    "d" : {}, // 数据字段mixed
+    "d" : [], // 数据字段mixed
     "sn" : 0, // int, 该字段并不一定有，只在s=0时有，与webhook一致。
 }
 ```
 
-具体参见[Event](#tag--事件相关)
+具体参见[Event](https://developer.kookapp.cn/doc/event)
 
 ### 信令说明
 
@@ -113,7 +113,7 @@ wss://test.kookapp.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&se
 **说明：** 在正常连接状态下，收到的消息事件等。  
 **参数列表：**
 
-具体参见[Event](#tag--事件相关)
+具体参见[Event](https://developer.kookapp.cn/doc/event)
 
 **注意：** 该消息会有 `sn`, 代表消息序号, 针对当前 `session` 的消息的序号, 客户端需记录该数字,并按顺序接收消息， **resume** 时需传入该参数才能完成。
 
@@ -175,7 +175,8 @@ wss://test.kookapp.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&se
 
 ## 信令[4] RESUME
 
-当链接未断开时，客户端需传入当前收到的最后一个 sn 序号
+当链接未断开时
+客户端需传入 当前收到的最后一个 sn 序号
 例:
 
 ```javascript
@@ -207,7 +208,7 @@ wss://test.kookapp.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&se
 
 ```javascript
 {
-    "s": 5
+    "s": 5,
     "d": {
         "code": 41008,
         "err": "Missing params"
@@ -223,7 +224,7 @@ wss://test.kookapp.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&se
 
 ```javascript
 {
-    "s": 6
+    "s": 6,
     "d": {
         "session_id": "xxxx-xxxxxx-xxx-xxx"
     }
