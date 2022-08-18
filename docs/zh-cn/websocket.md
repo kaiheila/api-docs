@@ -54,12 +54,12 @@ wss://test.kookapp.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&se
 ```javascript
 {
     "s" : 1,  // int, 信令，详情参照信令说明
-    "d" : [], // 数据字段mixed
+    "d" : {}, // 数据字段mixed
     "sn" : 0, // int, 该字段并不一定有，只在s=0时有，与webhook一致。
 }
 ```
 
-具体参见[Event](https://developer.kookapp.cn/doc/event)
+具体参见[Event](https://developer.kookapp.cn/doc/event/event-introduction)
 
 ### 信令说明
 
@@ -115,7 +115,7 @@ wss://test.kookapp.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&se
 **说明：** 在正常连接状态下，收到的消息事件等。  
 **参数列表：**
 
-具体参见[Event](https://developer.kookapp.cn/doc/event)
+具体参见[Event](https://developer.kookapp.cn/doc/event/event-introduction)
 
 **注意：** 该消息会有 `sn`, 代表消息序号, 针对当前 `session` 的消息的序号, 客户端需记录该数字,并按顺序接收消息， **resume** 时需传入该参数才能完成。
 

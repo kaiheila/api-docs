@@ -1527,14 +1527,14 @@ paths:
 
         {
             "s" : 1,  // int, 信令，详情参照信令说明
-            "d" : [], // 数据字段mixed
+            "d" : {}, // 数据字段mixed
             "sn" : 0, // int, 该字段并不一定有，只在s=0时有，与webhook一致。
         }
 
         ```
 
 
-        具体参见[Event](https://developer.kookapp.cn/doc/event)
+        具体参见[Event](https://developer.kookapp.cn/doc/event/event-introduction)
 
 
         ### 信令说明
@@ -1623,7 +1623,7 @@ paths:
         **参数列表：**
 
 
-        具体参见[Event](https://developer.kookapp.cn/doc/event)
+        具体参见[Event](https://developer.kookapp.cn/doc/event/event-introduction)
 
 
         **注意：** 该消息会有 `sn`, 代表消息序号, 针对当前 `session` 的消息的序号, 客户端需记录该数字,并按顺序接收消息，
