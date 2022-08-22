@@ -2535,12 +2535,12 @@ paths:
                   maximum: 99
                   description: 语音频道人数限制，最大99
                 voice_quality:
-                  type: integer
+                  type: string
                   description: 语音音质，默认为`2`。`1`流畅，`2`正常，`3`高质量
                   enum:
-                    - 1
-                    - 2
-                    - 3
+                    - '1'
+                    - '2'
+                    - '3'
       responses:
         '200':
           description: OK
