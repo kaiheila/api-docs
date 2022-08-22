@@ -19,6 +19,7 @@
 | --------------------- | --------------------------------- | ---------------------------------------------------------------- | -------------------------------------- |
 | PHP                   | kaiheila/php-bot                  | [仓库链接](https://github.com/kaiheila/php-bot)                  | 暂无                                   |
 | JavaScript/TypeScript | fi6/KBotify & shugen002/BotRoot   | [仓库链接](https://github.com/fi6/kBotify)                       | [服务器邀请](https://kook.top/GO6qHj) |
+| JavaScript/TypeScript | kookts/kook.ts                     | [仓库链接](https://github.com/kookts/kook.ts)                     | [服务器邀请](https://kook.top/GO6qHj) |
 | Python                | TWT233/khl.py                     | [仓库链接](https://github.com/TWT233/khl.py)                     | [服务器邀请](https://kook.top/JJE0Es) |
 | Python                | Tian-que/nonebot-adapter-kaiheila | [仓库链接](https://github.com/Tian-que/nonebot-adapter-kaiheila) | 暂无                                   |
 | Python                | OlivOS-Team/OlivOS                | [仓库链接](https://github.com/OlivOS-Team/OlivOS)                | [服务器邀请](https://kook.top/8orLDo) |
