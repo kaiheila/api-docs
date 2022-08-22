@@ -136,7 +136,7 @@
     "level": 100,
     "slow_mode": 0,
     "limit_amount": 0,
-    "voice_quality": 1,
+    "voice_quality": "1",
     "is_category": false,
     "server_url": "hostname:prot"
   }
@@ -153,15 +153,15 @@
 
 ### 参数列表
 
-| 参数名        | 位置 | 类型   | 必需  | 说明                                             |
-| ------------- | ---- | ------ | ----- | ------------------------------------------------ |
-| guild_id      | body | string | true  | 服务器 id                                        |
-| parent_id     | body | string | false | 父分组 id                                        |
-| name          | body | string | true  | 频道名称                                         |
-| type          | body | int    | false | 频道类型，`1` 文字，`2` 语音，默认为`1`          |
-| limit_amount  | body | int    | false | 语音频道人数限制，最大`99`                       |
-| voice_quality | body | int    | false | 语音音质，默认为`2`。`1`流畅，`2`正常，`3`高质量 |
-| is_category | body | int    | false | 是否是分组，默认为0。1是，0否。当该值传1时，只接收guild_id、name、is_category三个字段！|
+| 参数名        | 位置 | 类型   | 必需  | 说明                                                                                           |
+| ------------- | ---- | ------ | ----- | ---------------------------------------------------------------------------------------------- |
+| guild_id      | body | string | true  | 服务器 id                                                                                      |
+| parent_id     | body | string | false | 父分组 id                                                                                      |
+| name          | body | string | true  | 频道名称                                                                                       |
+| type          | body | int    | false | 频道类型，`1` 文字，`2` 语音，默认为`1`                                                        |
+| limit_amount  | body | int    | false | 语音频道人数限制，最大`99`                                                                     |
+| voice_quality | body | string | false | 语音音质，默认为`2`。`1`流畅，`2`正常，`3`高质量                                               |
+| is_category   | body | int    | false | 是否是分组，默认为 0。1 是，0 否。当该值传 1 时，只接收 guild_id、name、is_category 三个字段！ |
 
 ### 返回参数说明
 
@@ -170,7 +170,8 @@
 ### 传参示例
 
 分组频道
-``` 
+
+```
 {
     "guild_id": "00000000000000000000000",
     "name":"xxx",
@@ -195,7 +196,7 @@
         "level": 100,
         "slow_mode": 0,
         "limit_amount": 0,
-        "voice_quality": 1,
+        "voice_quality": "1",
         "is_category": false,
         "server_type": 0,
         "server_url": "hostname:prot"
