@@ -48,7 +48,7 @@
 | Java                  | Enaium/kook-spring-boot-starter    | [仓库链接](https://github.com/Enaium/kook-spring-boot-starter)    | [服务器邀请](https://kook.top/YaP12f) |
 | Java                  | SNWCreations/JKook                 | [仓库链接](https://github.com/SNWCreations/JKook)                 | 暂无                                  |
 | C#                    | PoH98/KHLSharp                     | [仓库链接](https://github.com/PoH98/KHLBotSharp)                  | 暂无                                  |
-| C#                    | gehongyan/KaiHeiLa.Net             | [仓库链接](https://github.com/gehongyan/KaiHeiLa.Net)             | [服务器邀请](https://kook.top/EvxnOb) |
+| C#                    | gehongyan/Kook.Net                 | [仓库链接](https://github.com/gehongyan/Kook.Net)                 | [服务器邀请](https://kook.top/EvxnOb) |
 | Kotlin & Java         | KookyBot/KookyBot                  | [仓库链接](https://github.com/KookyBot/KookyBot)                  | [服务器邀请](https://kook.top/wnWOP9) |
 | Kotlin & Java         | simple-robot/simbot-component-kook | [仓库链接](https://github.com/simple-robot/simbot-component-kook) | 暂无                                  |
 
