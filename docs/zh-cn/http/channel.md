@@ -138,7 +138,7 @@
     "limit_amount": 0,
     "voice_quality": "1",
     "is_category": false,
-    "server_url": "hostname:prot"
+    "server_url": "hostname:port"
   }
 }
 ```
@@ -199,7 +199,7 @@
         "voice_quality": "1",
         "is_category": false,
         "server_type": 0,
-        "server_url": "hostname:prot"
+        "server_url": "hostname:port"
     }
 }
 ```
