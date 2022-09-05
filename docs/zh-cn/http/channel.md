@@ -12,6 +12,7 @@
 | [/api/v3/channel/create](#创建频道)                                                       | 创建频道             | 正常     |
 | [/api/v3/channel/update](#编辑频道)                                                       | 编辑频道             | 正常     |
 | [/api/v3/channel/delete](#删除频道)                                                       | 删除频道             | 正常     |
+| [/api/v3/channel/user-list](#语音频道用户列表)                                             | 语音频道用户列表      | 正常     |
 | [/api/v3/channel/move-user](#语音频道之间移动用户)                                        | 语音频道之间移动用户 | 正常     |
 | [/api/v3/channel-role/index](#频道角色权限详情)                                           | 获取频道角色权限详情 | 正常     |
 | [/api/v3/channel-role/create](#创建频道角色权限)                                          | 创建频道角色权限     | 正常     |
@@ -326,6 +327,62 @@
     "code": 0,
     "message": "操作成功",
     "data": {}
+}
+```
+
+## 语音频道用户列表
+
+### 接口说明
+
+| 地址                     | 请求方式 | 说明 |
+| ------------------------ | -------- | ---- |
+| `/api/v3/channel/user-list` | GET     |      |
+
+### 参数列表
+
+| 参数名     | 类型   | 必传 | 参数区域 | 说明    |
+| ---------- | ------ | ---- | -------- | ------- |
+| channel_id | string | 是   | GET      | 频道id |
+
+### 返回参数说明
+用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User)
+
+### 返回示例
+
+```javascript
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": [
+        {
+            "id": "999999999",
+            "username": "XXX",
+            "identify_num": "9999",
+            "online": true,
+            "os": "Websocket",
+            "status": 1,
+            "avatar": "XXX",
+            "vip_avatar": "XXX",
+            "banner": "",
+            "nickname": "XXX",
+            "roles": [
+                4131873
+            ],
+            "is_vip": false,
+            "is_ai_reduce_noise": true,
+            "is_personal_card_bg": false,
+            "bot": false,
+            "mobile_verified": true,
+            "joined_at": 1639808384000,
+            "active_time": 1639808384000,
+            "live_info": {
+                "in_live": false,
+                "audience_count": 0,
+                "live_thumb": "",
+                "live_start_time": 0
+            }
+        }
+    ]
 }
 ```
 
