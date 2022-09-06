@@ -158,7 +158,7 @@
 ```
 
 ## 文件消息
-
+文件消息已转为卡片消息，详情请直接参考卡片消息
 #### extra 字段说明
 
 | 字段        | 类型   | 说明                                                                             |
@@ -330,6 +330,87 @@
         },
         "nickname": "12316993",
         "roles": [111, 112]
+      }
+    },
+    "msg_id": "553f1f78-xxxxx-39c65d9c5584",
+    "msg_timestamp": 1613996743849,
+    "nonce": "",
+    "verify_token": "xxxxx"
+  },
+  "sn": 180
+}
+```
+
+## 道具 消息
+
+#### content 字段说明
+
+| 字段          | 类型    | 说明                                                                             |
+| ------------- | ------- | -------------------------------------------------------------------------------- |
+| type          | string  |  枚举string，动作：item                                                                  |
+| data          | Array   |      见下    |
+#### content-data 字段说明
+| 字段          | 类型    | 说明                                                                             |
+| ------------- | ------- | -------------------------------------------------------------------------------- |
+| user_id        | string  |      发起用户id                                                                |
+| target_id      | string  |      目标用户id                                                                |
+| item_id        | int     |      动作道具id                                                              |
+
+#### extra 字段说明
+
+| 字段          | 类型    | 说明                                                                             |
+| ------------- | ------- | -------------------------------------------------------------------------------- |
+| type          | int     | 同上面 type                                                                      |
+| mention       | Array   | 提及到的用户 id 的列表                                                           |
+| author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User) |
+
+#### 道具 消息示例
+
+```json
+{
+  "s": 0,
+  "d": {
+    "channel_type": "GROUP",
+    "type": 12,
+    "target_id": "48818200000000000",
+    "author_id": "2418200000",
+    "content": {
+       "type":"item",
+       "data":{
+          "user_id":"2418200000",
+          "target_id":"2418200000",
+          "item_id":10001
+       }
+    },
+    "extra": {
+      "type": 12,
+      "mention": ["2418200000"],
+      "author": {
+        "id": "2418200000",
+        "username": "tz-un",
+        "identify_num": "5618",
+        "online": false,
+        "os": "Websocket",
+        "status": 1,
+        "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
+        "tag_info": {
+          "color": "#6666CC",
+          "text": "KOOK"
+        },
+        "nickname": "12316993",
+        "roles": [111, 112]
+      },
+      "kmarkdown": {
+          "mention":["2418200000"],
+          "mention_part": [
+           {
+               "id":"2418200000",
+               "username":"tz-un",
+               "full_name":"tz-un#5618",
+               "avatar":"https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon"
+           }],
+          // 道具内容省略
+          "item_part": []
       }
     },
     "msg_id": "553f1f78-xxxxx-39c65d9c5584",
