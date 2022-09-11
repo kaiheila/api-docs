@@ -42,7 +42,7 @@
 | Ruby                  | DessertShop/KHL                    | [仓库链接](https://github.com/DessertShop/KHL)                    | [服务器邀请](https://kook.top/ie2ymJ) |
 | 易语言                | 大鑫/酷黑                          | 暂无                                                              | [服务器邀请](https://kook.top/GymA7P) |
 | 易语言                | Cyerol/Mengko 梦果框架             | 暂无                                                              | [服务器邀请](https://kook.top/OMWqzw) |
-| Go                    | lonelyevil/khl                     | [仓库链接](https://github.com/lonelyevil/khl)                     | [服务器邀请](https://kook.top/r5s1WO) |
+| Go                    | lonelyevil/kook                     | [仓库链接](https://github.com/lonelyevil/kook)                     | [服务器邀请](https://kook.top/r5s1WO) |
 | Java                  | FightingGuys/rabbit（停止维护）    | [仓库链接](https://github.com/FightingGuys/rabbit)                | [服务器邀请](https://kook.top/O9A5AY) |
 | Java                  | DeeChael/Kaiheila.java             | [仓库链接](https://github.com/DeeChael/Kaiheila.java)             | [服务器邀请](https://kook.top/9RB96R) |
 | Java                  | Enaium/kook-spring-boot-starter    | [仓库链接](https://github.com/Enaium/kook-spring-boot-starter)    | [服务器邀请](https://kook.top/YaP12f) |
