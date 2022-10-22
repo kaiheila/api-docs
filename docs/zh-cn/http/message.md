@@ -2,7 +2,7 @@
 
 本文档主要列出频道消息相关接口。
 
-本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kaiheila.cn/doc/reference)。
+本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kookapp.cn/doc/reference)。
 
 | 接口                                                           | 接口说明                       | 维护状态 |
 | -------------------------------------------------------------- | ------------------------------ | -------- |
@@ -28,9 +28,9 @@
 | mention_roles       | array   | `@特定角色` 的角色 ID 数组，与 `mention_info` 中的数据对应                                                     |
 | mention_here        | boolean | 是否含有 `@在线人员`                                                                                           |
 | embeds              | array   | 超链接解析数据                                                                                                 |
-| attachments         | map     | 附加的多媒体数据 参考[对象-Attachments](https://developer.kaiheila.cn/doc/objects#附加的多媒体数据Attachments) |
+| attachments         | map     | 附加的多媒体数据 参考[对象-Attachments](https://developer.kookapp.cn/doc/objects#附加的多媒体数据Attachments) |
 | reactions           | array   | 回应数据                                                                                                       |
-| quote               | map     | 引用消息 参考[对象-Quote](https://developer.kaiheila.cn/doc/objects#引用消息Quote)                             |
+| quote               | map     | 引用消息 参考[对象-Quote](https://developer.kookapp.cn/doc/objects#引用消息Quote)                             |
 | mention_info        | map     | 引用特定用户或特定角色的信息                                                                                   |
 | » mention_part      | array   | `@特定用户` 详情                                                                                               |
 | » mention_role_part | array   | `@特定角色` 详情                                                                                               |
@@ -256,7 +256,7 @@
 
 ### 接口说明
 
-此接口与频道相关接口下的 [发送频道聊天消息](https://developer.kaiheila.cn/doc/http/channel#%E5%8F%91%E9%80%81%E9%A2%91%E9%81%93%E8%81%8A%E5%A4%A9%E6%B6%88%E6%81%AF) 功能相同。
+此接口与频道相关接口下的 [发送频道聊天消息](https://developer.kookapp.cn/doc/http/channel#%E5%8F%91%E9%80%81%E9%A2%91%E9%81%93%E8%81%8A%E5%A4%A9%E6%B6%88%E6%81%AF) 功能相同。
 
 **注意：** 强烈建议过滤掉机器人发送的消息，再进行回应。否则会很容易形成两个机器人循环自言自语导致发送量过大，进而导致机器人被封禁。如果确实需要机器人联动的情况，慎重进行处理，防止形成循环。
 
@@ -268,7 +268,7 @@
 
 | 参数名         | 类型   | 必传 | 参数区域 | 说明                                                                                                                                                                                            |
 | -------------- | ------ | ---- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type           | int    | 否   | POST     | 消息类型, 见[type], 不传默认为 `1`, 代表文本类型。 `9` 代表 [kmarkdown](https://developer.kaiheila.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kaiheila.cn/doc/cardmessage)。 |
+| type           | int    | 否   | POST     | 消息类型, 见[type], 不传默认为 `1`, 代表文本类型。 `9` 代表 [kmarkdown](https://developer.kookapp.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kookapp.cn/doc/cardmessage)。 |
 | target_id      | string | 是   | POST     | 目标频道 id                                                                                                                                                                                     |
 | content        | string | 是   | POST     | 消息内容                                                                                                                                                                                        |
 | quote          | string | 否   | POST     | 回复某条消息的 `msgId`                                                                                                                                                                          |

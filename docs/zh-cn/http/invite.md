@@ -1,7 +1,7 @@
 # 邀请相关接口
 
 本文档主要列出邀请相关的接口。  
-本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kaiheila.cn/doc/reference)。
+本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kookapp.cn/doc/reference)。
 
 | 接口                                   | 接口说明     | 维护状态 |
 | -------------------------------------- | ------------ | -------- |
@@ -36,7 +36,7 @@
 | channel_id | string | 频道 id                                                    |
 | url_code   | string | url code                                                   |
 | url        | string | 地址                                                       |
-| user       | object | 用户,参见[user](https://developer.kaiheila.cn/doc/objects) |
+| user       | object | 用户,参见[user](https://developer.kookapp.cn/doc/objects) |
 
 ### 返回示例
 

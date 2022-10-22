@@ -13,7 +13,7 @@
 }
 ```
 
-本文主要讲述的是当 `s=0` 时，data 的数据结构，信令的具体含义参见[websocket](https://developer.kaiheila.cn/doc/websocket).
+本文主要讲述的是当 `s=0` 时，data 的数据结构，信令的具体含义参见[websocket](https://developer.kookapp.cn/doc/websocket).
 
 ## 事件主要格式
 
@@ -44,7 +44,7 @@
 | mention_all   | boolean | 是否 mention 所有用户                                                            |
 | mention_roles | Array   | mention 用户角色的数组                                                           |
 | mention_here  | boolean | 是否 mention 在线用户                                                            |
-| author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User) |
+| author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
 
 ### 系统事件消息 extra 说明
 

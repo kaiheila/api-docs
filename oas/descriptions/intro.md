@@ -243,7 +243,7 @@ Accept-Language: en-us
 消息通知在整个 KOOK 体系中比较复杂，我们目前支持两种消息通知机制：
 
 - [Webhook](https://developer.kookapp.cn/doc/webhook)
-- [Websocket](https://developer.kaiheila.cn/doc/websocket)
+- [Websocket](https://developer.kookapp.cn/doc/websocket)
 
 不论是以何种方式来接受消息，它们都遵循着相同的规范：
 

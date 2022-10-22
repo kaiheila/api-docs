@@ -346,7 +346,7 @@
 | channel_id | string | 是   | GET      | 频道id |
 
 ### 返回参数说明
-用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User)
+用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User)
 
 ### 返回示例
 
@@ -438,7 +438,7 @@
 | 参数名                | 类型  | 说明                                                                                                                                                                                |
 | --------------------- | ----- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | permission_overwrites | Array | 频道权限覆写的角色列表, role_id 为角色 id, 其它字段见下表                                                                                                                           |
-| permission_users      | Array | 频道权限覆写的用户列表, user 字段参见[用户接口](https://developer.kaiheila.cn/doc/http/user#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF), 其它的见下表 |
+| permission_users      | Array | 频道权限覆写的用户列表, user 字段参见[用户接口](https://developer.kookapp.cn/doc/http/user#%E8%8E%B7%E5%8F%96%E5%BD%93%E5%89%8D%E7%94%A8%E6%88%B7%E4%BF%A1%E6%81%AF), 其它的见下表 |
 | permission_sync       | int   | 是否同步分组的权限                                                                                                                                                                  |
 
 其它参数说明：
