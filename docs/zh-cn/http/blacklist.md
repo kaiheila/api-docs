@@ -30,7 +30,7 @@
 | user_id      | string | 用户 id                                                    |
 | created_time | int    | 加入黑名单的时间戳(毫秒)                                   |
 | remark       | string | 加入黑名单的原因                                           |
-| user         | object | 用户,参见[user](https://developer.kaiheila.cn/doc/objects) |
+| user         | object | 用户,参见[user](https://developer.kookapp.cn/doc/objects) |
 
 ### 返回示例
 

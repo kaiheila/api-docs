@@ -1,6 +1,6 @@
 # 消息相关事件列表
 
-### 事件格式说明：请查看 \[[事件结构/格式说明](https://developer.kaiheila.cn/doc/event/event-introduction)\]
+### 事件格式说明：请查看 \[[事件结构/格式说明](https://developer.kookapp.cn/doc/event/event-introduction)\]
 
 ## 文字消息
 
@@ -15,7 +15,7 @@
 | mention_all   | boolean | 是否 mention 所有用户                                                            |
 | mention_roles | Array   | mention 用户角色的数组                                                           |
 | mention_here  | boolean | 是否 mention 在线用户                                                            |
-| author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User) |
+| author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
 
 #### 文字消息示例
 
@@ -64,7 +64,7 @@
 | code        | string |                                                                                  |
 | guild_id    | string | 服务器 id                                                                        |
 | attachments | Map    | 附件                                                                             |
-| author      | Map    | 用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User) |
+| author      | Map    | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
 
 #### 图片消息示例
 
@@ -113,7 +113,7 @@
 | code        | string |                                                                                  |
 | guild_id    | string | 服务器 id                                                                        |
 | attachments | Map    | 附件                                                                             |
-| author      | Map    | 用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User) |
+| author      | Map    | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
 
 #### 视频消息示例
 
@@ -167,7 +167,7 @@
 | code        | string |                                                                                  |
 | guild_id    | string | 服务器 id                                                                        |
 | attachments | Map    | 附件                                                                             |
-| author      | Map    | 用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User) |
+| author      | Map    | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
 
 #### 文件消息示例
 
@@ -223,7 +223,7 @@
 | mention_here  | boolean | 是否 mention 在线用户                                                            |
 | nav_channels  | Array   |                                                                                  |
 | code          | string  |                                                                                  |
-| author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User) |
+| author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
 | kmarkdown     | Map     |                                                                                  |
 
 #### KMarkdown 消息示例
@@ -292,7 +292,7 @@
 | mention_here  | boolean | 是否 mention 在线用户                                                            |
 | nav_channels  | Array   |                                                                                  |
 | code          | string  |                                                                                  |
-| author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User) |
+| author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
 
 #### Card 消息示例
 
@@ -362,7 +362,7 @@
 | ------------- | ------- | -------------------------------------------------------------------------------- |
 | type          | int     | 同上面 type                                                                      |
 | mention       | Array   | 提及到的用户 id 的列表                                                           |
-| author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kaiheila.cn/doc/objects#用户User) |
+| author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
 
 #### 道具 消息示例
 

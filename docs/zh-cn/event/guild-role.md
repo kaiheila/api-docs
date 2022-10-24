@@ -1,6 +1,6 @@
 # 服务器角色相关事件
 
-### 事件格式说明：请查看 \[[事件结构/格式说明]\]( https://developer.kaiheila.cn/doc/event/event-introduction )
+### 事件格式说明：请查看 \[[事件结构/格式说明]\]( https://developer.kookapp.cn/doc/event/event-introduction )
 
 ## 服务器角色增加
 
@@ -9,7 +9,7 @@
 | 字段 | 类型   | 说明                                                                     |
 | ---- | ------ | ------------------------------------------------------------------------ |
 | type | string | 消息的类型，本处为 `added_role`                                          |
-| body | Map    | 参考[对象-角色 Role](https://developer.kaiheila.cn/doc/objects#角色Role) |
+| body | Map    | 参考[对象-角色 Role](https://developer.kookapp.cn/doc/objects#角色Role) |
 
 #### 示例：
 
@@ -50,7 +50,7 @@
 | 字段 | 类型   | 说明                                                                     |
 | ---- | ------ | ------------------------------------------------------------------------ |
 | type | string | 消息的类型，本处为 `deleted_role`                                        |
-| body | Map    | 参考[对象-角色 Role](https://developer.kaiheila.cn/doc/objects#角色Role) |
+| body | Map    | 参考[对象-角色 Role](https://developer.kookapp.cn/doc/objects#角色Role) |
 
 #### 示例：
 
@@ -91,7 +91,7 @@
 | 字段 | 类型   | 说明                                                                     |
 | ---- | ------ | ------------------------------------------------------------------------ |
 | type | string | 消息的类型，本处为 `updated_role`                                        |
-| body | Map    | 参考[对象-角色 Role](https://developer.kaiheila.cn/doc/objects#角色Role) |
+| body | Map    | 参考[对象-角色 Role](https://developer.kookapp.cn/doc/objects#角色Role) |
 
 #### 示例：
 

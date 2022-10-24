@@ -2,7 +2,7 @@
 
 本文档主要列出频道用户相关接口。
 
-本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kaiheila.cn/doc/reference)。
+本文档中的接口均符合接口规范，如有疑问，建议先查阅[接口引言](https://developer.kookapp.cn/doc/reference)。
 
 | 接口                                                                                       | 接口说明             | 维护状态 |
 | ------------------------------------------------------------------------------------------ | -------------------- | -------- |
@@ -40,8 +40,8 @@
 | slow_mode    | int     | 慢速限制，单位秒。用户发送消息之后再次发送消息的等待时间。 |
 | limit_amount | int     | 人数限制       |
 | is_category  | boolean | 是否为分组类型 |
-| permission_overwrites | Array | 频道权限覆写的角色列表, 详情见[频道角色权限详情](https://developer.kaiheila.cn/doc/http/channel#%E9%A2%91%E9%81%93%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E8%AF%A6%E6%83%85) |
-| permission_users      | Array | 频道权限覆写的用户列表, 详情见[频道角色权限详情](https://developer.kaiheila.cn/doc/http/channel#%E9%A2%91%E9%81%93%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E8%AF%A6%E6%83%85) |
+| permission_overwrites | Array | 频道权限覆写的角色列表, 详情见[频道角色权限详情](https://developer.kookapp.cn/doc/http/channel#%E9%A2%91%E9%81%93%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E8%AF%A6%E6%83%85) |
+| permission_users      | Array | 频道权限覆写的用户列表, 详情见[频道角色权限详情](https://developer.kookapp.cn/doc/http/channel#%E9%A2%91%E9%81%93%E8%A7%92%E8%89%B2%E6%9D%83%E9%99%90%E8%AF%A6%E6%83%85) |
 | permission_sync       | int   | 是否同步分组的权限                                                                                                                                                                  |
 
 ### 返回示例

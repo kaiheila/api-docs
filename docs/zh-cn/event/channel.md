@@ -1,6 +1,6 @@
 # 频道相关事件列表
 
-### 事件格式说明：请查看 \[[事件结构/格式说明]\]( https://developer.kaiheila.cn/doc/event/event-introduction )
+### 事件格式说明：请查看 \[[事件结构/格式说明]\]( https://developer.kookapp.cn/doc/event/event-introduction )
 
 ## 频道内用户添加 reaction
 
@@ -191,7 +191,7 @@
 | 字段 | 类型   | 说明                                                                           |
 | ---- | ------ | ------------------------------------------------------------------------------ |
 | type | string | 消息的类型，本处为 `added_channel`                                             |
-| body | Map    | 参考[对象-频道 Channel](https://developer.kaiheila.cn/doc/objects#频道Channel) |
+| body | Map    | 参考[对象-频道 Channel](https://developer.kookapp.cn/doc/objects#频道Channel) |
 
 #### 示例：
 
@@ -263,7 +263,7 @@
 | 字段 | 类型   | 说明                                                                           |
 | ---- | ------ | ------------------------------------------------------------------------------ |
 | type | string | 消息的类型，本处为 `updated_channel`                                           |
-| body | Map    | 参考[对象-频道 Channel](https://developer.kaiheila.cn/doc/objects#频道Channel) |
+| body | Map    | 参考[对象-频道 Channel](https://developer.kookapp.cn/doc/objects#频道Channel) |
 
 #### 示例
 
