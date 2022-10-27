@@ -30,9 +30,8 @@
 | ------------ | ------- | -------------- |
 | id           | string  | 频道 id        |
 | guild_id     | string  | 父分组频道 id  |
-| master_id    | string  | 频道创建者 id  |
+| user_id      | string  | 频道创建者 id  |
 | parent_id    | string  | 父分组频道 id  |
-| user_id      | string  | 用户id        |
 | name         | string  | 频道名称       |
 | topic        | string  | 频道简介       |
 | type         | int     | 频道类型       |
@@ -55,7 +54,7 @@
             {
                 "id": "100000000000000",
                 "guild_id": "1111111111111111",
-                "master_id": "1111111111",
+                "user_id": "1111111111",
                 "parent_id": "",
                 "user_id": "1111111111",
                 "name": "测试",

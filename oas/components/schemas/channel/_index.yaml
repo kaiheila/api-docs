@@ -8,7 +8,7 @@ basic:
       example: '3321010478582000'
     guild_id:
       $ref: '../_index.yaml#/GuildId'
-    master_id:
+    user_id:
       description: 频道创建者id
       type: string
       example: "1700000"

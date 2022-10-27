@@ -12,7 +12,7 @@ basic:
     topic:
       type: string
       description: 服务器主题
-    master_id:
+    user_id:
       allOf:
         - $ref: '../user/_index.yaml#/basic/properties/id'
       description: 服务器主的id
