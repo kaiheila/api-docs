@@ -35,7 +35,7 @@
 | C#                    | gehongyan/Kook.Net                | [仓库链接](https://github.com/gehongyan/Kook.Net)                | [服务器邀请](https://kook.top/EvxnOb) |
 | Kotlin & Java         | KookyBot/KookyBot                 | [仓库链接](https://github.com/KookyBot/KookyBot)                 | [服务器邀请](https://kook.top/wnWOP9) |
 | Kotlin & Java         | simple-robot/simbot-component-kook  | [仓库链接](https://github.com/simple-robot/simbot-component-kook)  | 暂无 |
-
+| Kotlin                | hank9999/kook-kt                  | [仓库链接](https://github.com/hank9999/kook-kt)                  | 暂无                                 |
 
 ## 机器人
 
