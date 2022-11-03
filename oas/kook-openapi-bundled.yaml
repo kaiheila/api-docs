@@ -4882,7 +4882,7 @@ components:
         topic:
           type: string
           description: 服务器主题
-        master_id:
+        user_id:
           allOf:
             - $ref: '#/components/schemas/properties-id'
           description: 服务器主的id
@@ -4981,7 +4981,7 @@ components:
           example: '3321010478582000'
         guild_id:
           $ref: '#/components/schemas/id'
-        master_id:
+        user_id:
           description: 频道创建者id
           type: string
           example: '1700000'
