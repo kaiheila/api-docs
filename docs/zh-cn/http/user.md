@@ -93,7 +93,6 @@
 | bot             | boolean | 是否为机器人                                           |
 | mobile_verified | boolean | 是否手机号已验证                                       |
 | roles           | Array   | 用户在当前服务器中的角色 id 组成的列表                 |
-| mobile_verified | boolean | 是否手机号已验证                                       |
 | joined_at       | int     | 加入服务器时间                                         |
 | active_time     | int     | 活跃时间                                               |
 
