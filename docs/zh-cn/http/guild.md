@@ -15,6 +15,7 @@
 | [/api/v3/guild-mute/list](#服务器静音闭麦列表)      | 服务器静音闭麦列表           | 正常     |
 | [/api/v3/guild-mute/create](#添加服务器静音或闭麦)  | 添加服务器静音或闭麦         | 正常     |
 | [/api/v3/guild-mute/delete](#删除服务器静音或闭麦)  | 删除服务器静音或闭麦         | 正常     |
+| [/api/v3/guild-boost/history](#服务器助力历史)      | 查询服务器的助力包历史       | 正常     |
 
 ## 获取当前用户加入的服务器列表
 
@@ -468,5 +469,71 @@
   "code": 0,
   "message": "操作成功",
   "data": {}
+}
+```
+
+## 服务器助力历史
+
+### 接口说明
+
+| 地址                       | 请求方式 | 说明 |
+| -------------------------- | -------- | ---- |
+| `/api/v3/guild-boost/list` | GET      |      |
+
+### 参数列表
+
+| 参数名     | 位置  | 类型   | 必需  | 说明                            |
+| ---------- | ----- | ------ | ----- | ------------------------------- |
+| guild_id   | query | string | true  | 服务器 id                       |
+| start_time | query | int    | false | unix 时间戳，时间范围的开始时间 |
+| end_time   | query | int    | false | unix 时间戳，时间范围的结束时间 |
+
+### 返回参数说明
+
+返回格式为标准分页格式，以 `start_time` 由大到小排列，其中 `items` 数据如下：
+
+| 名称       | 类型   | 说明                        |
+| ---------- | ------ | --------------------------- |
+| user_id    | string | 使用助力包的用户 ID         |
+| guild_id   | string | 服务器的用户 ID             |
+| start_time | int    | 助力包生效时间, Unix 时间戳 |
+| end_time   | int    | 助力包失效时间, Unix 时间戳 |
+| user       | object | 使用助力包的用户数据对象    |
+
+### 返回示例
+
+```json
+{
+  "code": 0,
+  "message": "操作成功",
+  "data": {
+    "items": [
+      {
+        "user_id": "1780328444",
+        "guild_id": "9168644645632553",
+        "start_time": 1667814426,
+        "end_time": 1670406426,
+        "user": {
+          "id": "1780328444",
+          "username": "XXXX",
+          "identify_num": "4322",
+          "online": false,
+          "os": "Websocket",
+          "avatar": "",
+          "vip_avatar": "",
+          "banner": "",
+          "nickname": "XXXX",
+          "bot": false
+        }
+      }
+    ],
+    "meta": {
+      "page": 1,
+      "page_total": 106,
+      "page_size": 1,
+      "total": 106
+    },
+    "sort": {}
+  }
 }
 ```
