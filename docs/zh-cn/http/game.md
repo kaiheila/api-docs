@@ -198,7 +198,7 @@
 ```
 音乐动态
 ``` 
-{"software":"kugou","singer":"山水之间","music_name":"许嵩","data_type":2}
+{"software":"kugou","singer":"许嵩","music_name":"山水之间","data_type":2}
 ```
 
 ### 返回示例
