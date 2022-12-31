@@ -492,13 +492,13 @@
 
 返回格式为标准分页格式，以 `start_time` 由大到小排列，其中 `items` 数据如下：
 
-| 名称       | 类型   | 说明                        |
-| ---------- | ------ | --------------------------- |
-| user_id    | string | 使用助力包的用户 ID         |
-| guild_id   | string | 服务器的用户 ID             |
-| start_time | int    | 助力包生效时间, Unix 时间戳 |
-| end_time   | int    | 助力包失效时间, Unix 时间戳 |
-| user       | object | 使用助力包的用户数据对象    |
+| 名称        | 类型   | 说明                              |
+| ---------- | ------ | -------------------------------- |
+| user_id    | string | 使用助力包的用户 ID                 |
+| guild_id   | string | 服务器的用户 ID                    |
+| start_time | int    | 助力包生效时间, Unix 时间戳 (单位: 秒)|
+| end_time   | int    | 助力包失效时间, Unix 时间戳 (单位: 秒)|
+| user       | object | 使用助力包的用户数据对象             |
 
 ### 返回示例
 
