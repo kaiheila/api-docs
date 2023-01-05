@@ -134,7 +134,7 @@
 | guild_id              | string  | 服务器 id                                     |
 | topic                 | string  | 频道简介                                      |
 | is_category           | boolean | 是否为分组，事件中为 int 格式                 |
-| parent_id             | string  | 上级分组的 id                                 |
+| parent_id             | string  | 上级分组的 id (若没有则为 0)                    |
 | level                 | int     | 排序 level                                    |
 | slow_mode             | int     | 慢速模式下限制发言的最短时间间隔, 单位为秒(s) |
 | type                  | int     | 频道类型: `1` 文字频道, `2` 语音频道          |
@@ -232,12 +232,12 @@
 
 ## 附加的多媒体数据 Attachments
 
-| 字段 | 类型   | 说明           |
-| ---- | ------ | -------------- |
+| 字段  | 类型   | 说明           |
+| ---- | ------ | ------------- |
 | type | string | 多媒体类型     |
 | url  | string | 多媒体地址     |
 | name | string | 多媒体名       |
-| size | int    | 大小 单位（B） |
+| size | int    | 大小 单位 Byte |
 
 **示例**
 
