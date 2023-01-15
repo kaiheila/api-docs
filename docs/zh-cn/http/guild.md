@@ -40,7 +40,7 @@
 | id                 | string  | 服务器 id                                                                                         |
 | name               | string  | 服务器名称                                                                                        |
 | topic              | string  | 服务器主题                                                                                        |
-| user_id            | string  | 服务器主的 id                                                                                     |
+| user_id            | string  | 服主的 id                                                                                     |
 | icon               | string  | 服务器 icon 的地址                                                                                |
 | notify_type        | int     | 通知类型, `0`代表默认使用服务器通知设置，`1`代表接收所有通知, `2`代表仅@被提及，`3`代表不接收通知 |
 | region             | string  | 服务器默认使用语音区域                                                                            |
