@@ -38,6 +38,8 @@ resume : 固定值 1
 sn : 当前客户端处理成功的最后一条消息的 sn, 没有收到过任何消息传 0。需自行记录（可保存至文件，以实现代码升级重启后恢复会话）。  
 session_id: 前一个链接中的 session_id , 参考 [信令 1 握手结果](#信令[1]%20HELLO)  
 
+**这是一个例子:**
+
 ```
 wss://test.kookapp.com:8888/gateway?{compress/token parameters}&resume=1&sn=5&session_id=20****ae-1fa4-4d19-805f-6f0f****d534
 ```
