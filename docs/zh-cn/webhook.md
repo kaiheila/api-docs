@@ -26,7 +26,7 @@
         "type": 255,
         "channel_type": "WEBHOOK_CHALLENGE", //表示这是一个验证请求 
         "challenge" : "bkes654x09XY" , //客户端需要原样返回
-        "verify_token": "xxxxxx",   //机器人的token
+        "verify_token": "xxxxxx",   //机器人的 verify token（不等同于 token）
     }
 }
 ```
