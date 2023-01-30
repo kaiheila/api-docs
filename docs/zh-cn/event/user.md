@@ -1,6 +1,6 @@
 # 用户相关事件列表
 
-### 事件格式说明：请查看 \[[事件结构/格式说明]\]( https://developer.kookapp.cn/doc/event/event-introduction )
+### 事件格式说明：请查看 \[[事件结构/格式说明](https://developer.kookapp.cn/doc/event/event-introduction)\]
 
 ## 用户加入语音频道
 
