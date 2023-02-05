@@ -1,6 +1,6 @@
 # 服务器相关事件
 
-### 事件格式说明：请查看 \[[事件结构/格式说明]\]( https://developer.kookapp.cn/doc/event/event-introduction )
+### 事件格式说明：请查看 \[[事件结构/格式说明](https://developer.kookapp.cn/doc/event/event-introduction)\]
 
 ## 服务器信息更新
 
@@ -179,6 +179,123 @@
       "body": {
         "operator_id": "xxx",
         "user_id": ["3751918xx"]
+      }
+    },
+    "msg_id": "14230d28-xxxx-b84609119e01",
+    "msg_timestamp": 1613997311786,
+    "nonce": "",
+    "verify_token": "xxx"
+  },
+  "sn": 184
+}
+```
+
+## 服务器添加新表情
+
+#### extra 字段说明：
+
+| 字段          | 类型   | 说明                                    |
+| ------------- | ------ | --------------------------------------- |
+| type          | string | 消息的类型，本处为 `added_emoji` |
+| body          | Map    |                                         |
+| » id            | string | 表情 ID                               |
+| » name       | string  | 表情名称                            |
+
+#### 示例：
+
+```json
+{
+  "s": 0,
+  "d": {
+    "channel_type": "GROUP",
+    "type": 255,
+    "target_id": "xxxxxxxxxxxxxx",
+    "author_id": "1",
+    "content": "[系统消息]",
+    "extra": {
+      "type": "added_emoji",
+      "body": {
+        "id": "xxxxxxxxx/xxxxxxxxx",
+        "name": "xxxxxxx"
+      }
+    },
+    "msg_id": "14230d28-xxxx-b84609119e01",
+    "msg_timestamp": 1613997311786,
+    "nonce": "",
+    "verify_token": "xxx"
+  },
+  "sn": 184
+}
+```
+
+## 服务器删除表情
+
+#### extra 字段说明：
+
+| 字段          | 类型   | 说明                                    |
+| ------------- | ------ | --------------------------------------- |
+| type          | string | 消息的类型，本处为 `removed_emoji` |
+| body          | Map    |                                         |
+| » id            | string | 表情 ID                               |
+| » name       | string  | 表情名称                            |
+
+#### 示例：
+
+```json
+{
+  "s": 0,
+  "d": {
+    "channel_type": "GROUP",
+    "type": 255,
+    "target_id": "xxxxxxxxxxxxxx",
+    "author_id": "1",
+    "content": "[系统消息]",
+    "extra": {
+      "type": "removed_emoji",
+      "body": {
+        "id": "xxxxxxxxx/xxxxxxxxx",
+        "name": "xxxxxxx"
+      }
+    },
+    "msg_id": "14230d28-xxxx-b84609119e01",
+    "msg_timestamp": 1613997311786,
+    "nonce": "",
+    "verify_token": "xxx"
+  },
+  "sn": 184
+}
+```
+
+
+## 服务器更新表情
+
+此事件在表情的名称被更新时触发。
+
+#### extra 字段说明：
+
+| 字段          | 类型   | 说明                                    |
+| ------------- | ------ | --------------------------------------- |
+| type          | string | 消息的类型，本处为 `updated_emoji` |
+| body          | Map    |                                         |
+| » id            | string | 表情 ID                               |
+| » name       | string  | 表情名称                            |
+
+#### 示例：
+
+```json
+{
+  "s": 0,
+  "d": {
+    "channel_type": "GROUP",
+    "type": 255,
+    "target_id": "xxxxxxxxxxxxxx",
+    "author_id": "1",
+    "content": "[系统消息]",
+    "extra": {
+      "type": "updated_emoji",
+      "body": {
+        "id": "xxxxxxxxx/xxxxxxxxx",
+        "name": "xxxxxxx"
       }
     },
     "msg_id": "14230d28-xxxx-b84609119e01",

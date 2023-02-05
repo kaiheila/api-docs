@@ -1,6 +1,6 @@
 # 私聊消息事件
 
-### 事件格式说明：请查看 \[[事件结构/格式说明]\]( https://developer.kookapp.cn/doc/event/event-introduction )
+### 事件格式说明：请查看 \[[事件结构/格式说明](https://developer.kookapp.cn/doc/event/event-introduction)\]
 
 ## 私聊消息更新
 
