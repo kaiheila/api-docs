@@ -1,6 +1,6 @@
 # 简介
 
-欢迎来到开发者酒馆，快找个位置随便坐！开发者中心的文档提供了丰富的 API 接口，介绍了机器人的开发语言、能力、调试等内容，帮助你快速了解机器人开发的方方面面，相信你在这里永远都不会空手而归。
+欢迎来到开发者酒馆，快找个位置随便坐！开发者中心的文档提供了丰富的 API 接口详解，介绍了机器人的开发语言、能力等内容，帮助你快速了解机器人开发的方方面面，相信你在这里永远都不会空手而归。
 
 我们将所有文档都藏在了 [GitHub](https://github.com/kaiheila/api-docs) 上，而且我们会不断添加新的功能！
 
@@ -8,8 +8,8 @@
 
 如果你在使用 KOOK 的 API 过程中遇见了 Bug，并且希望上报给我们来纠正这个错误的话，我们提供了两种反馈方式。
 
-- 你可以直接在 KOOK 官方的[开发者内测](https://kook.top/rc6aEk)中进行实时反馈，我们的技术会跟实时跟进你们的问题；
-- 同时我们我们也提供了在 [GitHub](https://github.com/kaiheila/api-docs) 中的 [issue tracker](https://github.com/kaiheila/api-docs) 中进行反馈。
+- 你可以直接在 KOOK 官方的[开发者内测](https://kook.top/rc6aEk)服务器中进行实时反馈，我们的技术会跟实时跟进你们的问题；
+- 同时，你也可以在 [GitHub](https://github.com/kaiheila/api-docs) 中的 [issue tracker](https://github.com/kaiheila/api-docs) 中进行反馈。
 
 ## SDK
 
