@@ -17,6 +17,7 @@
 | [/api/v3/channel-role/index](#频道角色权限详情)                                           | 获取频道角色权限详情 | 正常     |
 | [/api/v3/channel-role/create](#创建频道角色权限)                                          | 创建频道角色权限     | 正常     |
 | [/api/v3/channel-role/update](#更新频道角色权限)                                          | 更新频道角色权限     | 正常     |
+| [/api/v3/channel-role/sync](#同步频道角色权限)                                            | 同步频道角色权限     | 正常     |
 | [/api/v3/channel-role/delete](#删除频道角色权限)                                          | 删除频道角色权限     | 正常     |
 
 ## 获取频道列表
@@ -595,6 +596,46 @@
     "user_id": "2418200000",
     "allow": 2048,
     "deny": 0
+  }
+}
+```
+
+## 同步频道角色权限
+
+### 接口说明
+
+| 地址                          | 请求方式 | 说明 |
+|-----------------------------| -------- | ---- |
+| `/api/v3/channel-role/sync` | POST     |      |
+
+### 参数列表
+
+| 参数名     | 位置 | 类型   | 必需  | 说明    |
+| ---------- | ---- | ------ | ----- |-------|
+| channel_id | body | string | true  | 频道 ID |
+
+### 返回参数说明
+
+| 参数名                   | 类型    | 说明                   |
+|-----------------------|-------|----------------------|
+| permission_overwrites | array | 针对角色在该频道的权限覆写规则组成的列表 |
+| permission_users      | array | 针对用户在该频道的权限覆写规则组成的列表 |
+
+### 返回示例
+
+```json
+{
+  "code": 0,
+  "message": "操作成功",
+  "data": {
+    "permission_overwrites": [
+      {
+        "role_id": 0,
+        "allow": 0,
+        "deny": 0
+      }
+    ],
+    "permission_users": []
   }
 }
 ```
