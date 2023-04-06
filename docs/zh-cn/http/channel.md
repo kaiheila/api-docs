@@ -105,20 +105,25 @@
 
 ### 返回参数说明
 
-| 参数名       | 类型    | 说明                                                       |
-| ------------ | ------- | ---------------------------------------------------------- |
-| id           | string  | 频道 id                                                    |
-| guild_id     | string  | 服务器 id                                                  |
-| user_id      | string  | 频道创建者 id                                              |
-| parent_id    | string  | 父分组频道 id                                              |
-| name         | string  | 频道名称                                                   |
-| topic        | string  | 频道简介                                                   |
-| type         | int     | 频道类型，`1` 文字，`2` 语音                               |
-| level        | int     | 频道排序                                                   |
-| slow_mode    | int     | 慢速限制，单位秒。用户发送消息之后再次发送消息的等待时间。 |
-| limit_amount | int     | 人数限制                                                   |
-| is_category  | boolean | 是否为分组类型                                             |
-| server_url   | string  | 语音服务器地址，`HOST:PORT`的格式                          |
+| 参数名                   | 类型      | 说明                             |
+|-----------------------|---------|--------------------------------|
+| id                    | string  | 频道 id                          |
+| guild_id              | string  | 服务器 id                         |
+| user_id               | string  | 频道创建者 id                       |
+| parent_id             | string  | 父分组频道 id                       |
+| name                  | string  | 频道名称                           |
+| topic                 | string  | 频道简介                           |
+| type                  | int     | 频道类型，`0` 分组，`1` 文字，`2` 语音      |
+| level                 | int     | 频道排序                           |
+| slow_mode             | int     | 慢速限制，用户发送消息之后再次发送消息的等待时间，单位秒   |
+| has_password          | boolean | 是否已设置密码                        |
+| limit_amount          | int     | 人数限制                           |
+| is_category           | boolean | 是否为分组类型                        |
+| permission_sync       | int     | 是否与分组频道同步权限                    |
+| permission_overwrites | array   | 针对角色的频道权限覆盖                    |
+| permission_users      | array   | 针对用户的频道权限覆盖                    |
+| voice_quality         | string  | 语音频道质量级别，`1` 流畅，`2` 正常，`3` 高质量 |
+| server_url            | string  | 语音服务器地址，`HOST:PORT/PATH`的格式    |
 
 ### 返回示例
 
@@ -129,17 +134,27 @@
   "data": {
     "id": "00000000000000000000000",
     "guild_id": "00000000000000000000000",
-    "user_id": "00000000000000000000000",
     "parent_id": "00000000000000000000000",
+    "user_id": "00000000000000000000000",
     "name": "语音频道",
     "topic": "",
     "type": 1,
     "level": 100,
     "slow_mode": 0,
+    "has_password": false,
     "limit_amount": 0,
-    "voice_quality": "1",
     "is_category": false,
-    "server_url": "hostname:port"
+    "permission_sync": 0,
+    "permission_overwrites": [
+      {
+        "role_id": 0,
+        "allow": 8,
+        "deny": 0
+      }
+    ],
+    "permission_users": [],
+    "voice_quality": "1",
+    "server_url": "hostname:port/path"
   }
 }
 ```
@@ -154,14 +169,14 @@
 
 ### 参数列表
 
-| 参数名        | 位置 | 类型   | 必需  | 说明                                                                                           |
-| ------------- | ---- | ------ | ----- | ---------------------------------------------------------------------------------------------- |
-| guild_id      | body | string | true  | 服务器 id                                                                                      |
-| parent_id     | body | string | false | 父分组 id                                                                                      |
-| name          | body | string | true  | 频道名称                                                                                       |
-| type          | body | int    | false | 频道类型，`1` 文字，`2` 语音，默认为`1`                                                        |
-| limit_amount  | body | int    | false | 语音频道人数限制，最大`99`                                                                     |
-| voice_quality | body | string | false | 语音音质，默认为`2`。`1`流畅，`2`正常，`3`高质量                                               |
+| 参数名        | 位置 | 类型   | 必需  | 说明                                                               |
+| ------------- | ---- | ------ | ----- |------------------------------------------------------------------|
+| guild_id      | body | string | true  | 服务器 id                                                           |
+| name          | body | string | true  | 频道名称                                                             |
+| parent_id     | body | string | false | 父分组 id                                                           |
+| type          | body | int    | false | 频道类型，`1` 文字，`2` 语音，默认为 `1`                                       |
+| limit_amount  | body | int    | false | 语音频道人数限制，最大 `99`                                                 |
+| voice_quality | body | string | false | 语音音质，默认为`2`。`1`流畅，`2`正常，`3`高质量                                   |
 | is_category   | body | int    | false | 是否是分组，默认为 0。1 是，0 否。当该值传 1 时，只接收 guild_id、name、is_category 三个字段！ |
 
 ### 返回参数说明
@@ -182,26 +197,35 @@
 
 ### 返回示例
 
-```javascript
+```json
 {
-    "code": 0,
-    "message": "操作成功",
-    "data": {
-        "id": "00000000000000000000000",
-        "guild_id": "00000000000000000000000",
-        "user_id": "00000000000000000000000",
-        "parent_id": "00000000000000000000000",
-        "name": "语音频道",
-        "topic": "",
-        "type": 1,
-        "level": 100,
-        "slow_mode": 0,
-        "limit_amount": 0,
-        "voice_quality": "1",
-        "is_category": false,
-        "server_type": 0,
-        "server_url": "hostname:port"
-    }
+  "code": 0,
+  "message": "操作成功",
+  "data": {
+    "id": "00000000000000000000000",
+    "guild_id": "00000000000000000000000",
+    "parent_id": "00000000000000000000000",
+    "user_id": "00000000000000000000000",
+    "name": "语音频道",
+    "topic": "",
+    "type": 1,
+    "level": 100,
+    "slow_mode": 0,
+    "has_password": false,
+    "limit_amount": 0,
+    "is_category": false,
+    "permission_sync": 1,
+    "permission_overwrites": [
+      {
+        "role_id": 0,
+        "allow": 0,
+        "deny": 0
+      }
+    ],
+    "permission_users": [],
+    "voice_quality": "1",
+    "server_url": "hostname:port"
+  }
 }
 ```
 
@@ -209,19 +233,23 @@
 
 ### 接口说明
 
-| 地址                   | 请求方式 | 说明 |
-| ---------------------- | -------- | ---- |
-| /api/v3/channel/update | POST     |      |
+| 地址                       | 请求方式 | 说明 |
+|--------------------------|------|----|
+| `/api/v3/channel/update` | POST |    |
 
 ### 参数列表
 
-| 参数名     | 类型   | 必传 | 参数区域 | 说明                                                                                                                                          |
-| ---------- | ------ | ---- | -------- | --------------------------------------------------------------------------------------------------------------------------------------------- |
-| channel_id | string | 是   | POST     | 服务器中频道的 ID                                                                                                                             |
-| name       | string | 否   | POST     | 频道名称                                                                                                                                      |
-| topic      | string | 否   | POST     | 频道简介                                                                                                                                      |
-| slow_mode  | int    | 否   | POST     | 慢速模式，单位 ms。目前只支持这些值：0, 5000, 10000, 15000, 30000, 60000, 120000, 300000, 600000, 900000, 1800000, 3600000, 7200000, 21600000 |
-| limit_amount | int  | 否   | POST     | 此频道最大能容纳的用户数量，仅在目标频道为语音频道时有效 |
+| 参数名           | 类型     | 必传 | 参数区域 | 说明                                                                                                                                  |
+|---------------|--------|----|------|-------------------------------------------------------------------------------------------------------------------------------------|
+| channel_id    | string | 是  | POST | 服务器中频道的 ID                                                                                                                          |
+| name          | string | 否  | POST | 频道名称                                                                                                                                |
+| level         | int    | 否  | POST | 频道排序                                                                                                                                |
+| parent_id     | string | 否  | POST | 分组频道 ID，设置为 `0` 为移出分组                                                                                                               |
+| topic         | string | 否  | POST | 频道简介，文字频道有效                                                                                                                         |
+| slow_mode     | int    | 否  | POST | 慢速模式，单位 ms。目前只支持这些值：0, 5000, 10000, 15000, 30000, 60000, 120000, 300000, 600000, 900000, 1800000, 3600000, 7200000, 21600000，文字频道有效 |
+| limit_amount  | int    | 否  | POST | 此频道最大能容纳的用户数量，最大值 99，语音频道有效                                                                                                         |
+| voice_quality | string | 否  | POST | 声音质量，`1` 流畅，`2` 正常，`3` 高质量，语音频道有效                                                                                                   |
+| password      | string | 否  | POST | 密码，语音频道有效                                                                                                                           |
 
 ### 返回参数说明
 
@@ -239,7 +267,7 @@
 
 ### 返回示例
 
-```javascript
+```json
 {
     "code": 0,
     "message": "操作成功",
@@ -324,7 +352,7 @@
 
 ### 返回示例
 
-```javascript
+```json
 {
     "code": 0,
     "message": "操作成功",
@@ -351,7 +379,7 @@
 
 ### 返回示例
 
-```javascript
+```json
 {
     "code": 0,
     "message": "操作成功",
@@ -412,7 +440,7 @@
 
 ### 返回示例
 
-```javascript
+```json
 {
     "code": 0,
     "message": "操作成功",
