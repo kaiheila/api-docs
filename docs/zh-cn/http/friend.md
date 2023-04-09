@@ -10,6 +10,8 @@
 | [/api/v3/friend/request](#好友申请)            | 好友申请     | 正常     |
 | [/api/v3/friend/handle-request](#处理好友申请) | 处理好友申请 | 正常     |
 | [/api/v3/friend/delete](#删除好友)             | 删除好友     | 正常     |
+| [/api/v3/friend/block](#屏蔽用户)             | 屏蔽用户     | 正常    |
+| [/api/v3/friend/unblock](#取消屏蔽用户)         | 取消屏蔽用户   | 正常    |
 
 ## 好友列表
 
@@ -35,76 +37,76 @@
 
 ### 返回实例
 
-```javascript
+```json
 {
-    "code": 0,
-    "message": "操作成功",
-    "data": {
-        "request": [
-            {
-                "id": 6576047,
-                "type": "request",
-                "friend_info": {
-                    "id": "2810246202",
-                    "username": "戈小荷",
-                    "identify_num": "0439",
-                    "online": true,
-                    "os": "iOS",
-                    "status": 1,
-                    "avatar": "https://img.kookapp.cn/avatars/2021-07/ggB1h1kCvS06j06j.png/icon",
-                    "vip_avatar": "https://img.kookapp.cn/avatars/2021-07/ggB1h1kCvS06j06j.png/icon",
-                    "banner": "https://img.kookapp.cn/assets/2022-06/3rLkCSMdhW0hg06y.png",
-                    "nickname": "戈小荷",
-                    "roles": [],
-                    "is_vip": true,
-                    "is_ai_reduce_noise": true,
-                    "is_personal_card_bg": false,
-                    "bot": false,
-                    "decorations_id_map": {
-                        "join_voice": 10017,
-                        "background": 10018
-                    }
-                },
-                "own": false
-            }
-        ],
-        "friend": [
-            {
-                "id": 6547839,
-                "type": "friend",
-                "friend_info": {
-                    "id": "982587531",
-                    "username": "DeeChael",
-                    "identify_num": "0001",
-                    "online": true,
-                    "os": "Websocket",
-                    "status": 1,
-                    "avatar": "https://img.kookapp.cn/avatars/2022-01/HA5jda2Ya604w04w.png/icon",
-                    "vip_avatar": "https://img.kookapp.cn/avatars/2022-01/HA5jda2Ya604w04w.png/icon",
-                    "banner": "https://img.kookapp.cn/assets/2022-12/SC9Rijissy0hg06y.png",
-                    "nickname": "DeeChael",
-                    "roles": [],
-                    "is_vip": true,
-                    "is_ai_reduce_noise": true,
-                    "is_personal_card_bg": false,
-                    "bot": false,
-                    "decorations_id_map": {
-                        "join_voice": 10017,
-                        "background": 10018
-                    },
-                    "game": {
-                        "id": 194884,
-                        "name": "PyCharm",
-                        "type": 1,
-                        "icon": "",
-                        "start_time": 1671164634
-                    }
-                },
-                "own": false
-            }
-        ],
-        "blocked": []
-    }
+  "code": 0,
+  "message": "操作成功",
+  "data": {
+    "request": [
+      {
+        "id": 6576047,
+        "type": "request",
+        "friend_info": {
+          "id": "2810246202",
+          "username": "戈小荷",
+          "identify_num": "0439",
+          "online": true,
+          "os": "iOS",
+          "status": 1,
+          "avatar": "https://img.kookapp.cn/avatars/2021-07/ggB1h1kCvS06j06j.png/icon",
+          "vip_avatar": "https://img.kookapp.cn/avatars/2021-07/ggB1h1kCvS06j06j.png/icon",
+          "banner": "https://img.kookapp.cn/assets/2022-06/3rLkCSMdhW0hg06y.png",
+          "nickname": "戈小荷",
+          "roles": [],
+          "is_vip": true,
+          "is_ai_reduce_noise": true,
+          "is_personal_card_bg": false,
+          "bot": false,
+          "decorations_id_map": {
+            "join_voice": 10017,
+            "background": 10018
+          }
+        },
+        "own": false
+      }
+    ],
+    "friend": [
+      {
+        "id": 6547839,
+        "type": "friend",
+        "friend_info": {
+          "id": "982587531",
+          "username": "DeeChael",
+          "identify_num": "0001",
+          "online": true,
+          "os": "Websocket",
+          "status": 1,
+          "avatar": "https://img.kookapp.cn/avatars/2022-01/HA5jda2Ya604w04w.png/icon",
+          "vip_avatar": "https://img.kookapp.cn/avatars/2022-01/HA5jda2Ya604w04w.png/icon",
+          "banner": "https://img.kookapp.cn/assets/2022-12/SC9Rijissy0hg06y.png",
+          "nickname": "DeeChael",
+          "roles": [],
+          "is_vip": true,
+          "is_ai_reduce_noise": true,
+          "is_personal_card_bg": false,
+          "bot": false,
+          "decorations_id_map": {
+            "join_voice": 10017,
+            "background": 10018
+          },
+          "game": {
+            "id": 194884,
+            "name": "PyCharm",
+            "type": 1,
+            "icon": "",
+            "start_time": 1671164634
+          }
+        },
+        "own": false
+      }
+    ],
+    "blocked": []
+  }
 }
 ```
 
@@ -163,9 +165,9 @@
 
 ```json
 {
-    "code": 0,
-    "message": "操作成功",
-    "data": true
+  "code": 0,
+  "message": "操作成功",
+  "data": true
 }
 ```
 
@@ -192,9 +194,66 @@
 
 ```json
 {
-    "code": 0,
-    "message": "操作成功",
-    "data": {}
+  "code": 0,
+  "message": "操作成功",
+  "data": {}
 }
 ```
 
+## 屏蔽用户
+
+### 接口说明
+
+| 地址                     | 请求方式 | 说明 |
+|------------------------| -------- | ---- |
+| `/api/v3/friend/block` | POST     |      |
+
+### 参数列表
+
+| 参数名  | 类型   | 是否必填 | 说明    |
+| ------- | ------ | -------- |-------|
+| user_id | string | 是       | 用户 ID |
+
+### 返回参数说明
+
+| 参数名 | 类型 | 说明 |
+| ------ | ---- | ---- |
+
+### 返回示例
+
+```json
+{
+  "code": 0,
+  "message": "操作成功",
+  "data": {}
+}
+```
+
+## 取消屏蔽用户
+
+### 接口说明
+
+| 地址                       | 请求方式 | 说明 |
+|--------------------------| -------- | ---- |
+| `/api/v3/friend/unblock` | POST     |      |
+
+### 参数列表
+
+| 参数名  | 类型   | 是否必填 | 说明    |
+| ------- | ------ | -------- |-------|
+| user_id | string | 是       | 用户 ID |
+
+### 返回参数说明
+
+| 参数名 | 类型 | 说明 |
+| ------ | ---- | ---- |
+
+### 返回示例
+
+```json
+{
+  "code": 0,
+  "message": "操作成功",
+  "data": {}
+}
+```
