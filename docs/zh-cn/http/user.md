@@ -31,8 +31,10 @@
 | username        | string  | 用户的名称                                             |
 | identify_num    | string  | 用户名的认证数字，用户名正常为：user_name#identify_num |
 | online          | boolean | 当前是否在线                                           |
+| os              | string  | 当前连接方式                                           |
 | status          | int     | 用户的状态, 0 和 1 代表正常，10 代表被封禁             |
 | avatar          | string  | 用户的头像的 url 地址                                  |
+| banner          | string  | 用户的横幅的 url 地址                                  |
 | bot             | boolean | 用户是否为机器人                                       |
 | mobile_verified | boolean | 是否手机号已验证                                       |
 | mobile_prefix   | string  | 手机区号,如中国为 86                                   |
@@ -50,8 +52,10 @@
     "username": "test",
     "identify_num": "1670",
     "online": false,
+    "os": "Websocket",
     "status": 0,
     "avatar": "https://xxx.com/assets/bot.png/icon",
+    "banner": "https://xxx.com/assets/banner.png",
     "bot": true,
     "mobile_verified": true,
     "client_id": "b64kJF7HHFKXXX",
