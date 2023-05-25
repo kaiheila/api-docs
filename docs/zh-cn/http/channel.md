@@ -103,6 +103,7 @@
 | 参数名    | 类型   | 必传 | 参数区域 | 说明    |
 | --------- | ------ | ---- | -------- | ------- |
 | target_id | string | 是   | GET      | 频道 id |
+| need_children | bool | 否  | GET      | 是否需要获取子频道。true是 false否 默认为false |
 
 ### 返回参数说明
 
