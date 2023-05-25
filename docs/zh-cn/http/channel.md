@@ -125,6 +125,7 @@
 | permission_users      | array   | 针对用户的频道权限覆盖                    |
 | voice_quality         | string  | 语音频道质量级别，`1` 流畅，`2` 正常，`3` 高质量 |
 | server_url            | string  | 语音服务器地址，`HOST:PORT/PATH`的格式    |
+| children            | array  |  子频道的id列表    |
 
 ### 返回示例
 
@@ -155,7 +156,11 @@
     ],
     "permission_users": [],
     "voice_quality": "1",
-    "server_url": "hostname:port/path"
+    "server_url": "hostname:port/path",
+    "children": [
+        "0000000000000000",
+        "0000000000000000"
+    ]
   }
 }
 ```
