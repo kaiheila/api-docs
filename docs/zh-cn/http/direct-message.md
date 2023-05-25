@@ -101,8 +101,8 @@ after: 查询参考消息之后的消息，不包括参考消息
 
 | 参数名    | 位置  | 类型    | 必需  | 说明                                                               |
 | --------- | ----- | ------- | ----- | ------------------------------------------------------------------ |
-| chat_code | query | string  | false | 私信会话 Code。                                                  |
-| msg_id    | query | string  | false | 参考消息 id                                    |
+| chat_code | query | string  | true | 私信会话 Code。                                                  |
+| msg_id    | query | string  | true | 参考消息 id                                    |
 
 ### 返回参数说明
 
