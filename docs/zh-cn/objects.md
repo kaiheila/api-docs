@@ -54,8 +54,8 @@
 | open_id            | string  | 公开服务器 id                                                                                     |
 | default_channel_id | string  | 默认频道 id                                                                                       |
 | welcome_channel_id | string  | 欢迎频道 id                                                                                       |
-| roles              | array   | 角色列表                                                                                          |
-| channels           | array   | 频道列表                                                                                          |
+| roles              | Array   | 角色列表                                                                                          |
+| channels           | Array   | 频道列表                                                                                          |
 
 **示例**
 
@@ -139,7 +139,7 @@
 | slow_mode             | int     | 慢速模式下限制发言的最短时间间隔, 单位为秒(s) |
 | type                  | int     | 频道类型: `1` 文字频道, `2` 语音频道          |
 | permission_overwrites | Array   | 针对角色在该频道的权限覆写规则组成的列表      |
-| permission_users      | array   | 针对用户在该频道的权限覆写规则组成的列表      |
+| permission_users      | Array   | 针对用户在该频道的权限覆写规则组成的列表      |
 | permission_sync       | int     | 权限设置是否与分组同步, `1` or `0`            |
 | has_password          | bool    | 是否有密码                                    |
 
