@@ -48,7 +48,7 @@ Authorization: Bot BHsTZ4232tLatgV5AFyjoqZGAHHmpl9mTxYQ/u4/80=
 Accept-Language: en-US
 ```
 
-系统如果支持该语言，系统会以该语言返回错误消息等。如果系统不支持，系统会以默认的 zh-cn 来返回接口的消息，提示等。
+系统如果支持该语言，系统会以该语言返回错误消息等。如果系统不支持，系统会以默认的 zh-cn 来返回接口的消息、提示等。
 
 ### 接口格式及返回说明
 
