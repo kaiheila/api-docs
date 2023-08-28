@@ -8,7 +8,7 @@
 
 如果你在使用 KOOK 的 API 过程中遇见了 Bug，并且希望上报给我们来纠正这个错误的话，我们提供了两种反馈方式。
 
-- 你可以直接在 KOOK 官方的[开发者内测](https://kook.top/rc6aEk)服务器中进行实时反馈，我们的技术会跟实时跟进你们的问题；
+- 你可以直接在 KOOK 官方的[开发者内测](https://kook.top/rc6aEk)服务器中进行实时反馈，我们的技术会实时跟进你们的问题；
 - 同时，你也可以在 [GitHub](https://github.com/kaiheila/api-docs) 中的 [issue tracker](https://github.com/kaiheila/api-docs) 中进行反馈。
 
 ## SDK
