@@ -27,12 +27,12 @@
 
 ### 返回参数说明
 
-| 参数名          | 类型     | 说明                       |
-|--------------|--------|--------------------------|
+| 参数名         | 类型     | 说明                       |
+|-------------|--------|--------------------------|
 | access_token | string | AccessToken              |
-| expires_in   | int    | 有效期时间(单位秒)               |
-| token_type   | string | Token类型, 目前固定为 `Bearer`  |
-| scope        | string | 用户授权给该应用的OAuth能力范围, 空格分隔 |
+| expire_in   | int    | 有效期时间(单位秒)               |
+| token_type  | string | Token类型, 目前固定为 `Bearer`  |
+| scope       | string | 用户授权给该应用的OAuth能力范围, 空格分隔 |
 
 ### 返回示例
 
