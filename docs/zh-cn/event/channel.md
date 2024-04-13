@@ -148,11 +148,11 @@
 
 #### extra 字段说明：
 
-| 字段       | 类型   | 说明                                 |
-| -------- | ------ | ------------------------------------ |
-| type     | string | 消息的类型，本处为 `deleted_message` |
-| body     | Map    |                                      |
-| » id     | string | 被更新的消息的 id                    |
+| 字段         | 类型   | 说明                                 |
+| ------------ | ------ | ------------------------------------ |
+| type         | string | 消息的类型，本处为 `deleted_message` |
+| body         | Map    |                                      |
+| » msg_id     | string | 被更新的消息的 id                    |
 | » channel_id | string | 频道 id                              |
 
 #### 示例：
@@ -169,7 +169,7 @@
       "type": "deleted_message",
       "body": {
         "channel_id": "58234000000",
-        "id": "59def270-xxxx-8db935e054a1"
+        "msg_id": "59def270-xxxx-8db935e054a1"
       }
     },
     "msg_id": "63d6a934-xxxx-a1f02c255213",
