@@ -137,11 +137,12 @@
 
 #### extra 字段说明:
 
-| 字段       | 类型   | 说明                                   |
-| ---------- | ------ | -------------------------------------- |
+| 字段         | 类型   | 说明                         |
+|------------| ------ |----------------------------|
 | type       | string | 消息的类型，本处为 `self_joined_guild` |
-| body       | Map    |                                        |
-| » guild_id | string | 服务器 id                              |
+| body       | Map    |                            |
+| » guild_id | string | 服务器 id                     | 
+| » state    | string | oauth2传递的state参数           | 
 
 #### 示例：
 
@@ -157,7 +158,8 @@
     "extra": {
       "type": "self_joined_guild",
       "body": {
-        "guild_id": "xxx"
+        "guild_id": "xxx",
+         "state" : "yyy",
       }
     },
     "msg_id": "238063ab-xxxx-cd90c3cfb92f",
