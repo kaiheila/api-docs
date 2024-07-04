@@ -6,14 +6,15 @@
 
 #### extra 字段说明：
 
-| 字段         | 类型   | 说明                                         |
-| ------------ | ------ | -------------------------------------------- |
-| type         | string | 消息的类型，本处为 `added_reaction`          |
-| body         | Map    |                                              |
-| » msg_id     | string | 用户点击的消息 id                            |
-| » user_id    | string | 点击的用户                                   |
-| » channel_id | string | 频道 id                                      |
-| » emoji      | Map    | 消息对象, 包含 `id` 表情 id, `name` 表情名称 |
+| 字段             | 类型     | 说明                               |
+|----------------|--------|----------------------------------|
+| type           | string | 消息的类型，本处为 `added_reaction`       |
+| body           | Map    |                                  |
+| » msg_id       | string | 用户点击的消息 id                       |
+| » user_id      | string | 点击的用户                            |
+| » channel_id   | string | 频道 id                            |
+| » emoji        | Map    | 消息对象, 包含 `id` 表情 id, `name` 表情名称 |
+| » channel_type | int    | 频道类型 1：文字 2：语音                   |
 
 #### 示例
 
@@ -30,6 +31,7 @@
       "type": "added_reaction",
       "body": {
         "channel_id": "5823400000000",
+        "channel_type": 1,
         "emoji": {
           "id": "[#128226;]",
           "name": "[#128226;]"
@@ -59,7 +61,7 @@
 | » user_id    | string | 点击的用户                                   |
 | » channel_id | string | 频道 id                                      |
 | » emoji      | Map    | 消息对象, 包含 `id` 表情 id, `name` 表情名称 |
-
+| » channel_type | int    | 频道类型 1：文字 2：语音                   |
 #### 示例：
 
 ```json
@@ -75,6 +77,7 @@
       "type": "deleted_reaction",
       "body": {
         "channel_id": "5823400000000",
+        "channel_type": 1,
         "emoji": {
           "id": "[#128226;]",
           "name": "[#128226;]"
@@ -110,7 +113,7 @@
 | » mention_here  | boolean | 是否提及 `在线成员`                  |
 | » mention_roles | array   | 提及的角色 id 组成的列表             |
 | » updated_at    | int     | 更新时间戳(毫秒)                     |
-
+| » channel_type | int    | 频道类型 1：文字 2：语音                   |
 #### 示例：
 
 ```json
@@ -132,7 +135,8 @@
         "mention_here": false,
         "mention_roles": [],
         "updated_at": 1612703810779,
-        "msg_id": "59def270-xxx-8db935e054a1"
+        "msg_id": "59def270-xxx-8db935e054a1",
+        "channel_type": 1
       }
     },
     "msg_id": "cc523bf1-xxx-88c31ebc9fba",
@@ -154,7 +158,7 @@
 | body         | Map    |                                      |
 | » msg_id     | string | 被更新的消息的 id                    |
 | » channel_id | string | 频道 id                              |
-
+| » channel_type | int    | 频道类型 1：文字 2：语音                   |
 #### 示例：
 
 ```json
@@ -169,7 +173,8 @@
       "type": "deleted_message",
       "body": {
         "channel_id": "58234000000",
-        "msg_id": "59def270-xxxx-8db935e054a1"
+        "msg_id": "59def270-xxxx-8db935e054a1",
+        "channel_type": 1
       }
     },
     "msg_id": "63d6a934-xxxx-a1f02c255213",
@@ -313,12 +318,13 @@
 
 #### extra 字段说明：
 
-| 字段         | 类型   | 说明                                 |
-| ------------ | ------ | ------------------------------------ |
+| 字段           | 类型   | 说明                                 |
+|--------------| ------ | ------------------------------------ |
 | type         | string | 消息的类型，本处为 `deleted_channel` |
 | body         | Map    |                                      |
 | » id         | string | 被删掉的频道 id                      |
 | » deleted_at | int    | 删除时间(毫秒)                       |
+| » type          | int    | 频道类型 1：文字 2：语音                   |
 
 #### 示例：
 
@@ -335,7 +341,8 @@
       "type": "deleted_channel",
       "body": {
         "id": "69972200000000",
-        "deleted_at": 1612777405595
+        "deleted_at": 1612777405595,
+        "type" : 1
       }
     },
     "msg_id": "3968a7e3-xxxx-0c8bac275fb4",
@@ -358,6 +365,7 @@
 | » channel_id  | string | 频道 id                             |
 | » operator_id | string | 操作人 id                           |
 | » msg_id      | string | 被置顶的消息 id                     |
+| » channel_type | int    | 频道类型 1：文字 2：语音                   |
 
 #### 示例：
 
@@ -375,7 +383,8 @@
       "body": {
         "channel_id": "xxxx",
         "operator_id": "2418200000",
-        "msg_id": "4d5ef7ae-xxxx-b03e57cdf2e9"
+        "msg_id": "4d5ef7ae-xxxx-b03e57cdf2e9",
+        "channel_type": 1
       }
     },
     "msg_id": "d2bad9e9-xxxx-265f74dc35bb",
@@ -398,6 +407,7 @@
 | » channel_id  | string | 频道 id                               |
 | » operator_id | string | 操作人 id                             |
 | » msg_id      | string | 被取消置顶的消息 id                   |
+| » channel_type | int    | 频道类型 1：文字 2：语音                   |
 
 #### 示例：
 
@@ -414,7 +424,8 @@
       "body": {
         "channel_id": "xxxxx",
         "operator_id": "2418200000",
-        "msg_id": "4d5ef7ae-xxxx-b03e57cdf2e9"
+        "msg_id": "4d5ef7ae-xxxx-b03e57cdf2e9",
+        "channel_type": 1
       }
     },
     "msg_id": "9b269469-xxxx-9e526ea8f7f0",
