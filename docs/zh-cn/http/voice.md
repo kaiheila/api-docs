@@ -9,6 +9,8 @@
 | [/api/v3/voice/join](#加入语音频道)    | 加入某个语音频道 | 正常    |
 | [/api/v3/voice/list](#获取频道列表)  | 获取机器人加入的语音频道列表 | 正常    |
 | [/api/v3/voice/leave](#离开语音频道)  | 机器人主动离开频道    | 正常    |
+| [/api/v3/voice/keep-alive](#保持语音连接活跃)  | 保持语音连接活跃    | 正常   |
+
 
 ## 加入语音频道
 
@@ -64,8 +66,8 @@
 ```bash
 # 如下为推流的一个示例，最主要的是后面的推流地址，我们需要交json中返回的audio_ssrc, audio_pt, ip, port, rtcpPort填入即可。
 # -ab 参数后面是码率，本示例中推流码率为48k, 大家可以根据返回的参数自行调整
-# 其它的参数如果不会ffmeg请尽量不要改动, 如果有需求，可以参考[ffmpeg官方文档](https://ffmpeg.org/ffmpeg.html)
-ffmpeg  -i 'test'.mp3' -map '0:a:0' -acodec libopus -ab 48k -ac 2 -ar 48000 -filter:a 'volume=0.8' -f tee '[select=a:f=rtp:ssrc=1111:payload_type=111]rtp://127.0.0.1:1000?rtcpport=1001'
+# 其它的参数如果不会ffmeg请尽量不要改动, 如果有需求，可以参考 https://ffmpeg.org/ffmpeg.html
+ffmpeg  -i 'test.mp3' -map '0:a:0' -acodec libopus -ab 48k -ac 2 -ar 48000 -filter:a 'volume=0.8' -f tee '[select=a:f=rtp:ssrc=1111:payload_type=111]rtp://127.0.0.1:1000?rtcpport=1001'
 
 ```
 Tips：
@@ -129,7 +131,7 @@ Tips：
 
 | 地址                | 请求方式 | 说明                    |
 | ------------------- | -------- | ---------------------- |
-| `/api/v3/voice/leave` | POST      | 离开某个语音频道 |
+| `/api/v3/voice/leave` | POST      | 离开语音频道 |
 
 ### 参数列表
 
@@ -154,4 +156,34 @@ Tips：
     }
 }
 ```
+## 保持语音连接活跃
 
+### 接口说明
+ 
+| 地址                | 请求方式 | 说明                    |
+| ------------------- | -------- | ---------------------- |
+| `/api/v3/voice/keep-alive` | POST      | 保持语音连接活跃。正常如果长时间断流，系统会回收端口等资源，如果不希望系统回收，可以每隔45s，调用该接口，保持端口活跃，这样系统不会回收该端口资源 |
+
+### 参数列表
+
+| 参数名   | 位置  | 类型   | 必需  | 说明      |
+| -------- | ----- | ------ | ----- | --------- |
+| channel_id | string | 是 | POST | 需要保持活跃语音频道 id |
+
+### 返回参数说明
+
+| 参数名          | 类型    | 说明                                                   |
+| --------------- | ------- | ------------------------------------------------------ |
+
+
+
+### 返回示例
+
+```json
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+    }
+}
+```
