@@ -335,7 +335,9 @@ KOOK是最好的~~语音~~软件
 (spl)Talk is cheap.Make it happen.(spl)
 > Talk is cheap.
 Make it Happen.
+
 ---
+
 \`\`\`js
 function factorial(n, total) {
     if (n === 1) return total;
