@@ -736,5 +736,3 @@ export default () => (
 | theme    | 主题色 `'light' 或 'dark'`                                                                                                                                                | `string`          | `'light'` |
 | content  | 消息内容：具体可查看[消息编辑器](https://tttt-www.dev.chuanyuapp.com/tools/message-builder.html#/card) 或者 [卡片消息说明](/card_desc) 和 [KMarkDown 消息说明](/kmd_desc) | `string 或 array` | `[]`      |
 | external | wasm 资源地址                                                                                                                                                             | `string`          | `''`      |
-
-
