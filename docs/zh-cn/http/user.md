@@ -36,9 +36,19 @@
 | os              | string  | 当前连接方式                                           |
 | status          | int     | 用户的状态, 0 和 1 代表正常，10 代表被封禁             |
 | avatar          | string  | 用户的头像的 url 地址                                  |
+| vip_avatar      | string  | vip用户的头像的 url 地址                            |
 | banner          | string  | 用户的横幅的 url 地址                                  |
+| nickname        | string  | 用户的昵称                                           |
+| roles           | map     | 用户的角色信息                                       |
+| is_vip          | boolean | 用户是否为vip					|
+| vip_amp	  | boolean | 用户是否为年度vip					|
 | bot             | boolean | 用户是否为机器人                                       |
+| bot_status	  | boolean | 机器人状态						|
+| tag_info	  | map     | 用户标签信息  					|
 | mobile_verified | boolean | 是否手机号已验证                                       |
+| is_sys	  | boolean | 是否为系统账号					|
+| client_id	  | string  | 客户端id						|
+| verified  	  | boolean | 是否验证过						|
 | mobile_prefix   | string  | 手机区号,如中国为 86                                   |
 | mobile          | string  | 用户手机号，带掩码                                     |
 | invited_count   | int     | 当前邀请注册的人数                                     |
@@ -47,24 +57,37 @@
 
 ```json
 {
-  "code": 0,
-  "message": "操作成功",
-  "data": {
-    "id": "364862",
-    "username": "test",
-    "identify_num": "1670",
-    "online": false,
-    "os": "Websocket",
-    "status": 0,
-    "avatar": "https://xxx.com/assets/bot.png/icon",
-    "banner": "https://xxx.com/assets/banner.png",
-    "bot": true,
-    "mobile_verified": true,
-    "client_id": "b64kJF7HHFKXXX",
-    "mobile_prefix": "86",
-    "mobile": "110****2333",
-    "invited_count": 0
-  }
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "id": "57655610",
+        "username": "test",
+        "identify_num": "4357",
+        "online": false,
+        "os": "Websocket",
+        "status": 0,
+        "avatar": "https://xxx/assets/bot.png?x-oss-process=style/icon",
+        "vip_avatar": "https://xxx/assets/bot.png?x-oss-process=style/icon",
+        "banner": "",
+        "nickname": "test",
+        "roles": [],
+        "is_vip": false,
+        "vip_amp": false,
+        "bot": true,
+        "bot_status": 0,
+        "tag_info": {
+            "color": "#0096FF",
+            "bg_color": "#0096FF33",
+            "text": "机器人"
+        },
+        "mobile_verified": true,
+        "is_sys": false,
+        "client_id": "xxxxxxxxxx",
+        "verified": false,
+        "mobile_prefix": "86",
+        "mobile": "****",
+        "invited_count": 0
+    }
 }
 ```
 
@@ -92,13 +115,17 @@
 | nickname        | string  | 用户在当前服务器的昵称                                 |
 | identify_num    | string  | 用户名的认证数字，用户名正常为：user_name#identify_num |
 | online          | boolean | 当前是否在线                                           |
+| os              | string  | 当前连接方式                                           |
 | status          | int     | 用户的状态, 0 和 1 代表正常，10 代表被封禁             |
 | avatar          | string  | 用户的头像的 url 地址                                  |
 | vip_avatar      | string  | vip 用户的头像的 url 地址，可能为 gif 动图             |
+| banner	  | string  | 用户横幅的 url 地址 				|
 | is_vip          | boolean | 是否为会员                                             |
+| vip_amp	  | boolean | 是否为年度会员					|
 | bot             | boolean | 是否为机器人                                           |
 | mobile_verified | boolean | 是否手机号已验证                                       |
 | roles           | Array   | 用户在当前服务器中的角色 id 组成的列表                 |
+| is_sys	  | boolean | 是否为系统账户 					|
 | joined_at       | int     | 加入服务器时间                                         |
 | active_time     | int     | 活跃时间                                               |
 
@@ -106,22 +133,32 @@
 
 ```json
 {
-  "code": 0,
-  "message": "操作成功",
-  "data": {
-    "id": "2418200000",
-    "username": "tz-un",
-    "identify_num": "5618",
-    "online": false,
-    "status": 0,
-    "bot": true,
-    "avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
-    "vip_avatar": "https://img.kaiheila.cn/avatars/2020-02/xxxx.jpg/icon",
-    "mobile_verified": true,
-    "roles": [113],
-    "joined_at": 1621338425000,
-    "active_time": 1628688607719
-  }
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "id": "123456789",
+        "username": "test",
+        "identify_num": "0001",
+        "online": true,
+        "os": "Websocket",
+        "status": 1,
+        "avatar": "https://xxx/avatars/k/2.png?x-oss-process=style/icon",
+        "vip_avatar": "https://xxx/avatars/k/2.png?x-oss-process=style/icon",
+        "banner": "",
+        "nickname": "test",
+        "roles": [
+            8615,
+            8616,
+            8617
+        ],
+        "is_vip": true,
+        "vip_amp": true,
+        "bot": false,
+        "mobile_verified": true,
+        "is_sys": false,
+        "joined_at": 1721096255000,
+        "active_time": 1723029489498
+    }
 }
 ```
 
