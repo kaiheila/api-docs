@@ -91,7 +91,7 @@
 
 - modules 只能为模块
 - 单个 card 模块数量不限制，但是一条消息中所有卡片的模块数量之和最多是 50
-- theme, size 参见[全局字段说明](#一些全局字段说明),卡片中，size 只允许 lg 和 sm
+- theme, size 参见[一些全局字段说明](#整体结构说明),卡片中，size 只允许 lg 和 sm
 - color 代表卡片边框具体颜色，如果填了，则使用该 color，如果未填，则使用 theme 来渲染卡片颜色。
 - theme 支持了invisible，在该主题下，不会有卡片的边框。由于兼容适配问题，选择该主题时，当前只能使用如下module:
 	- context
@@ -339,6 +339,7 @@
     "alt" : "",
     "size" : "sm|lg", // size只用在图文混排  图片组大小固定
     "circle" : true|false,
+    "fallbackUrl": ""
 }
 ```
 
@@ -346,6 +347,7 @@
 
 - 图片类型（MimeType）限制说明：目前仅支持`image/jpeg`, `image/gif`, `image/png`这 3 种
 - 图片的 size 默认为 lg
+- 当使用外链时，src的地址可能会转存失败，如果希望不报错，可以填入fallbackUrl。请务必保证fallbackUrl是你之前在KOOK上传或者转存过的图片地址，否则依然可能失败。
 
 ### 按钮
 

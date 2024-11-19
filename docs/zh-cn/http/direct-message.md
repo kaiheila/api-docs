@@ -164,6 +164,7 @@ after: 查询参考消息之后的消息，不包括参考消息
 | content   | string | 是   | POST     | 消息内容                                                                                                                                                                                                                                 |
 | quote     | string | 否   | POST     | 回复某条消息的 `msgId`                                                                                                                                                                                                                   |
 | nonce     | string | 否   | POST     | nonce, 服务端不做处理, 原样返回                                                                                                                                                                                                          |
+| template_id| string| 否| POST|模板消息id, 如果使用了，content会作为模板消息的input，参见[模板消息](https://developer.kookapp.cn/doc/http/template)|
 
 ### 返回参数说明
 
@@ -204,6 +205,7 @@ after: 查询参考消息之后的消息，不包括参考消息
 | msg_id  | body | string | false | 消息 id                                                         |
 | content | body | string | true  | 消息内容                                                        |
 | quote   | body | string | false | 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。 |
+| template_id| string| 否| POST|模板消息id, 如果使用了，content会作为模板消息的input，参见[模板消息](https://developer.kookapp.cn/doc/http/template)|
 
 ### 返回参数说明
 
