@@ -69,6 +69,7 @@
 # 其它的参数如果不会ffmeg请尽量不要改动, 如果有需求，可以参考 https://ffmpeg.org/ffmpeg.html
 ffmpeg  -i 'test.mp3' -re -map '0:a:0' -acodec libopus -ab 48k -ac 2 -ar 48000 -filter:a 'volume=0.8' -f tee '[select=a:f=rtp:ssrc=1111:payload_type=111]rtp://127.0.0.1:1000?rtcpport=1001'
 
+
 ```
 Tips：
 1. KOOK默认的编码是opus编码，你可能需要在ffmpeg的基础上安装libopus.
