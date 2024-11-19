@@ -8,4 +8,4 @@
 | 2021.1月中  | 0.0.30                                 | 1.Websocket 开放<br/>2.Websocket PHP SDK<br/>3.权限与角色相关 HTTP API 开放 |
 | 2021.1月底  | 0.0.31                                 | 其他大部分 HTTP API 开放                                                    |
 | 2021.10月底 | 0.0.32                                 | 完成 Websocket 客户端底层库                                                 |
-| 2022.12月底 | NA                                 | 由于WebRTC需要整体重构，所以推迟到2022年12月底发布，预计将提供完整的Http信令接口与通用推流SDK，并支持BOT同时在多个语音频道推流                                                                 |
+| 2024.8月 | -                                 | 已上线，参见[语音接口](https://developer.kookapp.cn/doc/http/voice)                                                                 |

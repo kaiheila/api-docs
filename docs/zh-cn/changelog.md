@@ -1,4 +1,20 @@
 # 更改记录
+## [0.1.18] - 2024-11-15
+### Add
+- 功能： 模板添加函数，全局变量KOOK
+### Changed
+- feature: 去掉模板的autoescape，并添加了新的escape方法
+- feature: 去掉模板变量guild, channel, sender, targetUser, quote.
+
+
+## [0.1.17] - 2024-11-12
+### Add
+- 功能: 添加模板消息功能，支持twig语法的模板
+- 功能：添加消息管道功能，可以简单的支持消息转发至KOOK。
+
+## [0.1.16] - 2024-10-24
+### Add
+- 接口：卡片消息的Image模块，增加fallbackUrl参数
 
 ## [0.1.15] - 2024-10-18
 ### Add
