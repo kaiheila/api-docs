@@ -4,19 +4,19 @@
 
 ## 用户 User
 
-| 参数名          | 类型    | 说明                                                   |
-| --------------- | ------- | ------------------------------------------------------ |
-| id              | string  | 用户的 id                                              |
-| username        | string  | 用户的名称                                             |
-| nickname        | string  | 用户在当前服务器的昵称                                 |
+| 参数名             | 类型      | 说明                                     |
+|-----------------|---------|----------------------------------------|
+| id              | string  | 用户的 id                                 |
+| username        | string  | 用户的名称                                  |
+| nickname        | string  | 用户在当前服务器的昵称                            |
 | identify_num    | string  | 用户名的认证数字，用户名正常为：user_name#identify_num |
-| online          | boolean | 当前是否在线                                           |
-| bot             | boolean | 是否为机器人                                           |
+| online          | boolean | 当前是否在线                                 |
+| bot             | boolean | 是否为机器人                                 |
 | status          | int     | 用户的状态, 0 和 1 代表正常，10 代表被封禁             |
-| avatar          | string  | 用户的头像的 url 地址                                  |
-| vip_avatar      | string  | vip 用户的头像的 url 地址，可能为 gif 动图             |
-| mobile_verified | boolean | 是否手机号已验证                                       |
-| roles           | Array   | 用户在当前服务器中的角色 id 组成的列表                 |
+| avatar          | string  | 用户的头像的 url 地址                          |
+| vip_avatar      | string  | vip 用户的头像的 url 地址，可能为 gif 动图           |
+| mobile_verified | boolean | 是否手机号已验证                               |
+| roles           | Array   | 用户在当前服务器中的角色 id 组成的列表                  |
 
 **示例**
 
@@ -41,21 +41,21 @@
 
 ## 服务器 Guild
 
-| 字段               | 类型    | 说明                                                                                              |
-| ------------------ | ------- | ------------------------------------------------------------------------------------------------- |
-| id                 | string  | 服务器 id                                                                                         |
-| name               | string  | 服务器名称                                                                                        |
-| topic              | string  | 服务器主题                                                                                        |
-| user_id            | string  | 服务器主的 id                                                                                     |
-| icon               | string  | 服务器 icon 的地址                                                                                |
+| 字段                 | 类型      | 说明                                                        |
+|--------------------|---------|-----------------------------------------------------------|
+| id                 | string  | 服务器 id                                                    |
+| name               | string  | 服务器名称                                                     |
+| topic              | string  | 服务器主题                                                     |
+| user_id            | string  | 服务器主的 id                                                  |
+| icon               | string  | 服务器 icon 的地址                                              |
 | notify_type        | int     | 通知类型, `0`代表默认使用服务器通知设置，`1`代表接收所有通知, `2`代表仅@被提及，`3`代表不接收通知 |
-| region             | string  | 服务器默认使用语音区域                                                                            |
-| enable_open        | boolean | 是否为公开服务器                                                                                  |
-| open_id            | string  | 公开服务器 id                                                                                     |
-| default_channel_id | string  | 默认频道 id                                                                                       |
-| welcome_channel_id | string  | 欢迎频道 id                                                                                       |
-| roles              | array   | 角色列表                                                                                          |
-| channels           | array   | 频道列表                                                                                          |
+| region             | string  | 服务器默认使用语音区域                                               |
+| enable_open        | boolean | 是否为公开服务器                                                  |
+| open_id            | string  | 公开服务器 id                                                  |
+| default_channel_id | string  | 默认频道 id                                                   |
+| welcome_channel_id | string  | 欢迎频道 id                                                   |
+| roles              | array   | 角色列表                                                      |
+| channels           | array   | 频道列表                                                      |
 
 **示例**
 
@@ -100,15 +100,15 @@
 
 ## 角色 Role
 
-| 字段        | 类型   | 说明                               |
-| ----------- | ------ | ---------------------------------- |
-| role_id     | int    | 角色 id                            |
-| name        | string | 角色名称                           |
-| color       | int    | 颜色色值                           |
-| position    | int    | 顺序位置                           |
+| 字段          | 类型     | 说明                 |
+|-------------|--------|--------------------|
+| role_id     | int    | 角色 id              |
+| name        | string | 角色名称               |
+| color       | int    | 颜色色值               |
+| position    | int    | 顺序位置               |
 | hoist       | int    | 是否为角色设定(与普通成员分开显示) |
-| mentionable | int    | 是否允许任何人@提及此角色          |
-| permissions | int    | 权限码                             |
+| mentionable | int    | 是否允许任何人@提及此角色      |
+| permissions | int    | 权限码                |
 
 **示例**
 
@@ -126,22 +126,22 @@
 
 ## 频道 Channel
 
-| 字段                  | 类型    | 说明                                          |
-| --------------------- | ------- | --------------------------------------------- |
-| id                    | string  | 频道 id                                       |
-| name                  | string  | 频道名称                                      |
-| user_id               | string  | 创建者 id                                     |
-| guild_id              | string  | 服务器 id                                     |
-| topic                 | string  | 频道简介                                      |
-| is_category           | boolean | 是否为分组，事件中为 int 格式                 |
-| parent_id             | string  | 上级分组的 id (若没有则为 0 或空字符串)        |
-| level                 | int     | 排序 level                                    |
+| 字段                    | 类型      | 说明                        |
+|-----------------------|---------|---------------------------|
+| id                    | string  | 频道 id                     |
+| name                  | string  | 频道名称                      |
+| user_id               | string  | 创建者 id                    |
+| guild_id              | string  | 服务器 id                    |
+| topic                 | string  | 频道简介                      |
+| is_category           | boolean | 是否为分组，事件中为 int 格式         |
+| parent_id             | string  | 上级分组的 id (若没有则为 0 或空字符串)  |
+| level                 | int     | 排序 level                  |
 | slow_mode             | int     | 慢速模式下限制发言的最短时间间隔, 单位为秒(s) |
-| type                  | int     | 频道类型: `1` 文字频道, `2` 语音频道          |
+| type                  | int     | 频道类型: `1` 文字频道, `2` 语音频道  |
 | permission_overwrites | Array   | 针对角色在该频道的权限覆写规则组成的列表      |
 | permission_users      | array   | 针对用户在该频道的权限覆写规则组成的列表      |
-| permission_sync       | int     | 权限设置是否与分组同步, `1` or `0`            |
-| has_password          | bool    | 是否有密码                                    |
+| permission_sync       | int     | 权限设置是否与分组同步, `1` or `0`   |
+| has_password          | bool    | 是否有密码                     |
 
 **示例**
 
@@ -191,13 +191,13 @@
 
 ## 引用消息 Quote
 
-| 字段      | 类型   | 说明                     |
-| --------- | ------ | ------------------------ |
-| id        | string | 引用消息 id              |
-| type      | int    | 引用消息类型             |
-| content   | string | 引用消息内容             |
+| 字段        | 类型     | 说明           |
+|-----------|--------|--------------|
+| id        | string | 引用消息 id      |
+| type      | int    | 引用消息类型       |
+| content   | string | 引用消息内容       |
 | create_at | int    | 引用消息创建时间（毫秒） |
-| author    | map    | 作者的用户信息           |
+| author    | map    | 作者的用户信息      |
 
 **示例**
 
@@ -232,10 +232,10 @@
 
 ## 附加的多媒体数据 Attachments
 
-| 字段  | 类型   | 说明           |
-| ---- | ------ | ------------- |
-| type | string | 多媒体类型     |
-| url  | string | 多媒体地址     |
+| 字段   | 类型     | 说明         |
+|------|--------|------------|
+| type | string | 多媒体类型      |
+| url  | string | 多媒体地址      |
 | name | string | 多媒体名       |
 | size | int    | 大小 单位 Byte |
 
@@ -251,3 +251,78 @@
 ```
 
 含有附件的消息示例详见[消息相关事件](https://developer.kookapp.cn/doc/event/message)
+
+## 热门服务器推荐信息 RecommendInfo
+
+| 字段                  | 类型      | 说明                                                  |
+|---------------------|---------|-----------------------------------------------------|
+| guild_id            | string  | 推荐服务器 ID                                            |
+| open_id             | string  | 服务器公开 ID                                            |
+| enable_open         | int     | 当为公开服务器时，此值为 `1`                                    |
+| default_channel_id  | int     | 服务器默认频道 ID，若服务器的默认文字频道设置为无默认频道，则此值为服务器的首个文字频道的频道 ID |
+| name                | string  | 服务器名称                                               |
+| icon                | string  | 服务器图标地址                                             |
+| banner              | string  | 服务器横幅图片地址                                           |
+| banner_preview      | string  | 服务器横幅预览图片地址                                         |
+| desc                | string  | 服务器介绍                                               |
+| status              | int     | TODO                                                |
+| guild_status        | int     | TODO                                                |
+| tag                 | int     | 服务器分类标签                                             |
+| features            | array   | 服务器特性，数组成员为 `string` 类型，其枚举值 `feature` 见表后          |
+| certifications      | array   | 服务器认证信息                                             |
+| - type              | int     | 服务器认证类型                                             |
+| - title             | string  | 服务器认证名称                                             |
+| - pic               | string  | 服务器认证图标地址                                           |
+| - desc              | string  | 服务器认证说明                                             |
+| level               | integer | 服务器助力等级                                             |
+| custom_id           | string  | 服务器自定义 ID，如果服务器绑定了靓号 ID，则此字段值也可能为该靓号 ID             |
+| is_official_partner | integer | 当为官方推荐服务器时，此值为 `1`                                  |
+| sort                | integer | TODO                                                |
+| gradient            | object  | 推荐卡片颜色信息                                            |
+| audit_status        | integer | TODO                                                |
+| update_day_gap      | integer | TODO                                                |
+
+**示例**
+
+```json
+{
+  "guild_id": "3500000000000",
+  "open_id": "1600000",
+  "enable_open": 1,
+  "default_channel_id": "760000000000",
+  "name": "服务器名称",
+  "icon": "https://img.kookapp.cn/icons/2022-04/xxxxxxxx.gif",
+  "banner": "https://img.kaiheila.cn/assets/2022-06/xxxxxxxxxx.png",
+  "banner_preview": "https://img.kaiheila.cn/assets/2022-06/xxxxxxxxxxxx.png",
+  "desc": "服务器介绍",
+  "status": 1,
+  "guild_status": 0,
+  "tag": "其他社群",
+  "features": [
+    "official"
+  ],
+  "certifications": [
+    {
+      "type": 1,
+      "title": "KOOK官方服务器",
+      "pic": "https://img.kookapp.cn/assets/2023-12/xxxxxxxx.jpg",
+      "desc": ""
+    }
+  ],
+  "level": 6,
+  "custom_id": "kook",
+  "is_official_partner": 1,
+  "sort": 9999,
+  "gradient": {
+    "id": 4,
+    "color_map": [
+      "0xFFFFFF",
+      "0x000000"
+    ],
+    "limit": 5,
+    "theme": "dark"
+  },
+  "audit_status": 1,
+  "update_day_gap": 0
+}
+```
