@@ -221,10 +221,12 @@
 
 | 参数名        | 类型         | 说明         |
 | ------------- | ------------ | ------------ |
-| user_count    | int          | 用户数量     |
-| online_count  | int          | 在线用户数量 |
-| offline_count | int          | 离线用户数量 |
+| user_count    | int          | 服务器内用户总数量|
+| online_count  | int          | 当前条件下，频道右侧显示的在线用户数量，会过滤权限，并将不与在线显示在一起的角色排除 |
+| offline_count | int          | 当前条件下，离线用户数量|
 | items         | array (User) | 用户列表     |
+
+**注意：** user_count 不一定等于online_count + offline_count。 在服务器的角色设置中，可以设置某个角色不放在在线用户中（参考guild_role.hoist属性），而是单独显示。就会使得这些角色的数字不会放在online_count中。user_count是服务器内总数，当前条件下的总数可以从meta下的total中获取。
 
 #### 枚举值
 
