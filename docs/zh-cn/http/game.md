@@ -60,7 +60,7 @@
                     "cstrike"
                 ],
                 "product_name": [],
-                "icon": "https://img.chuanyuapp.com/assets/2022-01/12fe639ebc762e0e5347d197b9686c0c.ico/icon"
+                "icon": "https://img.kookapp.cn/assets/2022-01/12fe639ebc762e0e5347d197b9686c0c.ico/icon"
             },
         ],
         "meta": {

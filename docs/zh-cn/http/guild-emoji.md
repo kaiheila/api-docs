@@ -122,7 +122,7 @@
       "identify_num": "3249",
       "online": true,
       "status": 0,
-      "avatar": "https://chuanyuapp.oss-cn-qingdao.aliyuncs.com/assets/bot.png/icon",
+      "avatar": "https://img.kookapp.cn/assets/bot.png/icon",
       "vip_avatar": "https://img.kookapp.cn/avatars/2020-02/xxxx.jpg/icon"
     }
   }
