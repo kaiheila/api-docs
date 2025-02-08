@@ -144,7 +144,7 @@
         "type": 0,
         "options": "",
         "kmhook_admin": false,
-        "icon": "https://xxx.com/xxxxxxxxx...",
+        "icon": "https://example.com/example.png",
         "process_name": [],
         "product_name": []
     }
