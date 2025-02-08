@@ -31,6 +31,7 @@
 |``` `行内代码` ```|markdown|行内代码|
 |` ```语言\n ``` `|markdown|代码块|
 |`\特殊字符`|markdown|转义，比如将命中语法的特殊字符原样显示|
+|`(font)KOOK(font)[theme]`|自定义|注意：在普通markdown中无法使用，仅可以在card中使用。目前支持的theme有：primary，success，danger，warning，info secondary，body，tips，pink，purple|
 
 ## KMarkDown 消息 content 介绍
 

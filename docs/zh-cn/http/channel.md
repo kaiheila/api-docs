@@ -14,6 +14,7 @@
 | [/api/v3/channel/delete](#删除频道)                                                       | 删除频道             | 正常     |
 | [/api/v3/channel/user-list](#语音频道用户列表)                                             | 语音频道用户列表      | 正常     |
 | [/api/v3/channel/move-user](#语音频道之间移动用户)                                        | 语音频道之间移动用户 | 正常     |
+| [/api/v3/channel/kickout](#踢出语音频道中的用户)                                        | 踢出语音频道中的用户 | 正常     |
 | [/api/v3/channel-role/index](#频道角色权限详情)                                           | 获取频道角色权限详情 | 正常     |
 | [/api/v3/channel-role/create](#创建频道角色权限)                                          | 创建频道角色权限     | 正常     |
 | [/api/v3/channel-role/update](#更新频道角色权限)                                          | 更新频道角色权限     | 正常     |
@@ -36,6 +37,7 @@
 | page_size | query | integer | false | 每页数据数量                              |
 | guild_id  | query | string  | true  | 服务器 id                                 |
 | type      | query | integer | false | 频道类型, `1`为文字，`2`为语音, 默认为`1` |
+|parent_id  | query | string  | false | 父分组频道 id |
 
 ### 返回参数说明
 
@@ -439,6 +441,38 @@
 | --------- | ---- | ------ | ---- | --------------------------- |
 | target_id | body | string | true | 目标频道 id, 需要是语音频道 |
 | user_ids  | body | array  | true | 用户 id 的数组              |
+
+### 返回参数说明
+
+| 参数名 | 类型 | 说明 |
+| ------ | ---- | ---- |
+
+### 返回示例
+
+```json
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": []
+}
+```
+
+## 踢出语音频道中的用户
+
+### 接口说明
+
+只能踢出在语音频道中的用户。
+
+| 地址                        | 请求方式 | 说明 |
+| --------------------------- | -------- | ---- |
+| `/api/v3/channel/kickout` | POST      |      |
+
+### 参数列表
+
+| 参数名    | 位置 | 类型   | 必需 | 说明                        |
+| --------- | ---- | ------ | ---- | --------------------------- |
+| channel_id | body | string | true | 目标频道 id, 需要是语音频道 |
+| user_id  | body | string  | true | 用户 id               |
 
 ### 返回参数说明
 
