@@ -20,9 +20,9 @@
 | [/api/v3/category/list](#获取帖子分区列表) | 获取帖子分区列表 | 正常     |
 | [/api/v3/thread/create](#创建帖子)     | 创建帖子     | 正常     |
 | [/api/v3/thread/reply](#评论/回复)     | 评论/回复    | 正常     |
-| [/api/v3/thread/view](#贴子详情)       | 帖子详情     | 正常     |
-| [/api/v3/thread/list](#贴子列表)       | 帖子列表     | 正常     |
-| [/api/v3/thread/delete](#贴子删除)     | 帖子删除     | 正常     |
+| [/api/v3/thread/view](#帖子详情)       | 帖子详情     | 正常     |
+| [/api/v3/thread/list](#帖子列表)       | 帖子列表     | 正常     |
+| [/api/v3/thread/delete](#帖子/评论/回复删除)     | 帖子删除     | 正常     |
 | [/api/v3/thread/post](#回复列表)     | 回复列表     | 正常     |
 
 
@@ -161,7 +161,7 @@
 | user              | map     | 创建帖子用户数据参考[用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
 | category              | map     | 分区字段参考 [Category帖子分区详情参数说明](#Category帖子分区详情参数说明)                     |
 | tags              | array   | 话题数组                                                                 |
-其余返回值字段参考 [Thread帖子详情参数说明](#Thread帖子详情参数说明)以及（主楼数据）[Post评论/回复详情参数说明](#Post评论回复详情参数说明)
+其余返回值字段参考 [Thread帖子详情参数说明](#Thread帖子详情参数说明)以及（主楼数据）[Post评论/回复详情参数说明](#Post评论/回复详情参数说明)
 ### 返回示例
 
 ```json
@@ -232,7 +232,7 @@
 
 ### 返回参数说明
 
-返回值字段参考 [Post评论/回复详情参数说明](#Post评论回复详情参数说明)
+返回值字段参考 [Post评论/回复详情参数说明](#Post评论/回复详情参数说明)
 
 ### 返回示例
 
@@ -257,7 +257,7 @@
 }
 ```
 
-## 贴子详情
+## 帖子详情
 
 ### 接口说明
 
@@ -284,7 +284,7 @@
 | content_deleted_type              | int   | 删除类型：1作者自己删除 2管理员删除 3审核删除 |
 | collect_num              | int   | 收藏数量                     |
 | post_count              | int | 回复总数                                                                 |
-其余返回值字段参考 [Thread帖子详情参数说明](#Thread帖子详情参数说明)以及（主楼数据）[Post评论/回复详情参数说明](#Post评论回复详情参数说明)
+其余返回值字段参考 [Thread帖子详情参数说明](#Thread帖子详情参数说明)以及（主楼数据）[Post评论/回复详情参数说明](#Post评论/回复详情参数说明)
 ### 返回示例
 
 ```json
@@ -361,7 +361,7 @@
 
 ### 返回参数说明
 
-返回值字段参考 [贴子详情](#贴子详情)
+返回值字段参考 [帖子详情](#帖子详情)
 ### 返回示例
 
 ```json
@@ -493,7 +493,7 @@
 | create_time             | int   | 创建时间                                                                 |
 | replies              | array | 这条回复的下的楼中楼，最多返回两条，其余需再次分页查询                                          |
 | user              | map   | 创建帖子用户数据参考[用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
-其余返回值字段参考 [Post评论/回复详情参数说明](#Post评论回复详情参数说明)
+其余返回值字段参考 [Post评论/回复详情参数说明](#Post评论/回复详情参数说明)
 
 ### 返回示例
 
