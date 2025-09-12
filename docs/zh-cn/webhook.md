@@ -76,7 +76,7 @@ Webhook 消息订阅是从 KOOK 获取事件的另一种方式。在用户量较
 > 如果需要更安全的事件回调机制，建议配置消息加密，请参考[配置消息加密](#配置消息加密)。
 
 ## 消息格式及说明
-参见[事件格式说明](https://developer.kookapp.cn/doc/event)
+参见[事件格式说明](https://developer.kookapp.cn/doc/event/event-introduction)
 
 ## 配置消息加密
 

@@ -6,17 +6,17 @@
 
 #### extra 字段说明
 
-| 字段          | 类型    | 说明                                                                             |
-| ------------- | ------- | -------------------------------------------------------------------------------- |
-| type          | int     | 同上面 type                                                                      |
-| guild_id      | string  | 服务器 id                                                                        |
-| channel_name  | string  | 频道名                                                                           |
-| mention       | Array   | 提及到的用户 id 的列表                                                           |
-| mention_all   | boolean | 是否 mention 所有用户                                                            |
-| mention_roles | Array   | mention 用户角色的数组                                                           |
-| mention_here  | boolean | 是否 mention 在线用户                                                            |
+| 字段            | 类型      | 说明                                                                   |
+|---------------|---------|----------------------------------------------------------------------|
+| type          | int     | 同上面 type                                                             |
+| guild_id      | string  | 服务器 id                                                               |
+| channel_name  | string  | 频道名                                                                  |
+| mention       | Array   | 提及到的用户 id 的列表                                                        |
+| mention_all   | boolean | 是否 mention 所有用户                                                      |
+| mention_roles | Array   | mention 用户角色的数组                                                      |
+| mention_here  | boolean | 是否 mention 在线用户                                                      |
 | author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
-
+| channel_type  | int     | 频道类型，1：文本 2：语音                                                       |
 #### 文字消息示例
 
 ```json
@@ -47,7 +47,8 @@
         "id": "xxxxx",
         "nickname": "xxxxx",
         "roles": []
-      }
+      },
+      "channel_type": 1
     }
   },
   "sn": 2199
@@ -65,7 +66,8 @@
 | guild_id    | string | 服务器 id                                                                        |
 | attachments | Map    | 附件                                                                             |
 | author      | Map    | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
-
+| channel_name  | string  | 频道名                                                                           |
+| channel_type  | int     | 频道类型，1：文本 2：语音                                                       |
 #### 图片消息示例
 
 ```json
@@ -96,7 +98,8 @@
         "id": "xxxxx",
         "nickname": "xxxxx",
         "roles": []
-      }
+      },
+      "channel_type": 1
     }
   },
   "sn": 2499
@@ -114,7 +117,7 @@
 | guild_id    | string | 服务器 id                                                                        |
 | attachments | Map    | 附件                                                                             |
 | author      | Map    | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
-
+| channel_type  | int     | 频道类型，1：文本 2：语音                                                       |
 #### 视频消息示例
 
 ```json
@@ -201,7 +204,8 @@
         "id": "xxxx",
         "nickname": "xxxx",
         "roles": []
-      }
+      },
+      "channel_type": 1
     }
   },
   "sn": 2587
@@ -225,7 +229,7 @@
 | code          | string  |                                                                                  |
 | author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
 | kmarkdown     | Map     |                                                                                  |
-
+| channel_type  | int     | 频道类型，1：文本 2：语音                                                       |
 #### KMarkdown 消息示例
 
 ```json
@@ -266,7 +270,8 @@
         "raw_content": "Hello World",
         "mention_part": [],
         "mention_role_part": []
-      }
+      },
+      "channel_type": 1
     },
     "msg_id": "789c0b23-xxxx-f7ae1a946f11",
     "msg_timestamp": 1613996877757,
@@ -293,7 +298,7 @@
 | nav_channels  | Array   |                                                                                  |
 | code          | string  |                                                                                  |
 | author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
-
+| channel_type  | int     | 频道类型，1：文本 2：语音                                                       |
 #### Card 消息示例
 
 ```json
@@ -330,7 +335,8 @@
         },
         "nickname": "12316993",
         "roles": [111, 112]
-      }
+      },
+      "channel_type": 1
     },
     "msg_id": "553f1f78-xxxxx-39c65d9c5584",
     "msg_timestamp": 1613996743849,
@@ -363,7 +369,7 @@
 | type          | int     | 同上面 type                                                                      |
 | mention       | Array   | 提及到的用户 id 的列表                                                           |
 | author        | Map     | 用户信息, 见[对象-用户 User](https://developer.kookapp.cn/doc/objects#用户User) |
-
+| channel_type  | int     | 频道类型，1：文本 2：语音                                                       |
 #### 道具 消息示例
 
 ```json
@@ -411,7 +417,8 @@
            }],
           // 道具内容省略
           "item_part": []
-      }
+      },
+      "channel_type": 1
     },
     "msg_id": "553f1f78-xxxxx-39c65d9c5584",
     "msg_timestamp": 1613996743849,

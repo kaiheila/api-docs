@@ -14,6 +14,7 @@
 | [/api/v3/message/reaction-list](#获取频道消息某回应的用户列表) | 获取频道消息某个回应的用户列表 | 正常     |
 | [/api/v3/message/add-reaction](#给某个消息添加回应)            | 给某个消息添加回应             | 正常     |
 | [/api/v3/message/delete-reaction](#删除消息的某个回应)         | 删除消息的某个回应             | 正常     |
+| [/api/v3/message/send-pipemsg](#发送管道消息)         | 发送管道消息             | 正常     |
 
 ## 消息详情参数说明
 
@@ -274,12 +275,13 @@
 
 | 参数名         | 类型   | 必传 | 参数区域 | 说明                                                                                                                                                                                            |
 | -------------- | ------ | ---- | -------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| type           | int    | 否   | POST     | 消息类型, 见[type], 不传默认为 `1`, 代表文本类型。 `9` 代表 [kmarkdown](https://developer.kookapp.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kookapp.cn/doc/cardmessage)。 |
+| type           | int    | 否   | POST     | 消息类型, 见[type], 不传默认为 `9`, 代表kmarkdown。 `9` 代表 [kmarkdown](https://developer.kookapp.cn/doc/kmarkdown) 消息, `10` 代表[卡片消息](https://developer.kookapp.cn/doc/cardmessage)。 |
 | target_id      | string | 是   | POST     | 目标频道 id                                                                                                                                                                                     |
 | content        | string | 是   | POST     | 消息内容                                                                                                                                                                                        |
 | quote          | string | 否   | POST     | 回复某条消息的 `msgId`                                                                                                                                                                          |
 | nonce          | string | 否   | POST     | nonce, 服务端不做处理, 原样返回                                                                                                                                                                 |
 | temp_target_id | string | 否   | POST     | 用户 id,如果传了，代表该消息是临时消息，该消息不会存数据库，但是会在频道内只给该用户推送临时消息。用于在频道内针对用户的操作进行单独的回应通知等。                                              |
+| template_id| string| 否| POST|模板消息id, 如果使用了，content会作为模板消息的input，参见[模板消息](https://developer.kookapp.cn/doc/http/template)|
 
 ### 参数示例
 
@@ -343,6 +345,7 @@
 | content        | string | 是   | POST     | 消息内容                                                                                                |
 | quote          | string | 否   | POST     | 回复某条消息的 `msgId`。如果为空，则代表删除回复，不传则无影响。                                        |
 | temp_target_id | string | 否   | POST     | 用户 id，针对特定用户临时更新消息，必须是正常消息才能更新。与发送临时消息概念不同，但同样不保存数据库。 |
+| template_id| string| 否| POST|模板消息id, 如果使用了，content会作为模板消息的input，参见[模板消息](https://developer.kookapp.cn/doc/http/template)|
 
 ### 返回参数说明
 
@@ -501,5 +504,48 @@
     "code": 0,
     "message": "操作成功",
     "data": []
+}
+```
+
+## 发送管道消息
+
+### 接口说明
+
+| 地址                              | 请求方式 | 说明 |
+| --------------------------------- | -------- | ---- |
+| `/api/v3/message/send-pipemsg` | POST     | 需要在开发者后台先创建管道，并选择是否使用模板等 |
+
+### 参数列表
+注：GET参数基本与 [/api/v3/message/create](#发送频道聊天消息) 一致
+
+| 参数名  | 类型   | 必传 | 参数区域 | 说明                                                                           |
+| ------- | ------ | ---- | -------- | ------------------------------------------------------------------------------ |
+| access_token| string | 是   | GET  |                                                                  |
+| type | int| 否  | GET     | 消息发送的类型。如果不填，如果有模板以模板为准，无模板则为kmd                                   |
+| target_id| string | 否   | GET     | 频道id。如果不填，则以消息管道的设置为准，如果填了，只允许填与消息管道所填频道相同服务器的文字频道 |
+
+POST区域的使用有些区别：
+- 如果使用了模板，整个post区域的内容会作为模板的input的传参，不需要额外写形如`{"content":xxx}`的格式。
+- 如果未使用模板，要发的消息需要写成形如`{"content": "hello world"}`的格式 ，其中"hello world"是我们想发的内容 。
+- content的格式参见 [/api/v3/message/create](#发送频道聊天消息)
+ 
+
+
+### 返回参数说明
+
+无返回参数
+
+### 返回示例
+
+```javascript
+{
+    "code":0,
+     "message":"操作成功",
+     "data":{
+         "msg_id":"xxxx-xxxx-xxxx-xxxx-xxxx",
+          "msg_timestamp":1731486368297,
+          "nonce":"",
+          "not_permissions_mention":[]
+     }
 }
 ```
