@@ -44,3 +44,5 @@
     "scope": "get_user_info"
 }
 ```
+**注意**
+* 本接口中redirect_uri必须等于界面上用户跳转时的那个redirect_uri, 否则会报“The redirect URI is missing or do not match”的错误。

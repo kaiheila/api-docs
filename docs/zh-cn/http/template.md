@@ -89,5 +89,171 @@ curl https://www.kookapp.cn/api/v3/message/send-pipemsg?access_token=xxx  -H "Co
 - 在模板审核通过后，如果更改消息，会重新进入待审核状态，需要重新提交审核。
 - 模板删除后，会导致使用该模板的消息无法发送，请谨慎删除
 
+# 模板接口
+通过相关的接口，可以让机器人通过api接口来管理模板，主要的接口如下所示：  
 
+
+| 接口                                                                                      | 接口说明             | 维护状态 |
+| ----------------------------------------------------------------------------------------- | -------------------- | -------- |
+| /api/v3/template/list| 获取模板列表     | 正常  |
+| /api/v3/template/create                                                    | 创建模板        | 正常     |
+| /api/v3/template/update                                                   | 更新模板         | 正常     |
+| /api/v3/template/delete                                                    | 删除模板         | 正常     |
+
+
+在如下的接口中，模板的字段如下所示：
+
+|字段|类型|说明|
+|--|--|--|
+|id|string| 模板的id,最长16|
+|title| string| 模型的标题，最长64|
+|type| int| 目前固定为0，代表模型使用twig渲染|
+|msgtype|int|1代表kmd消息，2代表通过json发卡片消息，3代表通过yaml发卡片消息|
+|status|int|0代表未审核，1代表审核中，2代表审核通过，3代表审核拒绝，当前没有开发审核，都为0|
+|test_data| string| 测试数据， 主要用于界面上的便利测试|
+|test_channel| string| 测试的频道，最长64。 主要用于界面上的便利测试|
+|content| string|模板内容|
+
+## 获取模板列表
+
+### 接口说明
+
+| 地址                   | 请求方式 | 说明 |
+| ---------------------- | -------- | ---- |
+| `/api/v3/template/list` | GET      | 符合接口规范，参见 [接口规范](https://developer.kookapp.cn/doc/reference)  |
+
+### 参数列表
+无
+
+### 返回参数说明
+
+返回模板列表，参见模板字段说明。
+
+### 返回示例
+
+```json
+{
+  "code": 0,
+  "message": "操作成功",
+  "data": {
+    "items": [
+	{
+               "id": "84766989",
+                "title": "github模板",
+                "type": 0,
+                "status": 0,
+                "test_channel": "",
+                "msgtype": 2,
+                "content": "[\r\n  {\r\n    \"type\": \"card\",\r\n    \"theme\": \"info\",\r\n    \"size\": \"lg\",\r\n    \"modules\": [\r\n      {\r\n        \"type\": \"header\",\r\n        \"text\": {\r\n          \"type\": \"plain-text\",\r\n          \"content\": \"New Push Event from Github\"\r\n        }\r\n      },\r\n      {\r\n        \"type\": \"divider\"\r\n      },\r\n      {\r\n        \"type\": \"section\",\r\n        \"text\": {\r\n          \"type\": \"kmarkdown\",\r\n          \"content\": \"[{{ data.sender.login }}]({{ data.sender.url }}}) pushed {{ data.commits|length }} commits to\\n[{{ data.repository.full_name }}]({{ data.repository.html_url }})\"\r\n        },\r\n        \"mode\": \"left\",\r\n        \"accessory\": {\r\n          \"type\": \"image\",\r\n          \"circle\": true,\r\n          \"src\": \"{{ data.sender.avatar_url }}\",\r\n          \"size\": \"lg\"\r\n        }\r\n      },\r\n      {\r\n        \"type\": \"divider\"\r\n      },\r\n      {\r\n        \"type\": \"context\",\r\n        \"elements\": [\r\n          {\r\n            \"type\": \"plain-text\",\r\n            \"content\": \"{{ data.before|slice(0, 6) }} → {{ data.after|slice(0, 6) }}\"\r\n          }\r\n        ]\r\n      }\r\n      {% for item in data.commits %}\r\n        ,\r\n      {\r\n        \"type\": \"section\",\r\n        \"text\": {\r\n          \"type\": \"kmarkdown\",\r\n          \"content\": \"[{{ item.id|slice(0,6) }}]({{ item.url }}) By {{ item.author.name }}: {{ item.message|json_escape() }}\"\r\n        }\r\n      }\r\n      {% endfor %}\r\n    ]\r\n  }\r\n]",
+                "test_data": "{}"
+	}
+    ],
+    "meta": {
+      "page": 1,
+      "page_total": 1,
+      "page_size": 50,
+      "total": 2
+    },
+    "sort": []
+  }
+}
+```
+
+## 创建模板
+
+### 接口说明
+
+| 地址                   | 请求方式 | 说明 |
+| ---------------------- | -------- | ---- |
+| `/api/v3/template/create` | POST|  |
+
+### 参数列表
+参见template模板格式， 支持传参：title（必传）, content（必传）, test_data, msgtype, type, test_channel
+
+### 返回参数说明
+
+返回model的模板，参见模板字段说明。
+
+### 返回示例
+
+```json
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "model": {
+            "id": "64291017",
+            "content": "hello world",
+            "type": 0,
+            "status": 0,
+            "test_data": "{\n}",
+            "test_channel": "",
+            "title": "测试前台Licensed Fresh Shoes",
+            "msgtype": 1
+        }
+    }
+}
+```
+
+
+## 更新模板
+
+### 接口说明
+
+| 地址                   | 请求方式 | 说明 |
+| ---------------------- | -------- | ---- |
+| `/api/v3/template/update` | POST|  |
+
+### 参数列表
+参见template模板格式，必须在post中传入id字段(模板id), 支持更改的参数：title, content, test_data, msgtype, type, test_channel
+
+### 返回参数说明
+
+返回model的模板，参见模板字段说明。
+
+### 返回示例
+
+```json
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {
+        "model": {
+            "id": "64291017",
+            "content": "hello world",
+            "type": 0,
+            "status": 0,
+            "test_data": "{\n}",
+            "test_channel": "",
+            "title": "测试前台Licensed Fresh Shoes",
+            "msgtype": 1
+        }
+    }
+}
+```
+
+## 删除模板
+
+### 接口说明
+
+| 地址                   | 请求方式 | 说明 |
+| ---------------------- | -------- | ---- |
+| `/api/v3/template/delete` | POST|  |
+
+### 参数列表
+参见template模板格式，必须在post中传入id字段(模板id)
+
+### 返回参数说明
+
+无
+
+### 返回示例
+
+```json
+{
+    "code": 0,
+    "message": "操作成功",
+    "data": {}
+}
+```
 
