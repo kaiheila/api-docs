@@ -36,6 +36,29 @@
 | » mention_part      | array   | `@特定用户` 详情                                                                                               |
 | » mention_role_part | array   | `@特定角色` 详情                                                                                               |
 
+## 消息配额说明
+平台将基于开发者账号维度实施消息发送总量管控，每位开发者账号下所有机器人单日消息发送总量上限为 10,000 条。每日配额的重置时间为北京时间 (UTC+8) 的中午 12:00。
+
+目前所有通过以下接口由机器人主动发出的消息，都会被计入每日配额。为了公平起见，请求失败的消息将不会被计入当日配额。
+
+```
+/api/v3/message/create
+/api/v3/message/update
+/api/v3/direct-message/create
+/api/v3/direct-message/update
+/api/v3/thread/create
+/api/v3/thread/reply
+```
+
+临时消息主要用于对用户操作的临时性、交互式回复。考虑到它们的传播范围和滥用风险都非常有限，我们将它们排除在配额计算之外，以保障机器人核心互动功能的流畅。
+
+同时如果创建和更新消息是对之前5分钟内用户发送到当前频道的消息的第一次回复，也会在计算发送量时给于大幅折扣。
+
+我们计划在未来增加模板消息。这类消息主要用于格式固定的通知场景，它将不会占用你的消息配额，为开发者在特定场景下提供更多的消息缓冲空间。
+
+如有疑问，请在开发者中心社区服务器中 联系 不鲲#0001
+
+
 ## 获取频道聊天消息列表
 
 ### 接口说明
@@ -282,6 +305,7 @@
 | nonce          | string | 否   | POST     | nonce, 服务端不做处理, 原样返回                                                                                                                                                                 |
 | temp_target_id | string | 否   | POST     | 用户 id,如果传了，代表该消息是临时消息，该消息不会存数据库，但是会在频道内只给该用户推送临时消息。用于在频道内针对用户的操作进行单独的回应通知等。                                              |
 | template_id| string| 否| POST|模板消息id, 如果使用了，content会作为模板消息的input，参见[模板消息](https://developer.kookapp.cn/doc/http/template)|
+|reply_msg_id|string|否| POST | 当前消息回复的用户5分钟内发送到相同频道的消息的msg_id，如果是当前开发者的第一次回复，扣减当日发送量按n分之一条计算 |
 
 ### 参数示例
 
@@ -346,7 +370,7 @@
 | quote          | string | 否   | POST     | 回复某条消息的 `msgId`。如果为空，则代表删除回复，不传则无影响。                                        |
 | temp_target_id | string | 否   | POST     | 用户 id，针对特定用户临时更新消息，必须是正常消息才能更新。与发送临时消息概念不同，但同样不保存数据库。 |
 | template_id| string| 否| POST|模板消息id, 如果使用了，content会作为模板消息的input，参见[模板消息](https://developer.kookapp.cn/doc/http/template)|
-
+|reply_msg_id|string|否| POST | 当前消息回复的用户5分钟内发送到相同频道的消息的msg_id，如果是当前开发者的第一次回复，扣减当日发送量按n分之一条计算 |
 ### 返回参数说明
 
 无返回参数
@@ -528,7 +552,7 @@ POST区域的使用有些区别：
 - 如果使用了模板，整个post区域的内容会作为模板的input的传参，不需要额外写形如`{"content":xxx}`的格式。
 - 如果未使用模板，要发的消息需要写成形如`{"content": "hello world"}`的格式 ，其中"hello world"是我们想发的内容 。
 - content的格式参见 [/api/v3/message/create](#发送频道聊天消息)
- 
+
 
 
 ### 返回参数说明

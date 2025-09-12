@@ -29,6 +29,29 @@
 | quote       | map     | 引用数据         |
 | read_status | boolean | 是否已读         |
 
+## 消息配额说明
+平台将基于开发者账号维度实施消息发送总量管控，每位开发者账号下所有机器人单日消息发送总量上限为 10,000 条。每日配额的重置时间为北京时间 (UTC+8) 的中午 12:00。
+
+目前所有通过以下接口由机器人主动发出的消息，都会被计入每日配额。为了公平起见，请求失败的消息将不会被计入当日配额。
+
+```
+/api/v3/message/create
+/api/v3/message/update
+/api/v3/direct-message/create
+/api/v3/direct-message/update
+/api/v3/thread/create
+/api/v3/thread/reply
+```
+
+临时消息主要用于对用户操作的临时性、交互式回复。考虑到它们的传播范围和滥用风险都非常有限，我们将它们排除在配额计算之外，以保障机器人核心互动功能的流畅。
+
+同时如果创建和更新消息是对之前5分钟内用户发送给当前机器人的消息的第一次回复，也会在计算发送量时给于大幅折扣。
+
+我们计划在未来增加模板消息。这类消息主要用于格式固定的通知场景，它将不会占用你的消息配额，为开发者在特定场景下提供更多的消息缓冲空间。
+
+如有疑问，请在开发者中心社区服务器中 联系 不鲲#0001
+
+
 ## 获取私信聊天消息列表
 
 ### 接口说明
@@ -165,6 +188,7 @@ after: 查询参考消息之后的消息，不包括参考消息
 | quote     | string | 否   | POST     | 回复某条消息的 `msgId`                                                                                                                                                                                                                   |
 | nonce     | string | 否   | POST     | nonce, 服务端不做处理, 原样返回                                                                                                                                                                                                          |
 | template_id| string| 否| POST|模板消息id, 如果使用了，content会作为模板消息的input，参见[模板消息](https://developer.kookapp.cn/doc/http/template)|
+|reply_msg_id|string| 否| POST | 当前消息回复的用户5分钟内发送给当前机器人消息的msg_id，如果是当前开发者的第一次回复，扣减当日发送量按n分之一条计算|
 
 ### 返回参数说明
 
@@ -205,7 +229,8 @@ after: 查询参考消息之后的消息，不包括参考消息
 | msg_id  | body | string | false | 消息 id                                                         |
 | content | body | string | true  | 消息内容                                                        |
 | quote   | body | string | false | 回复某条消息的`msgId`。如果为空，则代表删除回复，不传则无影响。 |
-| template_id| string| 否| POST|模板消息id, 如果使用了，content会作为模板消息的input，参见[模板消息](https://developer.kookapp.cn/doc/http/template)|
+| template_id| body| string | false|模板消息id, 如果使用了，content会作为模板消息的input，参见[模板消息](https://developer.kookapp.cn/doc/http/template)|
+|reply_msg_id|body| string| false | 当前消息回复的用户5分钟内发送给当前机器人消息的msg_id，如果是当前开发者的第一次回复，扣减当日发送量按n分之一条计算 |
 
 ### 返回参数说明
 
