@@ -82,12 +82,23 @@
 
 #### extra 字段说明：
 
-| 字段       | 类型   | 说明                                      |
-| ---------- | ------ | ----------------------------------------- |
-| type       | string | 消息的类型，本处为 `updated_guild_member` |
-| body       | Map    |                                           |
-| » user_id  | string | 用户 id                                   |
-| » nickname | string | 昵称                                      |
+| 字段                | 类型       | 说明                                     |
+|-------------------|----------|----------------------------------------|
+| type              | string   | 消息的类型，本处为 `updated_guild_member`       |
+| body              | Map      |                                        |
+| » user_id         | string   | 用户 id                                  |
+| » id              | string   | 用户的 id                                 |
+| » username        | string   | 用户的名称                                  |
+| » nickname        | string   | 用户在当前服务器的昵称                            |
+| » identify_num    | string   | 用户名的认证数字，用户名正常为：user_name#identify_num |
+| » online          | boolean  | 当前是否在线                                 |
+| » bot             | boolean  | 是否为机器人                                 |
+| » status          | int      | 用户的状态, 0 和 1 代表正常，10 代表被封禁             |
+| » avatar          | string   | 用户的头像的 url 地址                          |
+| » vip_avatar      | string   | vip 用户的头像的 url 地址，可能为 gif 动图           |
+| » mobile_verified | boolean  | 是否手机号已验证                               |
+| » roles           | Array    | 用户在当前服务器中的角色 id 组成的列表                  |
+| » boost_start_at  | int/null | 用户在当前服务器中开始助力的起始时间, 为 `null` 代表未助力     |
 
 #### 示例：
 
@@ -104,7 +115,21 @@
       "type": "updated_guild_member",
       "body": {
         "user_id": "3891600000",
-        "nickname": "new_nick"
+        "nickname": "new_nick",
+        "id": "2418200000",
+        "username": "tz-un",
+        "identify_num": "5618",
+        "online": false,
+        "avatar": "https://img.kookapp.cn/avatars/2020-02/xxxx.jpg/icon",
+        "vip_avatar": "https://img.kookapp.cn/avatars/2020-02/xxxx.jpg/icon",
+        "bot": false,
+        "status" : 0,
+        "mobile_verified": true,
+        "roles": [
+          111,
+          112
+        ],
+        "boost_start_at": 1783049826000
       }
     },
     "msg_id": "d22ae13c-xxxxxx-71f8398e16b5",
